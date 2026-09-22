@@ -1,0 +1,6 @@
+﻿import PlaceholderPage from './PlaceholderPage';
+
+export default function SettingsPage() {
+  return <PlaceholderPage title="Settings" subtitle="Manage your settings" />;
+}
+
