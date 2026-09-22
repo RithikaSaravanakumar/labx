@@ -27,6 +27,7 @@ export type UserRole = 'student' | 'builder' | 'founder' | 'mentor' | 'investor'
 export interface Project {
   id: string;
   name: string;
+  tagline?: string;
   description: string;
   problem: string;
   solution: string;
@@ -46,9 +47,15 @@ export interface Project {
   tags: string[];
   hackathonIds: string[];
   isOpenForCollaboration: boolean;
+  trendingScore?: number;
+  lookingFor?: string[];
+  ownerName?: string;
+  ownerAvatar?: string;
+  repoUrl?: string;
 }
 
 export type ProjectStage = 'idea' | 'prototype' | 'mvp' | 'beta' | 'launch' | 'growth';
+export type Stage = ProjectStage;
 
 export type Domain =
   | 'ai-ml'
@@ -74,6 +81,7 @@ export interface TeamMember {
 export interface Startup {
   id: string;
   name: string;
+  tagline?: string;
   description: string;
   problem: string;
   solution: string;
@@ -150,6 +158,8 @@ export interface BuildUpdate {
   day: number;
   title: string;
   content: string;
+  type?: string;
+  proofUrl?: string;
   milestone?: string;
   progress?: number;
   reactions: Reactions;
