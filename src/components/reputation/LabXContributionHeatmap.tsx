@@ -24,9 +24,9 @@ export default function LabXContributionHeatmap({ streak }: LabXContributionHeat
 
   const getColorClass = (level: number) => {
     switch (level) {
-      case 1: return 'bg-labx-violet/30 border-labx-violet/40';
-      case 2: return 'bg-labx-violet/60 border-labx-violet/70';
-      case 3: return 'bg-labx-violet border-labx-cyan shadow-sm shadow-labx-violet/50';
+      case 1: return 'bg-labx-green/20 border-labx-green/30';
+      case 2: return 'bg-labx-green/50 border-labx-green/60';
+      case 3: return 'bg-labx-green border-emerald-400 shadow-sm shadow-labx-green/50';
       default: return 'bg-labx-surface/80 border-labx-border/40';
     }
   };
@@ -37,7 +37,7 @@ export default function LabXContributionHeatmap({ streak }: LabXContributionHeat
         <div>
           <h3 className="text-sm font-bold text-labx-text flex items-center gap-2">
             <span>Proof-of-Work Activity</span>
-            <span className="text-xs font-mono font-normal text-labx-violet px-2 py-0.5 rounded bg-labx-violet/10">
+            <span className="text-xs font-mono font-bold text-labx-green px-2 py-0.5 rounded bg-labx-green/10 border border-labx-green/20">
               🔥 {streak} Day Streak
             </span>
           </h3>
@@ -46,9 +46,9 @@ export default function LabXContributionHeatmap({ streak }: LabXContributionHeat
         <div className="flex items-center gap-1.5 text-[10px] text-labx-text-muted">
           <span>Less</span>
           <div className="w-2.5 h-2.5 rounded-sm bg-labx-surface/80" />
-          <div className="w-2.5 h-2.5 rounded-sm bg-labx-violet/30" />
-          <div className="w-2.5 h-2.5 rounded-sm bg-labx-violet/60" />
-          <div className="w-2.5 h-2.5 rounded-sm bg-labx-violet" />
+          <div className="w-2.5 h-2.5 rounded-sm bg-labx-green/20" />
+          <div className="w-2.5 h-2.5 rounded-sm bg-labx-green/50" />
+          <div className="w-2.5 h-2.5 rounded-sm bg-labx-green shadow-[0_0_8px_rgba(0,255,135,0.7)]" />
           <span>More</span>
         </div>
       </div>

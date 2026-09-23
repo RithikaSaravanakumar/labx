@@ -117,7 +117,7 @@ export default function IdeasPage() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {ideas.map(idea => {
-            const domainColor = DOMAIN_COLORS[idea.domain] || '#8B5CF6';
+            const domainColor = DOMAIN_COLORS[idea.domain] || '#00FF87';
             const count = upvotes[idea.id] || idea.supporters;
 
             return (
@@ -135,7 +135,7 @@ export default function IdeasPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-violet transition-colors">
+                  <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-green transition-colors">
                     {idea.title}
                   </h3>
                   <p className="text-xs text-labx-text-muted mb-2 font-semibold">Problem: {idea.problem}</p>
@@ -196,7 +196,7 @@ export default function IdeasPage() {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
                   />
                 </div>
 
@@ -205,7 +205,7 @@ export default function IdeasPage() {
                   <select
                     value={domain}
                     onChange={(e) => setDomain(e.target.value as Domain)}
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
                   >
                     {Object.entries(DOMAIN_LABELS).map(([k, v]) => (
                       <option key={k} value={k}>{v}</option>
@@ -221,7 +221,7 @@ export default function IdeasPage() {
                     value={problem}
                     onChange={(e) => setProblem(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
                   />
                 </div>
 
@@ -233,7 +233,7 @@ export default function IdeasPage() {
                     value={solution}
                     onChange={(e) => setSolution(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
                   />
                 </div>
 

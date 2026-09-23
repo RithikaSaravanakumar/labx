@@ -12,7 +12,7 @@ export default function CommunityPage() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
     >
       <div className="flex items-center gap-2 mb-2">
-        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-labx-violet/10 text-labx-violet border border-labx-violet/20">
+        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-labx-green/10 text-labx-green border border-labx-green/20">
           Peer Builder Network
         </span>
         <span className="text-xs text-labx-text-muted">{mockUsers.length * 150}+ Global Builders</span>
@@ -32,10 +32,10 @@ export default function CommunityPage() {
           { name: 'Quantum & DeepTech Guild', members: 130, icon: '⚡', tag: 'deep-tech' },
           { name: 'SaaS Architecture & Infra', members: 310, icon: '☁️', tag: 'saas' },
         ].map(guild => (
-          <div key={guild.name} className="labx-card p-6 flex flex-col justify-between group hover:border-labx-violet/60 transition-colors">
+          <div key={guild.name} className="labx-card p-6 flex flex-col justify-between group hover:border-labx-green/60 transition-colors">
             <div>
               <div className="text-3xl mb-3">{guild.icon}</div>
-              <h3 className="text-lg font-bold text-labx-text group-hover:text-labx-violet transition-colors mb-1">{guild.name}</h3>
+              <h3 className="text-lg font-bold text-labx-text group-hover:text-labx-green transition-colors mb-1">{guild.name}</h3>
               <p className="text-xs text-labx-text-muted font-mono mb-4">{guild.members} Active Members</p>
             </div>
             <button className="labx-button-secondary w-full py-2 rounded-xl text-xs font-semibold">Join Guild Channel</button>
@@ -48,10 +48,10 @@ export default function CommunityPage() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {mockUsers.map(user => (
           <div key={user.id} className="labx-card p-6 text-center">
-            <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-violet object-cover" />
+            <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-green/60 object-cover shadow-[0_0_12px_rgba(0,255,135,0.2)]" />
             <h3 className="text-sm font-bold text-labx-text">{user.name}</h3>
             <p className="text-xs text-labx-text-muted capitalize mb-2">{user.role}</p>
-            <div className="text-xs font-mono font-bold text-labx-violet bg-labx-violet/10 py-1 px-2 rounded-lg inline-block">
+            <div className="text-xs font-mono font-bold text-labx-green bg-labx-green/10 py-1 px-2 rounded-lg inline-block border border-labx-green/20">
               Level {user.level} · {user.labxPoints} pts
             </div>
           </div>

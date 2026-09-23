@@ -116,9 +116,9 @@ export default function SignupPage() {
                 key={s}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   s === step
-                    ? 'w-8 bg-labx-violet'
+                    ? 'w-8 bg-labx-green shadow-[0_0_12px_rgba(0,255,135,0.6)]'
                     : s < step
-                    ? 'w-4 bg-labx-cyan'
+                    ? 'w-4 bg-labx-green/40'
                     : 'w-4 bg-labx-border'
                 }`}
               />
@@ -147,7 +147,10 @@ export default function SignupPage() {
           {step === 1 && (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-labx-violet uppercase tracking-wider">
+                <div className="inline-flex mb-4">
+                  <LabXLogo size="lg" linkToHome animate showGlow />
+                </div>
+                <span className="block text-xs font-bold text-labx-green uppercase tracking-wider">
                   Step 1 &bull; Identity
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -169,7 +172,7 @@ export default function SignupPage() {
                     value={name}
                     onChange={e => setName(e.target.value)}
                     placeholder="e.g. Elena Rostova"
-                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-violet focus:ring-1 focus:ring-labx-violet"
+                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
                   />
                 </div>
 
@@ -183,7 +186,7 @@ export default function SignupPage() {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     placeholder="builder@labx.demo"
-                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-violet focus:ring-1 focus:ring-labx-violet"
+                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
                   />
                 </div>
 
@@ -198,7 +201,7 @@ export default function SignupPage() {
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-violet focus:ring-1 focus:ring-labx-violet"
+                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
                     />
                   </div>
                   <div>
@@ -211,7 +214,7 @@ export default function SignupPage() {
                       value={confirmPassword}
                       onChange={e => setConfirmPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-violet focus:ring-1 focus:ring-labx-violet"
+                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
                     />
                   </div>
                 </div>
@@ -223,7 +226,7 @@ export default function SignupPage() {
           {step === 2 && (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
+                <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
                   Step 2 &bull; Role
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -242,15 +245,15 @@ export default function SignupPage() {
                     onClick={() => setRole(r.id)}
                     className={`p-3.5 rounded-xl text-left border transition-all flex items-start gap-3 ${
                       role === r.id
-                        ? 'bg-labx-violet/15 border-labx-violet shadow-lg shadow-labx-violet/10'
-                        : 'bg-labx-bg border-labx-border hover:border-labx-violet/40 hover:bg-labx-surface'
+                        ? 'bg-labx-green/15 border-labx-green shadow-lg shadow-labx-green/10'
+                        : 'bg-labx-bg border-labx-border hover:border-labx-green/40 hover:bg-labx-surface'
                     }`}
                   >
                     <span className="text-2xl">{r.icon}</span>
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5">
                         <span className="text-sm font-bold text-labx-text">{r.title}</span>
-                        {role === r.id && <Check className="w-3.5 h-3.5 text-labx-cyan ml-auto" />}
+                        {role === r.id && <Check className="w-3.5 h-3.5 text-labx-green ml-auto" />}
                       </div>
                       <p className="text-xs text-labx-text-muted mt-0.5 leading-snug">{r.desc}</p>
                     </div>
@@ -283,13 +286,13 @@ export default function SignupPage() {
                       key={item}
                       type="button"
                       onClick={() => toggleInterest(item)}
-                      className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all flex items-center gap-1.5 ${
+                      className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all flex items-center gap-1.5 ${
                         selected
-                          ? 'bg-labx-violet text-white border-labx-violet shadow-sm'
-                          : 'bg-labx-bg text-labx-text-secondary border-labx-border hover:border-labx-violet/50 hover:text-labx-text'
+                          ? 'bg-labx-green text-black border-labx-green shadow-sm'
+                          : 'bg-labx-bg text-labx-text-secondary border-labx-border hover:border-labx-green/50 hover:text-labx-text'
                       }`}
                     >
-                      {selected && <Check className="w-3 h-3 text-labx-cyan" />}
+                      {selected && <Check className="w-3 h-3 text-black" />}
                       <span>{item}</span>
                     </button>
                   );
@@ -302,7 +305,7 @@ export default function SignupPage() {
           {step === 4 && (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
+                <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
                   Step 4 &bull; Objectives
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -323,12 +326,12 @@ export default function SignupPage() {
                       onClick={() => toggleGoal(goal)}
                       className={`p-3 rounded-xl text-left text-xs font-medium border transition-all flex items-center justify-between ${
                         selected
-                          ? 'bg-labx-cyan/15 border-labx-cyan text-white'
-                          : 'bg-labx-bg border-labx-border text-labx-text-secondary hover:border-labx-cyan/40 hover:text-labx-text'
+                          ? 'bg-labx-green/15 border-labx-green text-white'
+                          : 'bg-labx-bg border-labx-border text-labx-text-secondary hover:border-labx-green/40 hover:text-labx-text'
                       }`}
                     >
                       <span>{goal}</span>
-                      {selected && <Check className="w-3.5 h-3.5 text-labx-cyan" />}
+                      {selected && <Check className="w-3.5 h-3.5 text-labx-green" />}
                     </button>
                   );
                 })}

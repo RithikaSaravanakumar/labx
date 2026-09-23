@@ -64,7 +64,7 @@ export default function HackathonsPage() {
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider ${
                     hackathon.status === 'live' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse' :
-                    hackathon.status === 'upcoming' ? 'bg-labx-violet/20 text-labx-violet border border-labx-violet/30' :
+                    hackathon.status === 'upcoming' ? 'bg-labx-green/20 text-labx-green border border-labx-green/30' :
                     'bg-labx-surface text-labx-text-muted'
                   }`}>
                     {hackathon.status === 'live' ? '🔴 Live Sprint' : hackathon.status}
@@ -72,9 +72,9 @@ export default function HackathonsPage() {
                   <span className="text-sm font-extrabold text-amber-400 font-mono">🏆 {hackathon.prize}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-violet transition-colors mb-2 flex items-center justify-between">
+                <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-green transition-colors mb-2 flex items-center justify-between">
                   <span>{hackathon.name}</span>
-                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-violet" />
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-green" />
                 </h3>
                 <p className="text-xs font-semibold text-labx-text-muted mb-3">Organized by {hackathon.organizer}</p>
                 <p className="text-sm text-labx-text-secondary mb-6 line-clamp-2 leading-relaxed">{hackathon.description}</p>

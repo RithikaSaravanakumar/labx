@@ -58,10 +58,10 @@ export const STAGE_LABELS: Record<string, string> = {
 export const STAGE_COLORS: Record<string, string> = {
   'idea': '#64748B',
   'prototype': '#F59E0B',
-  'mvp': '#7C3AED',
-  'beta': '#22D3EE',
-  'launch': '#22C55E',
-  'growth': '#A855F7',
+  'mvp': '#00FF87',
+  'beta': '#34D399',
+  'launch': '#10B981',
+  'growth': '#6EE7B7',
 };
 
 export const NAV_ITEMS = [
@@ -83,10 +83,10 @@ export const CONTRIBUTION_TYPE_LABELS: Record<string, string> = {
 };
 
 export const CONTRIBUTION_TYPE_COLORS: Record<string, string> = {
-  project: '#7C3AED',
-  community: '#22D3EE',
+  project: '#00FF87',
+  community: '#34D399',
   hackathon: '#F59E0B',
-  mentorship: '#22C55E',
-  collaboration: '#A855F7',
-  knowledge: '#C4B5FD',
+  mentorship: '#10B981',
+  collaboration: '#6EE7B7',
+  knowledge: '#A7F3D0',
 };

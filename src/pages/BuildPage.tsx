@@ -122,7 +122,7 @@ export default function BuildPage() {
           {/* Streak Leaderboard Card */}
           <div className="labx-card p-6">
             <h3 className="text-base font-bold text-labx-text mb-4 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-labx-violet" />
+              <TrendingUp className="w-4 h-4 text-labx-green" />
               <span>Top Active Builders</span>
             </h3>
 
@@ -136,7 +136,7 @@ export default function BuildPage() {
                 <div key={builder.name} className="flex items-center justify-between p-3 rounded-xl bg-labx-surface border border-labx-border/60">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold font-mono text-labx-text-muted w-4">#{idx + 1}</span>
-                    <img src={builder.avatar} alt={builder.name} className="w-8 h-8 rounded-full border border-labx-violet object-cover" />
+                    <img src={builder.avatar} alt={builder.name} className="w-8 h-8 rounded-full border border-labx-green/60 object-cover" />
                     <div>
                       <div className="text-xs font-bold text-labx-text">{builder.name}</div>
                       <div className="text-[10px] text-labx-text-muted font-mono">{builder.points} pts</div>
@@ -177,7 +177,7 @@ export default function BuildPage() {
                   <select
                     value={selectedProjectId}
                     onChange={(e) => setSelectedProjectId(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
                   >
                     {projects.map(p => (
                       <option key={p.id} value={p.id}>{p.name}</option>
@@ -194,7 +194,7 @@ export default function BuildPage() {
                       value={logTitle}
                       onChange={(e) => setLogTitle(e.target.value)}
                       required
-                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
                     />
                   </div>
                   <div>
@@ -205,7 +205,7 @@ export default function BuildPage() {
                       value={dayNumber}
                       onChange={(e) => setDayNumber(Number(e.target.value))}
                       required
-                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-violet/50"
+                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-green/60"
                     />
                   </div>
                 </div>
@@ -218,7 +218,7 @@ export default function BuildPage() {
                     value={logContent}
                     onChange={(e) => setLogContent(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
                   />
                 </div>
 
@@ -229,7 +229,7 @@ export default function BuildPage() {
                     placeholder="https://github.com/org/repo/commit/..."
                     value={proofUrl}
                     onChange={(e) => setProofUrl(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-emerald-400"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-green/60"
                   />
                 </div>
 

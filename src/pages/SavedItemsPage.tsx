@@ -14,12 +14,12 @@ export default function SavedItemsPage() {
 
   const getIcon = (type: SavedItem['type']) => {
     switch (type) {
-      case 'project': return <Folder className="w-4 h-4 text-labx-violet" />;
-      case 'startup': return <Rocket className="w-4 h-4 text-labx-cyan" />;
-      case 'mentor': return <Users className="w-4 h-4 text-labx-success" />;
-      case 'opportunity': return <Award className="w-4 h-4 text-labx-warning" />;
+      case 'project': return <Folder className="w-4 h-4 text-labx-green" />;
+      case 'startup': return <Rocket className="w-4 h-4 text-emerald-400" />;
+      case 'mentor': return <Users className="w-4 h-4 text-labx-green" />;
+      case 'opportunity': return <Award className="w-4 h-4 text-amber-400" />;
       case 'idea': return <Lightbulb className="w-4 h-4 text-emerald-400" />;
-      default: return <Bookmark className="w-4 h-4 text-labx-violet" />;
+      default: return <Bookmark className="w-4 h-4 text-labx-green" />;
     }
   };
 
@@ -58,7 +58,7 @@ export default function SavedItemsPage() {
           </p>
           <Link
             to="/discover"
-            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 rounded-xl text-xs font-bold text-white bg-labx-violet hover:bg-labx-violet-light transition-colors"
+            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 rounded-xl text-xs font-bold text-black bg-labx-green hover:bg-labx-green-light transition-colors"
           >
             <span>Explore Innovation Ecosystem</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -71,7 +71,7 @@ export default function SavedItemsPage() {
               key={item.id}
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="p-5 rounded-2xl bg-labx-surface border border-labx-border hover:border-labx-violet/30 transition-all flex flex-col justify-between group shadow-sm"
+              className="labx-card p-5 rounded-2xl flex flex-col justify-between group shadow-sm"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2.5">
@@ -88,7 +88,7 @@ export default function SavedItemsPage() {
                   </button>
                 </div>
 
-                <h2 className="text-sm sm:text-base font-bold text-labx-text group-hover:text-labx-violet transition-colors">
+                <h2 className="text-sm sm:text-base font-bold text-labx-text group-hover:text-labx-green transition-colors">
                   {item.title}
                 </h2>
                 <p className="text-xs text-labx-text-secondary mt-1 line-clamp-2 leading-relaxed">
@@ -100,7 +100,7 @@ export default function SavedItemsPage() {
                 <span className="text-[11px] text-labx-text-muted">Saved on {item.savedDate}</span>
                 <Link
                   to={getLink(item)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-labx-cyan hover:underline"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-labx-green hover:underline"
                 >
                   <span>Open</span>
                   <ArrowUpRight className="w-3 h-3" />

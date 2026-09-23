@@ -67,12 +67,12 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
                   <img
                     src={update.authorAvatar}
                     alt={update.authorName}
-                    className="w-10 h-10 rounded-full border border-labx-violet object-cover"
+                    className="w-10 h-10 rounded-full border border-labx-green/60 object-cover"
                   />
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-labx-text">{update.authorName}</span>
-                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-labx-violet/10 text-labx-violet font-semibold">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-labx-green/10 text-labx-green font-semibold border border-labx-green/20">
                         Day {update.day}
                       </span>
                     </div>
@@ -98,7 +98,7 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
                     href={update.proofUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-mono text-labx-cyan bg-labx-cyan/10 border border-labx-cyan/30 px-3 py-1.5 rounded-lg hover:bg-labx-cyan/20 transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-mono text-labx-green bg-labx-green/10 border border-labx-green/30 px-3 py-1.5 rounded-lg hover:bg-labx-green/20 transition-colors"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>Verified Proof: {update.proofUrl}</span>
@@ -130,9 +130,9 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
 
                   <button
                     onClick={() => handleReact(update.id, 'rocket')}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-labx-surface border border-labx-border/60 hover:border-labx-cyan/50 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-labx-surface border border-labx-border/60 hover:border-labx-green/50 transition-colors"
                   >
-                    <Rocket className="w-3.5 h-3.5 text-labx-cyan" />
+                    <Rocket className="w-3.5 h-3.5 text-labx-green" />
                     <span className="font-mono text-labx-text">{currentReactions.rocket}</span>
                   </button>
 

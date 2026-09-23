@@ -30,17 +30,17 @@ export default function StartupPulse({ startup }: StartupPulseProps) {
             </span>
           </div>
           {startup.fundingStage && (
-            <span className="text-[10px] font-mono font-bold text-labx-cyan bg-labx-cyan/10 px-2 py-0.5 rounded-full border border-labx-cyan/20">
+            <span className="text-[10px] font-mono font-bold text-labx-green bg-labx-green/10 px-2 py-0.5 rounded-full border border-labx-green/20">
               {startup.fundingStage}
             </span>
           )}
         </div>
 
         <Link to={`/startups/${startup.id}`}>
-          <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-cyan transition-colors mb-1.5 flex items-center gap-2">
+          <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-green transition-colors mb-1.5 flex items-center gap-2">
             {startup.name}
-            {startup.isVerified && <CheckCircle2 className="w-4 h-4 text-labx-cyan fill-labx-cyan/20" />}
-            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-cyan" />
+            {startup.isVerified && <CheckCircle2 className="w-4 h-4 text-labx-green fill-labx-green/20" />}
+            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-green" />
           </h3>
         </Link>
         <p className="text-sm text-labx-text-secondary line-clamp-2 mb-4 leading-relaxed">

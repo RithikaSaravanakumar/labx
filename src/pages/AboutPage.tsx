@@ -8,7 +8,7 @@ export default function AboutPage() {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
       {/* Hero Header */}
       <section className="text-center max-w-3xl mx-auto pt-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-labx-violet/10 border border-labx-violet/20 text-labx-violet text-xs font-bold uppercase tracking-wider mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-labx-green/10 border border-labx-green/20 text-labx-green text-xs font-bold uppercase tracking-wider mb-6">
           <Sparkles className="w-3.5 h-3.5" />
           The Innovation Manifesto
         </div>
@@ -22,8 +22,8 @@ export default function AboutPage() {
 
       {/* Philosophy Pillars */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-violet/40 transition-all">
-          <div className="w-10 h-10 rounded-xl bg-labx-violet/10 border border-labx-violet/20 flex items-center justify-center text-labx-violet mb-4">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-green/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
+          <div className="w-10 h-10 rounded-xl bg-labx-green/10 border border-labx-green/20 flex items-center justify-center text-labx-green mb-4">
             <Zap className="w-5 h-5" />
           </div>
           <h2 className="text-lg font-bold text-labx-text mb-2">Build in Public</h2>
@@ -32,8 +32,8 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-cyan/40 transition-all">
-          <div className="w-10 h-10 rounded-xl bg-labx-cyan/10 border border-labx-cyan/20 flex items-center justify-center text-labx-cyan mb-4">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-emerald-400/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
+          <div className="w-10 h-10 rounded-xl bg-labx-green/10 border border-labx-green/20 flex items-center justify-center text-labx-green mb-4">
             <Users className="w-5 h-5" />
           </div>
           <h2 className="text-lg font-bold text-labx-text mb-2">Cross-Pollination</h2>
@@ -56,7 +56,7 @@ export default function AboutPage() {
       {/* Ecosystem Visual Section */}
       <section className="p-8 sm:p-12 rounded-3xl bg-labx-surface border border-labx-border grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-6 space-y-4">
-          <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
+          <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
             Connected Network
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-labx-text tracking-tight">
@@ -75,7 +75,7 @@ export default function AboutPage() {
             </Link>
             <Link
               to="/signup"
-              className="px-4 py-2.5 rounded-xl font-bold text-xs text-labx-text bg-labx-bg border border-labx-border hover:border-labx-violet/50 transition-colors"
+              className="px-4 py-2.5 rounded-xl font-bold text-xs text-labx-text bg-labx-bg border border-labx-border hover:border-labx-green/50 transition-colors"
             >
               Claim Proof of Work
             </Link>
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
       {/* Brand Statement Banner */}
       <section className="text-center py-10 border-t border-labx-border/80">
-        <LabXLogo size="lg" className="justify-center mb-4" />
+        <LabXLogo size="xl" className="justify-center mb-4" animate showGlow />
         <h2 className="text-xl sm:text-2xl font-black text-labx-text uppercase tracking-tight">
           BUILD WHAT <span className="labx-gradient-text">MATTERS.</span>
         </h2>

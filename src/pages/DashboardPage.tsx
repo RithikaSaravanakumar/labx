@@ -33,7 +33,7 @@ export default function DashboardPage() {
   if (isLoading || !currentUser) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <div className="w-12 h-12 border-4 border-labx-violet border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <div className="w-12 h-12 border-4 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-labx-text-muted">Loading workspace environment...</p>
       </div>
     );
@@ -51,7 +51,7 @@ export default function DashboardPage() {
       <div className="labx-card p-6 sm:p-8 mb-8 relative overflow-hidden bg-gradient-to-r from-emerald-500/20 via-teal-900/10 to-labx-card">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <div className="flex items-center gap-2 text-xs font-semibold text-labx-violet mb-2">
+            <div className="flex items-center gap-2 text-xs font-semibold text-labx-green mb-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Personal Innovation Hub</span>
             </div>
@@ -59,7 +59,7 @@ export default function DashboardPage() {
               Welcome back, {currentUser.name}! 👋
             </h1>
             <p className="text-sm text-labx-text-secondary mt-1 max-w-xl">
-              You have <span className="text-labx-violet font-semibold">3 active project milestones</span> pending and 2 recommended mentor matches ready.
+              You have <span className="text-labx-green font-semibold">3 active project milestones</span> pending and 2 recommended mentor matches ready.
             </p>
           </div>
 
@@ -83,10 +83,10 @@ export default function DashboardPage() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-labx-text flex items-center gap-2">
-                <Rocket className="w-5 h-5 text-labx-violet" />
+                <Rocket className="w-5 h-5 text-labx-green" />
                 <span>Active Projects</span>
               </h2>
-              <Link to="/projects" className="text-xs font-semibold text-labx-violet hover:underline flex items-center gap-1">
+              <Link to="/projects" className="text-xs font-semibold text-labx-green hover:underline flex items-center gap-1">
                 <span>View All</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </Link>
@@ -105,7 +105,7 @@ export default function DashboardPage() {
           {/* Notifications Widget */}
           <div className="labx-card p-6">
             <h3 className="text-base font-bold text-labx-text mb-4 flex items-center gap-2">
-              <Bell className="w-4 h-4 text-labx-cyan" />
+              <Bell className="w-4 h-4 text-labx-green" />
               <span>Telemetry Notifications</span>
             </h3>
 
@@ -136,7 +136,7 @@ export default function DashboardPage() {
                       <div className="text-[11px] text-labx-text-muted">{m.title}</div>
                     </div>
                   </div>
-                  <Link to={`/mentors/${m.id}`} className="text-xs text-labx-violet font-semibold hover:underline">
+                  <Link to={`/mentors/${m.id}`} className="text-xs text-labx-green font-semibold hover:underline">
                     Connect
                   </Link>
                 </div>

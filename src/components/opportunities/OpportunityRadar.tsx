@@ -17,7 +17,7 @@ export default function OpportunityRadar({ opportunity }: OpportunityRadarProps)
       <div>
         <div className="flex items-center justify-between gap-2 mb-3">
           <span
-            className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-labx-cyan/10 text-labx-cyan border border-labx-cyan/20"
+            className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-labx-green/10 text-labx-green border border-labx-green/20"
           >
             {opportunity.type}
           </span>
@@ -28,9 +28,9 @@ export default function OpportunityRadar({ opportunity }: OpportunityRadarProps)
           )}
         </div>
 
-        <h3 className="text-lg font-bold text-labx-text group-hover:text-labx-cyan transition-colors mb-1 flex items-center justify-between">
+        <h3 className="text-lg font-bold text-labx-text group-hover:text-labx-green transition-colors mb-1 flex items-center justify-between">
           <span>{opportunity.title}</span>
-          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-cyan" />
+          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-green" />
         </h3>
         <p className="text-xs font-semibold text-labx-text-muted mb-3">{opportunity.organization}</p>
         <p className="text-sm text-labx-text-secondary line-clamp-2 mb-4 leading-relaxed">

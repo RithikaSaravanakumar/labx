@@ -120,7 +120,7 @@ export default function LandingPage() {
           >
             {stats.map(stat => (
               <motion.div key={stat.label} variants={staggerItem} className="text-center">
-                <stat.icon className="w-6 h-6 text-labx-violet mx-auto mb-2" />
+                <stat.icon className="w-6 h-6 text-labx-green mx-auto mb-2" />
                 <div className="text-2xl sm:text-3xl font-bold text-labx-text">{stat.value}</div>
                 <div className="text-sm text-labx-text-muted">{stat.label}</div>
               </motion.div>
@@ -202,7 +202,7 @@ export default function LandingPage() {
                       {STAGE_LABELS[project.stage]}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-violet transition-colors">
+                  <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-green transition-colors">
                     {project.name}
                   </h3>
                   <p className="text-sm text-labx-text-secondary mb-4 line-clamp-2">{project.description}</p>
@@ -211,11 +211,11 @@ export default function LandingPage() {
                   <div className="mb-4">
                     <div className="flex justify-between text-xs mb-1">
                       <span className="text-labx-text-muted">Progress</span>
-                      <span className="text-labx-violet font-medium">{project.progress}%</span>
+                      <span className="text-labx-green font-mono font-bold">{project.progress}%</span>
                     </div>
                     <div className="h-1.5 bg-labx-bg rounded-full overflow-hidden">
                       <motion.div
-                        className="h-full rounded-full bg-gradient-to-r from-labx-violet to-labx-cyan"
+                        className="h-full rounded-full bg-gradient-to-r from-labx-green to-emerald-400"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${project.progress}%` }}
                         transition={{ duration: 1, delay: 0.3 }}
@@ -243,7 +243,7 @@ export default function LandingPage() {
             ))}
           </motion.div>
           <div className="text-center mt-8">
-            <Link to="/projects" className="text-sm text-labx-violet hover:text-labx-violet-light font-medium inline-flex items-center gap-1">
+            <Link to="/projects" className="text-sm text-labx-green hover:text-emerald-300 font-medium inline-flex items-center gap-1">
               View all projects <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -286,7 +286,7 @@ export default function LandingPage() {
             ))}
           </motion.div>
           <div className="text-center mt-8">
-            <Link to="/build" className="text-sm text-labx-violet hover:text-labx-violet-light font-medium inline-flex items-center gap-1">
+            <Link to="/build" className="text-sm text-labx-green hover:text-emerald-300 font-medium inline-flex items-center gap-1">
               See all build updates <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -312,12 +312,12 @@ export default function LandingPage() {
             {mockMentors.map(mentor => (
               <motion.div key={mentor.id} variants={staggerItem}>
                 <Link to={`/mentors/${mentor.id}`} className="labx-card p-6 block text-center group">
-                  <img src={mentor.avatar} alt={mentor.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-border group-hover:border-labx-violet transition-colors" />
+                  <img src={mentor.avatar} alt={mentor.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-border group-hover:border-labx-green transition-colors" />
                   <h3 className="text-sm font-bold text-labx-text">{mentor.name}</h3>
                   <p className="text-xs text-labx-text-muted mb-2">{mentor.title} · {mentor.experience}</p>
                   <div className="flex flex-wrap justify-center gap-1 mb-3">
                     {mentor.expertise.slice(0, 2).map(e => (
-                      <span key={e} className="px-2 py-0.5 rounded-full text-[10px] bg-labx-violet/10 text-labx-violet">{e}</span>
+                      <span key={e} className="px-2 py-0.5 rounded-full text-[10px] bg-labx-green/10 text-labx-green border border-labx-green/20">{e}</span>
                     ))}
                   </div>
                   <div className="flex items-center justify-center gap-2 text-xs text-labx-text-muted">
@@ -353,9 +353,9 @@ export default function LandingPage() {
                   { icon: TrendingUp, label: 'Collaborate', points: '+25–50' },
                 ].map(item => (
                   <div key={item.label} className="flex items-center gap-3 p-3 rounded-lg bg-labx-surface border border-labx-border">
-                    <item.icon className="w-5 h-5 text-labx-violet" />
+                    <item.icon className="w-5 h-5 text-labx-green" />
                     <span className="text-sm text-labx-text flex-1">{item.label}</span>
-                    <span className="text-sm font-semibold text-labx-cyan">{item.points}</span>
+                    <span className="text-sm font-semibold text-labx-green font-mono">{item.points}</span>
                   </div>
                 ))}
               </div>
@@ -368,22 +368,22 @@ export default function LandingPage() {
               viewport={{ once: true }}
             >
               <div className="relative">
-                <div className="w-56 h-56 rounded-full border-4 border-labx-violet/30 flex items-center justify-center">
-                  <div className="w-44 h-44 rounded-full border-2 border-labx-cyan/20 flex items-center justify-center">
+                <div className="w-56 h-56 rounded-full border-4 border-labx-green/30 flex items-center justify-center">
+                  <div className="w-44 h-44 rounded-full border-2 border-labx-green/20 flex items-center justify-center">
                     <div className="text-center">
                       <div className="text-4xl font-black labx-gradient-text">1,840</div>
                       <div className="text-sm text-labx-text-muted mt-1">LabX Points</div>
-                      <div className="text-xs text-labx-violet mt-1">Builder Level 07</div>
+                      <div className="text-xs text-labx-green mt-1 font-mono">Builder Level 07</div>
                     </div>
                   </div>
                 </div>
                 <motion.div
-                  className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-labx-cyan"
+                  className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-labx-green shadow-[0_0_12px_rgba(0,255,135,0.7)]"
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
                 <motion.div
-                  className="absolute bottom-4 -left-4 w-3 h-3 rounded-full bg-labx-violet"
+                  className="absolute bottom-4 -left-4 w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.7)]"
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
                 />

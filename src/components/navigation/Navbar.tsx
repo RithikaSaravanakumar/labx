@@ -177,15 +177,30 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative z-10">
           {/* 1. Official LabX Logo with Ambient Glow Anchor */}
           <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, x: -15 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="flex items-center gap-3"
+            initial={shouldReduceMotion ? false : { opacity: 0, y: -8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center"
           >
-            <div className="relative group flex items-center">
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-emerald-500/35 via-teal-500/20 to-emerald-400/25 blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <LabXLogo size="lg" linkToHome animated />
-            </div>
+            {/* Desktop: lg (52px) | Tablet: md (44px) | Mobile: sm (36px) */}
+            <LabXLogo
+              size="lg"
+              linkToHome
+              showGlow
+              className="hidden lg:inline-flex"
+            />
+            <LabXLogo
+              size="md"
+              linkToHome
+              showGlow
+              className="hidden sm:inline-flex lg:hidden"
+            />
+            <LabXLogo
+              size="sm"
+              linkToHome
+              showGlow
+              className="inline-flex sm:hidden"
+            />
           </motion.div>
 
           {/* 2. Desktop Primary Navigation */}
@@ -435,7 +450,7 @@ export default function Navbar() {
                     to={item.path}
                     className={`block px-4 py-3 rounded-xl text-sm font-semibold uppercase tracking-wider transition-colors ${
                       isActive(item.path)
-                        ? 'text-white bg-labx-violet/20 border border-labx-violet/30'
+                        ? 'text-labx-green bg-labx-green/10 border border-labx-green/30'
                         : 'text-zinc-300 hover:text-white hover:bg-white/[0.04]'
                     }`}
                   >
@@ -446,7 +461,7 @@ export default function Navbar() {
                   to="/about"
                   className={`block px-4 py-3 rounded-xl text-sm font-semibold uppercase tracking-wider transition-colors ${
                     isActive('/about')
-                      ? 'text-white bg-labx-violet/20 border border-labx-violet/30'
+                      ? 'text-labx-green bg-labx-green/10 border border-labx-green/30'
                       : 'text-zinc-300 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
@@ -467,7 +482,7 @@ export default function Navbar() {
                     />
                     <div>
                       <p className="text-xs font-bold text-white">{user.name}</p>
-                      <p className="text-[11px] text-labx-cyan font-mono">+{user.labxPoints} pts &bull; {user.role}</p>
+                      <p className="text-[11px] text-labx-green font-mono">+{user.labxPoints} pts &bull; {user.role}</p>
                     </div>
                   </div>
 

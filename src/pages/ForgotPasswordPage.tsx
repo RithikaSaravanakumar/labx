@@ -32,7 +32,7 @@ export default function ForgotPasswordPage() {
         className="w-full max-w-md bg-labx-surface/90 border border-labx-border backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-2xl relative z-10"
       >
         <div className="mb-6 text-center">
-          <LabXLogo size="md" linkToHome />
+          <LabXLogo size="lg" linkToHome animate showGlow />
           <h1 className="text-2xl font-black text-labx-text tracking-tight mt-4">
             Reset Password
           </h1>
@@ -47,7 +47,7 @@ export default function ForgotPasswordPage() {
             <p className="text-sm text-labx-text leading-relaxed">{message}</p>
             <Link
               to="/login"
-              className="inline-flex items-center gap-1.5 text-xs text-labx-violet hover:underline font-bold"
+              className="inline-flex items-center gap-1.5 text-xs text-labx-green hover:underline font-bold"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to Sign In
             </Link>
@@ -67,7 +67,7 @@ export default function ForgotPasswordPage() {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="builder@labx.demo"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-violet"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green"
                 />
               </div>
             </div>

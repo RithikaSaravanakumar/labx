@@ -57,7 +57,7 @@ export default function HackathonDetailPage() {
             <div className="flex items-center gap-2">
               <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                 hackathon.status === 'live' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse' :
-                'bg-labx-violet/20 text-labx-violet border border-labx-violet/30'
+                'bg-labx-green/20 text-labx-green border border-labx-green/30'
               }`}>
                 {hackathon.status === 'live' ? '🔴 Live Sprint' : hackathon.status}
               </span>
@@ -118,7 +118,7 @@ export default function HackathonDetailPage() {
         <div className="space-y-3">
           {hackathon.challenges.map((ch, idx) => (
             <div key={ch} className="p-4 rounded-xl bg-labx-surface border border-labx-border/60 flex items-center gap-3">
-              <span className="w-7 h-7 rounded-lg bg-labx-violet/20 text-labx-violet font-mono text-xs font-bold flex items-center justify-center">
+              <span className="w-7 h-7 rounded-lg bg-labx-green/20 text-labx-green font-mono text-xs font-bold flex items-center justify-center">
                 #{idx + 1}
               </span>
               <span className="text-sm font-semibold text-labx-text">{ch}</span>

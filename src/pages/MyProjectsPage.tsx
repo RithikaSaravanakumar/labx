@@ -20,7 +20,7 @@ export default function MyProjectsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-labx-border/80 pb-6">
         <div>
-          <span className="text-xs font-bold text-labx-violet uppercase tracking-wider">
+          <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
             Your Workspace
           </span>
           <h1 className="text-3xl font-black text-labx-text tracking-tight mt-1">
@@ -47,19 +47,19 @@ export default function MyProjectsPage() {
             key={project.id}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-6 rounded-2xl bg-labx-surface/90 border border-labx-border hover:border-labx-violet/40 transition-all flex flex-col justify-between group shadow-lg"
+            className="labx-card p-6 rounded-2xl flex flex-col justify-between group shadow-lg"
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-labx-violet/10 text-labx-violet border border-labx-violet/20">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-labx-green/10 text-labx-green border border-labx-green/20">
                   {project.stage}
                 </span>
-                <span className="text-xs font-mono text-labx-cyan">
+                <span className="text-xs font-mono text-labx-green">
                   +{project.labxPoints} pts
                 </span>
               </div>
 
-              <h2 className="text-lg font-bold text-labx-text group-hover:text-labx-violet transition-colors">
+              <h2 className="text-lg font-bold text-labx-text group-hover:text-labx-green transition-colors">
                 {project.name}
               </h2>
               <p className="text-xs text-labx-text-secondary mt-1.5 line-clamp-2 leading-relaxed">
@@ -74,7 +74,7 @@ export default function MyProjectsPage() {
                 </div>
                 <div className="w-full h-1.5 bg-labx-bg rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-labx-violet to-labx-cyan rounded-full transition-all duration-500"
+                    className="h-full bg-gradient-to-r from-labx-green to-emerald-400 rounded-full transition-all duration-500"
                     style={{ width: `${project.progress}%` }}
                   />
                 </div>
@@ -89,7 +89,7 @@ export default function MyProjectsPage() {
 
               <Link
                 to={`/projects/${project.id}`}
-                className="inline-flex items-center gap-1 text-xs font-bold text-labx-violet hover:text-labx-lavender transition-colors"
+                className="inline-flex items-center gap-1 text-xs font-bold text-labx-green hover:text-emerald-300 transition-colors"
               >
                 <span>View Workspace</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

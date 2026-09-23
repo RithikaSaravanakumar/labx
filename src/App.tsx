@@ -41,17 +41,31 @@ const SavedItemsPage = lazy(() => import('./pages/SavedItemsPage'));
 
 function PageLoader() {
   return (
-    <div className="min-h-[60vh] flex items-center justify-center">
-      <div className="flex flex-col items-center gap-4">
-        <LabXLogo size="lg" animated />
-        <div className="flex items-center gap-2">
-          <div className="w-3.5 h-3.5 rounded-full border-2 border-labx-violet border-t-transparent animate-spin" />
-          <p className="text-xs text-labx-text-muted font-medium">Entering Innovation Ecosystem...</p>
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#040705] z-[999]">
+      {/* Ambient glow orbs */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="flex flex-col items-center gap-6 relative z-10">
+        {/* Official LabX logo at maximum size */}
+        <LabXLogo size="2xl" animate showGlow />
+
+        {/* Loading indicator row */}
+        <div className="flex items-center gap-2.5 mt-2">
+          <div className="w-4 h-4 rounded-full border-2 border-labx-green border-t-transparent animate-spin" />
+          <p className="text-xs font-mono text-labx-text-muted tracking-widest uppercase">
+            Initializing Innovation Ecosystem...
+          </p>
+        </div>
+
+        {/* Subtle loading bar */}
+        <div className="w-48 h-[2px] bg-white/5 rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-[#00FF87] to-[#10B981] animate-[slide_1.4s_ease-in-out_infinite]" style={{ width: '60%', animation: 'labx-load 1.4s ease-in-out infinite' }} />
         </div>
       </div>
     </div>
   );
 }
+
 
 function App() {
   return (

@@ -41,7 +41,7 @@ export default function MyApplicationsPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
       <div className="border-b border-labx-border/80 pb-6">
-        <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
+        <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
           Track Progress
         </span>
         <h1 className="text-3xl font-black text-labx-text tracking-tight mt-1">
@@ -59,7 +59,7 @@ export default function MyApplicationsPage() {
             key={app.id}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-5 rounded-2xl bg-labx-surface border border-labx-border hover:border-labx-violet/30 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            className="labx-card p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
           >
             <div className="space-y-1.5 min-w-0">
               <div className="flex items-center gap-2">
@@ -82,7 +82,7 @@ export default function MyApplicationsPage() {
               {getStatusBadge(app.status)}
               <Link
                 to={app.type === 'project' ? `/projects/${app.targetId}` : `/opportunities`}
-                className="p-2 rounded-xl bg-labx-bg border border-labx-border text-labx-text-secondary hover:text-labx-text hover:border-labx-violet transition-colors"
+                className="p-2 rounded-xl bg-labx-bg border border-labx-border text-labx-text-secondary hover:text-labx-text hover:border-labx-green transition-colors"
                 aria-label="View application target"
               >
                 <ArrowUpRight className="w-4 h-4" />

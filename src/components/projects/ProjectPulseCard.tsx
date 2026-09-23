@@ -9,7 +9,7 @@ interface ProjectPulseCardProps {
 }
 
 export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
-  const domainColor = DOMAIN_COLORS[project.domain] || '#8B5CF6';
+  const domainColor = DOMAIN_COLORS[project.domain] || '#00FF87';
 
   return (
     <motion.div
@@ -47,9 +47,9 @@ export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
 
         {/* Title & Tagline */}
         <Link to={`/projects/${project.id}`}>
-          <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-violet transition-colors mb-1.5 flex items-center gap-2">
+          <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-green transition-colors mb-1.5 flex items-center gap-2">
             {project.name}
-            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-violet" />
+            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-green" />
           </h3>
         </Link>
         <p className="text-sm text-labx-text-secondary line-clamp-2 mb-5 leading-relaxed">
@@ -74,7 +74,7 @@ export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
         <div className="mb-5">
           <div className="flex justify-between items-center text-xs mb-1.5">
             <span className="text-labx-text-muted font-medium">Milestone Progress</span>
-            <span className="text-labx-violet font-semibold font-mono">{project.progress}%</span>
+            <span className="text-labx-green font-semibold font-mono">{project.progress}%</span>
           </div>
           <div className="h-2 bg-labx-bg rounded-full overflow-hidden p-0.5 border border-labx-border/30">
             <div

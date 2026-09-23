@@ -18,7 +18,7 @@ import {
   Zap,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import officialLogo from '../../assets/logo.png';
+import officialLogo from '../../assets/branding/labx-logo.png';
 
 interface OrbitNode {
   id: string;

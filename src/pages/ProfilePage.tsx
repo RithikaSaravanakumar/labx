@@ -42,7 +42,7 @@ export default function ProfilePage() {
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <div className="w-12 h-12 border-4 border-labx-violet border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <div className="w-12 h-12 border-4 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-labx-text-muted">Loading builder profile telemetry...</p>
       </div>
     );
@@ -74,13 +74,13 @@ export default function ProfilePage() {
             <img
               src={user.avatar}
               alt={user.name}
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-2 border-labx-violet shadow-xl object-cover"
+              className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-2 border-labx-green/60 shadow-[0_0_20px_rgba(0,255,135,0.2)] object-cover"
             />
             <div className="space-y-2">
               <div className="flex flex-wrap items-center gap-2">
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-labx-text">{user.name}</h1>
                 {user.isVerified && (
-                  <span className="flex items-center gap-1 text-xs font-semibold text-labx-violet bg-labx-violet/10 px-2.5 py-0.5 rounded-full border border-labx-violet/30">
+                  <span className="flex items-center gap-1 text-xs font-semibold text-labx-green bg-labx-green/10 px-2.5 py-0.5 rounded-full border border-labx-green/30">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>Verified Builder</span>
                   </span>
@@ -135,7 +135,7 @@ export default function ProfilePage() {
             onClick={() => setActiveTab(tab.id as any)}
             className={`px-4 py-2.5 rounded-xl text-xs font-semibold transition-all ${
               activeTab === tab.id
-                ? 'bg-labx-violet text-white shadow-lg shadow-labx-violet/20'
+                ? 'bg-labx-green text-black font-bold shadow-lg shadow-emerald-500/20'
                 : 'text-labx-text-muted hover:text-labx-text hover:bg-labx-surface'
             }`}
           >
@@ -185,13 +185,13 @@ export default function ProfilePage() {
           {updates.map(up => (
             <div key={up.id} className="labx-card p-6">
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-xs font-bold font-mono text-labx-violet">Day {up.day} · {up.projectName}</span>
+                <span className="text-xs font-bold font-mono text-labx-green">Day {up.day} · {up.projectName}</span>
                 <span className="text-xs text-labx-text-muted">{formatRelativeTime(up.createdAt)}</span>
               </div>
               <h4 className="text-base font-bold text-labx-text mb-2">{up.title}</h4>
               <p className="text-sm text-labx-text-secondary leading-relaxed mb-3">{up.content}</p>
               {up.proofUrl && (
-                <a href={up.proofUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-labx-cyan font-mono hover:underline">
+                <a href={up.proofUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-labx-green font-mono hover:underline">
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>{up.proofUrl}</span>
                 </a>

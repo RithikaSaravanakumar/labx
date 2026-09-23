@@ -225,3 +225,10 @@ body {
     linear-gradient(90deg, rgba(0, 255, 135, 0.035) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+/* ===== Loading bar animation (PageLoader) ===== */
+@keyframes labx-load {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(80%); }
+  100% { transform: translateX(200%); }
+}

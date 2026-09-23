@@ -29,7 +29,7 @@ export default function MentorDetailPage() {
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <div className="w-12 h-12 border-4 border-labx-violet border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <div className="w-12 h-12 border-4 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-labx-text-muted">Loading mentor calendar...</p>
       </div>
     );
@@ -57,7 +57,7 @@ export default function MentorDetailPage() {
       exit="exit"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
     >
-      <Link to="/mentors" className="inline-flex items-center gap-2 text-xs font-semibold text-labx-text-muted hover:text-labx-violet mb-6 transition-colors">
+      <Link to="/mentors" className="inline-flex items-center gap-2 text-xs font-semibold text-labx-text-muted hover:text-labx-green mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Mentor Directory</span>
       </Link>
@@ -67,11 +67,11 @@ export default function MentorDetailPage() {
         <div className="lg:col-span-2 space-y-8">
           <div className="labx-card p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-6">
-              <img src={mentor.avatar} alt={mentor.name} className="w-24 h-24 rounded-2xl border-2 border-labx-violet object-cover shadow-xl" />
+              <img src={mentor.avatar} alt={mentor.name} className="w-24 h-24 rounded-2xl border-2 border-labx-green/60 object-cover shadow-[0_0_20px_rgba(0,255,135,0.2)]" />
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <h1 className="text-2xl sm:text-3xl font-bold text-labx-text">{mentor.name}</h1>
-                  {mentor.isVerified && <ShieldCheck className="w-5 h-5 text-labx-cyan fill-labx-cyan/20" />}
+                  {mentor.isVerified && <ShieldCheck className="w-5 h-5 text-labx-green fill-labx-green/20" />}
                 </div>
                 <p className="text-sm text-labx-text-secondary font-medium">{mentor.title} at {mentor.company || 'Ecosystem'}</p>
                 
@@ -93,7 +93,7 @@ export default function MentorDetailPage() {
             <h3 className="text-base font-bold text-labx-text mb-2">Domains & Expertise</h3>
             <div className="flex flex-wrap gap-2 mb-6">
               {mentor.expertise.map(exp => (
-                <span key={exp} className="px-3 py-1 rounded-lg text-xs font-mono bg-labx-violet/10 text-labx-violet border border-labx-violet/20 font-medium">
+                <span key={exp} className="px-3 py-1 rounded-lg text-xs font-mono bg-labx-green/10 text-labx-green border border-labx-green/20 font-medium">
                   {exp}
                 </span>
               ))}
@@ -117,7 +117,7 @@ export default function MentorDetailPage() {
                 <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
                 <h4 className="text-lg font-bold text-labx-text">Session Requested!</h4>
                 <p className="text-xs text-labx-text-muted">A calendar invite link has been generated and sent to your email.</p>
-                <button onClick={() => setIsBooked(false)} className="text-xs font-semibold text-labx-violet underline pt-2">
+                <button onClick={() => setIsBooked(false)} className="text-xs font-semibold text-labx-green underline pt-2">
                   Book Another Session
                 </button>
               </div>
@@ -129,7 +129,7 @@ export default function MentorDetailPage() {
                     value={selectedTopic}
                     onChange={(e) => setSelectedTopic(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/50"
                   >
                     <option value="">Select Topic</option>
                     {mentor.expertise.map(exp => (
@@ -147,7 +147,7 @@ export default function MentorDetailPage() {
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/50"
                   />
                 </div>
 
@@ -159,7 +159,7 @@ export default function MentorDetailPage() {
                     value={note}
                     onChange={(e) => setNote(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/50"
                   />
                 </div>
 

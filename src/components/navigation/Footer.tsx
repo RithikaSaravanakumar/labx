@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="mb-4">
-              <LabXLogo size="lg" linkToHome animated />
+              <LabXLogo size="md" linkToHome showGlow />
             </div>
             <p className="text-xs text-labx-text-muted mb-4 leading-relaxed">
               <strong className="text-labx-text font-semibold uppercase tracking-wider block mb-1">Build What Matters.</strong>
