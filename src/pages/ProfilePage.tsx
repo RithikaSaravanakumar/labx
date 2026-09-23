@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShieldCheck, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { Users, UserPlus, Send, Activity, ShieldCheck, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import LabXPointRing from '../components/reputation/LabXPointRing';
 import LabXContributionHeatmap from '../components/reputation/LabXContributionHeatmap';
 import ContributionBadge from '../components/reputation/ContributionBadge';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
-import { userService, projectService, buildUpdateService } from '../services';
-import type { User, Project, BuildUpdate } from '../types';
+import { userService, projectService, buildUpdateService, networkService } from '../services';
+import type { User, Project, BuildUpdate, ConnectionStatus } from '../types';
 import { pageTransition } from '../animations';
 import { formatRelativeTime } from '../utils';
 
@@ -18,6 +18,9 @@ export default function ProfilePage() {
   const [updates, setUpdates] = useState<BuildUpdate[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'proof' | 'achievements'>('overview');
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus | null>(null);
+  const [isActionLoading, setIsActionLoading] = useState(false);
 
   useEffect(() => {
     const target = username ? userService.getUserByUsername(username) : userService.getCurrentUser();
@@ -27,10 +30,13 @@ export default function ProfilePage() {
         setUser(u);
         Promise.all([
           projectService.getProjects(),
-          buildUpdateService.getBuildUpdates()
-        ]).then(([pList, uList]) => {
+          buildUpdateService.getBuildUpdates(),
+          networkService.isFollowing('current-user', u.id)
+        ]).then(([pList, uList, following]) => {
           setProjects(pList.filter(p => u.projectIds.includes(p.id) || p.ownerName === u.name));
           setUpdates(uList.filter(bu => bu.authorName === u.name));
+          setIsFollowing(following);
+          // Defaulting connection status to null if it's our own profile, or checking if it exists
           setIsLoading(false);
         });
       } else {
@@ -38,6 +44,29 @@ export default function ProfilePage() {
       }
     });
   }, [username]);
+
+  const handleFollow = async () => {
+    if (!user || isActionLoading) return;
+    setIsActionLoading(true);
+    if (isFollowing) {
+      await networkService.unfollowUser(user.id);
+      setIsFollowing(false);
+      setUser(prev => prev ? { ...prev, followersCount: Math.max(0, prev.followersCount - 1) } : prev);
+    } else {
+      await networkService.followUser(user.id);
+      setIsFollowing(true);
+      setUser(prev => prev ? { ...prev, followersCount: prev.followersCount + 1 } : prev);
+    }
+    setIsActionLoading(false);
+  };
+
+  const handleConnect = async () => {
+    if (!user || isActionLoading || connectionStatus) return;
+    setIsActionLoading(true);
+    await networkService.sendConnectionRequest(user.id);
+    setConnectionStatus('pending');
+    setIsActionLoading(false);
+  };
 
   if (isLoading) {
     return (
@@ -65,30 +94,29 @@ export default function ProfilePage() {
       exit="exit"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
     >
-      {/* Header Profile Card */}
       <div className="labx-card p-6 sm:p-8 mb-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/15 via-teal-500/5 to-transparent pointer-events-none" />
 
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 flex-1">
             <img
               src={user.avatar}
               alt={user.name}
               className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-2 border-labx-green/60 shadow-[0_0_20px_rgba(0,255,135,0.2)] object-cover"
             />
-            <div className="space-y-2">
+            <div className="space-y-3 flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-labx-text">{user.name}</h1>
                 {user.isVerified && (
                   <span className="flex items-center gap-1 text-xs font-semibold text-labx-green bg-labx-green/10 px-2.5 py-0.5 rounded-full border border-labx-green/30">
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>Verified Builder</span>
+                    <span>Verified</span>
                   </span>
                 )}
                 <span className="text-xs font-mono text-labx-text-muted">@{user.username}</span>
               </div>
 
-              <p className="text-sm text-labx-text-secondary max-w-xl">{user.bio}</p>
+              <p className="text-sm font-medium text-labx-text-secondary max-w-xl">{user.bio}</p>
 
               <div className="flex flex-wrap items-center gap-4 text-xs text-labx-text-muted pt-1">
                 <span className="flex items-center gap-1">
@@ -99,16 +127,58 @@ export default function ProfilePage() {
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Joined {user.joinedDate}</span>
                 </span>
-                <span className="flex items-center gap-1 text-amber-400 font-mono font-bold">
-                  🔥 {user.contributionStreak} Day Streak
-                </span>
+              </div>
+
+              {/* Networking Stats */}
+              <div className="flex flex-wrap items-center gap-6 pt-2 pb-1 border-t border-labx-border/30 mt-3">
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-labx-text">{user.followersCount?.toLocaleString() || 0}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-labx-text-muted">Followers</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-labx-text">{user.connectionsCount?.toLocaleString() || 0}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-labx-text-muted">Connections</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-labx-text">{projects.length}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-labx-text-muted">Projects</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-labx-green">{user.labxPoints.toLocaleString()}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-labx-text-muted">LabX Points</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Level Ring Badge */}
-          <div className="self-center md:self-auto">
-            <LabXPointRing points={user.labxPoints} level={user.level} size={130} strokeWidth={9} />
+          {/* Actions & Level Ring */}
+          <div className="flex flex-col sm:flex-row lg:flex-col items-center gap-4 self-stretch sm:self-center">
+            {username && username !== 'current-user' && (
+              <div className="flex gap-2 w-full">
+                <button
+                  onClick={handleFollow}
+                  disabled={isActionLoading}
+                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                    isFollowing
+                      ? 'bg-labx-surface border border-labx-border text-labx-text hover:bg-labx-surface-hover'
+                      : 'bg-labx-green text-black hover:bg-emerald-400 shadow-[0_0_15px_rgba(0,255,135,0.3)]'
+                  }`}
+                >
+                  {isFollowing ? 'Following' : 'Follow'}
+                </button>
+                <button
+                  onClick={handleConnect}
+                  disabled={isActionLoading || connectionStatus !== null}
+                  className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold bg-labx-surface border border-labx-border text-labx-text hover:bg-labx-surface-hover transition-all disabled:opacity-50"
+                >
+                  <UserPlus className="w-4 h-4" />
+                  {connectionStatus === 'pending' ? 'Request Sent' : 'Connect'}
+                </button>
+              </div>
+            )}
+            <div className="self-center hidden sm:block">
+              <LabXPointRing points={user.labxPoints} level={user.level} size={110} strokeWidth={8} />
+            </div>
           </div>
         </div>
 

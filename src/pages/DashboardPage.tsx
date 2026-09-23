@@ -66,11 +66,11 @@ export default function DashboardPage() {
           <div className="flex items-center gap-4">
             <LabXPointRing points={currentUser.labxPoints} level={currentUser.level} size={100} strokeWidth={7} />
             <Link
-              to="/build"
+              to="/projects/new"
               className="labx-button-primary flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap"
             >
               <Plus className="w-4 h-4" />
-              <span>Log Build</span>
+              <span>Create Project</span>
             </Link>
           </div>
         </div>

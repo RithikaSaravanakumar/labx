@@ -31,7 +31,7 @@ const BRAND_SHORTCUTS = [
   {
     label: 'TURN YOUR IDEA INTO REALITY',
     description: 'Submit your project, assemble a team & log proof of work',
-    path: '/build',
+    path: '/projects/new',
     icon: PlusCircle,
   },
   {

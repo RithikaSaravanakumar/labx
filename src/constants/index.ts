@@ -66,6 +66,8 @@ export const STAGE_COLORS: Record<string, string> = {
 
 export const NAV_ITEMS = [
   { label: 'Discover', path: '/discover' },
+  { label: 'Feed', path: '/feed' },
+  { label: 'Leaderboard', path: '/leaderboard' },
   { label: 'Projects', path: '/projects' },
   { label: 'Startups', path: '/startups' },
   { label: 'Mentors', path: '/mentors' },
@@ -90,3 +92,5 @@ export const CONTRIBUTION_TYPE_COLORS: Record<string, string> = {
   collaboration: '#6EE7B7',
   knowledge: '#A7F3D0',
 };
+
+export * from './navigation';

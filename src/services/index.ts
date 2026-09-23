@@ -51,6 +51,38 @@ export const projectService = {
     await delay();
     return [...mockProjects].sort((a, b) => b.labxPoints - a.labxPoints).slice(0, 4);
   },
+  async createDraft(data: Partial<Project>): Promise<Project> {
+    await delay();
+    const newProject: Project = {
+      id: `proj_${Date.now()}`,
+      name: data.name || '',
+      description: data.description || '',
+      problem: data.problem || '',
+      solution: data.solution || '',
+      domain: data.domain || 'web-development',
+      stage: 'idea',
+      progress: 0,
+      teamMembers: [],
+      techStack: data.techStack || [],
+      milestones: [],
+      buildUpdates: [],
+      labxPoints: 0,
+      contributorCount: 1,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      tags: [],
+      hackathonIds: [],
+      isOpenForCollaboration: true,
+      ...data
+    };
+    mockProjects.push(newProject);
+    return newProject;
+  },
+  async publishProject(id: string): Promise<void> {
+    await delay();
+    const p = mockProjects.find(p => p.id === id);
+    if (p) p.stage = 'prototype';
+  },
 };
 
 // ===== Startup Service =====
@@ -207,4 +239,6 @@ export const searchService = {
 // Export specialized auth and AI services
 export { authService } from './authService';
 export { aiService } from './aiService';
-
+export { networkService } from './networkService';
+export { feedService } from './feedService';
+export { pointsService } from './pointsService';

@@ -13,6 +13,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const DiscoverPage = lazy(() => import('./pages/DiscoverPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
+const CreateProjectPage = lazy(() => import('./pages/CreateProjectPage'));
 const StartupsPage = lazy(() => import('./pages/StartupsPage'));
 const StartupDetailPage = lazy(() => import('./pages/StartupDetailPage'));
 const MentorsPage = lazy(() => import('./pages/MentorsPage'));
@@ -23,6 +24,9 @@ const OpportunitiesPage = lazy(() => import('./pages/OpportunitiesPage'));
 const IdeasPage = lazy(() => import('./pages/IdeasPage'));
 const CommunityPage = lazy(() => import('./pages/CommunityPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+const NetworkPage = lazy(() => import('./pages/NetworkPage'));
+const FeedPage = lazy(() => import('./pages/FeedPage'));
+const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 
 // Lazy-loaded auth pages
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -91,6 +95,9 @@ function App() {
                 <Route path="/ideas" element={<IdeasPage />} />
                 <Route path="/community" element={<CommunityPage />} />
                 <Route path="/profile/:username" element={<ProfilePage />} />
+                <Route path="/network" element={<NetworkPage />} />
+                <Route path="/feed" element={<FeedPage />} />
+                <Route path="/leaderboard" element={<LeaderboardPage />} />
 
                 {/* Authentication Routes */}
                 <Route path="/login" element={<LoginPage />} />
@@ -100,6 +107,7 @@ function App() {
 
                 {/* Protected Workspace Routes */}
                 <Route element={<ProtectedRoute />}>
+                  <Route path="/projects/new" element={<CreateProjectPage />} />
                   <Route path="/dashboard" element={<DashboardPage />} />
                   <Route path="/build" element={<BuildPage />} />
                   <Route path="/profile" element={<ProfilePage />} />

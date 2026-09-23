@@ -2,16 +2,18 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Search, Users } from 'lucide-react';
-import { projectService, startupService, mentorService, hackathonService, opportunityService } from '../services';
+import { projectService, startupService, mentorService, hackathonService, opportunityService, userService } from '../services';
 import { DOMAIN_LABELS, DOMAIN_COLORS, STAGE_LABELS } from '../constants';
 import { staggerContainer, staggerItem, pageTransition } from '../animations';
-import type { Project, Startup, Mentor, Hackathon, Opportunity } from '../types';
+import PersonCard from '../components/network/PersonCard';
+import type { Project, Startup, Mentor, Hackathon, Opportunity, User } from '../types';
 
 type Tab = 'projects' | 'startups' | 'people' | 'mentors' | 'hackathons' | 'opportunities';
 
 const tabs: { value: Tab; label: string }[] = [
   { value: 'projects', label: 'Projects' },
   { value: 'startups', label: 'Startups' },
+  { value: 'people', label: 'People' },
   { value: 'mentors', label: 'Mentors' },
   { value: 'hackathons', label: 'Hackathons' },
   { value: 'opportunities', label: 'Opportunities' },
@@ -22,6 +24,7 @@ export default function DiscoverPage() {
   const [search, setSearch] = useState('');
   const [projects, setProjects] = useState<Project[]>([]);
   const [startups, setStartups] = useState<Startup[]>([]);
+  const [people, setPeople] = useState<User[]>([]);
   const [mentors, setMentors] = useState<Mentor[]>([]);
   const [hackathons, setHackathons] = useState<Hackathon[]>([]);
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
@@ -29,15 +32,17 @@ export default function DiscoverPage() {
 
   useEffect(() => {
     const loadData = async () => {
-      const [p, s, m, h, o] = await Promise.all([
+      const [p, s, ppl, m, h, o] = await Promise.all([
         projectService.getProjects({ search }),
         startupService.getStartups({ search }),
+        userService.getUsers(), // Implement search in backend, returning all mock users for now
         mentorService.getMentors({ search }),
         hackathonService.getHackathons(),
         opportunityService.getOpportunities({ search }),
       ]);
       setProjects(p);
       setStartups(s);
+      setPeople(ppl.filter(u => u.name.toLowerCase().includes(search.toLowerCase()) || u.skills.some(skill => skill.toLowerCase().includes(search.toLowerCase()))));
       setMentors(m);
       setHackathons(h);
       setOpportunities(o);
@@ -164,6 +169,16 @@ export default function DiscoverPage() {
                       </div>
                     )}
                   </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {activeTab === 'people' && (
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" variants={staggerContainer} initial="hidden" animate="visible">
+              {people.map(person => (
+                <motion.div key={person.id} variants={staggerItem}>
+                  <PersonCard person={person} />
                 </motion.div>
               ))}
             </motion.div>

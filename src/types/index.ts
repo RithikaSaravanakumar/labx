@@ -1,3 +1,7 @@
+export * from './social';
+export * from './roadmap';
+export * from './navigation';
+
 // ===== Core Entity Types =====
 
 export interface User {
@@ -13,6 +17,10 @@ export interface User {
   interests: string[];
   labxPoints: number;
   level: number;
+  rank?: number;
+  followersCount: number;
+  followingCount: number;
+  connectionsCount: number;
   joinedDate: string;
   isVerified: boolean;
   githubUrl?: string;
@@ -42,6 +50,7 @@ export interface Project {
   buildUpdates: BuildUpdate[];
   labxPoints: number;
   contributorCount: number;
+  fundingStatus?: 'NOT_STARTED' | 'IN_PROGRESS' | 'MILESTONE_REACHED' | 'ELIGIBILITY_REVIEW' | 'APPROVED' | 'REJECTED' | 'FUNDED';
   createdAt: string;
   updatedAt: string;
   coverImage?: string;
@@ -50,6 +59,7 @@ export interface Project {
   isOpenForCollaboration: boolean;
   trendingScore?: number;
   lookingFor?: string[];
+  ownerId?: string;
   ownerName?: string;
   ownerAvatar?: string;
   repoUrl?: string;

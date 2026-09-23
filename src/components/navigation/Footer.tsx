@@ -22,7 +22,7 @@ export default function Footer() {
         { label: 'Mentors', path: '/mentors' },
         { label: 'Hackathons', path: '/hackathons' },
         { label: 'Idea Vault', path: '/ideas' },
-        { label: 'Build in Public', path: '/build' },
+        { label: 'Build in Public', path: '/projects/new' },
       ],
     },
     {
