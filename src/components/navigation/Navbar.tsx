@@ -84,7 +84,7 @@ function MagneticNavLink({
         {isActive && (
           <motion.div
             layoutId="navbar-active-indicator"
-            className="absolute -bottom-1 left-2.5 right-2.5 h-[2.5px] rounded-full bg-gradient-to-r from-labx-violet via-pink-500 to-labx-cyan shadow-[0_0_12px_rgba(124,58,237,0.9)]"
+            className="absolute -bottom-1 left-2.5 right-2.5 h-[2.5px] rounded-full bg-gradient-to-r from-emerald-500 via-green-400 to-teal-400 shadow-[0_0_14px_rgba(0,255,135,0.9)]"
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
           />
         )}
@@ -162,15 +162,15 @@ export default function Navbar() {
         onMouseLeave={handleNavMouseLeave}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'h-[68px] md:h-[72px] bg-[#05070f]/90 backdrop-blur-[20px] border-b border-white/[0.08] shadow-[0_12px_32px_-12px_rgba(0,0,0,0.7)]'
-            : 'h-20 md:h-[84px] bg-[#05070f]/65 backdrop-blur-[16px] border-b border-white/[0.04]'
+            ? 'h-[68px] md:h-[72px] bg-[#030704]/90 backdrop-blur-[20px] border-b border-emerald-500/20 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.85)]'
+            : 'h-20 md:h-[84px] bg-[#030704]/65 backdrop-blur-[16px] border-b border-emerald-500/10'
         }`}
       >
         {/* Subtle Interactive Ambient Light Follow */}
         <div
           className="pointer-events-none absolute inset-0 transition-opacity duration-300 opacity-60 hidden md:block"
           style={{
-            background: `radial-gradient(450px circle at ${mousePos.x}px ${mousePos.y}px, rgba(124, 58, 237, 0.09), transparent 80%)`,
+            background: `radial-gradient(450px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 255, 135, 0.08), transparent 80%)`,
           }}
         />
 
@@ -183,7 +183,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <div className="relative group flex items-center">
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-labx-violet/25 via-pink-500/10 to-labx-cyan/20 blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-emerald-500/30 via-teal-500/15 to-emerald-400/25 blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <LabXLogo size={36} linkToHome animated />
             </div>
           </motion.div>
@@ -371,7 +371,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/signup"
-                  className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-bold tracking-wider uppercase text-white bg-gradient-to-r from-labx-violet via-purple-600 to-indigo-600 hover:brightness-110 active:scale-[0.98] transition-all duration-300 shadow-md shadow-labx-violet/25 hover:shadow-lg hover:shadow-labx-violet/40 border border-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet"
+                  className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-bold tracking-wider uppercase text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.98] transition-all duration-300 shadow-md shadow-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/50 border border-emerald-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 >
                   <span>Start Building</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -382,7 +382,7 @@ export default function Navbar() {
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.06] border border-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet"
+              className="lg:hidden p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.06] border border-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileOpen}
             >
@@ -393,7 +393,7 @@ export default function Navbar() {
 
         {/* Scroll Progress Indicator Bar */}
         <div
-          className="absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-labx-violet via-fuchsia-500 to-labx-cyan transition-all duration-75 pointer-events-none"
+          className="absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-emerald-500 via-green-400 to-teal-400 shadow-[0_0_8px_#00FF87] transition-all duration-75 pointer-events-none"
           style={{ width: `${scrollProgress}%` }}
         />
       </header>
@@ -406,7 +406,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="fixed inset-x-0 top-16 md:top-20 z-40 lg:hidden bg-[#070a14]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto p-5 space-y-5"
+            className="fixed inset-x-0 top-16 md:top-20 z-40 lg:hidden bg-[#030704]/95 backdrop-blur-2xl border-b border-emerald-500/20 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto p-5 space-y-5"
           >
             {/* Quick Command Trigger */}
             <button

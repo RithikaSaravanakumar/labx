@@ -1,32 +1,39 @@
 @import "tailwindcss";
 
-/* ===== LabX Design System — Custom Theme ===== */
+/* ===== LabX Design System — Green & Black Cyber Theme ===== */
 @theme {
-  /* Backgrounds */
-  --color-labx-bg: #080A12;
-  --color-labx-bg-secondary: #10131D;
-  --color-labx-surface: #141824;
-  --color-labx-surface-hover: #1A1F2E;
-  --color-labx-border: #252A3A;
-  --color-labx-border-light: #1E2233;
+  /* Backgrounds: Deep Obsidian & Cyber Black */
+  --color-labx-bg: #030704;
+  --color-labx-bg-secondary: #070E09;
+  --color-labx-surface: #0D1911;
+  --color-labx-surface-hover: #122419;
+  --color-labx-border: #183624;
+  --color-labx-border-light: #122A1C;
 
-  /* Accent Colors */
-  --color-labx-violet: #7C3AED;
-  --color-labx-violet-light: #8B5CF6;
-  --color-labx-purple: #A855F7;
-  --color-labx-cyan: #22D3EE;
-  --color-labx-cyan-light: #67E8F9;
-  --color-labx-lavender: #C4B5FD;
+  /* Accent Colors: Electric Emerald, Neon Mint & Cyber Jade */
+  --color-labx-violet: #10B981;
+  --color-labx-violet-light: #34D399;
+  --color-labx-purple: #059669;
+  --color-labx-cyan: #00FF87;
+  --color-labx-cyan-light: #6EE7B7;
+  --color-labx-lavender: #A7F3D0;
+
+  /* Explicit Green Palette Tokens */
+  --color-labx-green: #10B981;
+  --color-labx-emerald: #05DF72;
+  --color-labx-neon: #00FF87;
+  --color-labx-mint: #34D399;
+  --color-labx-obsidian: #030704;
 
   /* Semantic */
-  --color-labx-success: #22C55E;
+  --color-labx-success: #10B981;
   --color-labx-warning: #F59E0B;
   --color-labx-error: #EF4444;
 
-  /* Text */
-  --color-labx-text: #F1F5F9;
-  --color-labx-text-secondary: #94A3B8;
-  --color-labx-text-muted: #64748B;
+  /* Text: Luminous Mint & Soft Emerald White */
+  --color-labx-text: #F0FDF4;
+  --color-labx-text-secondary: #86A892;
+  --color-labx-text-muted: #52755E;
 
   /* Typography */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -41,6 +48,7 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
   --animate-orbit: orbit 20s linear infinite;
+  --animate-spin-slow: spin-slow 24s linear infinite;
   --animate-fade-in: fade-in 0.5s ease-out;
   --animate-slide-up: slide-up 0.5s ease-out;
 
@@ -51,18 +59,23 @@
 
 /* ===== Keyframes ===== */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: 0.35; filter: drop-shadow(0 0 15px rgba(0, 255, 135, 0.4)); }
+  50% { opacity: 0.9; filter: drop-shadow(0 0 35px rgba(0, 255, 135, 0.8)); }
 }
 
 @keyframes orbit {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate3d(1, 1, 1, 0deg); }
+  to { transform: rotate3d(1, 1, 1, 360deg); }
 }
 
 @keyframes fade-in {
@@ -73,6 +86,11 @@
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes matrix-scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 /* ===== Base Styles ===== */
@@ -89,8 +107,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #080A12;
-  color: #F1F5F9;
+  background-color: #030704;
+  color: #F0FDF4;
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -104,27 +122,27 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080A12;
+  background: #030704;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #252A3A;
+  background: #183624;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
+  background: #10B981;
 }
 
 /* ===== Selection ===== */
 ::selection {
-  background: rgba(124, 58, 237, 0.3);
-  color: #F1F5F9;
+  background: rgba(0, 255, 135, 0.3);
+  color: #F0FDF4;
 }
 
 /* ===== Focus ===== */
 :focus-visible {
-  outline: 2px solid #7C3AED;
+  outline: 2px solid #10B981;
   outline-offset: 2px;
 }
 
@@ -140,42 +158,74 @@ body {
   }
 }
 
-/* ===== Utility Classes ===== */
+/* ===== Utility Classes: Green & Black Cyber Aesthetics ===== */
 .labx-gradient-text {
-  background: linear-gradient(135deg, #7C3AED, #A855F7, #22D3EE);
+  background: linear-gradient(135deg, #10B981 0%, #00FF87 50%, #34D399 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 135, 0.3));
 }
 
 .labx-gradient-bg {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(168, 85, 247, 0.1), rgba(34, 211, 238, 0.05));
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(0, 255, 135, 0.1), rgba(52, 211, 153, 0.04));
 }
 
 .labx-glow-violet {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.15), 0 0 60px rgba(124, 58, 237, 0.05);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.25), 0 0 70px rgba(0, 255, 135, 0.12);
 }
 
 .labx-glow-cyan {
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15), 0 0 60px rgba(34, 211, 238, 0.05);
+  box-shadow: 0 0 25px rgba(0, 255, 135, 0.35), 0 0 70px rgba(16, 185, 129, 0.15);
 }
 
 .labx-card {
-  background: #141824;
-  border: 1px solid #252A3A;
+  background: #0D1911;
+  border: 1px solid #183624;
   border-radius: 0.75rem;
   transition: all 0.3s ease;
 }
 
 .labx-card:hover {
-  border-color: rgba(124, 58, 237, 0.3);
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.08);
+  border-color: rgba(0, 255, 135, 0.4);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);
 }
 
-/* ===== Grid Bg Pattern ===== */
+/* ===== 3D Spatial Transforms ===== */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-800 {
+  perspective: 800px;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+/* ===== Cyber Matrix Grid Bg ===== */
 .labx-grid-bg {
   background-image:
-    linear-gradient(rgba(37, 42, 58, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 42, 58, 0.3) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(24, 54, 36, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 54, 36, 0.35) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ===== 3D Perspective Cyber Plane Floor ===== */
+.cyber-plane-3d {
+  position: absolute;
+  inset: -100px -200px;
+  background-image:
+    linear-gradient(rgba(0, 255, 135, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 135, 0.18) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(600px) rotateX(65deg) translateY(-20px);
+  transform-origin: center top;
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+  pointer-events: none;
 }

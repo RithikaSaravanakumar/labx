@@ -41,8 +41,8 @@ export default function LabXLogo({
       {/* "X" with centered Handshake Partnership Icon */}
       <span className="relative inline-flex items-center justify-center leading-none">
         <span
-          className={`font-black tracking-tight leading-none text-[#8B5CF6] font-sans ${config.xClass}`}
-          style={{ textShadow: '0 0 12px rgba(139, 92, 246, 0.4)' }}
+          className={`font-black tracking-tight leading-none text-[#00FF87] font-sans ${config.xClass}`}
+          style={{ textShadow: '0 0 16px rgba(0, 255, 135, 0.55)' }}
         >
           X
         </span>
@@ -50,10 +50,10 @@ export default function LabXLogo({
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           title="Where builders collaborate"
         >
-          <span className="bg-[#10131D]/90 p-0.5 rounded-full border border-[#8B5CF6]/50 shadow-sm flex items-center justify-center">
+          <span className="bg-[#070E09]/95 p-0.5 rounded-full border border-[#00FF87]/60 shadow-sm flex items-center justify-center">
             <Handshake
               size={config.iconSize}
-              className="text-[#C4B5FD]"
+              className="text-[#6EE7B7]"
               strokeWidth={2.4}
             />
           </span>

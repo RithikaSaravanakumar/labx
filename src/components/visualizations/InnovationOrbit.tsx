@@ -11,14 +11,14 @@ interface OrbitNode {
 }
 
 const nodes: OrbitNode[] = [
-  { id: 'student', label: 'Student', description: 'Discover projects, find mentors, build your portfolio', color: '#3B82F6', path: '/discover' },
-  { id: 'builder', label: 'Builder', description: 'Find projects, collaborate, showcase your work', color: '#7C3AED', path: '/projects' },
-  { id: 'founder', label: 'Founder', description: 'Build your startup, find co-founders and mentors', color: '#A855F7', path: '/startups' },
-  { id: 'mentor', label: 'Mentor', description: 'Guide builders, share expertise, grow reputation', color: '#22C55E', path: '/mentors' },
+  { id: 'student', label: 'Student', description: 'Discover projects, find mentors, build your portfolio', color: '#34D399', path: '/discover' },
+  { id: 'builder', label: 'Builder', description: 'Find projects, collaborate, showcase your work', color: '#00FF87', path: '/projects' },
+  { id: 'founder', label: 'Founder', description: 'Build your startup, find co-founders and mentors', color: '#10B981', path: '/startups' },
+  { id: 'mentor', label: 'Mentor', description: 'Guide builders, share expertise, grow reputation', color: '#05DF72', path: '/mentors' },
   { id: 'investor', label: 'Investor', description: 'Discover startups, track progress, find founders', color: '#F59E0B', path: '/startups' },
-  { id: 'researcher', label: 'Researcher', description: 'Collaborate on research, publish findings', color: '#22D3EE', path: '/discover' },
-  { id: 'startup', label: 'Startup', description: 'Showcase your product, find talent and mentors', color: '#EC4899', path: '/startups' },
-  { id: 'project', label: 'Project', description: 'Open source and collaborative innovation', color: '#14B8A6', path: '/projects' },
+  { id: 'researcher', label: 'Researcher', description: 'Collaborate on research, publish findings', color: '#2DD4BF', path: '/discover' },
+  { id: 'startup', label: 'Startup', description: 'Showcase your product, find talent and mentors', color: '#10B981', path: '/startups' },
+  { id: 'project', label: 'Project', description: 'Open source and collaborative innovation', color: '#6EE7B7', path: '/projects' },
 ];
 
 export default function InnovationOrbit() {
@@ -30,9 +30,9 @@ export default function InnovationOrbit() {
   return (
     <div className="relative w-full max-w-[500px] mx-auto aspect-square" role="region" aria-label="Innovation Orbit — Interactive ecosystem visualization">
       <svg viewBox="0 0 500 500" className="w-full h-full pointer-events-none">
-        {/* Orbit rings */}
-        <circle cx={centerX} cy={centerY} r={radius} fill="none" stroke="rgba(124, 58, 237, 0.1)" strokeWidth="1" strokeDasharray="4 4" />
-        <circle cx={centerX} cy={centerY} r={radius * 0.6} fill="none" stroke="rgba(34, 211, 238, 0.08)" strokeWidth="1" strokeDasharray="4 4" />
+        {/* Orbit rings in Green Cyber Styling */}
+        <circle cx={centerX} cy={centerY} r={radius} fill="none" stroke="rgba(0, 255, 135, 0.16)" strokeWidth="1.5" strokeDasharray="5 5" />
+        <circle cx={centerX} cy={centerY} r={radius * 0.6} fill="none" stroke="rgba(52, 211, 153, 0.12)" strokeWidth="1" strokeDasharray="3 3" />
 
         {/* Connection lines */}
         {nodes.map((node, i) => {
@@ -46,7 +46,7 @@ export default function InnovationOrbit() {
               y1={centerY}
               x2={x}
               y2={y}
-              stroke={hoveredNode === node.id ? node.color : 'rgba(124, 58, 237, 0.12)'}
+              stroke={hoveredNode === node.id ? '#00FF87' : 'rgba(16, 185, 129, 0.12)'}
               strokeWidth={hoveredNode === node.id ? 2 : 1}
               style={{ transition: 'all 0.3s ease' }}
             />
@@ -54,13 +54,22 @@ export default function InnovationOrbit() {
         })}
       </svg>
 
-      {/* Center node */}
+      {/* Center 3D Obsidian Core */}
       <motion.div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-labx-violet to-labx-cyan flex items-center justify-center z-10 select-none shadow-lg"
-        animate={{ boxShadow: ['0 0 20px rgba(124,58,237,0.3)', '0 0 40px rgba(124,58,237,0.5)', '0 0 20px rgba(124,58,237,0.3)'] }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-22 h-22 rounded-full bg-gradient-to-br from-[#070E09] via-[#0D1911] to-[#122A1A] border-2 border-emerald-400/60 flex items-center justify-center z-10 select-none shadow-xl"
+        animate={{
+          boxShadow: [
+            '0 0 20px rgba(0,255,135,0.3)',
+            '0 0 45px rgba(0,255,135,0.6)',
+            '0 0 20px rgba(0,255,135,0.3)',
+          ],
+        }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <span className="text-white font-black text-sm tracking-wider">LABX</span>
+        <div className="text-center">
+          <span className="text-[#00FF87] font-black text-sm tracking-widest drop-shadow-[0_0_10px_rgba(0,255,135,0.8)]">LABX</span>
+          <span className="block text-[8px] font-mono text-emerald-400/80 uppercase tracking-wider">CORE</span>
+        </div>
       </motion.div>
 
       {/* Orbit nodes */}
@@ -74,7 +83,7 @@ export default function InnovationOrbit() {
           <Link
             key={node.id}
             to={node.path}
-            className="absolute flex flex-col items-center cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet rounded-full"
+            className="absolute flex flex-col items-center cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-full"
             style={{
               left: `${(x / 500) * 100}%`,
               top: `${(y / 500) * 100}%`,
@@ -87,16 +96,16 @@ export default function InnovationOrbit() {
             aria-label={`${node.label} persona: ${node.description}`}
           >
             <motion.div
-              className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xs font-semibold border-2 z-10 transition-transform group-hover:scale-110"
+              className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xs font-semibold border-2 z-10 transition-transform group-hover:scale-115"
               style={{
-                backgroundColor: `${node.color}20`,
+                backgroundColor: `${node.color}15`,
                 borderColor: isHovered ? node.color : `${node.color}40`,
-                boxShadow: isHovered ? `0 0 20px ${node.color}40` : 'none',
+                boxShadow: isHovered ? `0 0 24px ${node.color}70` : 'none',
               }}
             >
-              <span style={{ color: node.color }} className="font-bold">{node.label[0]}</span>
+              <span style={{ color: node.color }} className="font-black text-sm">{node.label[0]}</span>
             </motion.div>
-            <span className={`mt-1 text-[11px] font-medium transition-colors ${isHovered ? 'text-labx-text' : 'text-labx-text-muted'}`}>
+            <span className={`mt-1.5 text-[11px] font-semibold tracking-wide transition-colors ${isHovered ? 'text-white' : 'text-emerald-300/70'}`}>
               {node.label}
             </span>
 
@@ -105,7 +114,7 @@ export default function InnovationOrbit() {
               <motion.div
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute top-full mt-2 px-3 py-1.5 rounded-xl bg-labx-surface/95 border border-labx-border text-xs text-labx-text-secondary whitespace-nowrap z-20 shadow-xl backdrop-blur-md"
+                className="absolute top-full mt-2 px-3.5 py-1.5 rounded-xl bg-[#070E09]/95 border border-emerald-500/40 text-xs text-emerald-100 whitespace-nowrap z-20 shadow-2xl backdrop-blur-md"
               >
                 {node.description}
               </motion.div>

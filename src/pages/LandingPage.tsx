@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Rocket, Users, Trophy, Target, Lightbulb, TrendingUp } from 'lucide-react';
 import InnovationOrbit from '../components/visualizations/InnovationOrbit';
+import HolographicCube3D from '../components/visualizations/HolographicCube3D';
 import { mockProjects, mockBuildUpdates, mockMentors } from '../data/mockData';
 import { fadeInUp, staggerContainer, staggerItem } from '../animations';
 import { DOMAIN_LABELS, DOMAIN_COLORS, STAGE_LABELS } from '../constants';
@@ -27,65 +28,83 @@ export default function LandingPage() {
   return (
     <div className="overflow-hidden">
       {/* ===== HERO ===== */}
-      <section className="relative min-h-[90vh] flex items-center justify-center labx-grid-bg">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-labx-violet/10 rounded-full blur-[128px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-labx-cyan/10 rounded-full blur-[128px] pointer-events-none" />
+      <section className="relative min-h-[92vh] flex items-center justify-center labx-grid-bg overflow-hidden py-16 lg:py-24">
+        {/* 3D Cyber Perspective Floor */}
+        <div className="cyber-plane-3d" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-labx-violet/10 border border-labx-violet/20 text-labx-violet text-sm font-medium mb-8">
-              <span className="w-2 h-2 rounded-full bg-labx-violet animate-pulse" />
-              The Innovation Ecosystem
+        {/* Ambient Glowing Emerald Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-emerald-500/12 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-[#00FF87]/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+            {/* Left Column: Hero Typography & CTAs */}
+            <div className="flex-1 text-center lg:text-left">
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold tracking-wide mb-6 shadow-[0_0_15px_rgba(0,255,135,0.2)]">
+                  <span className="w-2 h-2 rounded-full bg-[#00FF87] animate-pulse" />
+                  THE INNOVATION ECOSYSTEM
+                </div>
+              </motion.div>
+
+              <motion.h1
+                className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight mb-6 leading-tight"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                BUILD WHAT{' '}
+                <span className="labx-gradient-text">MATTERS.</span>
+              </motion.h1>
+
+              <motion.p
+                className="text-lg sm:text-xl text-labx-text-secondary max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Where ambitious people, bold ideas, and meaningful opportunities come together.{' '}
+                <strong className="text-white font-bold block mt-1 text-emerald-300">Your work becomes your reputation.</strong>
+              </motion.p>
+
+              <motion.div
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Link
+                  to="/signup"
+                  className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-extrabold text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50"
+                >
+                  <span>Start Building</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/discover"
+                  className="px-6 py-3.5 rounded-xl bg-[#0D1911] border border-emerald-500/30 text-white font-bold text-sm hover:border-emerald-400 hover:bg-emerald-500/10 transition-all shadow-sm"
+                >
+                  Explore Ecosystem
+                </Link>
+                <Link
+                  to="/projects"
+                  className="px-6 py-3.5 rounded-xl text-emerald-400/90 hover:text-white font-semibold text-sm transition-colors"
+                >
+                  See What&apos;s Being Built &rarr;
+                </Link>
+              </motion.div>
             </div>
-          </motion.div>
 
-          <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            BUILD WHAT{' '}
-            <span className="labx-gradient-text">MATTERS.</span>
-          </motion.h1>
-
-          <motion.p
-            className="text-lg sm:text-xl text-labx-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Where ambitious people, bold ideas, and meaningful opportunities come together.{' '}
-            <strong className="text-labx-text font-bold block mt-1">Your work becomes your reputation.</strong>
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-3.5"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Link
-              to="/signup"
-              className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-labx-violet to-labx-purple text-white font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2 shadow-lg shadow-labx-violet/25"
+            {/* Right Column: Interactive 3D Holographic Cube & Gyroscope */}
+            <motion.div
+              className="flex-1 flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
             >
-              <span>Start Building</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/discover"
-              className="px-6 py-3.5 rounded-xl bg-labx-surface border border-labx-border text-labx-text font-bold text-sm hover:border-labx-violet/40 transition-colors"
-            >
-              Explore the Ecosystem
-            </Link>
-            <Link
-              to="/projects"
-              className="px-6 py-3.5 rounded-xl text-labx-text-secondary hover:text-labx-text font-semibold text-sm transition-colors"
-            >
-              See What&apos;s Being Built &rarr;
-            </Link>
-          </motion.div>
+              <HolographicCube3D size={360} />
+            </motion.div>
+          </div>
         </div>
       </section>
 

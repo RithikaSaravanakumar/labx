@@ -16,17 +16,17 @@ export const DOMAIN_LABELS: Record<Domain, string> = {
 };
 
 export const DOMAIN_COLORS: Record<Domain, string> = {
-  'ai-ml': '#7C3AED',
+  'ai-ml': '#00FF87',
   'healthcare': '#22C55E',
-  'climate': '#22D3EE',
-  'deep-tech': '#A855F7',
+  'climate': '#2DD4BF',
+  'deep-tech': '#10B981',
   'fintech': '#F59E0B',
   'edtech': '#3B82F6',
-  'robotics': '#EC4899',
+  'robotics': '#10B981',
   'cybersecurity': '#EF4444',
-  'saas': '#8B5CF6',
-  'web-development': '#06B6D4',
-  'research': '#C4B5FD',
+  'saas': '#05DF72',
+  'web-development': '#34D399',
+  'research': '#6EE7B7',
   'automation': '#14B8A6',
 };
 
