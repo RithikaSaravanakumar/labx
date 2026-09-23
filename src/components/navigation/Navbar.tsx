@@ -175,32 +175,14 @@ export default function Navbar() {
         />
 
         <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative z-10">
-          {/* 1. Official LabX Logo with Ambient Glow Anchor */}
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: -8, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center"
           >
-            {/* Desktop: lg (52px) | Tablet: md (44px) | Mobile: sm (36px) */}
-            <LabXLogo
-              size="lg"
-              linkToHome
-              showGlow
-              className="hidden lg:inline-flex"
-            />
-            <LabXLogo
-              size="md"
-              linkToHome
-              showGlow
-              className="hidden sm:inline-flex lg:hidden"
-            />
-            <LabXLogo
-              size="sm"
-              linkToHome
-              showGlow
-              className="inline-flex sm:hidden"
-            />
+            {/* Same size/style as footer logo: md (44px) with green glow */}
+            <LabXLogo size="md" linkToHome showGlow />
           </motion.div>
 
           {/* 2. Desktop Primary Navigation */}
