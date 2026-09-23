@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Bell, Menu, X, Zap } from 'lucide-react';
+import { Search, Bell, Menu, X } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { NAV_ITEMS } from '../../constants';
+import LabXLogo from '../brand/LabXLogo';
 
 export default function Navbar() {
   const { currentUser, notificationCount, setSearchOpen } = useApp();
@@ -17,15 +18,8 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-labx-bg/80 backdrop-blur-xl border-b border-labx-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group" aria-label="LabX Home">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-labx-violet to-labx-cyan flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-lg font-bold text-labx-text tracking-tight">
-                Lab<span className="labx-gradient-text">X</span>
-              </span>
-            </Link>
+            {/* Official LabX Logo */}
+            <LabXLogo size={32} linkToHome animated />
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1">
@@ -33,11 +27,10 @@ export default function Navbar() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isActive(item.path)
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive(item.path)
                       ? 'text-labx-violet bg-labx-violet/10'
                       : 'text-labx-text-secondary hover:text-labx-text hover:bg-labx-surface'
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -110,11 +103,10 @@ export default function Navbar() {
                   key={item.path}
                   to={item.path}
                   onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive(item.path)
+                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive(item.path)
                       ? 'text-labx-violet bg-labx-violet/10'
                       : 'text-labx-text-secondary hover:text-labx-text hover:bg-labx-surface'
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </Link>

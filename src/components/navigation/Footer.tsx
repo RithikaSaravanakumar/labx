@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Zap, GitBranch, MessageCircle } from 'lucide-react';
+import { GitBranch, MessageCircle } from 'lucide-react';
+import LabXLogo from '../brand/LabXLogo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,6 +9,7 @@ export default function Footer() {
     {
       title: 'Product',
       links: [
+        { label: 'About LabX', path: '/about' },
         { label: 'Discover', path: '/discover' },
         { label: 'Projects', path: '/projects' },
         { label: 'Startups', path: '/startups' },
@@ -24,10 +26,10 @@ export default function Footer() {
       ],
     },
     {
-      title: 'Resources',
+      title: 'Innovation Hub',
       links: [
-        { label: 'Dashboard', path: '/dashboard' },
-        { label: 'Profile', path: '/profile' },
+        { label: 'Your Dashboard', path: '/dashboard' },
+        { label: 'Proof of Work', path: '/profile' },
         { label: 'Settings', path: '/settings' },
         { label: 'Community', path: '/community' },
       ],
@@ -40,17 +42,12 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-labx-violet to-labx-cyan flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-lg font-bold text-labx-text">
-                Lab<span className="labx-gradient-text">X</span>
-              </span>
-            </Link>
-            <p className="text-sm text-labx-text-muted mb-4 leading-relaxed">
-              Discover. Build. Contribute. Grow.<br />
-              Where ideas become products and contributions become opportunities.
+            <div className="mb-4">
+              <LabXLogo size={32} linkToHome animated />
+            </div>
+            <p className="text-xs text-labx-text-muted mb-4 leading-relaxed">
+              <strong className="text-labx-text font-semibold uppercase tracking-wider block mb-1">Build What Matters.</strong>
+              Where ideas, people, and opportunities come together. Your work becomes your reputation.
             </p>
             <div className="flex gap-3">
               <a href="#" className="p-2 rounded-lg bg-labx-surface text-labx-text-muted hover:text-labx-text transition-colors" aria-label="GitHub">
