@@ -264,7 +264,7 @@ export default function SignupPage() {
           {step === 3 && (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-labx-purple uppercase tracking-wider">
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
                   Step 3 &bull; Domains & Tech
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -360,14 +360,14 @@ export default function SignupPage() {
               type="button"
               disabled={isSubmitting}
               onClick={handleNext}
-              className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-labx-violet to-labx-purple hover:brightness-110 active:scale-[0.99] flex items-center gap-2 shadow-lg shadow-labx-violet/20 disabled:opacity-60"
+              className="px-5 py-2.5 rounded-xl text-xs font-black text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.99] flex items-center gap-2 shadow-lg shadow-emerald-500/25 disabled:opacity-60"
             >
               {isSubmitting ? (
-                <div className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
+                <div className="w-4 h-4 rounded-full border-2 border-black border-t-transparent animate-spin" />
               ) : step === 4 ? (
                 <>
                   <span>Complete Setup &amp; Enter LabX</span>
-                  <Sparkles className="w-4 h-4 text-labx-cyan" />
+                  <Sparkles className="w-4 h-4 text-black" />
                 </>
               ) : (
                 <>

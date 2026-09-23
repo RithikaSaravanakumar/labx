@@ -48,7 +48,7 @@ export default function DashboardPage() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
     >
       {/* Welcome Banner */}
-      <div className="labx-card p-6 sm:p-8 mb-8 relative overflow-hidden bg-gradient-to-r from-labx-violet/20 via-purple-900/10 to-labx-card">
+      <div className="labx-card p-6 sm:p-8 mb-8 relative overflow-hidden bg-gradient-to-r from-emerald-500/20 via-teal-900/10 to-labx-card">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold text-labx-violet mb-2">

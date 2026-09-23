@@ -18,7 +18,7 @@ export default function SavedItemsPage() {
       case 'startup': return <Rocket className="w-4 h-4 text-labx-cyan" />;
       case 'mentor': return <Users className="w-4 h-4 text-labx-success" />;
       case 'opportunity': return <Award className="w-4 h-4 text-labx-warning" />;
-      case 'idea': return <Lightbulb className="w-4 h-4 text-labx-purple" />;
+      case 'idea': return <Lightbulb className="w-4 h-4 text-emerald-400" />;
       default: return <Bookmark className="w-4 h-4 text-labx-violet" />;
     }
   };
@@ -38,7 +38,7 @@ export default function SavedItemsPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
       <div className="border-b border-labx-border/80 pb-6">
-        <span className="text-xs font-bold text-labx-purple uppercase tracking-wider">
+        <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
           Bookmarks
         </span>
         <h1 className="text-3xl font-black text-labx-text tracking-tight mt-1">

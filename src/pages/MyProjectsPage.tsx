@@ -33,7 +33,7 @@ export default function MyProjectsPage() {
 
         <Link
           to="/build"
-          className="px-4 py-2.5 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-labx-violet to-labx-purple hover:brightness-110 flex items-center gap-2 shadow-lg shadow-labx-violet/20"
+          className="px-4 py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-2 shadow-lg shadow-emerald-500/25"
         >
           <Plus className="w-4 h-4" />
           <span>Turn Idea Into Reality</span>

@@ -42,8 +42,8 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-purple/40 transition-all">
-          <div className="w-10 h-10 rounded-xl bg-labx-purple/10 border border-labx-purple/20 flex items-center justify-center text-labx-purple mb-4">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-emerald-400/50 transition-all">
+          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[#00FF87] mb-4">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <h2 className="text-lg font-bold text-labx-text mb-2">Reputation Engine</h2>
@@ -68,7 +68,7 @@ export default function AboutPage() {
           <div className="pt-2 flex flex-wrap gap-3">
             <Link
               to="/discover"
-              className="px-4 py-2.5 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-labx-violet to-labx-purple hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-labx-violet/20"
+              className="px-4 py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-emerald-500/25"
             >
               <span>Explore Ecosystem</span>
               <ArrowRight className="w-3.5 h-3.5" />

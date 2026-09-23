@@ -68,10 +68,10 @@ function MagneticNavLink({
       <Link
         to={to}
         aria-current={isActive ? 'page' : undefined}
-        className={`relative inline-flex items-center px-3.5 py-2 rounded-xl text-[14px] xl:text-[15px] font-semibold tracking-wider uppercase transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet/70 ${
+        className={`relative inline-flex items-center px-3.5 py-2 rounded-xl text-[14px] xl:text-[15px] font-semibold tracking-wider uppercase transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
           isActive
-            ? 'text-white drop-shadow-[0_0_12px_rgba(124,58,237,0.6)]'
-            : 'text-zinc-400 hover:text-white hover:-translate-y-0.5'
+            ? 'text-white drop-shadow-[0_0_12px_rgba(0,255,135,0.7)]'
+            : 'text-zinc-400 hover:text-[#00FF87] hover:-translate-y-0.5'
         }`}
       >
         {/* Subtle hover background highlight */}
@@ -84,7 +84,7 @@ function MagneticNavLink({
         {isActive && (
           <motion.div
             layoutId="navbar-active-indicator"
-            className="absolute -bottom-1 left-2.5 right-2.5 h-[2.5px] rounded-full bg-gradient-to-r from-emerald-500 via-green-400 to-teal-400 shadow-[0_0_14px_rgba(0,255,135,0.9)]"
+            className="absolute -bottom-1 left-2.5 right-2.5 h-[2.5px] rounded-full bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] shadow-[0_0_14px_rgba(0,255,135,0.95)]"
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
           />
         )}
@@ -162,15 +162,15 @@ export default function Navbar() {
         onMouseLeave={handleNavMouseLeave}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'h-[68px] md:h-[72px] bg-[#030704]/90 backdrop-blur-[20px] border-b border-emerald-500/20 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.85)]'
-            : 'h-20 md:h-[84px] bg-[#030704]/65 backdrop-blur-[16px] border-b border-emerald-500/10'
+            ? 'h-[68px] md:h-[72px] bg-[#040705]/94 backdrop-blur-[20px] border-b border-emerald-500/20 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.9)]'
+            : 'h-20 md:h-[84px] bg-[#040705]/80 backdrop-blur-[16px] border-b border-emerald-500/10'
         }`}
       >
-        {/* Subtle Interactive Ambient Light Follow */}
+        {/* Subtle Interactive Ambient Light Follow (Green) */}
         <div
           className="pointer-events-none absolute inset-0 transition-opacity duration-300 opacity-60 hidden md:block"
           style={{
-            background: `radial-gradient(450px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 255, 135, 0.08), transparent 80%)`,
+            background: `radial-gradient(450px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 255, 135, 0.12), transparent 80%)`,
           }}
         />
 
@@ -183,8 +183,8 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <div className="relative group flex items-center">
-              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-emerald-500/30 via-teal-500/15 to-emerald-400/25 blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <LabXLogo size={36} linkToHome animated />
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-emerald-500/35 via-teal-500/20 to-emerald-400/25 blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <LabXLogo size="lg" linkToHome animated />
             </div>
           </motion.div>
 
@@ -220,12 +220,12 @@ export default function Navbar() {
             {/* Command Center Shortcut Button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-labx-violet/50 text-zinc-400 hover:text-white transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet"
+              className="group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-zinc-400 hover:text-white transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               aria-label="Open Command Center (Ctrl+K)"
             >
-              <Search className="w-3.5 h-3.5 text-zinc-400 group-hover:text-labx-cyan transition-colors" />
+              <Search className="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#00FF87] transition-colors" />
               <span className="hidden xl:inline text-xs font-medium">Command</span>
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 text-[10px] font-mono font-semibold bg-black/40 text-labx-violet px-1.5 py-0.5 rounded border border-white/10 group-hover:border-labx-violet/40 transition-colors">
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 text-[10px] font-mono font-semibold bg-black/40 text-[#00FF87] px-1.5 py-0.5 rounded border border-white/10 group-hover:border-emerald-400/40 transition-colors">
                 <span>⌘</span>
                 <span>K</span>
               </kbd>
@@ -235,14 +235,14 @@ export default function Navbar() {
             {isAuthenticated && (
               <Link
                 to="/notifications"
-                className="relative p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.05] border border-transparent hover:border-white/10 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet"
+                className="relative p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.05] border border-transparent hover:border-white/10 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 aria-label={`Notifications (${notificationCount} unread)`}
               >
                 <Bell className="w-4 h-4" />
                 {notificationCount > 0 && (
                   <span className="absolute top-1.5 right-1.5 flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-labx-cyan opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-labx-cyan" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF87] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00FF87]" />
                   </span>
                 )}
               </Link>
@@ -254,7 +254,7 @@ export default function Navbar() {
                 {/* Desktop Quick Action */}
                 <Link
                   to="/dashboard"
-                  className="hidden xl:inline-flex group relative items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wider uppercase text-white bg-gradient-to-r from-labx-violet/70 to-purple-600/70 hover:from-labx-violet hover:to-purple-600 border border-white/10 hover:border-labx-violet/50 transition-all duration-200 shadow-sm shadow-labx-violet/20"
+                  className="hidden xl:inline-flex group relative items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-black tracking-wider uppercase text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 border border-emerald-400/40 transition-all duration-200 shadow-md shadow-emerald-500/25"
                 >
                   <span>Open Hub</span>
                   <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" />
@@ -264,7 +264,7 @@ export default function Navbar() {
                 <div className="relative">
                   <button
                     onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
-                    className="relative flex items-center rounded-full p-0.5 ring-2 ring-white/10 hover:ring-labx-violet/60 hover:scale-105 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet"
+                    className="relative flex items-center rounded-full p-0.5 ring-2 ring-white/10 hover:ring-emerald-400/60 hover:scale-105 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                     aria-label="User profile and navigation menu"
                     aria-expanded={profileDropdownOpen}
                   >
@@ -273,7 +273,7 @@ export default function Navbar() {
                       alt={user.name}
                       className="w-8 h-8 rounded-full object-cover border border-white/10"
                     />
-                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#05070f]" />
+                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#00FF87] ring-2 ring-[#05070f]" />
                   </button>
 
                   {/* Profile Glass Menu */}
@@ -284,17 +284,17 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.18, ease: 'easeOut' }}
-                        className="absolute right-0 mt-3 w-64 rounded-2xl bg-[#0b0f19]/95 backdrop-blur-2xl border border-white/10 shadow-2xl py-2 z-50 overflow-hidden"
+                        className="absolute right-0 mt-3 w-64 rounded-2xl bg-[#070D09]/98 backdrop-blur-2xl border border-emerald-500/20 shadow-2xl py-2 z-50 overflow-hidden"
                       >
                         {/* User Identity Header */}
                         <div className="px-4 py-3 border-b border-white/[0.08] bg-white/[0.02]">
                           <div className="flex items-center gap-2">
                             <p className="text-xs font-bold text-white truncate">{user.name}</p>
-                            <span className="text-[10px] font-bold text-labx-violet bg-labx-violet/10 border border-labx-violet/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            <span className="text-[10px] font-bold text-[#00FF87] bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full uppercase tracking-wider">
                               {user.role}
                             </span>
                           </div>
-                          <p className="text-[11px] text-labx-cyan font-mono mt-0.5">
+                          <p className="text-[11px] text-emerald-400 font-mono mt-0.5">
                             +{user.labxPoints} pts &bull; Level {user.level}
                           </p>
                         </div>
@@ -303,42 +303,42 @@ export default function Navbar() {
                         <div className="py-1">
                           <Link
                             to="/dashboard"
-                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-emerald-500/10 transition-colors"
                           >
-                            <LayoutDashboard className="w-3.5 h-3.5 text-labx-violet" />
+                            <LayoutDashboard className="w-3.5 h-3.5 text-[#00FF87]" />
                             <span>Innovation Hub</span>
                           </Link>
                           <Link
                             to="/profile"
-                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-emerald-500/10 transition-colors"
                           >
-                            <UserIcon className="w-3.5 h-3.5 text-labx-cyan" />
+                            <UserIcon className="w-3.5 h-3.5 text-emerald-400" />
                             <span>Proof of Work</span>
                           </Link>
                           <Link
                             to="/my-projects"
-                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-emerald-500/10 transition-colors"
                           >
-                            <FolderGit2 className="w-3.5 h-3.5 text-pink-400" />
+                            <FolderGit2 className="w-3.5 h-3.5 text-[#34D399]" />
                             <span>My Builds &amp; Projects</span>
                           </Link>
                           <Link
                             to="/my-applications"
-                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-emerald-500/10 transition-colors"
                           >
-                            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                            <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
                             <span>My Applications</span>
                           </Link>
                           <Link
                             to="/saved"
-                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-emerald-500/10 transition-colors"
                           >
-                            <Bookmark className="w-3.5 h-3.5 text-purple-400" />
+                            <Bookmark className="w-3.5 h-3.5 text-[#00FF87]" />
                             <span>Saved Artifacts</span>
                           </Link>
                           <Link
                             to="/settings"
-                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] transition-colors"
+                            className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-zinc-300 hover:text-white hover:bg-emerald-500/10 transition-colors"
                           >
                             <Settings className="w-3.5 h-3.5 text-zinc-400" />
                             <span>Settings</span>
@@ -365,13 +365,13 @@ export default function Navbar() {
               <div className="flex items-center gap-2 sm:gap-3">
                 <Link
                   to="/login"
-                  className="px-3 py-1.5 text-xs sm:text-[14px] font-semibold text-zinc-400 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet"
+                  className="px-3 py-1.5 text-xs sm:text-[14px] font-semibold text-zinc-400 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 >
                   Log In
                 </Link>
                 <Link
                   to="/signup"
-                  className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-bold tracking-wider uppercase text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.98] transition-all duration-300 shadow-md shadow-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/50 border border-emerald-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                  className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13px] font-black tracking-wider uppercase text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.98] transition-all duration-300 shadow-md shadow-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/50 border border-emerald-400/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 >
                   <span>Start Building</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -382,7 +382,7 @@ export default function Navbar() {
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.06] border border-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="lg:hidden p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-emerald-500/10 border border-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileOpen}
             >
@@ -393,7 +393,7 @@ export default function Navbar() {
 
         {/* Scroll Progress Indicator Bar */}
         <div
-          className="absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-emerald-500 via-green-400 to-teal-400 shadow-[0_0_8px_#00FF87] transition-all duration-75 pointer-events-none"
+          className="absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] shadow-[0_0_8px_#00FF87] transition-all duration-75 pointer-events-none"
           style={{ width: `${scrollProgress}%` }}
         />
       </header>
@@ -406,7 +406,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="fixed inset-x-0 top-16 md:top-20 z-40 lg:hidden bg-[#030704]/95 backdrop-blur-2xl border-b border-emerald-500/20 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto p-5 space-y-5"
+            className="fixed inset-x-0 top-16 md:top-20 z-40 lg:hidden bg-[#040705]/96 backdrop-blur-2xl border-b border-emerald-500/20 shadow-2xl max-h-[calc(100vh-4rem)] overflow-y-auto p-5 space-y-5"
           >
             {/* Quick Command Trigger */}
             <button
@@ -417,7 +417,7 @@ export default function Navbar() {
               className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-zinc-300 text-xs font-semibold"
             >
               <div className="flex items-center gap-2.5">
-                <Search className="w-4 h-4 text-labx-cyan" />
+                <Search className="w-4 h-4 text-[#00FF87]" />
                 <span>Search projects, mentors, startups...</span>
               </div>
               <kbd className="text-[10px] bg-black/40 px-2 py-0.5 rounded border border-white/10">⌘K</kbd>
@@ -515,7 +515,7 @@ export default function Navbar() {
                   </Link>
                   <Link
                     to="/signup"
-                    className="block text-center py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-labx-violet via-purple-600 to-indigo-600 shadow-md shadow-labx-violet/30"
+                    className="block text-center py-3 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] shadow-md shadow-emerald-500/30 hover:brightness-110"
                   >
                     Start Building →
                   </Link>

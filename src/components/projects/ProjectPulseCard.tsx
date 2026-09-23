@@ -78,7 +78,7 @@ export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
           </div>
           <div className="h-2 bg-labx-bg rounded-full overflow-hidden p-0.5 border border-labx-border/30">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-labx-violet via-purple-500 to-labx-cyan transition-all duration-500"
+              className="h-full rounded-full bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] transition-all duration-500"
               style={{ width: `${project.progress}%` }}
             />
           </div>

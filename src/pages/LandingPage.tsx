@@ -75,20 +75,20 @@ export default function LandingPage() {
               >
                 <Link
                   to="/signup"
-                  className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-extrabold text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50"
+                  className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50"
                 >
                   <span>Start Building</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/discover"
-                  className="px-6 py-3.5 rounded-xl bg-[#0D1911] border border-emerald-500/30 text-white font-bold text-sm hover:border-emerald-400 hover:bg-emerald-500/10 transition-all shadow-sm"
+                  className="px-6 py-3.5 rounded-xl bg-white/[0.04] border border-white/15 text-white font-bold text-sm hover:border-emerald-400/60 hover:bg-emerald-500/10 transition-all shadow-sm"
                 >
                   Explore Ecosystem
                 </Link>
                 <Link
                   to="/projects"
-                  className="px-6 py-3.5 rounded-xl text-emerald-400/90 hover:text-white font-semibold text-sm transition-colors"
+                  className="px-6 py-3.5 rounded-xl text-zinc-300 hover:text-[#00FF87] font-semibold text-sm transition-colors"
                 >
                   See What&apos;s Being Built &rarr;
                 </Link>
@@ -178,7 +178,7 @@ export default function LandingPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-12" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-labx-text mb-4">See what's being built</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-labx-text mb-4 uppercase tracking-tight">What's Being Built</h2>
             <p className="text-labx-text-secondary">Real projects by real builders, right now</p>
           </motion.div>
           <motion.div
@@ -297,8 +297,8 @@ export default function LandingPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div className="text-center mb-12" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-labx-text mb-4">
-              Find people who move your idea forward
+            <h2 className="text-3xl sm:text-4xl font-black text-labx-text mb-4 uppercase tracking-tight">
+              Learn From Those Who've Built Before
             </h2>
             <p className="text-labx-text-secondary">Mentors matched to your project, not just your search query</p>
           </motion.div>
@@ -405,7 +405,7 @@ export default function LandingPage() {
             </p>
             <Link
               to="/signup"
-              className="inline-flex items-center gap-2 px-9 py-3.5 rounded-xl bg-gradient-to-r from-labx-violet to-labx-purple text-white font-bold text-base hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-labx-violet/25"
+              className="inline-flex items-center gap-2 px-9 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-base hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50"
             >
               <span>Start Building</span>
               <ArrowRight className="w-5 h-5" />

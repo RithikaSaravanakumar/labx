@@ -67,7 +67,7 @@ export default function ProfilePage() {
     >
       {/* Header Profile Card */}
       <div className="labx-card p-6 sm:p-8 mb-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-labx-violet/10 via-purple-500/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/15 via-teal-500/5 to-transparent pointer-events-none" />
 
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">

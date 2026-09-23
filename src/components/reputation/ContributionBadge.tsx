@@ -17,10 +17,10 @@ export default function ContributionBadge({ achievement }: ContributionBadgeProp
         };
       case 'epic':
         return {
-          bg: 'bg-purple-500/10',
-          border: 'border-purple-500/40',
-          text: 'text-purple-400',
-          badgeBg: 'bg-purple-500/20 text-purple-300',
+          bg: 'bg-emerald-500/10',
+          border: 'border-emerald-500/40',
+          text: 'text-[#00FF87]',
+          badgeBg: 'bg-emerald-500/20 text-[#00FF87]',
         };
       case 'rare':
         return {

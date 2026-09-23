@@ -106,7 +106,7 @@ export default function ResetPasswordPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-2.5 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-labx-violet to-labx-purple hover:brightness-110 active:scale-[0.99] transition-all shadow-md shadow-labx-violet/20 flex items-center justify-center gap-1.5 disabled:opacity-60"
+              className="w-full py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.99] transition-all shadow-md shadow-emerald-500/25 flex items-center justify-center gap-1.5 disabled:opacity-60"
             >
               <span>Update Password</span>
               <ArrowRight className="w-3.5 h-3.5" />

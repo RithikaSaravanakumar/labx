@@ -35,7 +35,7 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
   return (
     <div className="space-y-6">
       {onNewUpdateClick && (
-        <div className="labx-card p-4 flex items-center justify-between bg-gradient-to-r from-labx-violet/10 via-purple-500/5 to-labx-cyan/10 border-labx-violet/30">
+        <div className="labx-card p-4 flex items-center justify-between bg-gradient-to-r from-emerald-500/15 via-teal-500/5 to-emerald-500/10 border-emerald-500/30">
           <div>
             <h4 className="text-sm font-bold text-labx-text">Building something today?</h4>
             <p className="text-xs text-labx-text-muted">Share your progress log to earn LabX points and level up.</p>

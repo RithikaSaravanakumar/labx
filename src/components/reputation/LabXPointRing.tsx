@@ -45,9 +45,9 @@ export default function LabXPointRing({ points, level, size = 140, strokeWidth =
         />
         <defs>
           <linearGradient id="gradient-ring" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#10B981" />
-            <stop offset="50%" stopColor="#00FF87" />
-            <stop offset="100%" stopColor="#14B8A6" />
+            <stop offset="0%" stopColor="#00FF87" />
+            <stop offset="50%" stopColor="#10B981" />
+            <stop offset="100%" stopColor="#34D399" />
           </linearGradient>
         </defs>
       </svg>
@@ -56,7 +56,7 @@ export default function LabXPointRing({ points, level, size = 140, strokeWidth =
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <span className="text-[10px] uppercase font-mono tracking-wider text-labx-text-muted">Level</span>
         <span className="text-2xl font-extrabold text-labx-text font-mono">{level}</span>
-        <span className="text-[11px] font-bold text-labx-violet">{points} pts</span>
+        <span className="text-[11px] font-bold text-[#00FF87]">{points} pts</span>
       </div>
     </div>
   );

@@ -1,39 +1,45 @@
 @import "tailwindcss";
 
-/* ===== LabX Design System — Green & Black Cyber Theme ===== */
+/* ===== LabX Design System — Pure Cyber Green & Obsidian Black ===== */
 @theme {
-  /* Backgrounds: Deep Obsidian & Cyber Black */
-  --color-labx-bg: #030704;
-  --color-labx-bg-secondary: #070E09;
-  --color-labx-surface: #0D1911;
-  --color-labx-surface-hover: #122419;
-  --color-labx-border: #183624;
-  --color-labx-border-light: #122A1C;
+  /* Backgrounds: Deep Obsidian Black */
+  --color-labx-bg: #040705;
+  --color-labx-bg-secondary: #070D09;
+  --color-labx-bg-tertiary: #0B140E;
 
-  /* Accent Colors: Electric Emerald, Neon Mint & Cyber Jade */
-  --color-labx-violet: #10B981;
+  /* Surfaces: Dark Obsidian Glass */
+  --color-labx-surface: #0D1711;
+  --color-labx-surface-hover: #122018;
+  --color-labx-surface-elevated: #16271E;
+  --color-labx-border: #16291C;
+  --color-labx-border-light: #0F1E14;
+
+  /* Cyber Green Palette — All purple shades replaced by harmonious green tiers */
+  --color-labx-green: #00FF87;
+  --color-labx-green-light: #6EE7B7;
+  --color-labx-green-dark: #059669;
+  --color-labx-emerald: #10B981;
+  --color-labx-mint: #34D399;
+
+  /* Aliasing violet/purple/cyan to our cyber green palette for 100% theme consistency */
+  --color-labx-violet: #00FF87;
   --color-labx-violet-light: #34D399;
-  --color-labx-purple: #059669;
+  --color-labx-violet-dark: #059669;
+  --color-labx-purple: #10B981;
   --color-labx-cyan: #00FF87;
   --color-labx-cyan-light: #6EE7B7;
   --color-labx-lavender: #A7F3D0;
-
-  /* Explicit Green Palette Tokens */
-  --color-labx-green: #10B981;
-  --color-labx-emerald: #05DF72;
-  --color-labx-neon: #00FF87;
-  --color-labx-mint: #34D399;
-  --color-labx-obsidian: #030704;
+  --color-labx-warm: #10B981;
 
   /* Semantic */
-  --color-labx-success: #10B981;
+  --color-labx-success: #00FF87;
   --color-labx-warning: #F59E0B;
   --color-labx-error: #EF4444;
 
-  /* Text: Luminous Mint & Soft Emerald White */
-  --color-labx-text: #F0FDF4;
-  --color-labx-text-secondary: #86A892;
-  --color-labx-text-muted: #52755E;
+  /* Text: Clean White & Luminous Slate */
+  --color-labx-text: #FFFFFF;
+  --color-labx-text-secondary: #94A3B8;
+  --color-labx-text-muted: #64748B;
 
   /* Typography */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -46,11 +52,11 @@
 
   /* Animations */
   --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-  --animate-orbit: orbit 20s linear infinite;
-  --animate-spin-slow: spin-slow 24s linear infinite;
-  --animate-fade-in: fade-in 0.5s ease-out;
-  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-pulse-glow: pulse-glow 2.5s ease-in-out infinite;
+  --animate-orbit: orbit 24s linear infinite;
+  --animate-spin-slow: spin-slow 28s linear infinite;
+  --animate-fade-in: fade-in 0.4s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
 
   /* Border Radius */
   --radius-2xl: 1rem;
@@ -60,12 +66,12 @@
 /* ===== Keyframes ===== */
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(1deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.35; filter: drop-shadow(0 0 15px rgba(0, 255, 135, 0.4)); }
-  50% { opacity: 0.9; filter: drop-shadow(0 0 35px rgba(0, 255, 135, 0.8)); }
+  0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 15px rgba(0, 255, 135, 0.35)); }
+  50% { opacity: 0.9; filter: drop-shadow(0 0 35px rgba(0, 255, 135, 0.7)); }
 }
 
 @keyframes orbit {
@@ -84,13 +90,8 @@
 }
 
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes matrix-scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
 }
 
 /* ===== Base Styles ===== */
@@ -107,8 +108,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #030704;
-  color: #F0FDF4;
+  background-color: #040705;
+  color: #FFFFFF;
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -122,27 +123,27 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #030704;
+  background: #040705;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #183624;
+  background: #111E16;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #10B981;
+  background: #00FF87;
 }
 
 /* ===== Selection ===== */
 ::selection {
   background: rgba(0, 255, 135, 0.3);
-  color: #F0FDF4;
+  color: #FFFFFF;
 }
 
 /* ===== Focus ===== */
 :focus-visible {
-  outline: 2px solid #10B981;
+  outline: 2px solid #00FF87;
   outline-offset: 2px;
 }
 
@@ -158,37 +159,46 @@ body {
   }
 }
 
-/* ===== Utility Classes: Green & Black Cyber Aesthetics ===== */
+/* ===== Utility Classes: Green & Black Aesthetics ===== */
 .labx-gradient-text {
-  background: linear-gradient(135deg, #10B981 0%, #00FF87 50%, #34D399 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #6EE7B7 40%, #00FF87 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(0, 255, 135, 0.3));
+  filter: drop-shadow(0 0 25px rgba(0, 255, 135, 0.35));
 }
 
 .labx-gradient-bg {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(0, 255, 135, 0.1), rgba(52, 211, 153, 0.04));
+  background: linear-gradient(135deg, rgba(0, 255, 135, 0.12), rgba(16, 185, 129, 0.08), rgba(52, 211, 153, 0.04));
 }
 
-.labx-glow-violet {
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.25), 0 0 70px rgba(0, 255, 135, 0.12);
-}
-
+.labx-glow-green,
+.labx-glow-violet,
 .labx-glow-cyan {
-  box-shadow: 0 0 25px rgba(0, 255, 135, 0.35), 0 0 70px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 25px rgba(0, 255, 135, 0.3), 0 0 70px rgba(0, 255, 135, 0.12);
 }
 
-.labx-card {
-  background: #0D1911;
-  border: 1px solid #183624;
-  border-radius: 0.75rem;
-  transition: all 0.3s ease;
+/* ===== Interactive Card with Subtle Halo Lighting on Hover ===== */
+.labx-card,
+[class*="labx-card"] {
+  background: #0A120D;
+  border: 1px solid #16291C;
+  border-radius: 0.85rem;
+  position: relative;
+  transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.labx-card:hover {
-  border-color: rgba(0, 255, 135, 0.4);
-  box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);
+.labx-card:hover,
+[class*="labx-card"]:hover {
+  border-color: rgba(0, 255, 135, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 135, 0.3),
+    0 0 30px rgba(0, 255, 135, 0.25),
+    0 0 60px rgba(0, 255, 135, 0.1),
+    0 16px 40px -10px rgba(0, 0, 0, 0.9);
+  transform: translateY(-3px);
 }
 
 /* ===== 3D Spatial Transforms ===== */
@@ -208,24 +218,10 @@ body {
   perspective: 1500px;
 }
 
-/* ===== Cyber Matrix Grid Bg ===== */
+/* ===== Grid Bg Pattern ===== */
 .labx-grid-bg {
   background-image:
-    linear-gradient(rgba(24, 54, 36, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(24, 54, 36, 0.35) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-
-/* ===== 3D Perspective Cyber Plane Floor ===== */
-.cyber-plane-3d {
-  position: absolute;
-  inset: -100px -200px;
-  background-image:
-    linear-gradient(rgba(0, 255, 135, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 135, 0.18) 1px, transparent 1px);
-  background-size: 40px 40px;
-  transform: perspective(600px) rotateX(65deg) translateY(-20px);
-  transform-origin: center top;
-  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
-  pointer-events: none;
+    linear-gradient(rgba(0, 255, 135, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 135, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
