@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { User, OnboardingData } from '../types';
-import { userService } from '../services';
+import { useAuth } from './AuthContext';
 
 interface AppContextType {
   currentUser: User | null;
@@ -17,19 +17,11 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const { user, isLoading: authLoading } = useAuth();
   const [onboardingData, setOnboardingData] = useState<OnboardingData>({ role: null, interests: [] });
   const [isOnboarded, setIsOnboarded] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationCount] = useState(3);
-
-  useEffect(() => {
-    userService.getCurrentUser().then(user => {
-      setCurrentUser(user);
-      setIsLoading(false);
-    });
-  }, []);
 
   // Global keyboard shortcut for search
   useEffect(() => {
@@ -49,8 +41,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return (
     <AppContext.Provider
       value={{
-        currentUser,
-        isLoading,
+        currentUser: user,
+        isLoading: authLoading,
         onboardingData,
         setOnboardingData,
         isOnboarded,
