@@ -9,6 +9,7 @@ import './index.css';
 
 // Lazy-loaded public pages
 const LandingPage = lazy(() => import('./pages/LandingPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 const DiscoverPage = lazy(() => import('./pages/DiscoverPage'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const ProjectDetailPage = lazy(() => import('./pages/ProjectDetailPage'));
@@ -34,6 +35,9 @@ const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 const BuildPage = lazy(() => import('./pages/BuildPage'));
 const NotificationsPage = lazy(() => import('./pages/NotificationsPage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const MyProjectsPage = lazy(() => import('./pages/MyProjectsPage'));
+const MyApplicationsPage = lazy(() => import('./pages/MyApplicationsPage'));
+const SavedItemsPage = lazy(() => import('./pages/SavedItemsPage'));
 
 function PageLoader() {
   return (
@@ -59,6 +63,7 @@ function App() {
               <Route element={<MainLayout />}>
                 {/* Public Discovery Routes */}
                 <Route path="/" element={<LandingPage />} />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path="/discover" element={<DiscoverPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/projects/:id" element={<ProjectDetailPage />} />
@@ -86,6 +91,9 @@ function App() {
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/notifications" element={<NotificationsPage />} />
                   <Route path="/settings" element={<SettingsPage />} />
+                  <Route path="/my-projects" element={<MyProjectsPage />} />
+                  <Route path="/my-applications" element={<MyApplicationsPage />} />
+                  <Route path="/saved" element={<SavedItemsPage />} />
                 </Route>
               </Route>
             </Routes>
