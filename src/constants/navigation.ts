@@ -25,10 +25,10 @@ export const LABX_NAVIGATION: NavigationGroup[] = [
     title: 'Explore',
     items: [
       { id: 'discover', label: 'Discover', icon: Compass, path: '/discover' },
-      { id: 'people', label: 'People', icon: Users, path: '/discover' },
-      { id: 'projects', label: 'Projects', icon: FolderGit2, path: '/projects' },
-      { id: 'startups', label: 'Startups', icon: Rocket, path: '/startups' },
-      { id: 'mentors', label: 'Mentors', icon: Award, path: '/mentors' },
+      { id: 'people', label: 'People', icon: Users, path: '/discover?tab=people' },
+      { id: 'projects', label: 'Projects', icon: FolderGit2, path: '/discover?tab=projects' },
+      { id: 'startups', label: 'Startups', icon: Rocket, path: '/discover?tab=startups' },
+      { id: 'mentors', label: 'Mentors', icon: Award, path: '/discover?tab=mentors' },
     ]
   },
   {

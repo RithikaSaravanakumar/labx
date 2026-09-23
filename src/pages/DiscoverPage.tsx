@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Search, Users } from 'lucide-react';
 import { projectService, startupService, mentorService, hackathonService, opportunityService, userService } from '../services';
@@ -20,7 +20,13 @@ const tabs: { value: Tab; label: string }[] = [
 ];
 
 export default function DiscoverPage() {
-  const [activeTab, setActiveTab] = useState<Tab>('projects');
+  const [searchParams, setSearchParams] = useSearchParams();
+  
+  const initialTab = (searchParams.get('tab') as Tab) || 'projects';
+  // Ensure the tab is valid
+  const validTab = tabs.find(t => t.value === initialTab) ? initialTab : 'projects';
+  
+  const [activeTab, setActiveTab] = useState<Tab>(validTab);
   const [search, setSearch] = useState('');
   const [projects, setProjects] = useState<Project[]>([]);
   const [startups, setStartups] = useState<Startup[]>([]);
@@ -76,7 +82,10 @@ export default function DiscoverPage() {
         {tabs.map(tab => (
           <button
             key={tab.value}
-            onClick={() => setActiveTab(tab.value)}
+            onClick={() => {
+              setActiveTab(tab.value);
+              setSearchParams({ tab: tab.value });
+            }}
             className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
               activeTab === tab.value
                 ? 'bg-[#00FF87] text-black shadow-md shadow-emerald-500/25'
