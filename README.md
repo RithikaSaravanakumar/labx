@@ -1,89 +1,119 @@
-# ⚡ ZeAI LabX — Realistic Innovation Ecosystem Platform
+# ⚡ LabX — The Innovation Ecosystem Platform
 
-> **LabX** is an end-to-end, production-quality frontend application prototype designed for the **ZeAI LabX Innovation Ecosystem**. 
-> It seamlessly bridges project discovery, build-in-public telemetry, proof-of-work builder portfolios, contextual AI mentor matching, startup traction tracking, and hackathon challenge sprints.
-
----
-
-## 🚀 Live Demo & Links
-
-- **Repository**: [https://github.com/RithikaSaravanakumar/labx](https://github.com/RithikaSaravanakumar/labx)
-- **Tech Stack**: React 19, TypeScript, Vite, Tailwind CSS, Framer Motion, Lucide React
+> **"BUILD WHAT MATTERS."**  
+> *Where ambitious people, bold ideas, and meaningful opportunities come together.*  
+> **"YOUR WORK BECOMES YOUR REPUTATION."**
 
 ---
 
-## ✨ Key Platform Pillars & Features
+## 🌐 Overview
+
+**LabX** is an end-to-end, production-grade innovation ecosystem frontend designed for high-velocity builders, founders, students, mentors, and investors. Built with React 19, TypeScript, Tailwind CSS, and Framer Motion, LabX bridges project discovery, build-in-public telemetry, proof-of-work builder portfolios, AI-powered mentor matching, and sprint hackathons into an interconnected workspace.
+
+- **GitHub Repository**: [https://github.com/RithikaSaravanakumar/labx](https://github.com/RithikaSaravanakumar/labx)
+- **CI/CD Status**: GitHub Actions Automated Lint, Unit Tests, and Production Build on every push to `main`.
+
+---
+
+## 🔑 Demo Access & Personas
+
+LabX comes equipped with a production-ready mock authentication service (`authService`) with instant one-click demo credentials across key ecosystem personas:
+
+| Persona | Email | Default Password | Role & Permissions |
+| :--- | :--- | :--- | :--- |
+| **Student** | `student@labx.demo` | `LabX@Demo123` | Learning, hackathons, open-source projects |
+| **Builder / Engineer** | `builder@labx.demo` | `LabX@Demo123` | Build-in-public feed, milestone proofs, reputation level ring |
+| **Founder** | `founder@labx.demo` | `LabX@Demo123` | Project publishing, venture pulse metrics, team recruitment |
+| **Mentor** | `mentor@labx.demo` | `LabX@Demo123` | Office hour bookings, mentoring sessions, code reviews |
+| **Investor** | `investor@labx.demo` | `LabX@Demo123` | Deal flow radar, startup traction metrics, funding requests |
+
+> **Self-Service Onboarding**: You can also use the interactive **4-step Signup Wizard** at `/signup` to register a bespoke profile with personalized role selection, skill tagging, and ecosystem goals. Password recovery workflows are simulated at `/forgot-password` and `/reset-password`.
+
+---
+
+## 🚀 Key Architectural Pillars
 
 ### 🌌 1. Innovation Orbit (Interactive Ecosystem Visualizer)
-- Animated interactive orbital visualization representing ecosystem personas: **Students, Developers, Builders, Founders, Startups, Mentors, Researchers, Investors, Creators**.
-- Real-time hover state breakdowns and contextual deep links to specific platform modules.
+- Dynamic circular visualization representing ecosystem personas: **Students, Developers, Builders, Founders, Startups, Mentors, Researchers, Investors, Creators**.
+- Full keyboard accessibility with `Tab` index navigation, live ARIA labels, and glowing active states.
 
-### 🔍 2. Discovery Hub & Command Search (`Ctrl+K`)
-- Multi-domain tabbed search across active projects, venture startups, verified mentors, sprint hackathons, and curated funding opportunities.
-- Global modal command search triggered via keyboard shortcut (`Ctrl+K` / `Cmd+K`) or header trigger.
+### 🔍 2. Global Command Search (`Ctrl+K` / `Cmd+K`)
+- Instant keyboard-driven palette allowing builders to jump directly to projects, startups, mentors, hackathons, and opportunities.
 
-### ⚡ 3. Proof-of-Work Reputation System & Heatmap
-- **LabX Level Ring (`LabXPointRing`)**: Animated SVG progress arc computing builder levels based on milestone contributions and build logs.
-- **Contribution Heatmap (`LabXContributionHeatmap`)**: 12-week verified public contribution activity grid tracking build log streaks.
-- **Rarity Achievement Badges (`ContributionBadge`)**: Glowing tier badges (Common, Rare, Epic, Legendary) for unlocked milestones.
+### ⚡ 3. Proof-of-Work Reputation System
+- **Level Progress Arc (`LabXPointRing`)**: Computes builder levels based on verified milestone contributions.
+- **Contribution Heatmap (`LabXContributionHeatmap`)**: 12-week public commit & build telemetry tracking streaks.
+- **Tiered Badges (`ContributionBadge`)**: Common, Rare, Epic, and Legendary proof-of-work badges.
 
-### 🛠️ 4. Build-in-Public Telemetry Feed
-- Real-time milestone update log where founders and engineers post progress logs, commit proofs, and milestone achievements.
-- Interactive reaction counters (🔥 Fire, 🚀 Rocket, ❤️ Heart) and build update publishing modal.
+### 🤖 4. AI Ecosystem Service (`aiService`)
+- **Contextual Mentor Matching**: Match scoring based on project tech stack, developer domain, and mentor availability.
+- **Skill Gap Analysis**: Analyzes builder goals vs target roles and recommends high-leverage projects and hackathons.
+- **Project Health Telemetry**: Algorithmic scoring of velocity, team completeness, build log frequency, and documentation.
 
-### 🤝 5. Contextual AI Mentor Match & Office Hours
-- Intelligent mentor matching based on project domain and technical stack requirements.
-- Seamless 30-minute office hour request booking flow with calendar scheduling.
-
-### 🏆 6. Sprint Hackathons & Opportunity Radar
-- Live 48-hour challenge sprints featuring prize pool banners, challenge track breakdowns, and team registration.
-- Curated opportunity directory featuring research residencies, grants, internships, and accelerator calls.
-
-### 💡 7. Early-Stage Ideation Vault
-- Unbuilt concept repository for early founders looking for feedback, community upvotes, and co-founder recruitment.
+### 🛠️ 5. Personal Builder Workspace
+- `/dashboard`: High-level metrics, active projects, application alerts, and quick actions.
+- `/my-projects`: Manage active repositories, update milestone proofs, and publish project updates.
+- `/my-applications`: Real-time status tracking for hackathon submissions, grant calls, and mentor bookings.
+- `/saved`: Bookmark and organize saved startups, research opportunities, and mentor profiles.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🧭 Application Route Sitemap
 
-- **Framework**: React 19 + Vite (TypeScript strict mode)
-- **Styling**: Tailwind CSS with custom `labx-*` design tokens (sleek dark mode, glassmorphism, dynamic glow accents)
-- **Animations**: Framer Motion (page transitions, orbital rotations, micro-interactions, modal overlays)
-- **Icons**: Lucide React
-- **Services & Data Layer**: Decoupled async Promise-based service layer (`src/services`) ready for production REST/GraphQL API wiring.
+### Public Discovery
+- `/` — Platform landing page with hero brand philosophy, Innovation Orbit, and featured tracks.
+- `/about` — Mission statement, operating principles, core differentiator, and leadership ecosystem.
+- `/discover` — Multi-domain unified search across all ecosystem entities.
+- `/projects` & `/projects/:id` — Public project showcase with telemetry, tech stacks, and team rosters.
+- `/startups` & `/startups/:id` — Venture directory with traction metrics, MRR growth, and angel scout requests.
+- `/mentors` & `/mentors/:id` — Verified expert directory with 30-minute office hour booking.
+- `/hackathons` & `/hackathons/:id` — Sprint challenges with prize pool breakdowns and submission guidelines.
+- `/ideas` — Early-stage ideation vault for community feedback and co-founder matching.
+- `/opportunities` — Curated grants, accelerator calls, research fellowships, and residencies.
+- `/community` — Community guidelines, discussion threads, and builder chapters.
+
+### Authentication & Onboarding
+- `/login` — Demo persona selector, email/password entry, and session persistence.
+- `/signup` — 4-Step onboarding wizard (Credentials -> Persona -> Skills & Interests -> Goal Alignment).
+- `/forgot-password` & `/reset-password` — Password recovery simulation.
+
+### Authenticated Builder Suite (Guarded via `ProtectedRoute`)
+- `/dashboard` — Unified mission control for builder telemetry.
+- `/my-projects` — Dedicated management hub for builder's created projects.
+- `/my-applications` — Status tracking for grants, internships, and hackathon teams.
+- `/saved` — Personal collection of bookmarked opportunities and mentors.
+- `/build` — Live build-in-public telemetry feed with reaction counters and milestone posting.
+- `/profile` — Public builder portfolio with heatmap and reputation badges.
+- `/settings` — Account settings, notification preferences, and privacy controls.
+- `/notifications` — Activity updates, application status changes, and mentor confirmations.
 
 ---
 
-## 📁 Project Folder Structure
+## 🛠️ Tech Stack & Engineering Standards
 
-```
-labx/
-├── .github/
-│   └── workflows/
-│       └── ci.yml               # GitHub Actions CI workflow
-├── src/
-│   ├── animations/              # Framer Motion transition variants
-│   ├── components/
-│   ├── build/                 # BuildJourneyTimeline
-│   ├── navigation/            # Navbar, Footer
-│   ├── mentors/               # ContextualMentorMatch
-│   ├── onboarding/            # OnboardingModal
-│   ├── opportunities/          # OpportunityRadar
-│   ├── projects/              # ProjectPulseCard
-│   ├── reputation/            # LabXPointRing, ContributionHeatmap, Badges
-│   ├── search/                # LabXCommandSearch (Ctrl+K)
-│   └── startups/              # StartupPulse
-│   ├── constants/               # Domain labels, colors, stage definitions
-│   ├── context/                 # AppContext global state provider
-│   ├── data/                    # Comprehensive mock data layer
-│   ├── layouts/                 # MainLayout with header, footer, modal search
-│   ├── pages/                   # Landing, Discover, Projects, ProjectDetail, Build, Profile, Dashboard, Mentors, MentorDetail, Startups, StartupDetail, Hackathons, HackathonDetail, Ideas, Opportunities, Community, Notifications, Settings
-│   ├── services/                # API-ready async service abstractions
-│   ├── types/                   # Strict TypeScript interfaces
-│   └── utils/                   # Formatting & helper utilities
-├── vercel.json                  # Single-page application route rewrites
-├── tailwind.config.js           # Custom LabX design tokens & theme configuration
-└── vite.config.ts               # Vite build configuration
+- **Core**: React 19, TypeScript strict mode, Vite 8
+- **Styling**: Tailwind CSS v4 with curated dark-palette design tokens (`#030712`, `#7c3aed`, `#06b6d4`, `#10b981`)
+- **Animation**: Framer Motion with automatic `prefers-reduced-motion` compliance
+- **Icons**: Lucide React + custom inline vector assets
+- **Branding**: Clean SVG typography wordmark (`Lab` + glowing violet `X` + handshake glyph)
+- **Testing**: Vitest, React Testing Library, JSDOM, `@testing-library/jest-dom`
+- **CI/CD**: GitHub Actions workflow running on Ubuntu (`lint`, `test`, `build`)
+
+---
+
+## 🧪 Testing & Verification
+
+LabX includes automated unit and integration tests covering the authentication service, session management, and branding components:
+
+```bash
+# Run automated Vitest test suite
+npm run test
+
+# Run TypeScript compilation and bundle build
+npm run build
+
+# Run Oxlint / ESLint linter
+npm run lint
 ```
 
 ---
@@ -91,22 +121,33 @@ labx/
 ## 💻 Local Development Setup
 
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/RithikaSaravanakumar/labx.git
 cd labx
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Start local development server
+# 3. Start local development server
 npm run dev
 
-# Build production bundle
-npm run build
+# 4. Open in browser
+# Local URL: http://localhost:5173
 ```
+
+---
+
+## 🤝 Contributing & Git Discipline
+
+Every commit in LabX adheres to the Conventional Commits specification:
+- `feat(...)`: New user-facing feature or route
+- `fix(...)`: Bug fix or edge-case resolution
+- `test(...)`: Unit/integration tests or test configuration
+- `docs(...)`: Documentation updates
+- `refactor(...)`: Code cleanup without functional change
 
 ---
 
 ## 📜 License
 
-Distributed under the MIT License. Built for **ZeAI LabX**.
+Distributed under the MIT License. Designed and engineered for **LabX Innovation Ecosystem**.
