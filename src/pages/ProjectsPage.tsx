@@ -37,20 +37,23 @@ export default function ProjectsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-labx-violet/10 text-labx-violet border border-labx-violet/20">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-[#00FF87] border border-emerald-500/30">
               Proof-of-Work Ecosystem
             </span>
             <span className="text-xs text-labx-text-muted">{projects.length} Active Projects</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-labx-text">Project Ecosystem</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-labx-text tracking-tight uppercase">What's Being Built</h1>
           <p className="text-labx-text-secondary text-sm sm:text-base mt-1">
             Discover, track, and collaborate on real-world projects built by developers and founders.
           </p>
         </div>
-        <button className="labx-button-primary flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold">
+        <a
+          href="/build"
+          className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 shadow-lg shadow-emerald-500/30 transition-all"
+        >
           <Plus className="w-4 h-4" />
-          <span>Launch Project</span>
-        </button>
+          <span>Turn Idea Into Reality</span>
+        </a>
       </div>
 
       {/* Filter bar */}
@@ -62,7 +65,7 @@ export default function ProjectsPage() {
             placeholder="Search by name, tech stack, domain..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-labx-violet/50"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-emerald-400"
           />
         </div>
 
@@ -71,7 +74,7 @@ export default function ProjectsPage() {
           <select
             value={selectedDomain}
             onChange={(e) => setSelectedDomain(e.target.value as Domain | 'all')}
-            className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+            className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-emerald-400"
           >
             <option value="all">All Domains</option>
             {Object.entries(DOMAIN_LABELS).map(([key, label]) => (
@@ -83,7 +86,7 @@ export default function ProjectsPage() {
           <select
             value={selectedStage}
             onChange={(e) => setSelectedStage(e.target.value as Stage | 'all')}
-            className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50"
+            className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-emerald-400"
           >
             <option value="all">All Stages</option>
             {Object.entries(STAGE_LABELS).map(([key, label]) => (

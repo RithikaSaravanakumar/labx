@@ -83,7 +83,7 @@ export default function BuildPage() {
             </span>
             <span className="text-xs text-labx-text-muted">Transparent Proof-of-Work Logs</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-labx-text">Build Journey Feed</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-labx-text tracking-tight uppercase">Turn Your Idea Into Reality</h1>
           <p className="text-labx-text-secondary text-sm sm:text-base mt-1">
             Real-time milestone updates, daily build logs, and proof-of-work commitments from ecosystem founders.
           </p>
@@ -91,7 +91,7 @@ export default function BuildPage() {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="labx-button-primary flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold"
+          className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 shadow-lg shadow-emerald-500/30 transition-all"
         >
           <Plus className="w-4 h-4" />
           <span>Log Today's Progress</span>
@@ -229,7 +229,7 @@ export default function BuildPage() {
                     placeholder="https://github.com/org/repo/commit/..."
                     value={proofUrl}
                     onChange={(e) => setProofUrl(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-violet/50"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-emerald-400"
                   />
                 </div>
 
@@ -243,7 +243,7 @@ export default function BuildPage() {
                   </button>
                   <button
                     type="submit"
-                    className="labx-button-primary px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2"
+                    className="px-5 py-2.5 rounded-xl text-xs font-black text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-2 shadow-lg shadow-emerald-500/25"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Publish Build Log</span>

@@ -33,13 +33,13 @@ export default function OpportunitiesPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-labx-cyan/10 text-labx-cyan border border-labx-cyan/20 flex items-center gap-1">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-[#00FF87] border border-emerald-500/30 flex items-center gap-1">
               <Target className="w-3.5 h-3.5" />
               <span>Ecosystem Radar</span>
             </span>
             <span className="text-xs text-labx-text-muted">{opportunities.length} Open Grants & Roles</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-labx-text">Opportunity Radar</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-labx-text tracking-tight uppercase">Discover What's Next</h1>
           <p className="text-labx-text-secondary text-sm sm:text-base mt-1">
             Grants, fellowships, research residencies, internships, and accelerator calls curated for builders.
           </p>
@@ -54,14 +54,14 @@ export default function OpportunitiesPage() {
             placeholder="Search opportunities..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-labx-violet/50"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-emerald-400"
           />
         </div>
 
         <select
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value as OpportunityType | 'all')}
-          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50 w-full md:w-auto capitalize"
+          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-emerald-400 w-full md:w-auto capitalize"
         >
           <option value="all">All Types</option>
           <option value="grant">Grants & Funding</option>

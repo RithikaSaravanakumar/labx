@@ -34,19 +34,19 @@ export default function StartupsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-labx-cyan/10 text-labx-cyan border border-labx-cyan/20 flex items-center gap-1">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-[#00FF87] border border-emerald-500/30 flex items-center gap-1">
               <Rocket className="w-3.5 h-3.5" />
               <span>Venture Ecosystem</span>
             </span>
             <span className="text-xs text-labx-text-muted">{startups.length} Registered Startups</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-labx-text">Startup Directory</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-labx-text tracking-tight uppercase">Startup Directory</h1>
           <p className="text-labx-text-secondary text-sm sm:text-base mt-1">
             Discover venture-backed and bootstrapped deep-tech startups spun out of LabX.
           </p>
         </div>
 
-        <button className="labx-button-primary flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold">
+        <button className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 shadow-lg shadow-emerald-500/30 transition-all">
           <Plus className="w-4 h-4" />
           <span>Register Startup</span>
         </button>
@@ -60,14 +60,14 @@ export default function StartupsPage() {
             placeholder="Search startups by name, tech..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-labx-violet/50"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-emerald-400"
           />
         </div>
 
         <select
           value={selectedDomain}
           onChange={(e) => setSelectedDomain(e.target.value as Domain | 'all')}
-          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50 w-full md:w-auto"
+          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-emerald-400 w-full md:w-auto"
         >
           <option value="all">All Domains</option>
           {Object.entries(DOMAIN_LABELS).map(([key, label]) => (

@@ -41,7 +41,7 @@ export default function MentorsPage() {
             </span>
             <span className="text-xs text-labx-text-muted">{mentors.length} Verified Mentors</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-labx-text">Ecosystem Mentors</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-labx-text tracking-tight uppercase">Learn From Those Who've Built Before</h1>
           <p className="text-labx-text-secondary text-sm sm:text-base mt-1">
             Connect with seasoned founders, researchers, and technical leaders for office hours & guidance.
           </p>
@@ -57,14 +57,14 @@ export default function MentorsPage() {
             placeholder="Search by mentor name, skill, company..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-labx-violet/50"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-emerald-400"
           />
         </div>
 
         <select
           value={selectedDomain}
           onChange={(e) => setSelectedDomain(e.target.value as Domain | 'all')}
-          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-violet/50 w-full md:w-auto"
+          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-emerald-400 w-full md:w-auto"
         >
           <option value="all">All Domains</option>
           {Object.entries(DOMAIN_LABELS).map(([key, label]) => (

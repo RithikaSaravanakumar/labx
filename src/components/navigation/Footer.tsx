@@ -43,17 +43,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="mb-4">
-              <LabXLogo size={32} linkToHome animated />
+              <LabXLogo size="lg" linkToHome animated />
             </div>
             <p className="text-xs text-labx-text-muted mb-4 leading-relaxed">
               <strong className="text-labx-text font-semibold uppercase tracking-wider block mb-1">Build What Matters.</strong>
               Where ideas, people, and opportunities come together. Your work becomes your reputation.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="p-2 rounded-lg bg-labx-surface text-labx-text-muted hover:text-labx-text transition-colors" aria-label="GitHub">
+              <a href="#" className="p-2 rounded-xl bg-labx-surface text-labx-text-muted hover:text-[#00FF87] hover:border-emerald-500/40 border border-transparent transition-all" aria-label="GitHub">
                 <GitBranch className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-labx-surface text-labx-text-muted hover:text-labx-text transition-colors" aria-label="Twitter">
+              <a href="#" className="p-2 rounded-xl bg-labx-surface text-labx-text-muted hover:text-[#00FF87] hover:border-emerald-500/40 border border-transparent transition-all" aria-label="Twitter">
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
@@ -68,7 +68,7 @@ export default function Footer() {
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-sm text-labx-text-muted hover:text-labx-text transition-colors"
+                      className="text-sm text-labx-text-muted hover:text-[#00FF87] transition-colors"
                     >
                       {link.label}
                     </Link>

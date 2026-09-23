@@ -50,7 +50,7 @@ export default function DiscoverPage() {
     <motion.div variants={pageTransition} initial="initial" animate="animate" exit="exit" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-labx-text mb-2">Discover</h1>
+        <h1 className="text-3xl sm:text-4xl font-black text-labx-text mb-2 tracking-tight uppercase">Discover Ecosystem</h1>
         <p className="text-labx-text-secondary">Explore projects, startups, mentors, and opportunities</p>
       </div>
 
@@ -62,7 +62,7 @@ export default function DiscoverPage() {
           placeholder="Search projects, startups, mentors..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-12 pr-4 py-3 rounded-xl bg-labx-surface border border-labx-border text-labx-text placeholder-labx-text-muted focus:border-labx-violet/50 focus:outline-none transition-colors"
+          className="w-full pl-12 pr-4 py-3 rounded-xl bg-labx-surface border border-labx-border text-labx-text placeholder-labx-text-muted focus:border-emerald-400 focus:outline-none transition-colors"
         />
       </div>
 
@@ -72,10 +72,10 @@ export default function DiscoverPage() {
           <button
             key={tab.value}
             onClick={() => setActiveTab(tab.value)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
               activeTab === tab.value
-                ? 'bg-labx-violet text-white'
-                : 'bg-labx-surface text-labx-text-secondary hover:text-labx-text'
+                ? 'bg-[#00FF87] text-black shadow-md shadow-emerald-500/25'
+                : 'bg-labx-surface text-labx-text-secondary hover:text-white border border-transparent hover:border-emerald-500/20'
             }`}
           >
             {tab.label}
