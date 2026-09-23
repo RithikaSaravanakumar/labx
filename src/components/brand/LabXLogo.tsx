@@ -32,12 +32,12 @@ interface LabXLogoProps {
 }
 
 const SIZE_MAP: Record<string, string> = {
-  xs:  'h-[28px]',
-  sm:  'h-[36px]',
-  md:  'h-[44px]',
-  lg:  'h-[52px]',
-  xl:  'h-[68px]',
-  '2xl': 'h-[84px]',
+  xs:  'h-7',  // 28px
+  sm:  'h-9',  // 36px
+  md:  'h-11', // 44px
+  lg:  'h-14', // 56px
+  xl:  'h-16', // 64px
+  '2xl': 'h-20', // 80px
 };
 
 export default function LabXLogo({
@@ -84,7 +84,7 @@ export default function LabXLogo({
       <img
         src={officialLogo}
         alt="LabX by ZeAI"
-        className={`w-auto object-contain block ${heightClass}`}
+        className={`w-auto max-w-none object-contain block ${heightClass}`}
         style={{ ...heightStyle, borderRadius: '10px', imageRendering: 'auto' }}
         draggable={false}
       />
