@@ -56,27 +56,34 @@ export default function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Turn ideas into products, connect with people who help you build,
-            and grow through meaningful contributions.
+            Where ambitious people, bold ideas, and meaningful opportunities come together.{' '}
+            <strong className="text-labx-text font-bold block mt-1">Your work becomes your reputation.</strong>
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3.5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <Link
-              to="/dashboard"
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-labx-violet to-labx-purple text-white font-semibold text-base hover:opacity-90 transition-opacity flex items-center gap-2 shadow-lg shadow-labx-violet/20"
+              to="/signup"
+              className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-labx-violet to-labx-purple text-white font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2 shadow-lg shadow-labx-violet/25"
             >
-              Start Building <ArrowRight className="w-5 h-5" />
+              <span>Start Building</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/discover"
-              className="px-8 py-3.5 rounded-xl bg-labx-surface border border-labx-border text-labx-text font-semibold text-base hover:border-labx-violet/30 transition-colors"
+              className="px-6 py-3.5 rounded-xl bg-labx-surface border border-labx-border text-labx-text font-bold text-sm hover:border-labx-violet/40 transition-colors"
             >
-              Explore LabX
+              Explore the Ecosystem
+            </Link>
+            <Link
+              to="/projects"
+              className="px-6 py-3.5 rounded-xl text-labx-text-secondary hover:text-labx-text font-semibold text-sm transition-colors"
+            >
+              See What&apos;s Being Built &rarr;
             </Link>
           </motion.div>
         </div>
@@ -367,23 +374,24 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
+      {/* ===== FINAL CTA ===== */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="text-4xl sm:text-5xl font-black text-labx-text mb-6">
-              Ready to <span className="labx-gradient-text">build</span>?
+            <h2 className="text-3xl sm:text-5xl font-black text-labx-text mb-4 uppercase tracking-tight">
+              YOUR NEXT CHAPTER STARTS WITH SOMETHING YOU <span className="labx-gradient-text">BUILD.</span>
             </h2>
-            <p className="text-lg text-labx-text-secondary mb-10 max-w-xl mx-auto">
-              Join thousands of builders, founders, mentors, and researchers creating the future.
+            <p className="text-base text-labx-text-secondary mb-8 max-w-xl mx-auto">
+              Join thousands of builders, founders, mentors, and innovators creating verified proof of work.
             </p>
             <Link
-              to="/dashboard"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-gradient-to-r from-labx-violet to-labx-purple text-white font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-labx-violet/20"
+              to="/signup"
+              className="inline-flex items-center gap-2 px-9 py-3.5 rounded-xl bg-gradient-to-r from-labx-violet to-labx-purple text-white font-bold text-base hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-labx-violet/25"
             >
-              Start Building <ArrowRight className="w-5 h-5" />
+              <span>Start Building</span>
+              <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="text-xs text-labx-text-muted mt-4">Free forever. No credit card required.</p>
+            <p className="text-xs text-labx-text-muted mt-3">Free and open ecosystem for builders worldwide.</p>
           </motion.div>
         </div>
       </section>

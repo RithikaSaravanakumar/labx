@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 interface OrbitNode {
@@ -27,8 +28,8 @@ export default function InnovationOrbit() {
   const centerY = 250;
 
   return (
-    <div className="relative w-full max-w-[500px] mx-auto aspect-square" role="img" aria-label="Innovation Orbit — LabX ecosystem visualization">
-      <svg viewBox="0 0 500 500" className="w-full h-full">
+    <div className="relative w-full max-w-[500px] mx-auto aspect-square" role="region" aria-label="Innovation Orbit — Interactive ecosystem visualization">
+      <svg viewBox="0 0 500 500" className="w-full h-full pointer-events-none">
         {/* Orbit rings */}
         <circle cx={centerX} cy={centerY} r={radius} fill="none" stroke="rgba(124, 58, 237, 0.1)" strokeWidth="1" strokeDasharray="4 4" />
         <circle cx={centerX} cy={centerY} r={radius * 0.6} fill="none" stroke="rgba(34, 211, 238, 0.08)" strokeWidth="1" strokeDasharray="4 4" />
@@ -55,11 +56,11 @@ export default function InnovationOrbit() {
 
       {/* Center node */}
       <motion.div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-labx-violet to-labx-cyan flex items-center justify-center z-10"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-labx-violet to-labx-cyan flex items-center justify-center z-10 select-none shadow-lg"
         animate={{ boxShadow: ['0 0 20px rgba(124,58,237,0.3)', '0 0 40px rgba(124,58,237,0.5)', '0 0 20px rgba(124,58,237,0.3)'] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <span className="text-white font-bold text-sm tracking-wider">LABX</span>
+        <span className="text-white font-black text-sm tracking-wider">LABX</span>
       </motion.div>
 
       {/* Orbit nodes */}
@@ -70,10 +71,10 @@ export default function InnovationOrbit() {
         const isHovered = hoveredNode === node.id;
 
         return (
-          <motion.a
+          <Link
             key={node.id}
-            href={node.path}
-            className="absolute flex flex-col items-center cursor-pointer group"
+            to={node.path}
+            className="absolute flex flex-col items-center cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-labx-violet rounded-full"
             style={{
               left: `${(x / 500) * 100}%`,
               top: `${(y / 500) * 100}%`,
@@ -81,20 +82,19 @@ export default function InnovationOrbit() {
             }}
             onMouseEnter={() => setHoveredNode(node.id)}
             onMouseLeave={() => setHoveredNode(null)}
-            whileHover={{ scale: 1.15 }}
-            aria-label={`${node.label}: ${node.description}`}
+            onFocus={() => setHoveredNode(node.id)}
+            onBlur={() => setHoveredNode(null)}
+            aria-label={`${node.label} persona: ${node.description}`}
           >
             <motion.div
-              className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xs font-semibold border-2 z-10"
+              className="w-12 h-12 rounded-full flex items-center justify-center text-white text-xs font-semibold border-2 z-10 transition-transform group-hover:scale-110"
               style={{
                 backgroundColor: `${node.color}20`,
                 borderColor: isHovered ? node.color : `${node.color}40`,
                 boxShadow: isHovered ? `0 0 20px ${node.color}40` : 'none',
               }}
-              animate={isHovered ? { scale: [1, 1.05, 1] } : {}}
-              transition={{ duration: 1, repeat: Infinity }}
             >
-              <span style={{ color: node.color }}>{node.label[0]}</span>
+              <span style={{ color: node.color }} className="font-bold">{node.label[0]}</span>
             </motion.div>
             <span className={`mt-1 text-[11px] font-medium transition-colors ${isHovered ? 'text-labx-text' : 'text-labx-text-muted'}`}>
               {node.label}
@@ -105,12 +105,12 @@ export default function InnovationOrbit() {
               <motion.div
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute top-full mt-2 px-3 py-2 rounded-lg bg-labx-surface border border-labx-border text-xs text-labx-text-secondary whitespace-nowrap z-20"
+                className="absolute top-full mt-2 px-3 py-1.5 rounded-xl bg-labx-surface/95 border border-labx-border text-xs text-labx-text-secondary whitespace-nowrap z-20 shadow-xl backdrop-blur-md"
               >
                 {node.description}
               </motion.div>
             )}
-          </motion.a>
+          </Link>
         );
       })}
     </div>
