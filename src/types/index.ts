@@ -6,6 +6,7 @@ export interface User {
   name: string;
   avatar: string;
   role: UserRole;
+  roles?: UserRole[];
   bio: string;
   location: string;
   skills: string[];
@@ -341,3 +342,70 @@ export interface OnboardingData {
   role: UserRole | null;
   interests: Domain[];
 }
+
+// ===== Scalability & Pagination Types =====
+
+export interface PaginationParams {
+  page?: number;
+  limit?: number;
+  search?: string;
+  sortBy?: string;
+  order?: 'asc' | 'desc';
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  page: number;
+  limit: number;
+  total: number;
+  hasNextPage: boolean;
+}
+
+// ===== Authentication & Demo Types =====
+
+export interface AuthCredentials {
+  email: string;
+  password?: string;
+  rememberMe?: boolean;
+}
+
+export interface SignupFormData {
+  name: string;
+  email: string;
+  password: string;
+  role: UserRole;
+  interests: string[];
+  lookingFor: string[];
+}
+
+export interface DemoPersona {
+  id: string;
+  role: UserRole;
+  name: string;
+  title: string;
+  email: string;
+  avatar: string;
+  description: string;
+}
+
+export interface ApplicationItem {
+  id: string;
+  type: 'project' | 'grant' | 'mentorship' | 'hackathon';
+  targetId: string;
+  title: string;
+  status: 'pending' | 'reviewing' | 'accepted' | 'declined';
+  appliedDate: string;
+  organization?: string;
+  feedback?: string;
+}
+
+export interface SavedItem {
+  id: string;
+  type: 'project' | 'startup' | 'mentor' | 'opportunity' | 'idea';
+  targetId: string;
+  title: string;
+  description: string;
+  savedDate: string;
+  metadata?: Record<string, unknown>;
+}
+
