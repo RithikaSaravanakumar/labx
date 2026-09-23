@@ -390,7 +390,7 @@ export interface DemoPersona {
 
 export interface ApplicationItem {
   id: string;
-  type: 'project' | 'grant' | 'mentorship' | 'hackathon';
+  type: 'project' | 'grant' | 'mentorship' | 'hackathon' | 'opportunity';
   targetId: string;
   title: string;
   status: 'pending' | 'reviewing' | 'accepted' | 'declined';

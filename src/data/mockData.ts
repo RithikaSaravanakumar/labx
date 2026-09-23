@@ -1,4 +1,4 @@
-import type { User, Project, Startup, Mentor, Idea, BuildUpdate, Hackathon, Opportunity, Contribution, Notification, Achievement } from '../types';
+import type { User, Project, Startup, Mentor, Idea, BuildUpdate, Hackathon, Opportunity, Contribution, Notification, Achievement, ApplicationItem, SavedItem } from '../types';
 
 // ===== USERS =====
 export const mockUsers: User[] = [
@@ -8,6 +8,7 @@ export const mockUsers: User[] = [
     name: 'Aarav Sharma',
     avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Aarav',
     role: 'builder',
+    roles: ['builder', 'creator'],
     bio: 'Full-stack developer passionate about AI and healthcare innovation. Building MediVision AI.',
     location: 'Bangalore, India',
     skills: ['React', 'Python', 'TensorFlow', 'Node.js', 'TypeScript'],
@@ -32,6 +33,7 @@ export const mockUsers: User[] = [
     name: 'Priya Nair',
     avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Priya',
     role: 'founder',
+    roles: ['founder', 'builder'],
     bio: 'Building EcoTrack — making sustainability measurable for businesses. Ex-consultant turned climate tech founder.',
     location: 'Mumbai, India',
     skills: ['Product Management', 'Python', 'Data Science', 'Strategy'],
@@ -53,6 +55,7 @@ export const mockUsers: User[] = [
     name: 'Rahul Krishnan',
     avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Rahul',
     role: 'student',
+    roles: ['student', 'builder'],
     bio: 'CS student exploring AI/ML and cybersecurity. Looking for interesting projects and hackathons.',
     location: 'Chennai, India',
     skills: ['Python', 'Machine Learning', 'Java', 'React'],
@@ -73,6 +76,7 @@ export const mockUsers: User[] = [
     name: 'Meera Kapoor',
     avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Meera',
     role: 'mentor',
+    roles: ['mentor', 'researcher'],
     bio: '15+ years in AI/ML. VP of Engineering at a Fortune 500. Passionate about mentoring the next generation of builders.',
     location: 'Hyderabad, India',
     skills: ['Machine Learning', 'System Design', 'Leadership', 'AI Architecture'],
@@ -94,6 +98,7 @@ export const mockUsers: User[] = [
     name: 'Arjun Mehta',
     avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Arjun',
     role: 'investor',
+    roles: ['investor', 'founder'],
     bio: 'Angel investor focused on deep tech and AI-first startups. Previously built and exited two SaaS companies.',
     location: 'Delhi, India',
     skills: ['Venture Capital', 'Strategy', 'Product', 'Growth'],
@@ -112,6 +117,7 @@ export const mockUsers: User[] = [
     name: 'Sneha Rao',
     avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Sneha',
     role: 'researcher',
+    roles: ['researcher', 'builder'],
     bio: 'PhD candidate researching NLP for low-resource languages. Open source contributor.',
     location: 'Pune, India',
     skills: ['NLP', 'PyTorch', 'Research', 'Python', 'Transformers'],
@@ -883,3 +889,99 @@ export function generateContributionData(): { date: string; count: number }[] {
   }
   return data;
 }
+
+// ===== APPLICATIONS DATA =====
+export const mockApplications: ApplicationItem[] = [
+  {
+    id: 'app-1',
+    type: 'project',
+    targetId: 'p1',
+    title: 'MediVision AI — Frontend Lead & Architecture',
+    status: 'accepted',
+    appliedDate: '2026-03-12',
+    organization: 'MediVision Health Labs',
+    feedback: 'Accepted! Welcome to the core building squad. Check Discord #frontend.',
+  },
+  {
+    id: 'app-2',
+    type: 'grant',
+    targetId: 'opp-2',
+    title: 'ZeAI Pioneer Innovation Grant — Stage 1',
+    status: 'reviewing',
+    appliedDate: '2026-03-18',
+    organization: 'ZeAI Foundation',
+    feedback: 'Pitch deck under evaluation by technical investment committee.',
+  },
+  {
+    id: 'app-3',
+    type: 'mentorship',
+    targetId: 'm1',
+    title: 'Bi-Weekly Architecture Sync with Dr. Sarah Chen',
+    status: 'accepted',
+    appliedDate: '2026-03-05',
+    organization: 'AI Mentorship Network',
+    feedback: 'Approved for 4 bi-weekly technical pairing sessions.',
+  },
+  {
+    id: 'app-4',
+    type: 'hackathon',
+    targetId: 'h1',
+    title: 'Global Climate Innovation Hackathon — Team EcoAI',
+    status: 'accepted',
+    appliedDate: '2026-02-28',
+    organization: 'GreenTech Global',
+  },
+  {
+    id: 'app-5',
+    type: 'opportunity',
+    targetId: 'opp-1',
+    title: 'Decentralized Compute Residency Fellowship',
+    status: 'reviewing',
+    appliedDate: '2026-03-20',
+    organization: 'OpenGrid Research',
+  },
+];
+
+// ===== SAVED ITEMS DATA =====
+export const mockSavedItems: SavedItem[] = [
+  {
+    id: 'save-1',
+    type: 'project',
+    targetId: 'p2',
+    title: 'EcoTrack — Real-Time Carbon Footprint Analyzer',
+    description: 'Empowering enterprises to measure, report, and reduce supply chain emissions.',
+    savedDate: '2026-03-15',
+  },
+  {
+    id: 'save-2',
+    type: 'startup',
+    targetId: 's1',
+    title: 'MediVision Health Systems',
+    description: 'AI diagnostic platform assisting radiologists with early pathology detection.',
+    savedDate: '2026-03-10',
+  },
+  {
+    id: 'save-3',
+    type: 'mentor',
+    targetId: 'm1',
+    title: 'Dr. Sarah Chen — AI Architecture & Deep Tech',
+    description: 'Ex-DeepMind Principal Scientist guiding seed-stage technical founders.',
+    savedDate: '2026-03-02',
+  },
+  {
+    id: 'save-4',
+    type: 'idea',
+    targetId: 'i1',
+    title: 'Decentralized Microgrid Energy Arbitrage',
+    description: 'P2P smart grid energy exchange for neighborhood solar aggregators.',
+    savedDate: '2026-02-25',
+  },
+  {
+    id: 'save-5',
+    type: 'opportunity',
+    targetId: 'opp-3',
+    title: 'AI Bio-Informatics Pre-Seed Acceleration',
+    description: '$100k non-dilutive research grant and lab computational compute access.',
+    savedDate: '2026-03-01',
+  },
+];

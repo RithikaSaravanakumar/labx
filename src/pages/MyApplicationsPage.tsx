@@ -3,51 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Clock, CheckCircle2, XCircle, ArrowUpRight } from 'lucide-react';
 import type { ApplicationItem } from '../types';
-
-const INITIAL_APPLICATIONS: ApplicationItem[] = [
-  {
-    id: 'app-1',
-    type: 'project',
-    targetId: 'p1',
-    title: 'MediVision AI — Frontend Lead & Architecture',
-    status: 'accepted',
-    appliedDate: '2026-03-12',
-    organization: 'MediVision Health Labs',
-    feedback: 'Accepted! Welcome to the core building squad. Check Discord #frontend.',
-  },
-  {
-    id: 'app-2',
-    type: 'grant',
-    targetId: 'opp-2',
-    title: 'ZeAI Pioneer Innovation Grant — Stage 1',
-    status: 'reviewing',
-    appliedDate: '2026-03-18',
-    organization: 'ZeAI Foundation',
-    feedback: 'Pitch deck under evaluation by technical investment committee.',
-  },
-  {
-    id: 'app-3',
-    type: 'mentorship',
-    targetId: 'm1',
-    title: 'Bi-Weekly Architecture Sync with Dr. Sarah Chen',
-    status: 'accepted',
-    appliedDate: '2026-03-05',
-    organization: 'AI Mentorship Network',
-    feedback: 'Approved for 4 bi-weekly technical pairing sessions.',
-  },
-  {
-    id: 'app-4',
-    type: 'hackathon',
-    targetId: 'h1',
-    title: 'Global Climate Innovation Hackathon — Team EcoAI',
-    status: 'accepted',
-    appliedDate: '2026-02-28',
-    organization: 'GreenTech Global',
-  },
-];
+import { mockApplications } from '../data/mockData';
 
 export default function MyApplicationsPage() {
-  const [applications] = useState<ApplicationItem[]>(INITIAL_APPLICATIONS);
+  const [applications] = useState<ApplicationItem[]>(mockApplications);
 
   const getStatusBadge = (status: ApplicationItem['status']) => {
     switch (status) {

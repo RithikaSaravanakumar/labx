@@ -3,44 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Bookmark, ArrowUpRight, Trash2, Folder, Rocket, Award, Lightbulb, Users } from 'lucide-react';
 import type { SavedItem } from '../types';
-
-const INITIAL_SAVED: SavedItem[] = [
-  {
-    id: 'save-1',
-    type: 'project',
-    targetId: 'p2',
-    title: 'EcoTrack — Real-Time Carbon Footprint Analyzer',
-    description: 'Empowering enterprises to measure, report, and reduce supply chain emissions.',
-    savedDate: '2026-03-15',
-  },
-  {
-    id: 'save-2',
-    type: 'startup',
-    targetId: 's1',
-    title: 'MediVision Health Systems',
-    description: 'AI diagnostic platform assisting radiologists with early pathology detection.',
-    savedDate: '2026-03-10',
-  },
-  {
-    id: 'save-3',
-    type: 'mentor',
-    targetId: 'm1',
-    title: 'Dr. Sarah Chen — AI Architecture & Deep Tech',
-    description: 'Ex-DeepMind Principal Scientist guiding seed-stage technical founders.',
-    savedDate: '2026-03-02',
-  },
-  {
-    id: 'save-4',
-    type: 'idea',
-    targetId: 'i1',
-    title: 'Decentralized Microgrid Energy Arbitrage',
-    description: 'P2P smart grid energy exchange for neighborhood solar aggregators.',
-    savedDate: '2026-02-25',
-  },
-];
+import { mockSavedItems } from '../data/mockData';
 
 export default function SavedItemsPage() {
-  const [items, setItems] = useState<SavedItem[]>(INITIAL_SAVED);
+  const [items, setItems] = useState<SavedItem[]>(mockSavedItems);
 
   const removeItem = (id: string) => {
     setItems(prev => prev.filter(i => i.id !== id));
