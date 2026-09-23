@@ -66,8 +66,9 @@ export const STAGE_COLORS: Record<string, string> = {
 
 export const NAV_ITEMS = [
   { label: 'Discover', path: '/discover' },
-  { label: 'Build', path: '/build' },
-  { label: 'Connect', path: '/mentors' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Startups', path: '/startups' },
+  { label: 'Mentors', path: '/mentors' },
   { label: 'Opportunities', path: '/opportunities' },
   { label: 'Community', path: '/community' },
 ];
