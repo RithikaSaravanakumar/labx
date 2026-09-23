@@ -16,7 +16,6 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     Promise.all([
       userService.getCurrentUser(),
       projectService.getProjects(),

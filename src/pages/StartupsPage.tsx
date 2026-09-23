@@ -14,7 +14,6 @@ export default function StartupsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     startupService.getStartups({
       search,
       domain: selectedDomain === 'all' ? undefined : selectedDomain,

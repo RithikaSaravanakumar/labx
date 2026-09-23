@@ -22,7 +22,6 @@ export default function ProjectDetailPage() {
 
   useEffect(() => {
     if (!id) return;
-    setIsLoading(true);
     Promise.all([
       projectService.getProjectById(id),
       buildUpdateService.getBuildUpdatesByProject(id)

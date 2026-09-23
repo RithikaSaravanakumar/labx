@@ -15,7 +15,6 @@ export default function ProjectsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     projectService.getProjects({
       search,
       domain: selectedDomain === 'all' ? undefined : selectedDomain,

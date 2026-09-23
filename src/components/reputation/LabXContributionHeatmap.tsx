@@ -10,12 +10,12 @@ export default function LabXContributionHeatmap({ streak }: LabXContributionHeat
     const grid = [];
     const count = 84; // 12 weeks
     for (let i = 0; i < count; i++) {
-      // Simulate higher activity towards the right
-      const randomVal = Math.random();
+      // Deterministic distribution based on day index for render purity
+      const pseudoVal = ((i * 17 + 23) % 100) / 100;
       let level = 0;
-      if (i > 40 && randomVal > 0.4) level = 1;
-      if (i > 60 && randomVal > 0.3) level = 2;
-      if (i > 70 && randomVal > 0.2) level = 3;
+      if (i > 40 && pseudoVal > 0.4) level = 1;
+      if (i > 60 && pseudoVal > 0.3) level = 2;
+      if (i > 70 && pseudoVal > 0.2) level = 3;
       if (i >= count - streak) level = 3; // ensure current streak days are bright
       grid.push({ id: i, level });
     }

@@ -28,7 +28,6 @@ export default function DiscoverPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     const loadData = async () => {
       const [p, s, m, h, o] = await Promise.all([
         projectService.getProjects({ search }),

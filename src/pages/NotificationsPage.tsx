@@ -11,7 +11,6 @@ export default function NotificationsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     notificationService.getNotifications().then(res => {
       setNotifications(res);
       setIsLoading(false);

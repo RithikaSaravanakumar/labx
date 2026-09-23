@@ -1,3 +1,5 @@
+/* oxlint-disable react/only-export-components */
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { User, UserRole, AuthCredentials, SignupFormData, DemoPersona } from '../types';
 import { authService, DEMO_PERSONAS } from '../services/authService';
@@ -32,7 +34,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    refreshUser();
+    let isMounted = true;
+    authService.getCurrentUser().then((current) => {
+      if (isMounted) {
+        setUser(current);
+        setIsLoading(false);
+      }
+    }).catch(() => {
+      if (isMounted) {
+        setUser(null);
+        setIsLoading(false);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const login = async (credentials: AuthCredentials): Promise<User> => {

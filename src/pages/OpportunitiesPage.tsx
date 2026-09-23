@@ -13,7 +13,6 @@ export default function OpportunitiesPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     opportunityService.getOpportunities({
       search,
       type: selectedType === 'all' ? undefined : selectedType,

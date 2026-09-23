@@ -20,7 +20,6 @@ export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState<'overview' | 'projects' | 'proof' | 'achievements'>('overview');
 
   useEffect(() => {
-    setIsLoading(true);
     const target = username ? userService.getUserByUsername(username) : userService.getCurrentUser();
 
     target.then(u => {

@@ -14,7 +14,6 @@ export default function MentorsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     mentorService.getMentors({
       search,
       domain: selectedDomain === 'all' ? undefined : selectedDomain,

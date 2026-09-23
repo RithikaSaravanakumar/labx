@@ -11,7 +11,6 @@ export default function HackathonsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     hackathonService.getHackathons().then(res => {
       setHackathons(res);
       setIsLoading(false);

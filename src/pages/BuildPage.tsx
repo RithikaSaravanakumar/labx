@@ -21,7 +21,6 @@ export default function BuildPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     Promise.all([
       buildUpdateService.getBuildUpdates(),
       projectService.getProjects()

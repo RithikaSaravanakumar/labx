@@ -20,7 +20,6 @@ export default function MentorDetailPage() {
 
   useEffect(() => {
     if (!id) return;
-    setIsLoading(true);
     mentorService.getMentorById(id).then(m => {
       if (m) setMentor(m);
       setIsLoading(false);

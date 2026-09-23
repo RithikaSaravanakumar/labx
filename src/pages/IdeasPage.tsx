@@ -20,7 +20,6 @@ export default function IdeasPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     ideaService.getIdeas().then(res => {
       setIdeas(res);
       const initial: Record<string, number> = {};

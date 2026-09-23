@@ -14,7 +14,6 @@ export default function HackathonDetailPage() {
 
   useEffect(() => {
     if (!id) return;
-    setIsLoading(true);
     hackathonService.getHackathonById(id).then(h => {
       if (h) setHackathon(h);
       setIsLoading(false);

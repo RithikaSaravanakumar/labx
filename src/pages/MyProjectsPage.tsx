@@ -1,22 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, ArrowUpRight, Users } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { mockProjects } from '../data/mockData';
-import type { Project } from '../types';
 
 export default function MyProjectsPage() {
   const { user } = useAuth();
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    if (user) {
-      const userProjects = mockProjects.filter(
-        p => user.projectIds.includes(p.id) || p.ownerName === user.name || p.teamMembers.some(tm => tm.userId === user.id)
-      );
-      setProjects(userProjects.length > 0 ? userProjects : mockProjects.slice(0, 2));
-    }
+  const projects = useMemo(() => {
+    if (!user) return [];
+    const userProjects = mockProjects.filter(
+      p => user.projectIds.includes(p.id) || p.ownerName === user.name || p.teamMembers.some(tm => tm.userId === user.id)
+    );
+    return userProjects.length > 0 ? userProjects : mockProjects.slice(0, 2);
   }, [user]);
 
   return (

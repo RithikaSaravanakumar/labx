@@ -14,7 +14,6 @@ export default function StartupDetailPage() {
 
   useEffect(() => {
     if (!id) return;
-    setIsLoading(true);
     startupService.getStartupById(id).then(s => {
       if (s) setStartup(s);
       setIsLoading(false);
