@@ -203,3 +203,8 @@ export const searchService = {
     };
   },
 };
+
+// Export specialized auth and AI services
+export { authService } from './authService';
+export { aiService } from './aiService';
+
