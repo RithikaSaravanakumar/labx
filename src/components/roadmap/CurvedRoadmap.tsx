@@ -10,35 +10,39 @@ interface CurvedRoadmapProps {
 export default function CurvedRoadmap({ roadmap }: CurvedRoadmapProps) {
   const stages = roadmap.stages;
   
-  // Node coordinates (9 stages)
-  const nodes = [
-    { x: 200, y: 150 },
-    { x: 600, y: 150 },
-    { x: 1000, y: 150 },
-    { x: 1000, y: 450 },
-    { x: 600, y: 450 },
-    { x: 200, y: 450 },
-    { x: 200, y: 750 },
-    { x: 600, y: 750 },
-    { x: 1000, y: 750 },
-  ];
+  const SVG_WIDTH = 800;
+  const NODE_SPACING = 250;
+  const SVG_HEIGHT = Math.max(600, stages.length * NODE_SPACING + 200);
 
-  // Path segments between nodes
-  const segments = [
-    { path: `M 100 150 L 200 150`, sourceIdx: -1, targetIdx: 0 },
-    { path: `M 200 150 L 600 150`, sourceIdx: 0, targetIdx: 1 },
-    { path: `M 600 150 L 1000 150`, sourceIdx: 1, targetIdx: 2 },
-    { path: `M 1000 150 C 1200 150, 1200 450, 1000 450`, sourceIdx: 2, targetIdx: 3 },
-    { path: `M 1000 450 L 600 450`, sourceIdx: 3, targetIdx: 4 },
-    { path: `M 600 450 L 200 450`, sourceIdx: 4, targetIdx: 5 },
-    { path: `M 200 450 C 0 450, 0 750, 200 750`, sourceIdx: 5, targetIdx: 6 },
-    { path: `M 200 750 L 600 750`, sourceIdx: 6, targetIdx: 7 },
-    { path: `M 600 750 L 1000 750`, sourceIdx: 7, targetIdx: 8 },
-    { path: `M 1000 750 L 1100 750`, sourceIdx: 8, targetIdx: 9 },
-  ];
+  // Dynamic Nodes
+  const nodes = stages.map((_, i) => ({
+    x: (i % 2 === 0) ? 200 : 600,
+    y: 150 + (i * NODE_SPACING),
+  }));
+
+  // Dynamic Segments
+  const segments = [];
+  if (nodes.length > 0) {
+    segments.push({ path: `M ${nodes[0].x} 0 L ${nodes[0].x} ${nodes[0].y}`, sourceIdx: -1, targetIdx: 0 });
+    
+    for (let i = 0; i < stages.length - 1; i++) {
+      const n1 = nodes[i];
+      const n2 = nodes[i + 1];
+      const midY = (n1.y + n2.y) / 2;
+      segments.push({ 
+        path: `M ${n1.x} ${n1.y} C ${n1.x} ${midY}, ${n2.x} ${midY}, ${n2.x} ${n2.y}`, 
+        sourceIdx: i, 
+        targetIdx: i + 1 
+      });
+    }
+
+    const lastNode = nodes[nodes.length - 1];
+    segments.push({ path: `M ${lastNode.x} ${lastNode.y} L ${lastNode.x} ${SVG_HEIGHT}`, sourceIdx: stages.length - 1, targetIdx: stages.length });
+  }
 
   const getStageStatus = (idx: number) => {
-    if (idx < 0 || idx >= stages.length) return 'LOCKED';
+    if (idx < 0) return 'COMPLETED'; // Entry line is always active
+    if (idx >= stages.length) return stages[stages.length - 1].status;
     return stages[idx].status;
   };
 
@@ -53,9 +57,9 @@ export default function CurvedRoadmap({ roadmap }: CurvedRoadmapProps) {
   };
 
   return (
-    <div className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide py-10">
-      <div className="min-w-[1200px] h-[900px] relative mx-auto">
-        <svg viewBox="0 0 1200 900" className="w-full h-full drop-shadow-2xl">
+    <div className="w-full overflow-x-auto pb-10 scrollbar-hide">
+      <div className="min-w-[800px] relative mx-auto" style={{ height: SVG_HEIGHT }}>
+        <svg viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`} className="w-full h-full drop-shadow-2xl">
           <defs>
             <linearGradient id="active-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#00F0FF" />
@@ -138,10 +142,9 @@ export default function CurvedRoadmap({ roadmap }: CurvedRoadmapProps) {
             const isCurrent = stage.status === 'CURRENT';
             const isLocked = stage.status === 'LOCKED';
 
-            // Card positioned above the node for top row, below for middle row, above for bottom row
-            const isRow2 = i >= 3 && i <= 5;
-            const cardY = isRow2 ? node.y + 40 : node.y - 180;
-            const cardX = node.x - 150; // Center card (300px width)
+            // Card positioned next to node
+            const cardX = node.x === 200 ? node.x + 50 : node.x - 350;
+            const cardY = node.y - 75; // center vertically
 
             return (
               <g key={stage.id}>
