@@ -59,11 +59,11 @@ export default function ProfilePage() {
     if (isFollowing) {
       await networkService.unfollowUser(user.id);
       setIsFollowing(false);
-      setUser(prev => prev ? { ...prev, followersCount: Math.max(0, prev.followersCount - 1) } : prev);
+      setUser(prev => prev ? { ...prev, followersCount: Math.max(0, (prev.followersCount || 0) - 1) } : prev);
     } else {
       await networkService.followUser(user.id);
       setIsFollowing(true);
-      setUser(prev => prev ? { ...prev, followersCount: prev.followersCount + 1 } : prev);
+      setUser(prev => prev ? { ...prev, followersCount: (prev.followersCount || 0) + 1 } : prev);
     }
     setIsActionLoading(false);
   };

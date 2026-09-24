@@ -14,10 +14,10 @@ export const mockUsers: User[] = [
     skills: ['React', 'Python', 'TensorFlow', 'Node.js', 'TypeScript'],
     interests: ['ai-ml', 'healthcare'],
     labxPoints: 1840,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     level: 7,
     joinedDate: '2024-09-15',
     isVerified: true,
@@ -43,10 +43,10 @@ export const mockUsers: User[] = [
     skills: ['Product Management', 'Python', 'Data Science', 'Strategy'],
     interests: ['climate', 'saas'],
     labxPoints: 2350,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     level: 9,
     joinedDate: '2024-08-01',
     isVerified: true,
@@ -69,10 +69,10 @@ export const mockUsers: User[] = [
     skills: ['Python', 'Machine Learning', 'Java', 'React'],
     interests: ['ai-ml', 'cybersecurity'],
     labxPoints: 620,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     level: 3,
     joinedDate: '2025-01-10',
     isVerified: false,
@@ -94,10 +94,10 @@ export const mockUsers: User[] = [
     skills: ['Machine Learning', 'System Design', 'Leadership', 'AI Architecture'],
     interests: ['ai-ml', 'deep-tech'],
     labxPoints: 3100,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     level: 11,
     joinedDate: '2024-07-01',
     isVerified: true,
@@ -120,10 +120,10 @@ export const mockUsers: User[] = [
     skills: ['Venture Capital', 'Strategy', 'Product', 'Growth'],
     interests: ['deep-tech', 'ai-ml', 'fintech'],
     labxPoints: 1200,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     level: 5,
     joinedDate: '2024-11-01',
     isVerified: true,
@@ -143,10 +143,10 @@ export const mockUsers: User[] = [
     skills: ['NLP', 'PyTorch', 'Research', 'Python', 'Transformers'],
     interests: ['ai-ml', 'research', 'edtech'],
     labxPoints: 980,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     level: 4,
     joinedDate: '2025-02-01',
     isVerified: true,
@@ -185,10 +185,10 @@ export const mockProjects: Project[] = [
     ],
     buildUpdates: [],
     labxPoints: 450,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     contributorCount: 4,
     fundingStatus: 'NOT_STARTED',
     ownerId: 'u1',
@@ -219,10 +219,10 @@ export const mockProjects: Project[] = [
     ],
     buildUpdates: [],
     labxPoints: 680,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     contributorCount: 6,
     fundingStatus: 'NOT_STARTED',
     ownerId: 'u1',
@@ -251,10 +251,10 @@ export const mockProjects: Project[] = [
     ],
     buildUpdates: [],
     labxPoints: 180,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     contributorCount: 2,
     fundingStatus: 'NOT_STARTED',
     ownerId: 'u1',
@@ -282,10 +282,10 @@ export const mockProjects: Project[] = [
     ],
     buildUpdates: [],
     labxPoints: 45,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     contributorCount: 1,
     fundingStatus: 'NOT_STARTED',
     ownerId: 'u1',
@@ -314,10 +314,10 @@ export const mockProjects: Project[] = [
     ],
     buildUpdates: [],
     labxPoints: 320,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     contributorCount: 3,
     fundingStatus: 'NOT_STARTED',
     ownerId: 'u1',
@@ -347,10 +347,10 @@ export const mockProjects: Project[] = [
     ],
     buildUpdates: [],
     labxPoints: 290,
-    rank: Math.floor(Math.random() * 500) + 1,
-    followersCount: Math.floor(Math.random() * 3000),
-    followingCount: Math.floor(Math.random() * 500),
-    connectionsCount: Math.floor(Math.random() * 800),
+    
+    
+    
+    
     contributorCount: 3,
     fundingStatus: 'NOT_STARTED',
     ownerId: 'u1',

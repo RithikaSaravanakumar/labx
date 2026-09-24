@@ -18,9 +18,9 @@ export interface User {
   labxPoints: number;
   level: number;
   rank?: number;
-  followersCount: number;
-  followingCount: number;
-  connectionsCount: number;
+  followersCount?: number;
+  followingCount?: number;
+  connectionsCount?: number;
   joinedDate: string;
   isVerified: boolean;
   githubUrl?: string;
