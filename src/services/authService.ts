@@ -69,8 +69,7 @@ export const authService = {
     } catch {
       // Ignore storage error
     }
-    const defaultUser = mockUsers[0];
-    return defaultUser || null;
+    return null;
   },
 
   async login(credentials: AuthCredentials): Promise<User> {

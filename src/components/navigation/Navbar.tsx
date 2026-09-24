@@ -76,7 +76,7 @@ function MagneticNavLink({
 
 export default function Navbar() {
   const { notificationCount, setSearchOpen } = useApp();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
   const navRef = useRef<HTMLElement>(null);
@@ -231,6 +231,16 @@ export default function Navbar() {
                   >
                     Sign In
                   </Link>
+                </div>
+              )}
+              {isAuthenticated && (
+                <div className="flex items-center gap-3 mr-2">
+                  <button
+                    onClick={() => logout()}
+                    className="text-sm font-bold text-zinc-400 hover:text-white transition-colors whitespace-nowrap"
+                  >
+                    Sign Out
+                  </button>
                 </div>
               )}
               <Link
