@@ -160,7 +160,7 @@ export default function Navbar() {
               className="hidden lg:flex items-center gap-2"
               aria-label="Main navigation"
             >
-              <MagneticNavLink to="/" isActive={isActive('/')}>
+              <MagneticNavLink to={isAuthenticated ? "/dashboard" : "/"} isActive={isActive(isAuthenticated ? "/dashboard" : "/")}>
                 Home
               </MagneticNavLink>
               <MagneticNavLink to="/discover" isActive={isActive('/discover')}>

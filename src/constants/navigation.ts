@@ -25,7 +25,8 @@ export const LABX_NAVIGATION: NavigationGroup[] = [
     id: 'explore',
     title: 'Explore',
     items: [
-      { id: 'home', label: 'Home', icon: HomeIcon, path: '/' },
+      { id: 'home', label: 'Home', icon: HomeIcon, path: '/dashboard', authRequired: true },
+      { id: 'home-public', label: 'Home', icon: HomeIcon, path: '/', publicOnly: true },
       { id: 'discover', label: 'Discover', icon: Compass, path: '/discover' },
       { id: 'people', label: 'People', icon: Users, path: '/discover?tab=people' },
       { id: 'projects', label: 'Projects', icon: FolderGit2, path: '/projects' },
