@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Rocket, Plus, Bell, Award, ChevronRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import LabXPointRing from '../components/reputation/LabXPointRing';
+import LabXReputationCard from '../components/reputation/LabXReputationCard';
 import GoldCoin from '../components/reputation/GoldCoin';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
 import { projectService, mentorService, notificationService, roadmapService, fundingService } from '../services';
@@ -103,12 +103,8 @@ export default function DashboardPage() {
             })()}
           </div>
 
-          <div className="flex flex-col items-center gap-2">
-            <LabXPointRing points={currentUser.labxPoints} level={currentUser.level} size={100} strokeWidth={7} />
-            <div className="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-full border border-[#00FF87]/20 shadow-[0_0_10px_rgba(0,255,135,0.1)]">
-              <GoldCoin className="w-4 h-4" />
-              <span className="text-[10px] font-mono text-[#00FF87] font-bold tracking-wider">{currentUser.labxPoints.toLocaleString()} PTS</span>
-            </div>
+          <div className="hidden lg:block shrink-0 w-80">
+            <LabXReputationCard user={currentUser} />
           </div>
           <div className="flex items-center gap-4">
             <Link

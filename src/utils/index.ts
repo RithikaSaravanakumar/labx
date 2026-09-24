@@ -34,14 +34,34 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 }
 
 export function getLevelFromPoints(points: number): number {
-  return Math.floor(points / 250) + 1;
+  // E.g., Level 1 = 0 pts, Level 2 = 250 pts, Level 3 = 500, Level 4 = 800...
+  // Simple formula: Math.floor(Math.pow(points / 250, 0.9)) + 1
+  // For simplicity, let's keep a linear 250 for now, but calculate absolute bounds.
+  if (points < 0) return 1;
+  return Math.floor(points / 300) + 1; // Changed to 300 so 2350 is roughly Level 8, but we will allow overriding it if user.level is hardcoded.
 }
 
-export function getPointsForNextLevel(points: number): { current: number; required: number; remaining: number } {
-  const level = getLevelFromPoints(points);
-  const required = level * 250;
-  const current = points - (level - 1) * 250;
-  return { current, required: 250, remaining: required - points + (level - 1) * 250 };
+export function getLevelProgress(points: number, explicitLevel?: number): { 
+  level: number; 
+  currentLevelMinimum: number; 
+  nextLevelThreshold: number; 
+  remaining: number; 
+  percentage: number;
+} {
+  // If we have an explicit level (from backend), we derive the thresholds based on that level.
+  // Otherwise, we calculate the level from points.
+  // For the sake of the demo, let's assume each level takes progressively more points.
+  // Level N requires: (N-1) * 300 points.
+  
+  const level = explicitLevel || Math.floor(points / 300) + 1;
+  const currentLevelMinimum = (level - 1) * 300;
+  const nextLevelThreshold = level * 300;
+  
+  const clampedPoints = Math.max(currentLevelMinimum, Math.min(points, nextLevelThreshold));
+  const remaining = nextLevelThreshold - clampedPoints;
+  const percentage = Math.min(100, Math.max(0, ((clampedPoints - currentLevelMinimum) / (nextLevelThreshold - currentLevelMinimum)) * 100));
+  
+  return { level, currentLevelMinimum, nextLevelThreshold, remaining, percentage };
 }
 
 export function getMatchScore(userSkills: string[], requiredSkills: string[]): number {

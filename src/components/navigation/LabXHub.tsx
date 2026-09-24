@@ -5,7 +5,7 @@ import { X, ChevronRight, Plus } from 'lucide-react';
 import { LABX_NAVIGATION } from '../../constants';
 import { useAuth } from '../../context/AuthContext';
 import LabXPointRing from '../reputation/LabXPointRing';
-import GoldCoin from '../reputation/GoldCoin';
+import LabXReputationCard from '../reputation/LabXReputationCard';
 
 interface LabXHubProps {
   isOpen: boolean;
@@ -142,29 +142,10 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
             {/* Footer / User Ecosystem Summary */}
             <div className="p-6 border-t border-white/5 bg-[#040705]">
               {isAuthenticated && user ? (
-                <div className="mb-6 flex items-center justify-between p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <LabXPointRing points={user.labxPoints} level={user.level} size={44} strokeWidth={3} />
-                    <div>
-                      <div className="text-sm font-bold text-white">{user.name}</div>
-                      <div className="flex items-center gap-2 mt-0.5">
-                        <span className="text-[10px] font-mono text-[#00FF87] uppercase tracking-wider flex items-center gap-1">
-                          <GoldCoin className="w-3.5 h-3.5" />
-                          {user.labxPoints.toLocaleString()} PTS
-                        </span>
-                        {user.rank && (
-                          <span className="text-[10px] text-zinc-500">#{user.rank} GLOBAL</span>
-                        )}
-                      </div>
-                    </div>
+                <div className="mb-6">
+                  <div onClick={handleLinkClick}>
+                    <LabXReputationCard user={user} />
                   </div>
-                  <Link
-                    to={`/profile/${user.username}`}
-                    onClick={handleLinkClick}
-                    className="text-xs font-semibold text-zinc-400 hover:text-white transition-colors"
-                  >
-                    View →
-                  </Link>
                 </div>
               ) : (
                 <div className="mb-6 flex items-center justify-between gap-3">
