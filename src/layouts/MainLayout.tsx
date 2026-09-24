@@ -16,12 +16,12 @@ export default function MainLayout() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setSearchOpen((prev) => !prev);
+        setSearchOpen(!searchOpen);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [setSearchOpen]);
+  }, [searchOpen, setSearchOpen]);
 
   return (
     <div className="min-h-screen bg-labx-bg flex flex-col">

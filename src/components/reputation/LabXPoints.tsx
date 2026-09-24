@@ -1,4 +1,4 @@
-import LabXCoin, { LabXCoinSize } from './LabXCoin';
+import LabXCoin, { type LabXCoinSize } from './LabXCoin';
 
 export function formatLabXPoints(points: number): string {
   return points.toLocaleString();
