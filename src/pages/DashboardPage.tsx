@@ -8,7 +8,7 @@ import GoldCoin from '../components/reputation/GoldCoin';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
 import { projectService, mentorService, notificationService, roadmapService, fundingService } from '../services';
 import type { Project, Mentor, Notification, ProjectRoadmap, FundingProgress } from '../types';
-import { pageTransition, hoverGlossyCard } from '../animations';
+import { pageTransition } from '../animations';
 
 export default function DashboardPage() {
   const { user: currentUser } = useAuth();
