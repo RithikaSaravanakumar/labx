@@ -66,10 +66,6 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        if (isOpen) onClose();
-      }
       if (e.key === 'Escape' && isOpen) {
         onClose();
       }

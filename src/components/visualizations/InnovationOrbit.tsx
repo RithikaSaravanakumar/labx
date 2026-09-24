@@ -310,9 +310,9 @@ export default function InnovationOrbit() {
         className="relative w-full h-full preserve-3d"
         style={{
           transform: prefersReducedMotion
-            ? 'none'
-            : `rotateX(${mouseOffset.y * -6}deg) rotateY(${mouseOffset.x * 6}deg)`,
-          transition: 'transform 0.15s ease-out',
+            ? 'rotateX(55deg) rotateZ(-30deg)'
+            : `rotateX(${55 + mouseOffset.y * -15}deg) rotateZ(${-30 + mouseOffset.x * 15}deg)`,
+          transition: 'transform 0.25s ease-out',
         }}
       >
         {/* Ambient ecosystem glow in background (Obsidian Green Aura) */}
@@ -464,11 +464,14 @@ export default function InnovationOrbit() {
           {/* 3D Core Sphere Container */}
           <motion.div
             className="relative w-full h-full rounded-full bg-gradient-to-br from-[#0D1E13] via-[#07130B] to-[#040705] border-2 border-emerald-400/40 p-2 flex flex-col items-center justify-center shadow-2xl backdrop-blur-xl group cursor-pointer"
-            whileHover={{ scale: 1.08 }}
+            whileHover={{ scale: 1.08, z: 20 }}
             transition={{ duration: 0.25 }}
             style={{
               boxShadow:
                 '0 0 35px rgba(0, 255, 135, 0.45), inset 0 0 15px rgba(0, 255, 135, 0.25)',
+              transform: prefersReducedMotion 
+                ? 'rotateZ(30deg) rotateX(-55deg)' 
+                : `rotateZ(${30 - mouseOffset.x * 15}deg) rotateX(${-55 - mouseOffset.y * -15}deg)`,
             }}
             aria-label="LabX Innovation Core"
           >
@@ -521,6 +524,12 @@ export default function InnovationOrbit() {
                 onFocus={() => setHoveredNode(node.id)}
                 onBlur={() => setHoveredNode(null)}
                 className="flex flex-col items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87] rounded-2xl p-1"
+                style={{
+                  transform: prefersReducedMotion 
+                    ? 'rotateZ(30deg) rotateX(-55deg)' 
+                    : `rotateZ(${30 - mouseOffset.x * 15}deg) rotateX(${-55 - mouseOffset.y * -15}deg)`,
+                  transition: 'transform 0.25s ease-out'
+                }}
                 aria-haspopup="dialog"
                 aria-expanded={isSelected}
                 aria-label={`${node.label} persona: ${node.roleTitle}. Click to explore details.`}
