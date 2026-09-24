@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Rocket, Plus, Bell, Award, ChevronRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import LabXReputationCard from '../components/reputation/LabXReputationCard';
-import GoldCoin from '../components/reputation/GoldCoin';
+import LabXPoints from '../components/reputation/LabXPoints';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
 import { projectService, mentorService, notificationService, roadmapService, fundingService } from '../services';
 import type { Project, Mentor, Notification, ProjectRoadmap, FundingProgress } from '../types';
@@ -90,7 +90,9 @@ export default function DashboardPage() {
                     <div className="bg-black/40 border border-white/10 rounded-xl p-3 max-w-sm">
                       <div className="text-[9px] text-zinc-500 font-bold uppercase mb-1">Next Milestone</div>
                       <div className="text-xs text-white font-medium mb-1 line-clamp-1">{nextMilestone.title}</div>
-                      <div className="text-[10px] text-[#00FF87] font-bold">+{nextMilestone.pointsReward} Points</div>
+                      <div className="text-[10px] text-[#00FF87] font-bold">
+                        <LabXPoints points={nextMilestone.pointsReward} showPlus size="xs" textClassName="text-[#00FF87]" />
+                      </div>
                     </div>
                   )}
                   

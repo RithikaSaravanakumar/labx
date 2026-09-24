@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import type { User } from '../../types';
 import { getLevelProgress } from '../../utils';
+import LabXPoints from './LabXPoints';
 
 interface LabXReputationCardProps {
   user: User;
@@ -68,10 +69,8 @@ export default function LabXReputationCard({ user, className = '' }: LabXReputat
         </div>
 
         {/* Points Display */}
-        <div className="mb-4">
-          <div className="text-xl sm:text-2xl font-black text-[#00F0FF] tracking-tight">
-            {formattedPoints} <span className="text-xs sm:text-sm font-bold text-zinc-400 tracking-widest ml-1">LABX POINTS</span>
-          </div>
+        <div className="mb-4 text-xl sm:text-2xl font-black text-[#00F0FF] tracking-tight">
+          <LabXPoints points={user.labxPoints} size="md" />
         </div>
 
         {/* Progress Bar Row */}

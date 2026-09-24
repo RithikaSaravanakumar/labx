@@ -6,7 +6,7 @@ import type { ProjectRoadmap, FundingProgress, User } from '../types';
 import CurvedRoadmap from '../components/roadmap/CurvedRoadmap';
 import FundingProgressTimeline from '../components/funding/FundingProgressTimeline';
 import LabXPointRing from '../components/reputation/LabXPointRing';
-import GoldCoin from '../components/reputation/GoldCoin';
+import LabXPoints from '../components/reputation/LabXPoints';
 import { pageTransition, staggerContainer, staggerItem } from '../animations';
 import { Link } from 'react-router-dom';
 
@@ -114,7 +114,7 @@ export default function RoadmapPage() {
                       <div>
                         <div className="text-[10px] text-zinc-500 font-bold uppercase mb-1">Available Points</div>
                         <div className="text-xl font-bold text-[#00FF87] flex items-center gap-1">
-                          <GoldCoin className="w-5 h-5" />
+                          <LabXPoints points={currentStage.rewardPoints} showPlus size="sm" hideText />
                           +{currentStage.rewardPoints}
                         </div>
                       </div>
@@ -125,7 +125,9 @@ export default function RoadmapPage() {
                         <div className="text-[10px] font-bold text-zinc-500 uppercase mb-2">Next Milestone</div>
                         <div className="flex items-start justify-between gap-4">
                           <div className="text-sm font-medium text-white">{nextMilestone.title}</div>
-                          <div className="text-xs font-bold text-[#00FF87] shrink-0">+{nextMilestone.pointsReward} PTS</div>
+                          <div className="text-xs font-bold shrink-0">
+                            <LabXPoints points={nextMilestone.pointsReward} showPlus size="xs" textClassName="text-[#00FF87]" />
+                          </div>
                         </div>
                         <Link to={`/projects/${primaryRoadmap.projectId}/build`} className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-white text-xs font-bold uppercase rounded-lg transition-colors">
                           Continue Building
