@@ -178,6 +178,9 @@ export default function Navbar() {
                   <MagneticNavLink to="/projects" isActive={isActive('/projects')}>
                     Projects
                   </MagneticNavLink>
+                  <MagneticNavLink to="/feed" isActive={isActive('/feed')}>
+                    Feed
+                  </MagneticNavLink>
                   <MagneticNavLink to="/quests" isActive={isActive('/quests')}>
                     Quests
                   </MagneticNavLink>

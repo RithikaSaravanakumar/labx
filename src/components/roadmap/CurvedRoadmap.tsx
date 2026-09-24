@@ -1,6 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Play, Lock } from 'lucide-react';
+import { Check, Play, Lock, Shield, ShieldAlert, ShieldCheck, ShieldQuestion, Trophy } from 'lucide-react';
 import type { ProjectRoadmap, RoadmapStage } from '../../types/roadmap';
 
 interface CurvedRoadmapProps {
@@ -142,6 +142,7 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
             const isCompleted = stage.status === 'COMPLETED';
             const isCurrent = stage.status === 'CURRENT';
             const isLocked = stage.status === 'LOCKED';
+            const isLast = i === stages.length - 1;
 
             // Card positioned next to node
             const cardX = node.x === 200 ? node.x + 50 : node.x - 350;
@@ -163,9 +164,11 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                 {/* Node Icon */}
                 <foreignObject x={node.x - 12} y={node.y - 12} width="24" height="24">
                   <div className="w-full h-full flex items-center justify-center text-black">
-                    {isCompleted && <Check className="w-5 h-5 text-black" />}
-                    {isCurrent && <Play className="w-5 h-5 ml-1 text-black" />}
-                    {isLocked && <Lock className="w-4 h-4 text-zinc-500" />}
+                    {isLast && <Trophy className={`w-5 h-5 ${isLocked ? "text-zinc-500" : "text-[#0A0C0B]"}`} />}
+                    {!isLast && i % 4 === 0 && <Shield className={`w-5 h-5 ${isLocked ? "text-zinc-500" : "text-[#0A0C0B]"}`} />}
+                    {!isLast && i % 4 === 1 && <ShieldCheck className={`w-5 h-5 ${isLocked ? "text-zinc-500" : "text-[#0A0C0B]"}`} />}
+                    {!isLast && i % 4 === 2 && <ShieldAlert className={`w-5 h-5 ${isLocked ? "text-zinc-500" : "text-[#0A0C0B]"}`} />}
+                    {!isLast && i % 4 === 3 && <ShieldQuestion className={`w-5 h-5 ${isLocked ? "text-zinc-500" : "text-[#0A0C0B]"}`} />}
                   </div>
                 </foreignObject>
 
