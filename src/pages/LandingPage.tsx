@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Rocket, Users, Trophy, Target, Lightbulb, TrendingUp } from 'lucide-react';
 import InnovationOrbit from '../components/visualizations/InnovationOrbit';
@@ -48,7 +48,7 @@ export default function LandingPage() {
               </motion.div>
 
               <motion.h1
-                className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[9rem] font-black tracking-tighter mb-6 leading-[0.9] text-white"
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] font-black tracking-tighter mb-6 leading-[0.9] text-white"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -58,7 +58,7 @@ export default function LandingPage() {
               </motion.h1>
 
               <motion.p
-                className="text-lg sm:text-xl md:text-2xl text-labx-text-secondary max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium"
+                className="text-base sm:text-lg md:text-xl text-labx-text-secondary max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
