@@ -11,7 +11,7 @@ import type { Quest, QuestCategory, QuestStatus } from '../types';
 import { pageTransition } from '../animations';
 
 // ===== Icon Mapping =====
-const QUEST_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+const QUEST_ICONS: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
   User,
   FolderKanban,
   Target,
@@ -317,12 +317,12 @@ export default function QuestsPage() {
   };
 
   const filters: Array<{ value: 'all' | QuestStatus; label: string; count?: number }> = [
-    { value: 'all', label: 'All', count: quests.length },
-    { value: 'ACTIVE', label: 'Active', count: quests.filter(q => q.status === 'ACTIVE').length },
-    { value: 'IN_PROGRESS', label: 'In Progress', count: quests.filter(q => q.status === 'IN_PROGRESS').length },
-    { value: 'COMPLETED', label: 'Completed', count: quests.filter(q => q.status === 'COMPLETED').length },
-    { value: 'CLAIMED', label: 'Claimed', count: quests.filter(q => q.status === 'CLAIMED').length },
-    { value: 'LOCKED', label: 'Locked', count: quests.filter(q => q.status === 'LOCKED').length },
+    { value: 'all' as const, label: 'All', count: quests.length },
+    { value: 'ACTIVE' as QuestStatus, label: 'Active', count: quests.filter(q => q.status === 'ACTIVE').length },
+    { value: 'IN_PROGRESS' as QuestStatus, label: 'In Progress', count: quests.filter(q => q.status === 'IN_PROGRESS').length },
+    { value: 'COMPLETED' as QuestStatus, label: 'Completed', count: quests.filter(q => q.status === 'COMPLETED').length },
+    { value: 'CLAIMED' as QuestStatus, label: 'Claimed', count: quests.filter(q => q.status === 'CLAIMED').length },
+    { value: 'LOCKED' as QuestStatus, label: 'Locked', count: quests.filter(q => q.status === 'LOCKED').length },
   ].filter(f => f.count === undefined || f.count > 0 || f.value === 'all');
 
   return (
@@ -440,7 +440,7 @@ export default function QuestsPage() {
       )}
 
       {/* Demo: Simulate completing a quest */}
-      {process.env.NODE_ENV !== 'production' && currentUser && (
+      {import.meta.env.DEV && currentUser && (
         <div className="mt-12 pt-8 border-t border-[#1A2040]">
           <p className="text-xs text-zinc-600 mb-3 uppercase tracking-wider font-bold">Dev Tools — Simulate Quest Progress</p>
           <div className="flex flex-wrap gap-2">
