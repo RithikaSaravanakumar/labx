@@ -102,6 +102,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
             >
+              {/* Holographic cube restored */}
               <HolographicCube3D size={360} />
             </motion.div>
           </div>
