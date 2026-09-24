@@ -28,7 +28,7 @@ export default function LandingPage() {
   return (
     <div className="overflow-hidden">
       {/* ===== HERO ===== */}
-      <section className="relative min-h-[92vh] flex items-center justify-center labx-grid-bg overflow-hidden py-16 lg:py-24">
+      <section className="relative min-h-[85vh] flex items-start labx-grid-bg overflow-hidden pt-32 lg:pt-40 pb-16 lg:pb-24">
         {/* 3D Cyber Perspective Floor */}
         <div className="cyber-plane-3d" />
 
