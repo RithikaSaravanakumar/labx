@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Zap, Users, Sparkles } from 'lucide-react';
 import LabXLogo from '../components/brand/LabXLogo';
 import InnovationOrbit from '../components/visualizations/InnovationOrbit';
@@ -8,7 +8,7 @@ export default function AboutPage() {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
       {/* Hero Header */}
       <section className="text-center max-w-3xl mx-auto pt-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-labx-green/10 border border-labx-green/20 text-labx-green text-xs font-bold uppercase tracking-wider mb-6">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-labx-cyan/10 border border-labx-cyan/20 text-labx-cyan text-xs font-bold uppercase tracking-wider mb-6">
           <Sparkles className="w-3.5 h-3.5" />
           The Innovation Manifesto
         </div>
@@ -22,8 +22,8 @@ export default function AboutPage() {
 
       {/* Philosophy Pillars */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-green/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
-          <div className="w-10 h-10 rounded-xl bg-labx-green/10 border border-labx-green/20 flex items-center justify-center text-labx-green mb-4">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-cyan/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
+          <div className="w-10 h-10 rounded-xl bg-labx-cyan/10 border border-labx-cyan/20 flex items-center justify-center text-labx-cyan mb-4">
             <Zap className="w-5 h-5" />
           </div>
           <h2 className="text-lg font-bold text-labx-text mb-2">Build in Public</h2>
@@ -32,8 +32,8 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-emerald-400/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
-          <div className="w-10 h-10 rounded-xl bg-labx-green/10 border border-labx-green/20 flex items-center justify-center text-labx-green mb-4">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-cyan-300/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
+          <div className="w-10 h-10 rounded-xl bg-labx-cyan/10 border border-labx-cyan/20 flex items-center justify-center text-labx-cyan mb-4">
             <Users className="w-5 h-5" />
           </div>
           <h2 className="text-lg font-bold text-labx-text mb-2">Cross-Pollination</h2>
@@ -42,8 +42,8 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-emerald-400/50 transition-all">
-          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[#00FF87] mb-4">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-cyan-300/50 transition-all">
+          <div className="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-[#22D3EE] mb-4">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <h2 className="text-lg font-bold text-labx-text mb-2">Reputation Engine</h2>
@@ -56,7 +56,7 @@ export default function AboutPage() {
       {/* Ecosystem Visual Section */}
       <section className="p-8 sm:p-12 rounded-3xl bg-labx-surface border border-labx-border grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-6 space-y-4">
-          <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
+          <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
             Connected Network
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-labx-text tracking-tight">
@@ -68,14 +68,14 @@ export default function AboutPage() {
           <div className="pt-2 flex flex-wrap gap-3">
             <Link
               to="/discover"
-              className="px-4 py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-emerald-500/25"
+              className="px-4 py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-cyan-400/25"
             >
               <span>Explore Ecosystem</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               to="/signup"
-              className="px-4 py-2.5 rounded-xl font-bold text-xs text-labx-text bg-labx-bg border border-labx-border hover:border-labx-green/50 transition-colors"
+              className="px-4 py-2.5 rounded-xl font-bold text-xs text-labx-text bg-labx-bg border border-labx-border hover:border-labx-cyan/50 transition-colors"
             >
               Claim Proof of Work
             </Link>

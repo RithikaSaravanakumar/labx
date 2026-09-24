@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -74,7 +74,7 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'EXPLORE BUILDERS',
     path: '/projects',
     icon: Code2,
-    color: '#00FF87', // Cyber Neon Green
+    color: '#22D3EE', // Cyber Neon Green
     glowColor: 'rgba(0, 255, 135, 0.5)',
     radius: 135,
     angle: 0, // Right (3 o'clock)
@@ -136,7 +136,7 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'BROWSE ACTIVE STARTUPS',
     path: '/startups',
     icon: Building2,
-    color: '#00FF87', // Cyber Neon Green
+    color: '#22D3EE', // Cyber Neon Green
     glowColor: 'rgba(0, 255, 135, 0.45)',
     radius: 210,
     angle: -Math.PI / 4, // Top-Right (1:30)
@@ -238,7 +238,7 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'DISCOVER WHAT’S NEXT',
     path: '/discover',
     icon: Sparkles,
-    color: '#00FF87', // Cyber Neon
+    color: '#22D3EE', // Cyber Neon
     glowColor: 'rgba(0, 255, 135, 0.5)',
     radius: 280,
     angle: (7 * Math.PI) / 6, // 8 o'clock
@@ -334,9 +334,9 @@ export default function InnovationOrbit() {
           <defs>
             {/* Core radial gradient (Cyber Green on Obsidian) */}
             <radialGradient id="orbitCoreGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#00FF87" stopOpacity="0.45" />
+              <stop offset="0%" stopColor="#22D3EE" stopOpacity="0.45" />
               <stop offset="60%" stopColor="#10B981" stopOpacity="0.12" />
-              <stop offset="100%" stopColor="#040705" stopOpacity="0" />
+              <stop offset="100%" stopColor="#05060A" stopOpacity="0" />
             </radialGradient>
 
             {/* Glowing filter for active paths */}
@@ -446,7 +446,7 @@ export default function InnovationOrbit() {
           {/* Outer rotating pulse energy ring (Cyber Green) */}
           {!prefersReducedMotion && (
             <motion.div
-              className="absolute -inset-3 rounded-full border border-emerald-400/40 border-dashed"
+              className="absolute -inset-3 rounded-full border border-cyan-300/40 border-dashed"
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
             />
@@ -463,7 +463,7 @@ export default function InnovationOrbit() {
 
           {/* 3D Core Sphere Container */}
           <motion.div
-            className="relative w-full h-full rounded-full bg-gradient-to-br from-[#0D1E13] via-[#07130B] to-[#040705] border-2 border-emerald-400/40 p-2 flex flex-col items-center justify-center shadow-2xl backdrop-blur-xl group cursor-pointer"
+            className="relative w-full h-full rounded-full bg-gradient-to-br from-[#0D1E13] via-[#07130B] to-[#05060A] border-2 border-cyan-300/40 p-2 flex flex-col items-center justify-center shadow-2xl backdrop-blur-xl group cursor-pointer"
             whileHover={{ scale: 1.08, z: 20 }}
             transition={{ duration: 0.25 }}
             style={{
@@ -476,7 +476,7 @@ export default function InnovationOrbit() {
             aria-label="LabX Innovation Core"
           >
             {/* Official LabX Logo badge centered in core */}
-            <div className="bg-white/95 px-2 py-0.5 rounded-md shadow-md flex items-center justify-center border border-emerald-400/30">
+            <div className="bg-white/95 px-2 py-0.5 rounded-md shadow-md flex items-center justify-center border border-cyan-300/30">
               <img
                 src={officialLogo}
                 alt="LabX Core"
@@ -484,8 +484,8 @@ export default function InnovationOrbit() {
               />
             </div>
             <div className="mt-1 flex items-center gap-1">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00FF87] animate-ping" />
-              <span className="text-[9px] font-mono font-bold tracking-widest text-[#00FF87] uppercase drop-shadow-[0_0_6px_rgba(0,255,135,0.7)]">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-ping" />
+              <span className="text-[9px] font-mono font-bold tracking-widest text-[#22D3EE] uppercase drop-shadow-[0_0_6px_rgba(0,255,135,0.7)]">
                 CORE
               </span>
             </div>
@@ -523,7 +523,7 @@ export default function InnovationOrbit() {
                 onMouseLeave={() => setHoveredNode(null)}
                 onFocus={() => setHoveredNode(node.id)}
                 onBlur={() => setHoveredNode(null)}
-                className="flex flex-col items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87] rounded-2xl p-1"
+                className="flex flex-col items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE] rounded-2xl p-1"
                 style={{
                   transform: prefersReducedMotion 
                     ? 'none' 
@@ -564,7 +564,7 @@ export default function InnovationOrbit() {
                 {/* Node Label Below */}
                 <span
                   className={`mt-1.5 text-xs font-semibold tracking-wide transition-colors duration-200 ${
-                    isHovered || isSelected ? 'text-[#00FF87]' : 'text-zinc-400 group-hover:text-emerald-300'
+                    isHovered || isSelected ? 'text-[#22D3EE]' : 'text-zinc-400 group-hover:text-sky-200'
                   }`}
                 >
                   {node.label}
@@ -597,7 +597,7 @@ export default function InnovationOrbit() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 12 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="absolute inset-x-4 top-1/2 -translate-y-1/2 sm:inset-x-12 z-40 bg-[#070D09]/98 border border-emerald-500/35 rounded-2xl p-6 sm:p-7 shadow-[0_0_50px_rgba(0,255,135,0.2)] backdrop-blur-xl"
+              className="absolute inset-x-4 top-1/2 -translate-y-1/2 sm:inset-x-12 z-40 bg-[#080A12]/98 border border-cyan-400/35 rounded-2xl p-6 sm:p-7 shadow-[0_0_50px_rgba(0,255,135,0.2)] backdrop-blur-xl"
               role="dialog"
               aria-modal="true"
               aria-labelledby="orbit-modal-title"
@@ -617,10 +617,10 @@ export default function InnovationOrbit() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono uppercase tracking-wider text-emerald-400/80">
+                      <span className="text-xs font-mono uppercase tracking-wider text-cyan-300/80">
                         {selectedNode.orbit.toUpperCase()} ORBIT
                       </span>
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-medium">
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-400/15 border border-cyan-400/30 text-sky-200 font-medium">
                         {selectedNode.label}
                       </span>
                     </div>
@@ -633,7 +633,7 @@ export default function InnovationOrbit() {
                 <button
                   type="button"
                   onClick={() => setSelectedNode(null)}
-                  className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-emerald-500/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87]"
+                  className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-cyan-400/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
                   aria-label="Close dialog (Escape)"
                 >
                   <X size={20} />
@@ -641,7 +641,7 @@ export default function InnovationOrbit() {
               </div>
 
               {/* Tagline & Description */}
-              <p className="mt-3.5 text-sm font-semibold text-[#00FF87]">
+              <p className="mt-3.5 text-sm font-semibold text-[#22D3EE]">
                 {selectedNode.tagline}
               </p>
               <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed">
@@ -649,15 +649,15 @@ export default function InnovationOrbit() {
               </p>
 
               {/* Key Benefits List */}
-              <div className="mt-4 pt-3.5 border-t border-emerald-500/20">
-                <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <Zap size={14} className="text-[#00FF87]" />
+              <div className="mt-4 pt-3.5 border-t border-cyan-400/20">
+                <h4 className="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <Zap size={14} className="text-[#22D3EE]" />
                   Key Ecosystem Advantages
                 </h4>
                 <ul className="space-y-1.5">
                   {selectedNode.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-xs text-zinc-200">
-                      <ShieldCheck size={14} className="text-[#00FF87] mt-0.5 shrink-0" />
+                      <ShieldCheck size={14} className="text-[#22D3EE] mt-0.5 shrink-0" />
                       <span>{benefit}</span>
                     </li>
                   ))}
@@ -665,14 +665,14 @@ export default function InnovationOrbit() {
               </div>
 
               {/* Footer CTA Button */}
-              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-emerald-500/20">
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-cyan-400/20">
                 <span className="text-[11px] text-zinc-400 font-mono">
                   Press ESC to dismiss
                 </span>
                 <Link
                   to={selectedNode.path}
                   onClick={() => setSelectedNode(null)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-black text-xs tracking-wider uppercase text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-black text-xs tracking-wider uppercase text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-cyan-400/30 hover:shadow-cyan-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
                 >
                   <span>{selectedNode.ctaText}</span>
                   <ArrowRight size={14} />

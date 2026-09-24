@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Save, CheckCircle2 } from 'lucide-react';
 import { pageTransition } from '../animations';
@@ -30,7 +30,7 @@ export default function SettingsPage() {
       <div className="labx-card p-6 sm:p-8">
         <form onSubmit={handleSave} className="space-y-6">
           <div className="flex items-center gap-4 pb-6 border-b border-labx-border">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Avatar" className="w-16 h-16 rounded-2xl border-2 border-labx-green/60 shadow-[0_0_15px_rgba(0,255,135,0.2)] object-cover" />
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Avatar" className="w-16 h-16 rounded-2xl border-2 border-labx-cyan/60 shadow-[0_0_15px_rgba(0,255,135,0.2)] object-cover" />
             <div>
               <button type="button" className="labx-button-secondary text-xs px-3 py-1.5 rounded-lg font-semibold">Change Avatar</button>
               <div className="text-[10px] text-labx-text-muted mt-1">Recommended: 400x400px square image</div>
@@ -44,7 +44,7 @@ export default function SettingsPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-green/60"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-cyan/60"
               />
             </div>
             <div>
@@ -53,7 +53,7 @@ export default function SettingsPage() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-green/60 font-mono"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-cyan/60 font-mono"
               />
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function SettingsPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-green/60 font-mono"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-cyan/60 font-mono"
             />
           </div>
 
@@ -74,13 +74,13 @@ export default function SettingsPage() {
               rows={3}
               value={bio}
               onChange={(e) => setBio(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-green/60"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text focus:outline-none focus:border-labx-cyan/60"
             />
           </div>
 
           <div className="flex items-center justify-between pt-4 border-t border-labx-border">
             {isSaved ? (
-              <span className="flex items-center gap-1.5 text-xs text-emerald-400 font-semibold">
+              <span className="flex items-center gap-1.5 text-xs text-cyan-300 font-semibold">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Settings saved successfully!</span>
               </span>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Flame, Plus, TrendingUp, CheckCircle2, X, Send } from 'lucide-react';
 import BuildJourneyTimeline from '../components/build/BuildJourneyTimeline';
@@ -91,7 +91,7 @@ export default function BuildPage() {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 shadow-lg shadow-emerald-500/30 transition-all"
+          className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 shadow-lg shadow-cyan-400/30 transition-all"
         >
           <Plus className="w-4 h-4" />
           <span>Log Today's Progress</span>
@@ -122,7 +122,7 @@ export default function BuildPage() {
           {/* Streak Leaderboard Card */}
           <div className="labx-card p-6">
             <h3 className="text-base font-bold text-labx-text mb-4 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-labx-green" />
+              <TrendingUp className="w-4 h-4 text-labx-cyan" />
               <span>Top Active Builders</span>
             </h3>
 
@@ -136,13 +136,13 @@ export default function BuildPage() {
                 <div key={builder.name} className="flex items-center justify-between p-3 rounded-xl bg-labx-surface border border-labx-border/60">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold font-mono text-labx-text-muted w-4">#{idx + 1}</span>
-                    <img src={builder.avatar} alt={builder.name} className="w-8 h-8 rounded-full border border-labx-green/60 object-cover" />
+                    <img src={builder.avatar} alt={builder.name} className="w-8 h-8 rounded-full border border-labx-cyan/60 object-cover" />
                     <div>
                       <div className="text-xs font-bold text-labx-text">{builder.name}</div>
                       <div className="text-[10px] text-labx-text-muted font-mono">{builder.points} pts</div>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-amber-400 font-mono">🔥 {builder.streak}d</span>
+                  <span className="text-xs font-bold text-amber-400 font-mono"> {builder.streak}d</span>
                 </div>
               ))}
             </div>
@@ -163,7 +163,7 @@ export default function BuildPage() {
 
             {isSubmitted ? (
               <div className="text-center py-8 space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
+                <CheckCircle2 className="w-12 h-12 text-cyan-300 mx-auto" />
                 <h3 className="text-xl font-bold text-labx-text">Build Log Published!</h3>
                 <p className="text-xs text-labx-text-muted">+50 LabX Points credited to your profile streak.</p>
               </div>
@@ -177,7 +177,7 @@ export default function BuildPage() {
                   <select
                     value={selectedProjectId}
                     onChange={(e) => setSelectedProjectId(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   >
                     {projects.map(p => (
                       <option key={p.id} value={p.id}>{p.name}</option>
@@ -194,7 +194,7 @@ export default function BuildPage() {
                       value={logTitle}
                       onChange={(e) => setLogTitle(e.target.value)}
                       required
-                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                     />
                   </div>
                   <div>
@@ -205,7 +205,7 @@ export default function BuildPage() {
                       value={dayNumber}
                       onChange={(e) => setDayNumber(Number(e.target.value))}
                       required
-                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-green/60"
+                      className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-cyan/60"
                     />
                   </div>
                 </div>
@@ -218,7 +218,7 @@ export default function BuildPage() {
                     value={logContent}
                     onChange={(e) => setLogContent(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   />
                 </div>
 
@@ -229,7 +229,7 @@ export default function BuildPage() {
                     placeholder="https://github.com/org/repo/commit/..."
                     value={proofUrl}
                     onChange={(e) => setProofUrl(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text font-mono focus:outline-none focus:border-labx-cyan/60"
                   />
                 </div>
 
@@ -243,7 +243,7 @@ export default function BuildPage() {
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2.5 rounded-xl text-xs font-black text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-2 shadow-lg shadow-emerald-500/25"
+                    className="px-5 py-2.5 rounded-xl text-xs font-black text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-2 shadow-lg shadow-cyan-400/25"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Publish Build Log</span>

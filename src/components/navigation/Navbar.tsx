@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Search, Bell, Menu } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
@@ -54,18 +54,18 @@ function MagneticNavLink({
       <Link
         to={to}
         aria-current={isActive ? 'page' : undefined}
-        className={`relative inline-flex items-center px-3.5 py-2 rounded-xl text-[14px] xl:text-[15px] font-semibold tracking-wider uppercase transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+        className={`relative inline-flex items-center px-3.5 py-2 rounded-xl text-[13px] xl:text-[14px] font-semibold tracking-wider uppercase transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE] ${
           isActive
-            ? 'text-white drop-shadow-[0_0_12px_rgba(0,255,135,0.7)]'
-            : 'text-zinc-400 hover:text-[#00FF87] hover:-translate-y-0.5'
+            ? 'text-white drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]'
+            : 'text-zinc-400 hover:text-[#22D3EE] hover:-translate-y-0.5'
         }`}
       >
-        <span className="absolute inset-0 rounded-xl bg-white/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+        <span className="absolute inset-0 rounded-xl bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
         <span className="relative z-10 transition-colors duration-200">{children}</span>
         {isActive && (
           <motion.div
             layoutId="navbar-active-indicator"
-            className="absolute -bottom-1 left-2.5 right-2.5 h-[2.5px] rounded-full bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] shadow-[0_0_14px_rgba(0,255,135,0.95)]"
+            className="absolute -bottom-1 left-2.5 right-2.5 h-[2px] rounded-full bg-gradient-to-r from-[#22D3EE] via-[#0EA5E9] to-[#7C3AED] shadow-[0_0_10px_rgba(34,211,238,0.8)]"
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
           />
         )}
@@ -76,7 +76,8 @@ function MagneticNavLink({
 
 export default function Navbar() {
   const { notificationCount, setSearchOpen } = useApp();
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, user } = useAuth();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
   const navRef = useRef<HTMLElement>(null);
@@ -120,6 +121,11 @@ export default function Navbar() {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handleLogout = async () => {
+    await logout();
+    navigate('/', { replace: true });
+  };
+
   return (
     <>
       <header
@@ -128,22 +134,22 @@ export default function Navbar() {
         onMouseLeave={handleNavMouseLeave}
         className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
           isScrolled
-            ? 'h-[64px] md:h-[68px] bg-[#040705]/94 backdrop-blur-[24px] border-b border-emerald-500/10 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.9)]'
-            : 'h-16 md:h-[76px] bg-[#040705]/70 backdrop-blur-[16px] border-b border-transparent'
+            ? 'h-[64px] md:h-[68px] bg-[#05060A]/95 backdrop-blur-[24px] border-b border-[#22D3EE]/8 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.9)]'
+            : 'h-16 md:h-[76px] bg-[#05060A]/70 backdrop-blur-[16px] border-b border-transparent'
         }`}
       >
-        {/* Subtle Interactive Ambient Light Follow (Green) */}
+        {/* Subtle Interactive Ambient Light — Cyan */}
         <div
-          className="pointer-events-none absolute inset-0 transition-opacity duration-300 opacity-60 hidden md:block"
+          className="pointer-events-none absolute inset-0 transition-opacity duration-300 opacity-50 hidden md:block"
           style={{
-            background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(0, 255, 135, 0.08), transparent 80%)`,
+            background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(34, 211, 238, 0.06), transparent 80%)`,
           }}
         />
 
         <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative z-10">
           
-          {/* LEFT: Logo */}
-          <div className="flex items-center gap-8">
+          {/* LEFT: Logo + Nav */}
+          <div className="flex items-center gap-6">
             <motion.div
               initial={shouldReduceMotion ? false : { opacity: 0, y: -8, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -152,23 +158,47 @@ export default function Navbar() {
               <LabXLogo size="md" href={isAuthenticated ? "/dashboard" : "/"} showGlow />
             </motion.div>
 
-            {/* CENTER: Minimal Primary Navigation (Desktop Only) */}
+            {/* CENTER: Desktop Primary Navigation */}
             <motion.nav
               initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.05, ease: 'easeOut' }}
-              className="hidden lg:flex items-center gap-2"
+              className="hidden lg:flex items-center gap-1"
               aria-label="Main navigation"
             >
-              <MagneticNavLink to={isAuthenticated ? "/dashboard" : "/"} isActive={isActive(isAuthenticated ? "/dashboard" : "/")}>
-                Home
-              </MagneticNavLink>
-              <MagneticNavLink to="/discover" isActive={isActive('/discover')}>
-                Discover
-              </MagneticNavLink>
-              <MagneticNavLink to="/feed" isActive={isActive('/feed')}>
-                Feed
-              </MagneticNavLink>
+              {isAuthenticated ? (
+                // Authenticated navigation
+                <>
+                  <MagneticNavLink to="/dashboard" isActive={isActive('/dashboard')}>
+                    Dashboard
+                  </MagneticNavLink>
+                  <MagneticNavLink to="/discover" isActive={isActive('/discover')}>
+                    Discover
+                  </MagneticNavLink>
+                  <MagneticNavLink to="/projects" isActive={isActive('/projects')}>
+                    Projects
+                  </MagneticNavLink>
+                  <MagneticNavLink to="/quests" isActive={isActive('/quests')}>
+                    Quests
+                  </MagneticNavLink>
+                </>
+              ) : (
+                // Public navigation
+                <>
+                  <MagneticNavLink to="/" isActive={isActive('/')}>
+                    Home
+                  </MagneticNavLink>
+                  <MagneticNavLink to="/discover" isActive={isActive('/discover')}>
+                    Discover
+                  </MagneticNavLink>
+                  <MagneticNavLink to="/projects" isActive={isActive('/projects')}>
+                    Projects
+                  </MagneticNavLink>
+                  <MagneticNavLink to="/mentors" isActive={isActive('/mentors')}>
+                    Mentors
+                  </MagneticNavLink>
+                </>
+              )}
             </motion.nav>
           </div>
 
@@ -179,42 +209,58 @@ export default function Navbar() {
             transition={{ duration: 0.35, delay: 0.1, ease: 'easeOut' }}
             className="flex items-center gap-2 sm:gap-3"
           >
-            {/* Command Center Shortcut Button */}
+            {/* Command Center Search */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 hover:border-emerald-400/40 text-zinc-400 hover:text-white transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/5 hover:border-[#22D3EE]/30 text-zinc-400 hover:text-white transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
               aria-label="Open Command Center (Ctrl+K)"
             >
-              <Search className="w-4 h-4 text-zinc-400 group-hover:text-[#00FF87] transition-colors" />
+              <Search className="w-4 h-4 text-zinc-400 group-hover:text-[#22D3EE] transition-colors" />
               <span className="hidden xl:inline text-[13px] font-medium">Search</span>
-              <kbd className="hidden md:inline-flex items-center gap-0.5 text-[10px] font-mono font-semibold bg-black/40 text-zinc-400 group-hover:text-[#00FF87] px-1.5 py-0.5 rounded border border-white/5 group-hover:border-emerald-400/30 transition-colors">
+              <kbd className="hidden md:inline-flex items-center gap-0.5 text-[10px] font-mono font-semibold bg-black/40 text-zinc-400 group-hover:text-[#22D3EE] px-1.5 py-0.5 rounded border border-white/5 group-hover:border-[#22D3EE]/30 transition-colors">
                 <span>⌘</span>
                 <span>K</span>
               </kbd>
             </button>
 
-            {/* Notifications Button (Authenticated) */}
+            {/* Notifications — only when authenticated */}
             {isAuthenticated && (
               <button
                 onClick={() => setNotificationsOpen(true)}
-                className="relative p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/10 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                className="relative p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/10 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
                 aria-label={`Open notifications (${notificationCount} unread)`}
                 aria-expanded={notificationsOpen}
               >
                 <Bell className="w-5 h-5" />
                 {notificationCount > 0 && (
                   <span className="absolute top-1.5 right-1.5 flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF87] opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00FF87]" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22D3EE] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#22D3EE]" />
                   </span>
                 )}
               </button>
             )}
 
+            {/* User avatar (when authenticated) — desktop only */}
+            {isAuthenticated && user && (
+              <div className="hidden lg:flex items-center gap-2 border-l border-white/10 pl-3 ml-1">
+                <Link to="/profile" className="flex items-center gap-2 group">
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className="w-8 h-8 rounded-full border border-[#22D3EE]/30 group-hover:border-[#22D3EE] transition-colors object-cover"
+                  />
+                  <span className="text-sm font-semibold text-zinc-300 group-hover:text-white transition-colors hidden xl:inline">
+                    {user.name.split(' ')[0]}
+                  </span>
+                </Link>
+              </div>
+            )}
+
             {/* Hamburger: LabX Hub */}
             <button
               onClick={() => setHubOpen(true)}
-              className="p-2 rounded-xl text-zinc-300 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/10 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="p-2 rounded-xl text-zinc-300 hover:text-white hover:bg-white/[0.06] border border-transparent hover:border-white/10 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
               aria-label="Open LabX Hub"
               aria-expanded={hubOpen}
             >
@@ -222,33 +268,39 @@ export default function Navbar() {
             </button>
 
             {/* Auth / Build CTA (Desktop Only) */}
-            <div className="hidden lg:flex items-center ml-2 pl-4 border-l border-white/10 gap-3">
+            <div className="hidden lg:flex items-center ml-1 gap-2">
               {!isAuthenticated && (
-                <div className="flex items-center gap-3 mr-2">
+                <>
                   <Link
                     to="/login"
                     className="text-sm font-bold text-zinc-300 hover:text-white transition-colors whitespace-nowrap"
                   >
                     Sign In
                   </Link>
-                </div>
+                  <Link
+                    to="/signup"
+                    className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-gradient-to-r from-[#22D3EE] via-[#0EA5E9] to-[#7C3AED] text-white font-black text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[0_0_15px_rgba(34,211,238,0.25)] hover:shadow-[0_0_25px_rgba(34,211,238,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#05060A] whitespace-nowrap"
+                  >
+                    Join LabX
+                  </Link>
+                </>
               )}
               {isAuthenticated && (
-                <div className="flex items-center gap-3 mr-2">
+                <>
                   <button
-                    onClick={() => logout()}
-                    className="text-sm font-bold text-zinc-400 hover:text-white transition-colors whitespace-nowrap"
+                    onClick={handleLogout}
+                    className="text-sm font-bold text-zinc-500 hover:text-red-400 transition-colors whitespace-nowrap"
                   >
                     Sign Out
                   </button>
-                </div>
+                  <Link
+                    to="/projects/new"
+                    className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-gradient-to-r from-[#22D3EE] via-[#0EA5E9] to-[#7C3AED] text-white font-black text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[0_0_15px_rgba(34,211,238,0.25)] hover:shadow-[0_0_25px_rgba(34,211,238,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#05060A] whitespace-nowrap"
+                  >
+                    Build
+                  </Link>
+                </>
               )}
-              <Link
-                to={isAuthenticated ? "/projects/new" : "/signup"}
-                className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[0_0_15px_rgba(0,255,135,0.3)] hover:shadow-[0_0_20px_rgba(0,255,135,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#040705] whitespace-nowrap"
-              >
-                {isAuthenticated ? "Build" : "Sign Up"}
-              </Link>
             </div>
           </motion.div>
         </div>

@@ -409,6 +409,7 @@ export interface ApplicationItem {
   feedback?: string;
 }
 
+
 export interface SavedItem {
   id: string;
   type: 'project' | 'startup' | 'mentor' | 'opportunity' | 'idea';
@@ -419,3 +420,40 @@ export interface SavedItem {
   metadata?: Record<string, unknown>;
 }
 
+// ===== Quest System Types =====
+
+export type QuestStatus = 'LOCKED' | 'ACTIVE' | 'IN_PROGRESS' | 'COMPLETED' | 'CLAIMED' | 'EXPIRED';
+
+export type QuestCategory =
+  | 'identity'
+  | 'builder'
+  | 'community'
+  | 'collaboration'
+  | 'milestone'
+  | 'achievement';
+
+export interface Quest {
+  id: string;
+  title: string;
+  description: string;
+  icon: string; // lucide icon name
+  category: QuestCategory;
+  rewardPoints: number;
+  progress: number;
+  target: number;
+  status: QuestStatus;
+  requirements?: string[];
+  expiresAt?: string;
+  completedAt?: string;
+  claimedAt?: string;
+}
+
+export interface PointsTransaction {
+  id: string;
+  userId: string;
+  type: 'quest_reward' | 'project' | 'community' | 'hackathon' | 'mentorship' | 'collaboration';
+  amount: number;
+  description: string;
+  questId?: string;
+  createdAt: string;
+}

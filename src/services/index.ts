@@ -1,5 +1,6 @@
 import { mockUsers, mockProjects, mockStartups, mockMentors, mockIdeas, mockBuildUpdates, mockHackathons, mockOpportunities, mockContributions, mockNotifications } from '../data/mockData';
 import type { User, Project, Startup, Mentor, Idea, BuildUpdate, Hackathon, Opportunity, Contribution, Notification, Domain, ProjectStage, OpportunityType } from '../types';
+import { authService } from './authService';
 
 // Simulate API delay
 const delay = (ms: number = 300) => new Promise(resolve => setTimeout(resolve, ms));
@@ -18,9 +19,15 @@ export const userService = {
     await delay();
     return mockUsers.find(u => u.username === username);
   },
-  async getCurrentUser(): Promise<User> {
-    await delay();
-    return mockUsers[0]; // Aarav is the default logged-in user
+  /**
+   * IMPORTANT: Always returns the AUTHENTICATED session user from authService.
+   * Never returns mockUsers[0] or a hardcoded user.
+   * This is the single source of truth for the current user identity.
+   */
+  async getCurrentUser(): Promise<User | null> {
+    await delay(100);
+    const sessionUser = await authService.getCurrentUser();
+    return sessionUser;
   },
 };
 
@@ -244,3 +251,4 @@ export { feedService } from './feedService';
 export { pointsService } from './pointsService';
 export { roadmapService } from './roadmapService';
 export { fundingService } from './fundingService';
+export { questService } from './questService';

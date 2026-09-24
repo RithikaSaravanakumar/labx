@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Sparkles } from 'lucide-react';
 import ContextualMentorMatch from '../components/mentors/ContextualMentorMatch';
@@ -57,14 +57,14 @@ export default function MentorsPage() {
             placeholder="Search by mentor name, skill, company..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-emerald-400"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-cyan-300"
           />
         </div>
 
         <select
           value={selectedDomain}
           onChange={(e) => setSelectedDomain(e.target.value as Domain | 'all')}
-          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-emerald-400 w-full md:w-auto"
+          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-cyan-300 w-full md:w-auto"
         >
           <option value="all">All Domains</option>
           {Object.entries(DOMAIN_LABELS).map(([key, label]) => (

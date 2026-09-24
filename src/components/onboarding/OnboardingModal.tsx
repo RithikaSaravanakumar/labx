@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, ArrowRight, CheckCircle2, X } from 'lucide-react';
 import type { UserRole, Domain } from '../../types';
@@ -11,12 +11,12 @@ interface OnboardingModalProps {
 }
 
 const roles: { value: UserRole; label: string; desc: string; icon: string }[] = [
-  { value: 'student', label: 'Student', desc: 'Learning, discovering projects, seeking mentorship & internships', icon: '🎓' },
-  { value: 'builder', label: 'Builder / Dev', desc: 'Shipping open-source code, completing milestones, gaining points', icon: '💻' },
-  { value: 'founder', label: 'Founder', desc: 'Building a venture, recruiting co-founders, pitching to investors', icon: '🚀' },
-  { value: 'mentor', label: 'Mentor', desc: 'Offering office hours, guiding projects, reviewing tech stacks', icon: '🧠' },
-  { value: 'investor', label: 'Investor', desc: 'Discovering deal flow, tracking startup traction & telemetry', icon: '💎' },
-  { value: 'researcher', label: 'Researcher', desc: 'Publishing deep-tech papers, sharing dataset prototypes', icon: '🔬' },
+  { value: 'student', label: 'Student', desc: 'Learning, discovering projects, seeking mentorship & internships', icon: '' },
+  { value: 'builder', label: 'Builder / Dev', desc: 'Shipping open-source code, completing milestones, gaining points', icon: '' },
+  { value: 'founder', label: 'Founder', desc: 'Building a venture, recruiting co-founders, pitching to investors', icon: '' },
+  { value: 'mentor', label: 'Mentor', desc: 'Offering office hours, guiding projects, reviewing tech stacks', icon: '' },
+  { value: 'investor', label: 'Investor', desc: 'Discovering deal flow, tracking startup traction & telemetry', icon: '' },
+  { value: 'researcher', label: 'Researcher', desc: 'Publishing deep-tech papers, sharing dataset prototypes', icon: '' },
 ];
 
 export default function OnboardingModal({ isOpen, onClose, onComplete }: OnboardingModalProps) {
@@ -55,8 +55,8 @@ export default function OnboardingModal({ isOpen, onClose, onComplete }: Onboard
           </button>
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-labx-green/10 text-labx-green border border-labx-green/30 flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-labx-green" />
+            <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-labx-cyan/10 text-labx-cyan border border-labx-cyan/30 flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-labx-cyan" />
               <span>Step {step} of 2</span>
             </span>
           </div>
@@ -73,8 +73,8 @@ export default function OnboardingModal({ isOpen, onClose, onComplete }: Onboard
                     onClick={() => setSelectedRole(r.value)}
                     className={`p-3.5 rounded-xl text-left border transition-all ${
                       selectedRole === r.value
-                        ? 'bg-labx-green/15 border-labx-green shadow-md shadow-emerald-500/10'
-                        : 'bg-labx-surface border-labx-border hover:border-labx-green/30'
+                        ? 'bg-labx-cyan/15 border-labx-cyan shadow-md shadow-cyan-400/10'
+                        : 'bg-labx-surface border-labx-border hover:border-labx-cyan/30'
                     }`}
                   >
                     <div className="text-2xl mb-1">{r.icon}</div>
@@ -107,7 +107,7 @@ export default function OnboardingModal({ isOpen, onClose, onComplete }: Onboard
                       onClick={() => toggleInterest(key as Domain)}
                       className={`p-2.5 rounded-xl text-xs font-semibold text-center border transition-all ${
                         isSelected
-                          ? 'bg-labx-green/20 border-labx-green text-labx-green font-bold'
+                          ? 'bg-labx-cyan/20 border-labx-cyan text-labx-cyan font-bold'
                           : 'bg-labx-surface border-labx-border text-labx-text-muted hover:text-labx-text'
                       }`}
                     >

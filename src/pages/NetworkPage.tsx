@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { UserPlus, UserCheck, Users, Search } from 'lucide-react';
 import { networkService } from '../services';
@@ -73,7 +73,7 @@ export default function NetworkPage() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all whitespace-nowrap ${
                 activeTab === tab.id
-                  ? 'bg-labx-green text-black font-bold shadow-lg shadow-emerald-500/20'
+                  ? 'bg-labx-cyan text-black font-bold shadow-lg shadow-cyan-400/20'
                   : 'text-labx-text-muted hover:text-labx-text hover:bg-labx-surface'
               }`}
             >
@@ -86,7 +86,7 @@ export default function NetworkPage() {
 
       {isLoading ? (
         <div className="py-12 text-center">
-          <div className="w-8 h-8 border-2 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-8 h-8 border-2 border-labx-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-labx-text-muted">Loading network graph...</p>
         </div>
       ) : users.length === 0 ? (
@@ -106,7 +106,7 @@ export default function NetworkPage() {
             <Link key={user.id} to={`/profile/${user.username}`} className="labx-card p-6 flex items-start gap-4 hover:-translate-y-1 transition-transform group">
               <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-xl object-cover border border-labx-border" />
               <div className="flex-1 min-w-0">
-                <h3 className="text-base font-bold text-labx-text truncate group-hover:text-labx-green transition-colors">{user.name}</h3>
+                <h3 className="text-base font-bold text-labx-text truncate group-hover:text-labx-cyan transition-colors">{user.name}</h3>
                 <p className="text-xs text-labx-text-muted truncate mb-2">@{user.username}</p>
                 <p className="text-sm text-labx-text-secondary line-clamp-2">{user.bio}</p>
               </div>

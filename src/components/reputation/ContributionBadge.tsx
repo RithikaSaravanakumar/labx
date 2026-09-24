@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import type { Achievement } from '../../types';
 
 interface ContributionBadgeProps {
@@ -17,10 +17,10 @@ export default function ContributionBadge({ achievement }: ContributionBadgeProp
         };
       case 'epic':
         return {
-          bg: 'bg-emerald-500/10',
-          border: 'border-emerald-500/40',
-          text: 'text-[#00FF87]',
-          badgeBg: 'bg-emerald-500/20 text-[#00FF87]',
+          bg: 'bg-cyan-400/10',
+          border: 'border-cyan-400/40',
+          text: 'text-[#22D3EE]',
+          badgeBg: 'bg-cyan-400/20 text-[#22D3EE]',
         };
       case 'rare':
         return {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Flame, TrendingUp } from 'lucide-react';
 import PostCard from '../components/feed/PostCard';
@@ -50,9 +50,9 @@ export default function FeedPage() {
             <div className="labx-card p-6">
               <div className="flex flex-col items-center text-center">
                 <Link to={`/profile/${currentUser.username}`}>
-                  <img src={currentUser.avatar} alt={currentUser.name} className="w-20 h-20 rounded-full object-cover border-2 border-labx-green/60 mb-3 hover:scale-105 transition-transform" />
+                  <img src={currentUser.avatar} alt={currentUser.name} className="w-20 h-20 rounded-full object-cover border-2 border-labx-cyan/60 mb-3 hover:scale-105 transition-transform" />
                 </Link>
-                <Link to={`/profile/${currentUser.username}`} className="text-lg font-bold text-labx-text hover:text-labx-green transition-colors">
+                <Link to={`/profile/${currentUser.username}`} className="text-lg font-bold text-labx-text hover:text-labx-cyan transition-colors">
                   {currentUser.name}
                 </Link>
                 <p className="text-xs text-labx-text-muted mt-1">{currentUser.bio}</p>
@@ -70,13 +70,13 @@ export default function FeedPage() {
 
           <div className="labx-card p-6">
             <h3 className="text-sm font-bold text-labx-text mb-4 uppercase tracking-wider flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-emerald-400" />
+              <TrendingUp className="w-4 h-4 text-cyan-300" />
               Trending Projects
             </h3>
             <div className="space-y-4">
               {trendingProjects.map(project => (
                 <Link key={project.id} to={`/projects/${project.id}`} className="block group">
-                  <h4 className="text-sm font-bold text-labx-text group-hover:text-labx-green transition-colors line-clamp-1">{project.name}</h4>
+                  <h4 className="text-sm font-bold text-labx-text group-hover:text-labx-cyan transition-colors line-clamp-1">{project.name}</h4>
                   <p className="text-xs text-labx-text-muted line-clamp-1 mt-1">{project.description}</p>
                 </Link>
               ))}
@@ -101,7 +101,7 @@ export default function FeedPage() {
                     onClick={() => setActiveTab(tab.id as any)}
                     className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
                       activeTab === tab.id
-                        ? 'bg-labx-surface border border-labx-border text-labx-green'
+                        ? 'bg-labx-surface border border-labx-border text-labx-cyan'
                         : 'text-labx-text-muted hover:text-labx-text hover:bg-labx-surface/50'
                     }`}
                   >
@@ -119,7 +119,7 @@ export default function FeedPage() {
           {/* Feed Content */}
           {isLoading ? (
             <div className="py-12 text-center">
-              <div className="w-8 h-8 border-2 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+              <div className="w-8 h-8 border-2 border-labx-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4" />
               <p className="text-labx-text-muted font-medium">Syncing ecosystem activity...</p>
             </div>
           ) : posts.length === 0 ? (

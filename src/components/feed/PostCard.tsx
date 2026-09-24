@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Heart, MessageSquare, Share2, Bookmark, Trophy, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { Post } from '../../types';
@@ -21,7 +21,7 @@ export default function PostCard({ post, onLike }: PostCardProps) {
   };
 
   return (
-    <div className="labx-card p-5 sm:p-6 mb-6 group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-[0_8px_30px_rgba(0,255,135,0.1)]">
+    <div className="labx-card p-5 sm:p-6 mb-6 group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-[0_8px_30px_rgba(0,255,135,0.1)]">
       {/* Spotlight Hover Effect */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" 
            style={{ background: 'radial-gradient(600px circle at 50% 0%, rgba(0,255,135,0.06), transparent 80%)' }} />
@@ -29,10 +29,10 @@ export default function PostCard({ post, onLike }: PostCardProps) {
       <div className="flex items-start justify-between gap-4 mb-4 relative z-10">
         <div className="flex items-center gap-3">
           <Link to={`/profile/${post.authorId}`}>
-            <img src={post.authorAvatar} alt={post.authorName} className="w-12 h-12 rounded-xl object-cover border border-labx-green/30" />
+            <img src={post.authorAvatar} alt={post.authorName} className="w-12 h-12 rounded-xl object-cover border border-labx-cyan/30" />
           </Link>
           <div>
-            <Link to={`/profile/${post.authorId}`} className="text-base font-bold text-labx-text hover:text-labx-green transition-colors">
+            <Link to={`/profile/${post.authorId}`} className="text-base font-bold text-labx-text hover:text-labx-cyan transition-colors">
               {post.authorName}
             </Link>
             <p className="text-xs text-labx-text-muted">{post.authorHeadline}</p>
@@ -41,7 +41,7 @@ export default function PostCard({ post, onLike }: PostCardProps) {
         </div>
         
         {post.type === 'build_in_public' && (
-          <span className="px-3 py-1 bg-labx-green/10 border border-labx-green/20 text-labx-green rounded-full text-[10px] font-bold uppercase tracking-wider hidden sm:block">
+          <span className="px-3 py-1 bg-labx-cyan/10 border border-labx-cyan/20 text-labx-cyan rounded-full text-[10px] font-bold uppercase tracking-wider hidden sm:block">
             Building in Public
           </span>
         )}
@@ -59,14 +59,14 @@ export default function PostCard({ post, onLike }: PostCardProps) {
           </div>
           <div className="flex justify-between items-end">
             <div>
-              <Link to={`/projects/${post.projectId}`} className="text-sm font-bold text-labx-green hover:underline">
+              <Link to={`/projects/${post.projectId}`} className="text-sm font-bold text-labx-cyan hover:underline">
                 {post.projectName}
               </Link>
               {post.milestoneTitle && <p className="text-xs text-labx-text-secondary mt-1">{post.milestoneTitle}</p>}
             </div>
             {post.labxPointsEarned && (
-              <span className="text-xs font-mono font-bold text-[#00FF87]">
-                <LabXPoints points={post.labxPointsEarned} showPlus size="xs" textClassName="text-[#00FF87]" />
+              <span className="text-xs font-mono font-bold text-[#22D3EE]">
+                <LabXPoints points={post.labxPointsEarned} showPlus size="xs" textClassName="text-[#22D3EE]" />
               </span>
             )}
           </div>
@@ -76,7 +76,7 @@ export default function PostCard({ post, onLike }: PostCardProps) {
       {post.tags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-4 relative z-10">
           {post.tags.map(tag => (
-            <span key={tag} className="text-xs text-labx-green hover:underline cursor-pointer">#{tag}</span>
+            <span key={tag} className="text-xs text-labx-cyan hover:underline cursor-pointer">#{tag}</span>
           ))}
         </div>
       )}
@@ -85,9 +85,9 @@ export default function PostCard({ post, onLike }: PostCardProps) {
         <div className="flex items-center gap-6">
           <button 
             onClick={handleLike}
-            className={`flex items-center gap-2 text-xs font-semibold transition-colors ${isLiked ? 'text-labx-green' : 'text-labx-text-muted hover:text-labx-text'}`}
+            className={`flex items-center gap-2 text-xs font-semibold transition-colors ${isLiked ? 'text-labx-cyan' : 'text-labx-text-muted hover:text-labx-text'}`}
           >
-            <Heart className={`w-4 h-4 ${isLiked ? 'fill-labx-green' : ''}`} />
+            <Heart className={`w-4 h-4 ${isLiked ? 'fill-labx-cyan' : ''}`} />
             <span>{likes}</span>
           </button>
           <button className="flex items-center gap-2 text-xs font-semibold text-labx-text-muted hover:text-labx-text transition-colors">

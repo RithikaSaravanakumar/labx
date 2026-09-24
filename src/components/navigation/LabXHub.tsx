@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+﻿import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { X, ChevronRight, Plus } from 'lucide-react';
@@ -67,7 +67,7 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-[#040705]/80 backdrop-blur-sm z-[100]"
+            className="fixed inset-0 bg-[#05060A]/80 backdrop-blur-sm z-[100]"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -92,7 +92,7 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
               </div>
               <button
                 onClick={onClose}
-                className="p-2 rounded-full hover:bg-white/5 text-zinc-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                className="p-2 rounded-full hover:bg-white/5 text-zinc-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
                 aria-label="Close LabX Hub"
               >
                 <X className="w-5 h-5" />
@@ -124,13 +124,13 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
                         >
                           <div className="flex items-center gap-3">
                             {Icon && (
-                              <div className="w-8 h-8 rounded-lg bg-white/[0.02] flex items-center justify-center group-hover:bg-emerald-500/10 group-hover:text-[#00FF87] transition-colors">
+                              <div className="w-8 h-8 rounded-lg bg-white/[0.02] flex items-center justify-center group-hover:bg-[#22D3EE]/10 group-hover:text-[#22D3EE] transition-colors">
                                 <Icon className="w-4 h-4" />
                               </div>
                             )}
                             <span className="text-sm font-medium">{item.label}</span>
                           </div>
-                          <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-emerald-400 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                          <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-[#22D3EE] opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                         </Link>
                       );
                     })}
@@ -140,7 +140,7 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
             </div>
 
             {/* Footer / User Ecosystem Summary */}
-            <div className="p-6 border-t border-white/5 bg-[#040705]">
+            <div className="p-6 border-t border-white/5 bg-[#05060A]">
               {isAuthenticated && user ? (
                 <div className="mb-6">
                   <div onClick={handleLinkClick}>
@@ -159,7 +159,7 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
                   <Link
                     to="/signup"
                     onClick={handleLinkClick}
-                    className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] to-[#10B981] text-black font-black text-sm text-center hover:brightness-110 transition-all shadow-lg shadow-emerald-500/20"
+                    className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-[#22D3EE] to-[#0EA5E9] text-white font-black text-sm text-center hover:brightness-110 transition-all shadow-lg shadow-cyan-500/20"
                   >
                     Sign Up
                   </Link>
@@ -171,7 +171,7 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
                   <Link
                     to="/projects/new"
                     onClick={handleLinkClick}
-                    className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm uppercase tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
+                    className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-[#22D3EE] via-[#0EA5E9] to-[#7C3AED] text-white font-black text-sm uppercase tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
                   >
                     <Plus className="w-4 h-4" />
                     <span>Start Building</span>

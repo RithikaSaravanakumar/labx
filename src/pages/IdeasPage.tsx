@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Lightbulb, ThumbsUp, Users, Plus, Send, X, CheckCircle2, Rocket } from 'lucide-react';
@@ -118,7 +118,7 @@ export default function IdeasPage() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {ideas.map(idea => {
-            const domainColor = DOMAIN_COLORS[idea.domain] || '#00FF87';
+            const domainColor = DOMAIN_COLORS[idea.domain] || '#22D3EE';
             const count = upvotes[idea.id] || idea.supporters;
 
             return (
@@ -136,7 +136,7 @@ export default function IdeasPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-green transition-colors">
+                  <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-cyan transition-colors">
                     {idea.title}
                   </h3>
                   <p className="text-xs text-labx-text-muted mb-2 font-semibold">Problem: {idea.problem}</p>
@@ -167,7 +167,7 @@ export default function IdeasPage() {
                   <div className="mt-4 pt-4 border-t border-labx-border/60">
                     <Link
                       to={`/projects/new?sourceIdeaId=${idea.id}`}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-labx-surface hover:bg-emerald-500/10 text-emerald-400 border border-labx-border hover:border-emerald-500/50 transition-all"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-labx-surface hover:bg-cyan-400/10 text-cyan-300 border border-labx-border hover:border-cyan-400/50 transition-all"
                     >
                       <Rocket className="w-3.5 h-3.5" />
                       <span>Turn Idea into Reality</span>
@@ -190,7 +190,7 @@ export default function IdeasPage() {
 
             {isSubmitted ? (
               <div className="text-center py-8 space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
+                <CheckCircle2 className="w-12 h-12 text-cyan-300 mx-auto" />
                 <h3 className="text-xl font-bold text-labx-text">Idea Pitched!</h3>
                 <p className="text-xs text-labx-text-muted">Your concept is now live in the LabX Vault.</p>
               </div>
@@ -207,7 +207,7 @@ export default function IdeasPage() {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   />
                 </div>
 
@@ -216,7 +216,7 @@ export default function IdeasPage() {
                   <select
                     value={domain}
                     onChange={(e) => setDomain(e.target.value as Domain)}
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   >
                     {Object.entries(DOMAIN_LABELS).map(([k, v]) => (
                       <option key={k} value={k}>{v}</option>
@@ -232,7 +232,7 @@ export default function IdeasPage() {
                     value={problem}
                     onChange={(e) => setProblem(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   />
                 </div>
 
@@ -244,7 +244,7 @@ export default function IdeasPage() {
                     value={solution}
                     onChange={(e) => setSolution(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   />
                 </div>
 

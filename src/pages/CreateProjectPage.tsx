@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, Target, Users, Zap, CheckCircle2, ChevronRight, ChevronLeft } from 'lucide-react';
 import { projectService } from '../services';
@@ -81,7 +81,7 @@ export default function CreateProjectPage() {
       <div className="flex items-center justify-between mb-12 relative">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-labx-border/50 -z-10" />
         <div 
-          className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-labx-green transition-all duration-500 -z-10"
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-labx-cyan transition-all duration-500 -z-10"
           style={{ width: `${((step - 1) / 2) * 100}%` }}
         />
         
@@ -94,7 +94,7 @@ export default function CreateProjectPage() {
           const isActive = step >= s.num;
           return (
             <div key={s.num} className="flex flex-col items-center gap-2">
-              <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-colors ${isActive ? 'bg-labx-surface border-labx-green text-labx-green shadow-[0_0_15px_rgba(0,255,135,0.2)]' : 'bg-labx-bg border-labx-border text-labx-text-muted'}`}>
+              <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-colors ${isActive ? 'bg-labx-surface border-labx-cyan text-labx-cyan shadow-[0_0_15px_rgba(0,255,135,0.2)]' : 'bg-labx-bg border-labx-border text-labx-text-muted'}`}>
                 <Icon className="w-5 h-5" />
               </div>
               <span className={`text-[10px] font-bold uppercase tracking-wider hidden sm:block ${isActive ? 'text-labx-text' : 'text-labx-text-muted'}`}>
@@ -118,7 +118,7 @@ export default function CreateProjectPage() {
                 type="text"
                 value={formData.name}
                 onChange={e => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-green transition-colors"
+                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-cyan transition-colors"
                 placeholder="e.g. MediVision AI"
               />
             </div>
@@ -130,7 +130,7 @@ export default function CreateProjectPage() {
                 type="text"
                 value={formData.tagline}
                 onChange={e => setFormData({ ...formData, tagline: e.target.value })}
-                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-green transition-colors"
+                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-cyan transition-colors"
                 placeholder="e.g. AI-powered diagnostic imaging"
               />
             </div>
@@ -141,7 +141,7 @@ export default function CreateProjectPage() {
                 required
                 value={formData.domain}
                 onChange={e => setFormData({ ...formData, domain: e.target.value })}
-                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-green transition-colors appearance-none"
+                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-cyan transition-colors appearance-none"
               >
                 <option value="" disabled>Select a domain</option>
                 {DOMAINS.map(d => <option key={d} value={d}>{d.toUpperCase().replace('-', ' ')}</option>)}
@@ -160,7 +160,7 @@ export default function CreateProjectPage() {
                 required
                 value={formData.problem}
                 onChange={e => setFormData({ ...formData, problem: e.target.value })}
-                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-green transition-colors min-h-[120px] resize-none"
+                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-cyan transition-colors min-h-[120px] resize-none"
                 placeholder="What problem are you solving?"
               />
             </div>
@@ -171,7 +171,7 @@ export default function CreateProjectPage() {
                 required
                 value={formData.solution}
                 onChange={e => setFormData({ ...formData, solution: e.target.value })}
-                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-green transition-colors min-h-[120px] resize-none"
+                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-cyan transition-colors min-h-[120px] resize-none"
                 placeholder="How does your project solve this problem?"
               />
             </div>
@@ -189,7 +189,7 @@ export default function CreateProjectPage() {
                 type="text"
                 value={formData.techStack}
                 onChange={e => setFormData({ ...formData, techStack: e.target.value })}
-                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-green transition-colors"
+                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-cyan transition-colors"
                 placeholder="e.g. React, Node.js, Python, PostgreSQL"
               />
             </div>
@@ -200,7 +200,7 @@ export default function CreateProjectPage() {
                 required
                 value={formData.description}
                 onChange={e => setFormData({ ...formData, description: e.target.value })}
-                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-green transition-colors min-h-[120px] resize-none"
+                className="w-full bg-labx-bg border border-labx-border rounded-xl px-4 py-3 text-labx-text focus:outline-none focus:border-labx-cyan transition-colors min-h-[120px] resize-none"
                 placeholder="A short description for the discovery page"
               />
             </div>

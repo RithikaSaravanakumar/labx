@@ -1,4 +1,4 @@
-/**
+﻿/**
  * LabXLogo — Official Brand Component
  *
  * Uses the authentic "LabX by ZeAI" wordmark from src/assets/branding/labx-logo.png.
@@ -98,7 +98,7 @@ export default function LabXLogo({
     return (
       <Link
         to={href || "/"}
-        className="inline-flex items-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        className="inline-flex items-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         aria-label="LabX by ZeAI — Go to home"
       >
         {logoContent}

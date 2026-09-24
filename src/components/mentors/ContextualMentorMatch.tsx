@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, CheckCircle, ArrowRight } from 'lucide-react';
 import type { Mentor } from '../../types';
@@ -16,8 +16,8 @@ export default function ContextualMentorMatch({ mentor }: ContextualMentorMatchP
       whileHover={{ y: -4 }}
       className="labx-card p-6 flex flex-col justify-between h-full group relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 bg-gradient-to-l from-labx-green/20 to-transparent text-labx-green text-[10px] font-mono font-bold px-3 py-1 rounded-bl-xl border-b border-l border-labx-green/30">
-        ⚡ {matchScore}% AI Match
+      <div className="absolute top-0 right-0 bg-gradient-to-l from-labx-cyan/20 to-transparent text-labx-cyan text-[10px] font-mono font-bold px-3 py-1 rounded-bl-xl border-b border-l border-labx-cyan/30">
+         {matchScore}% AI Match
       </div>
 
       <div>
@@ -25,12 +25,12 @@ export default function ContextualMentorMatch({ mentor }: ContextualMentorMatchP
           <img
             src={mentor.avatar}
             alt={mentor.name}
-            className="w-14 h-14 rounded-2xl border-2 border-labx-green/50 object-cover group-hover:border-labx-green transition-colors shadow-[0_0_12px_rgba(0,255,135,0.15)]"
+            className="w-14 h-14 rounded-2xl border-2 border-labx-cyan/50 object-cover group-hover:border-labx-cyan transition-colors shadow-[0_0_12px_rgba(0,255,135,0.15)]"
           />
           <div>
-            <h3 className="text-base font-bold text-labx-text group-hover:text-labx-green transition-colors flex items-center gap-1.5">
+            <h3 className="text-base font-bold text-labx-text group-hover:text-labx-cyan transition-colors flex items-center gap-1.5">
               {mentor.name}
-              {mentor.isVerified && <CheckCircle className="w-4 h-4 text-labx-green fill-labx-green/20" />}
+              {mentor.isVerified && <CheckCircle className="w-4 h-4 text-labx-cyan fill-labx-cyan/20" />}
             </h3>
             <p className="text-xs text-labx-text-muted line-clamp-1">{mentor.title} at {mentor.company || 'Tech Corp'}</p>
             <div className="flex items-center gap-2 text-xs text-amber-400 font-mono mt-0.5">
@@ -46,11 +46,11 @@ export default function ContextualMentorMatch({ mentor }: ContextualMentorMatchP
 
         {/* Match Reasons */}
         <div className="mb-4 bg-labx-surface/60 border border-labx-border/60 p-2.5 rounded-xl">
-          <div className="text-[10px] uppercase font-mono font-bold text-labx-green mb-1">Contextual Synergy</div>
+          <div className="text-[10px] uppercase font-mono font-bold text-labx-cyan mb-1">Contextual Synergy</div>
           <div className="flex flex-wrap gap-1">
             {matchReasons.map(reason => (
               <span key={reason} className="text-[10px] font-mono text-labx-text-muted bg-labx-bg px-2 py-0.5 rounded border border-labx-border/30">
-                ✓ {reason}
+                 {reason}
               </span>
             ))}
           </div>
@@ -59,7 +59,7 @@ export default function ContextualMentorMatch({ mentor }: ContextualMentorMatchP
 
       <div className="flex items-center justify-between pt-4 border-t border-labx-border/60 text-xs">
         <span className={`font-semibold font-mono ${
-          mentor.availability === 'available' ? 'text-emerald-400' : 'text-amber-400'
+          mentor.availability === 'available' ? 'text-cyan-300' : 'text-amber-400'
         }`}>
           ● {mentor.availability === 'available' ? 'Available this week' : 'Limited slots'}
         </span>

@@ -16,7 +16,8 @@ import {
   User as UserIcon,
   Bell,
   Settings,
-  Info
+  Info,
+  Target,
 } from 'lucide-react';
 import type { NavigationGroup } from '../types/navigation';
 
@@ -47,7 +48,7 @@ export const LABX_NAVIGATION: NavigationGroup[] = [
     id: 'community',
     title: 'Community',
     items: [
-      { id: 'feed', label: 'Feed', icon: Activity, path: '/feed' },
+      { id: 'feed', label: 'Feed', icon: Activity, path: '/feed', authRequired: true },
       { id: 'community', label: 'Community', icon: Users, path: '/community' },
       { id: 'connections', label: 'Connections', icon: Network, path: '/network', authRequired: true },
     ]
@@ -61,6 +62,7 @@ export const LABX_NAVIGATION: NavigationGroup[] = [
       { id: 'build-public', label: 'Build in Public', icon: Megaphone, path: '/feed', authRequired: true },
       { id: 'roadmap', label: 'Roadmap', icon: GitMerge, path: '/roadmap', authRequired: true },
       { id: 'contributions', label: 'Contributions', icon: GitCommit, path: '/profile', authRequired: true },
+      { id: 'quests', label: 'Quests', icon: Target, path: '/quests', authRequired: true },
     ]
   },
   {

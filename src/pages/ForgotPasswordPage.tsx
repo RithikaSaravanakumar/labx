@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+﻿import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, ArrowLeft, CheckCircle2 } from 'lucide-react';
@@ -47,7 +47,7 @@ export default function ForgotPasswordPage() {
             <p className="text-sm text-labx-text leading-relaxed">{message}</p>
             <Link
               to="/login"
-              className="inline-flex items-center gap-1.5 text-xs text-labx-green hover:underline font-bold"
+              className="inline-flex items-center gap-1.5 text-xs text-labx-cyan hover:underline font-bold"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to Sign In
             </Link>
@@ -67,7 +67,7 @@ export default function ForgotPasswordPage() {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="builder@labx.demo"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-cyan"
                 />
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function ForgotPasswordPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.99] transition-all shadow-md shadow-emerald-500/25 disabled:opacity-60"
+              className="w-full py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.99] transition-all shadow-md shadow-cyan-400/25 disabled:opacity-60"
             >
               {isSubmitting ? 'Sending instructions...' : 'Send Recovery Link'}
             </button>

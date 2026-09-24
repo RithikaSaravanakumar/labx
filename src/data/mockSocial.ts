@@ -10,7 +10,7 @@ export const mockPosts: Post[] = [
     authorRole: mockUsers[0].role,
     authorHeadline: mockUsers[0].bio,
     type: 'build_in_public',
-    content: "Just shipped the MVP for MediVision AI! 🚀 We've integrated the new diagnostic models and initial tests show a 15% improvement in accuracy over traditional baseline methods.",
+    content: "Just shipped the MVP for MediVision AI!  We've integrated the new diagnostic models and initial tests show a 15% improvement in accuracy over traditional baseline methods.",
     projectId: mockProjects[0].id,
     projectName: mockProjects[0].name,
     tags: ['buildinpublic', 'ai', 'healthcare'],

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -105,14 +105,14 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="w-full max-w-2xl bg-[#070D09] border border-labx-green/30 rounded-2xl shadow-[0_0_50px_rgba(0,255,135,0.15)] overflow-hidden"
+          className="w-full max-w-2xl bg-[#080A12] border border-labx-cyan/30 rounded-2xl shadow-[0_0_50px_rgba(0,255,135,0.15)] overflow-hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Command Center"
         >
           {/* Search bar */}
-          <div className="flex items-center px-4 sm:px-5 py-4 border-b border-labx-border/80 gap-3 bg-[#0B140E]/80">
-            <Search className="w-5 h-5 text-labx-green shrink-0 animate-pulse" />
+          <div className="flex items-center px-4 sm:px-5 py-4 border-b border-labx-border/80 gap-3 bg-[#0B0D14]/80">
+            <Search className="w-5 h-5 text-labx-cyan shrink-0 animate-pulse" />
             <input
               type="text"
               autoFocus
@@ -126,7 +126,7 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
               aria-autocomplete="list"
             />
             <div className="flex items-center gap-2">
-              <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-labx-surface text-labx-green/80 border border-labx-border">ESC</span>
+              <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-labx-surface text-labx-cyan/80 border border-labx-border">ESC</span>
               <button
                 onClick={onClose}
                 className="p-1 rounded-lg hover:bg-labx-surface text-labx-text-muted hover:text-labx-text transition-colors"
@@ -141,8 +141,8 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
           <div id="search-results" role="listbox" className="max-h-[65vh] overflow-y-auto p-4 sm:p-5 space-y-6">
             {/* Quick Ecosystem Brand Actions */}
             <div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-labx-green uppercase tracking-wider mb-2.5 px-2">
-                <Compass className="w-3.5 h-3.5 text-labx-green" />
+              <div className="flex items-center gap-2 text-xs font-semibold text-labx-cyan uppercase tracking-wider mb-2.5 px-2">
+                <Compass className="w-3.5 h-3.5 text-labx-cyan" />
                 <span>Ecosystem Quick Jump</span>
               </div>
               <div className="grid sm:grid-cols-2 gap-2">
@@ -152,15 +152,15 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
                     <button
                       key={s.path}
                       onClick={() => handleSelect(s.path)}
-                      className="p-3 rounded-xl bg-labx-surface/50 border border-labx-border/80 hover:border-labx-green/40 hover:bg-labx-green/5 transition-all text-left group flex items-start gap-3"
+                      className="p-3 rounded-xl bg-labx-surface/50 border border-labx-border/80 hover:border-labx-cyan/40 hover:bg-labx-cyan/5 transition-all text-left group flex items-start gap-3"
                       role="option"
                       aria-selected="false"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-labx-green/10 border border-labx-green/20 flex items-center justify-center shrink-0 group-hover:bg-labx-green group-hover:text-black transition-colors text-labx-green">
+                      <div className="w-8 h-8 rounded-lg bg-labx-cyan/10 border border-labx-cyan/20 flex items-center justify-center shrink-0 group-hover:bg-labx-cyan group-hover:text-black transition-colors text-labx-cyan">
                         <Icon className="w-4 h-4" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="text-xs font-bold text-labx-text group-hover:text-labx-green transition-colors truncate">
+                        <div className="text-xs font-bold text-labx-text group-hover:text-labx-cyan transition-colors truncate">
                           {s.label}
                         </div>
                         <div className="text-[11px] text-labx-text-muted line-clamp-1">
@@ -176,8 +176,8 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
             {/* Projects */}
             {filteredProjects.length > 0 && (
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-labx-green uppercase tracking-wider mb-2 px-2">
-                  <Folder className="w-3.5 h-3.5 text-labx-green" />
+                <div className="flex items-center gap-2 text-xs font-semibold text-labx-cyan uppercase tracking-wider mb-2 px-2">
+                  <Folder className="w-3.5 h-3.5 text-labx-cyan" />
                   <span>Projects</span>
                 </div>
                 <div className="space-y-1">
@@ -185,16 +185,16 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
                     <button
                       key={p.id}
                       onClick={() => handleSelect(`/projects/${p.id}`)}
-                      className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-labx-surface/80 hover:border hover:border-labx-green/30 transition-all text-left group"
+                      className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-labx-surface/80 hover:border hover:border-labx-cyan/30 transition-all text-left group"
                     >
                       <div>
-                        <div className="font-semibold text-sm text-labx-text group-hover:text-labx-green flex items-center gap-2">
+                        <div className="font-semibold text-sm text-labx-text group-hover:text-labx-cyan flex items-center gap-2">
                           {p.name}
-                          <span className="text-[10px] px-2 py-0.5 rounded bg-labx-green/10 text-labx-green font-mono border border-labx-green/20">{p.domain}</span>
+                          <span className="text-[10px] px-2 py-0.5 rounded bg-labx-cyan/10 text-labx-cyan font-mono border border-labx-cyan/20">{p.domain}</span>
                         </div>
                         <div className="text-xs text-labx-text-muted line-clamp-1">{p.tagline}</div>
                       </div>
-                      <CornerDownLeft className="w-4 h-4 text-labx-green opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CornerDownLeft className="w-4 h-4 text-labx-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
                     </button>
                   ))}
                 </div>
@@ -204,8 +204,8 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
             {/* Startups */}
             {filteredStartups.length > 0 && (
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2 px-2">
-                  <Rocket className="w-3.5 h-3.5 text-emerald-400" />
+                <div className="flex items-center gap-2 text-xs font-semibold text-cyan-300 uppercase tracking-wider mb-2 px-2">
+                  <Rocket className="w-3.5 h-3.5 text-cyan-300" />
                   <span>Startups</span>
                 </div>
                 <div className="space-y-1">
@@ -213,16 +213,16 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
                     <button
                       key={s.id}
                       onClick={() => handleSelect(`/startups/${s.id}`)}
-                      className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-labx-surface/80 hover:border hover:border-emerald-400/30 transition-all text-left group"
+                      className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-labx-surface/80 hover:border hover:border-cyan-300/30 transition-all text-left group"
                     >
                       <div>
-                        <div className="font-semibold text-sm text-labx-text group-hover:text-emerald-400 flex items-center gap-2">
+                        <div className="font-semibold text-sm text-labx-text group-hover:text-cyan-300 flex items-center gap-2">
                           {s.name}
-                          <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400 font-mono border border-emerald-400/20">{s.stage}</span>
+                          <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-300/10 text-cyan-300 font-mono border border-cyan-300/20">{s.stage}</span>
                         </div>
                         <div className="text-xs text-labx-text-muted line-clamp-1">{s.tagline}</div>
                       </div>
-                      <CornerDownLeft className="w-4 h-4 text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CornerDownLeft className="w-4 h-4 text-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </button>
                   ))}
                 </div>
@@ -232,8 +232,8 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
             {/* Mentors */}
             {filteredMentors.length > 0 && (
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-labx-green uppercase tracking-wider mb-2 px-2">
-                  <Award className="w-3.5 h-3.5 text-labx-green" />
+                <div className="flex items-center gap-2 text-xs font-semibold text-labx-cyan uppercase tracking-wider mb-2 px-2">
+                  <Award className="w-3.5 h-3.5 text-labx-cyan" />
                   <span>Mentors</span>
                 </div>
                 <div className="space-y-1">
@@ -241,16 +241,16 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
                     <button
                       key={m.id}
                       onClick={() => handleSelect(`/mentors/${m.id}`)}
-                      className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-labx-surface/80 hover:border hover:border-labx-green/30 transition-all text-left group"
+                      className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-labx-surface/80 hover:border hover:border-labx-cyan/30 transition-all text-left group"
                     >
                       <div className="flex items-center gap-3">
-                        <img src={m.avatar} alt={m.name} className="w-8 h-8 rounded-full object-cover border border-labx-green/30" />
+                        <img src={m.avatar} alt={m.name} className="w-8 h-8 rounded-full object-cover border border-labx-cyan/30" />
                         <div>
-                          <div className="font-semibold text-sm text-labx-text group-hover:text-labx-green">{m.name}</div>
+                          <div className="font-semibold text-sm text-labx-text group-hover:text-labx-cyan">{m.name}</div>
                           <div className="text-xs text-labx-text-muted">{m.title}</div>
                         </div>
                       </div>
-                      <CornerDownLeft className="w-4 h-4 text-labx-green opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <CornerDownLeft className="w-4 h-4 text-labx-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
                     </button>
                   ))}
                 </div>
@@ -258,14 +258,14 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
             )}
           </div>
 
-          <div className="px-5 py-3 bg-[#0B140E] border-t border-labx-border/80 flex items-center justify-between text-xs text-labx-text-muted">
+          <div className="px-5 py-3 bg-[#0B0D14] border-t border-labx-border/80 flex items-center justify-between text-xs text-labx-text-muted">
             <span className="flex items-center gap-1.5">
               <span>Press</span>
-              <kbd className="font-mono bg-labx-surface px-1.5 py-0.5 rounded text-labx-green border border-labx-border text-[11px]">Ctrl+K</kbd>
+              <kbd className="font-mono bg-labx-surface px-1.5 py-0.5 rounded text-labx-cyan border border-labx-border text-[11px]">Ctrl+K</kbd>
               <span>to trigger search anywhere</span>
             </span>
-            <span className="font-semibold text-labx-green/80 flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-labx-green animate-ping inline-block" />
+            <span className="font-semibold text-labx-cyan/80 flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-labx-cyan animate-ping inline-block" />
               ZeAI LabX Ecosystem
             </span>
           </div>

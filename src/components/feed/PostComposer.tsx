@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Send, Image as ImageIcon, Link2, Hash } from 'lucide-react';
 import type { User } from '../../types';
 
@@ -21,7 +21,7 @@ export default function PostComposer({ currentUser, onSubmit }: PostComposerProp
   };
 
   return (
-    <div className="labx-card p-4 sm:p-6 mb-8 border-2 border-transparent focus-within:border-labx-green/30 transition-colors">
+    <div className="labx-card p-4 sm:p-6 mb-8 border-2 border-transparent focus-within:border-labx-cyan/30 transition-colors">
       <div className="flex gap-4">
         <img src={currentUser.avatar} alt="You" className="w-12 h-12 rounded-xl object-cover" />
         <div className="flex-1">
@@ -34,11 +34,11 @@ export default function PostComposer({ currentUser, onSubmit }: PostComposerProp
           
           <div className="flex flex-wrap items-center justify-between pt-3 border-t border-labx-border/60 gap-4 mt-2">
             <div className="flex items-center gap-4 text-labx-text-muted">
-              <button className="hover:text-labx-green transition-colors flex items-center gap-1 text-xs font-semibold">
+              <button className="hover:text-labx-cyan transition-colors flex items-center gap-1 text-xs font-semibold">
                 <ImageIcon className="w-4 h-4" />
                 <span className="hidden sm:inline">Media</span>
               </button>
-              <button className="hover:text-labx-green transition-colors flex items-center gap-1 text-xs font-semibold">
+              <button className="hover:text-labx-cyan transition-colors flex items-center gap-1 text-xs font-semibold">
                 <Link2 className="w-4 h-4" />
                 <span className="hidden sm:inline">Link</span>
               </button>
@@ -47,9 +47,9 @@ export default function PostComposer({ currentUser, onSubmit }: PostComposerProp
                   type="checkbox" 
                   checked={isBuildInPublic}
                   onChange={(e) => setIsBuildInPublic(e.target.checked)}
-                  className="w-4 h-4 rounded border-labx-border bg-labx-bg text-labx-green focus:ring-labx-green focus:ring-offset-labx-surface"
+                  className="w-4 h-4 rounded border-labx-border bg-labx-bg text-labx-cyan focus:ring-labx-cyan focus:ring-offset-labx-surface"
                 />
-                <span className={`text-xs font-semibold uppercase tracking-wide transition-colors ${isBuildInPublic ? 'text-labx-green' : 'text-labx-text-muted group-hover:text-labx-text'}`}>
+                <span className={`text-xs font-semibold uppercase tracking-wide transition-colors ${isBuildInPublic ? 'text-labx-cyan' : 'text-labx-text-muted group-hover:text-labx-text'}`}>
                   Build in Public
                 </span>
               </label>

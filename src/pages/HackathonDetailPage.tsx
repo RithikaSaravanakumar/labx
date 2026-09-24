@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, Rocket } from 'lucide-react';
@@ -57,9 +57,9 @@ export default function HackathonDetailPage() {
             <div className="flex items-center gap-2">
               <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                 hackathon.status === 'live' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse' :
-                'bg-labx-green/20 text-labx-green border border-labx-green/30'
+                'bg-labx-cyan/20 text-labx-cyan border border-labx-cyan/30'
               }`}>
-                {hackathon.status === 'live' ? '🔴 Live Sprint' : hackathon.status}
+                {hackathon.status === 'live' ? ' Live Sprint' : hackathon.status}
               </span>
               <span className="text-xs text-labx-text-muted">Organized by {hackathon.organizer}</span>
             </div>
@@ -75,7 +75,7 @@ export default function HackathonDetailPage() {
             </div>
 
             {isRegistered ? (
-              <div className="flex items-center justify-center gap-2 p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-semibold">
+              <div className="flex items-center justify-center gap-2 p-3 rounded-xl bg-cyan-400/20 border border-cyan-400/40 text-sky-200 text-xs font-semibold">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Team Registered!</span>
               </div>
@@ -118,7 +118,7 @@ export default function HackathonDetailPage() {
         <div className="space-y-3">
           {hackathon.challenges.map((ch, idx) => (
             <div key={ch} className="p-4 rounded-xl bg-labx-surface border border-labx-border/60 flex items-center gap-3">
-              <span className="w-7 h-7 rounded-lg bg-labx-green/20 text-labx-green font-mono text-xs font-bold flex items-center justify-center">
+              <span className="w-7 h-7 rounded-lg bg-labx-cyan/20 text-labx-cyan font-mono text-xs font-bold flex items-center justify-center">
                 #{idx + 1}
               </span>
               <span className="text-sm font-semibold text-labx-text">{ch}</span>

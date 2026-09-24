@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Target, ChevronRight, Award } from 'lucide-react';
 import { roadmapService, fundingService, userService } from '../services';
@@ -41,7 +41,7 @@ export default function RoadmapPage() {
   if (isLoading || !currentUser || !primaryRoadmap) {
     return (
       <div className="flex justify-center py-20">
-        <div className="w-8 h-8 border-2 border-[#00FF87] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#22D3EE] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -90,12 +90,12 @@ export default function RoadmapPage() {
             
             {/* Current Stage Card */}
             {currentStage && (
-              <motion.div variants={staggerItem} className="bg-gradient-to-r from-emerald-500/10 to-[#0A0C0B] border border-[#00FF87]/30 rounded-2xl p-6 relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#00FF87]/10 blur-3xl rounded-full" />
+              <motion.div variants={staggerItem} className="bg-gradient-to-r from-cyan-400/10 to-[#0A0C0B] border border-[#22D3EE]/30 rounded-2xl p-6 relative overflow-hidden">
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-[#22D3EE]/10 blur-3xl rounded-full" />
                 
                 <div className="flex flex-col sm:flex-row items-start justify-between gap-6 relative z-10">
                   <div className="flex-1">
-                    <div className="text-[10px] font-bold text-[#00FF87] uppercase tracking-widest mb-1">
+                    <div className="text-[10px] font-bold text-[#22D3EE] uppercase tracking-widest mb-1">
                       CURRENT STAGE
                     </div>
                     <h2 className="text-3xl font-black text-white uppercase tracking-wider mb-2">
@@ -113,7 +113,7 @@ export default function RoadmapPage() {
                       <div className="w-px h-10 bg-white/10" />
                       <div>
                         <div className="text-[10px] text-zinc-500 font-bold uppercase mb-1">Available Points</div>
-                        <div className="text-xl font-bold text-[#00FF87] flex items-center gap-1">
+                        <div className="text-xl font-bold text-[#22D3EE] flex items-center gap-1">
                           <LabXPoints points={currentStage.rewardPoints} showPlus size="sm" hideText />
                           +{currentStage.rewardPoints}
                         </div>
@@ -126,7 +126,7 @@ export default function RoadmapPage() {
                         <div className="flex items-start justify-between gap-4">
                           <div className="text-sm font-medium text-white">{nextMilestone.title}</div>
                           <div className="text-xs font-bold shrink-0">
-                            <LabXPoints points={nextMilestone.pointsReward} showPlus size="xs" textClassName="text-[#00FF87]" />
+                            <LabXPoints points={nextMilestone.pointsReward} showPlus size="xs" textClassName="text-[#22D3EE]" />
                           </div>
                         </div>
                         <Link to={`/projects/${primaryRoadmap.projectId}/build`} className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-white text-xs font-bold uppercase rounded-lg transition-colors">
@@ -175,7 +175,7 @@ export default function RoadmapPage() {
 
             <motion.div variants={staggerItem} className="bg-[#0A0C0B] border border-white/5 rounded-2xl p-5">
               <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-                <Award className="w-4 h-4 text-emerald-400" />
+                <Award className="w-4 h-4 text-cyan-300" />
                 Proof of Work
               </h4>
               <div className="space-y-4">

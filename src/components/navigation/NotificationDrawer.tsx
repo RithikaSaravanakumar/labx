@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { X, CheckCircle, BellRing, ChevronRight } from 'lucide-react';
@@ -63,20 +63,20 @@ export default function NotificationDrawer({ isOpen, onClose }: NotificationDraw
               <div className="flex items-center gap-2">
                 <h3 className="text-sm font-bold text-white uppercase tracking-wider">Notifications</h3>
                 {notifications.some(n => !n.isRead) && (
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="w-2 h-2 rounded-full bg-cyan-300" />
                 )}
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleMarkAllRead}
-                  className="p-1.5 rounded-lg hover:bg-white/5 text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  className="p-1.5 rounded-lg hover:bg-white/5 text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-cyan-400"
                   title="Mark all as read"
                 >
                   <CheckCircle className="w-4 h-4" />
                 </button>
                 <button
                   onClick={onClose}
-                  className="p-1.5 rounded-lg hover:bg-white/5 text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  className="p-1.5 rounded-lg hover:bg-white/5 text-zinc-400 hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-cyan-400"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -87,7 +87,7 @@ export default function NotificationDrawer({ isOpen, onClose }: NotificationDraw
             <div className="flex-1 overflow-y-auto custom-scrollbar p-2">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center py-12 text-zinc-500">
-                  <div className="w-5 h-5 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mb-3" />
+                  <div className="w-5 h-5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mb-3" />
                   <span className="text-xs font-medium">Loading notifications...</span>
                 </div>
               ) : notifications.length === 0 ? (
@@ -106,7 +106,7 @@ export default function NotificationDrawer({ isOpen, onClose }: NotificationDraw
                       className={`block p-3 rounded-xl transition-all duration-200 ${
                         notification.isRead
                           ? 'hover:bg-white/[0.03] opacity-70'
-                          : 'bg-emerald-500/[0.03] hover:bg-emerald-500/[0.06]'
+                          : 'bg-cyan-400/[0.03] hover:bg-cyan-400/[0.06]'
                       }`}
                     >
                       <div className="flex gap-3">
@@ -115,11 +115,11 @@ export default function NotificationDrawer({ isOpen, onClose }: NotificationDraw
                             <img src={notification.senderAvatar} alt="" className="w-10 h-10 rounded-full object-cover border border-white/10" />
                           ) : (
                             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-                              <BellRing className="w-4 h-4 text-emerald-400" />
+                              <BellRing className="w-4 h-4 text-cyan-300" />
                             </div>
                           )}
                           {!notification.isRead && (
-                            <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-[#0A0C0B] rounded-full" />
+                            <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-cyan-400 border-2 border-[#0A0C0B] rounded-full" />
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -139,7 +139,7 @@ export default function NotificationDrawer({ isOpen, onClose }: NotificationDraw
             </div>
 
             {/* Footer */}
-            <div className="p-3 border-t border-white/10 bg-[#040705]">
+            <div className="p-3 border-t border-white/10 bg-[#05060A]">
               <Link
                 to="/notifications"
                 onClick={onClose}

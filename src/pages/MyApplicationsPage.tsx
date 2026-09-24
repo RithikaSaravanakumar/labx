@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Clock, CheckCircle2, XCircle, ArrowUpRight } from 'lucide-react';
@@ -41,7 +41,7 @@ export default function MyApplicationsPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
       <div className="border-b border-labx-border/80 pb-6">
-        <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
+        <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
           Track Progress
         </span>
         <h1 className="text-3xl font-black text-labx-text tracking-tight mt-1">
@@ -82,7 +82,7 @@ export default function MyApplicationsPage() {
               {getStatusBadge(app.status)}
               <Link
                 to={app.type === 'project' ? `/projects/${app.targetId}` : `/opportunities`}
-                className="p-2 rounded-xl bg-labx-bg border border-labx-border text-labx-text-secondary hover:text-labx-text hover:border-labx-green transition-colors"
+                className="p-2 rounded-xl bg-labx-bg border border-labx-border text-labx-text-secondary hover:text-labx-text hover:border-labx-cyan transition-colors"
                 aria-label="View application target"
               >
                 <ArrowUpRight className="w-4 h-4" />

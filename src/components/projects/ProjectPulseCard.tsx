@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Users, GitBranch, ArrowUpRight, Flame } from 'lucide-react';
 import type { Project } from '../../types';
@@ -9,13 +9,13 @@ interface ProjectPulseCardProps {
 }
 
 export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
-  const domainColor = DOMAIN_COLORS[project.domain] || '#00FF87';
+  const domainColor = DOMAIN_COLORS[project.domain] || '#22D3EE';
 
   return (
     <motion.div
       whileHover={{ y: -6, scale: 1.01 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="p-6 flex flex-col justify-between h-full group relative overflow-hidden rounded-2xl bg-[#0A0C0B]/70 backdrop-blur-2xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgba(0,255,135,0.15)]"
+      className="p-6 flex flex-col justify-between h-full group relative overflow-hidden rounded-2xl bg-[#0A0C0B]/70 backdrop-blur-2xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:border-cyan-400/40 hover:shadow-[0_8px_30px_rgba(0,255,135,0.15)]"
     >
       {/* Glow border on hover */}
       <div
@@ -47,9 +47,9 @@ export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
 
         {/* Title & Tagline */}
         <Link to={`/projects/${project.id}`}>
-          <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-green transition-colors mb-1.5 flex items-center gap-2">
+          <h3 className="text-xl font-bold text-labx-text group-hover:text-labx-cyan transition-colors mb-1.5 flex items-center gap-2">
             {project.name}
-            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-green" />
+            <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-labx-cyan" />
           </h3>
         </Link>
         <p className="text-sm text-labx-text-secondary line-clamp-2 mb-5 leading-relaxed">
@@ -74,11 +74,11 @@ export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
         <div className="mb-5">
           <div className="flex justify-between items-center text-xs mb-1.5">
             <span className="text-labx-text-muted font-medium">Milestone Progress</span>
-            <span className="text-labx-green font-semibold font-mono">{project.progress}%</span>
+            <span className="text-labx-cyan font-semibold font-mono">{project.progress}%</span>
           </div>
           <div className="h-2 bg-labx-bg rounded-full overflow-hidden p-0.5 border border-labx-border/30">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] transition-all duration-500"
+              className="h-full rounded-full bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] transition-all duration-500"
               style={{ width: `${project.progress}%` }}
             />
           </div>
@@ -92,7 +92,7 @@ export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
               <span>{project.contributorCount} builders</span>
             </div>
             {project.lookingFor && project.lookingFor.length > 0 && (
-              <span className="text-emerald-400 font-medium bg-emerald-500/10 px-2 py-0.5 rounded">
+              <span className="text-cyan-300 font-medium bg-cyan-400/10 px-2 py-0.5 rounded">
                 Hiring {project.lookingFor.length} roles
               </span>
             )}

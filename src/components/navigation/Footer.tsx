@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { GitBranch, MessageCircle } from 'lucide-react';
 import LabXLogo from '../brand/LabXLogo';
 
@@ -50,10 +50,10 @@ export default function Footer() {
               Where ideas, people, and opportunities come together. Your work becomes your reputation.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="p-2 rounded-xl bg-labx-surface text-labx-text-muted hover:text-[#00FF87] hover:border-emerald-500/40 border border-transparent transition-all" aria-label="GitHub">
+              <a href="#" className="p-2 rounded-xl bg-labx-surface text-labx-text-muted hover:text-[#22D3EE] hover:border-cyan-400/40 border border-transparent transition-all" aria-label="GitHub">
                 <GitBranch className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 rounded-xl bg-labx-surface text-labx-text-muted hover:text-[#00FF87] hover:border-emerald-500/40 border border-transparent transition-all" aria-label="Twitter">
+              <a href="#" className="p-2 rounded-xl bg-labx-surface text-labx-text-muted hover:text-[#22D3EE] hover:border-cyan-400/40 border border-transparent transition-all" aria-label="Twitter">
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
@@ -68,7 +68,7 @@ export default function Footer() {
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-sm text-labx-text-muted hover:text-[#00FF87] transition-colors"
+                      className="text-sm text-labx-text-muted hover:text-[#22D3EE] transition-colors"
                     >
                       {link.label}
                     </Link>

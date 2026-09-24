@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+﻿import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Plus, ArrowUpRight, Users } from 'lucide-react';
@@ -20,7 +20,7 @@ export default function MyProjectsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-labx-border/80 pb-6">
         <div>
-          <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
+          <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
             Your Workspace
           </span>
           <h1 className="text-3xl font-black text-labx-text tracking-tight mt-1">
@@ -33,7 +33,7 @@ export default function MyProjectsPage() {
 
         <Link
           to="/build"
-          className="px-4 py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-2 shadow-lg shadow-emerald-500/25"
+          className="px-4 py-2.5 rounded-xl font-black text-xs text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 flex items-center gap-2 shadow-lg shadow-cyan-400/25"
         >
           <Plus className="w-4 h-4" />
           <span>Turn Idea Into Reality</span>
@@ -51,15 +51,15 @@ export default function MyProjectsPage() {
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-labx-green/10 text-labx-green border border-labx-green/20">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-labx-cyan/10 text-labx-cyan border border-labx-cyan/20">
                   {project.stage}
                 </span>
-                <span className="text-xs font-mono text-labx-green">
+                <span className="text-xs font-mono text-labx-cyan">
                   +{project.labxPoints} pts
                 </span>
               </div>
 
-              <h2 className="text-lg font-bold text-labx-text group-hover:text-labx-green transition-colors">
+              <h2 className="text-lg font-bold text-labx-text group-hover:text-labx-cyan transition-colors">
                 {project.name}
               </h2>
               <p className="text-xs text-labx-text-secondary mt-1.5 line-clamp-2 leading-relaxed">
@@ -74,7 +74,7 @@ export default function MyProjectsPage() {
                 </div>
                 <div className="w-full h-1.5 bg-labx-bg rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-labx-green to-emerald-400 rounded-full transition-all duration-500"
+                    className="h-full bg-gradient-to-r from-labx-cyan to-cyan-300 rounded-full transition-all duration-500"
                     style={{ width: `${project.progress}%` }}
                   />
                 </div>
@@ -89,7 +89,7 @@ export default function MyProjectsPage() {
 
               <Link
                 to={`/projects/${project.id}`}
-                className="inline-flex items-center gap-1 text-xs font-bold text-labx-green hover:text-emerald-300 transition-colors"
+                className="inline-flex items-center gap-1 text-xs font-bold text-labx-cyan hover:text-sky-200 transition-colors"
               >
                 <span>View Workspace</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

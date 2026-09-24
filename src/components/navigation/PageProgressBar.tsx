@@ -1,4 +1,4 @@
-/**
+﻿/**
  * PageProgressBar
  *
  * A YouTube / Linear-style thin progress bar that "strikes" across the very
@@ -80,7 +80,7 @@ export default function PageProgressBar() {
         >
           {/* The striking bar */}
           <div
-            className="h-full bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399]"
+            className="h-full bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399]"
             style={{
               width: `${progress}%`,
               transition: progress === 100
@@ -96,7 +96,7 @@ export default function PageProgressBar() {
               className="absolute top-1/2 -translate-y-1/2 w-5 h-5 -translate-x-1/2"
               style={{ left: `${progress}%` }}
             >
-              <div className="w-2 h-2 rounded-full bg-[#00FF87] shadow-[0_0_10px_#00FF87,0_0_20px_rgba(0,255,135,0.7)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+              <div className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE,0_0_20px_rgba(0,255,135,0.7)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             </div>
           )}
         </motion.div>

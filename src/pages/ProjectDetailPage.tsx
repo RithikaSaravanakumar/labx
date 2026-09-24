@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, Users, ArrowLeft, Send, CheckCircle2, Flame, ExternalLink, ShieldCheck } from 'lucide-react';
@@ -47,7 +47,7 @@ export default function ProjectDetailPage() {
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <div className="w-12 h-12 border-4 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <div className="w-12 h-12 border-4 border-labx-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-labx-text-muted">Loading project telemetry...</p>
       </div>
     );
@@ -64,7 +64,7 @@ export default function ProjectDetailPage() {
     );
   }
 
-  const domainColor = DOMAIN_COLORS[project.domain] || '#00FF87';
+  const domainColor = DOMAIN_COLORS[project.domain] || '#22D3EE';
 
   const handleStarToggle = () => {
     if (hasStarred) {
@@ -94,7 +94,7 @@ export default function ProjectDetailPage() {
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
     >
       {/* Back button */}
-      <Link to="/projects" className="inline-flex items-center gap-2 text-xs font-semibold text-labx-text-muted hover:text-labx-green mb-6 transition-colors">
+      <Link to="/projects" className="inline-flex items-center gap-2 text-xs font-semibold text-labx-text-muted hover:text-labx-cyan mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Ecosystem</span>
       </Link>
@@ -185,23 +185,23 @@ export default function ProjectDetailPage() {
             <div className="text-xs text-labx-text-muted mb-1">Ecosystem Progress</div>
             <div className="flex items-center gap-3">
               <div className="flex-1 h-2 bg-labx-bg rounded-full overflow-hidden border border-labx-border/40">
-                <div className="h-full bg-gradient-to-r from-labx-green to-emerald-400" style={{ width: `${project.progress}%` }} />
+                <div className="h-full bg-gradient-to-r from-labx-cyan to-cyan-300" style={{ width: `${project.progress}%` }} />
               </div>
-              <span className="text-sm font-bold font-mono text-labx-green">{project.progress}%</span>
+              <span className="text-sm font-bold font-mono text-labx-cyan">{project.progress}%</span>
             </div>
           </div>
 
           <div>
             <div className="text-xs text-labx-text-muted mb-1">Active Contributors</div>
             <div className="text-base font-bold text-labx-text flex items-center gap-2">
-              <Users className="w-4 h-4 text-labx-green" />
+              <Users className="w-4 h-4 text-labx-cyan" />
               <span>{project.contributorCount} Builders</span>
             </div>
           </div>
 
           <div>
             <div className="text-xs text-labx-text-muted mb-1">Open Positions</div>
-            <div className="text-base font-bold text-emerald-400 flex items-center gap-2">
+            <div className="text-base font-bold text-cyan-300 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
               <span>{project.lookingFor?.length || 0} Roles Open</span>
             </div>
@@ -236,10 +236,10 @@ export default function ProjectDetailPage() {
               <div className="space-y-6 relative before:absolute before:left-4 before:top-3 before:bottom-3 before:w-0.5 before:bg-labx-border">
                 {buildUpdates.map(update => (
                   <div key={update.id} className="relative pl-9">
-                    <div className="absolute left-2 top-1.5 w-4 h-4 rounded-full bg-labx-green border-4 border-labx-card shadow-[0_0_10px_rgba(0,255,135,0.5)]" />
+                    <div className="absolute left-2 top-1.5 w-4 h-4 rounded-full bg-labx-cyan border-4 border-labx-card shadow-[0_0_10px_rgba(0,255,135,0.5)]" />
                     <div className="bg-labx-surface/60 border border-labx-border/80 rounded-xl p-4">
                       <div className="flex items-center justify-between gap-2 mb-2">
-                        <span className="text-xs font-bold text-labx-green uppercase font-mono">{update.type || 'build'} update</span>
+                        <span className="text-xs font-bold text-labx-cyan uppercase font-mono">{update.type || 'build'} update</span>
                         <span className="text-[11px] text-labx-text-muted">{formatRelativeTime(update.createdAt)}</span>
                       </div>
                       <h4 className="text-base font-bold text-labx-text mb-1">{update.title}</h4>
@@ -250,7 +250,7 @@ export default function ProjectDetailPage() {
                           href={update.proofUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs text-labx-green font-mono hover:underline"
+                          className="inline-flex items-center gap-1.5 text-xs text-labx-cyan font-mono hover:underline"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                           <span>Proof: {update.proofUrl}</span>
@@ -280,7 +280,7 @@ export default function ProjectDetailPage() {
           <div className="labx-card p-6">
             <h3 className="text-lg font-bold text-labx-text mb-4 flex items-center justify-between">
               <span>Open Roles</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono">
+              <span className="text-xs px-2 py-0.5 rounded bg-cyan-400/10 text-cyan-300 font-mono">
                 {project.lookingFor?.length || 0} Needed
               </span>
             </h3>
@@ -297,7 +297,7 @@ export default function ProjectDetailPage() {
                     </div>
                     <button
                       onClick={() => { setJoinRole(role); setJoinModalOpen(true); }}
-                      className="text-xs font-semibold text-labx-green hover:underline px-2 py-1"
+                      className="text-xs font-semibold text-labx-cyan hover:underline px-2 py-1"
                     >
                       Apply
                     </button>
@@ -311,7 +311,7 @@ export default function ProjectDetailPage() {
           <div className="labx-card p-6">
             <h3 className="text-lg font-bold text-labx-text mb-4">Project Leadership</h3>
             <div className="flex items-center gap-3 p-3 rounded-xl bg-labx-surface border border-labx-border">
-              <img src={project.ownerAvatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'} alt={project.ownerName || 'Project Lead'} className="w-10 h-10 rounded-full border border-labx-green/60 object-cover" />
+              <img src={project.ownerAvatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'} alt={project.ownerName || 'Project Lead'} className="w-10 h-10 rounded-full border border-labx-cyan/60 object-cover" />
               <div>
                 <div className="text-sm font-bold text-labx-text">{project.ownerName || 'Aarav Sharma'}</div>
                 <div className="text-xs text-labx-text-muted">Project Lead & Architect</div>
@@ -327,7 +327,7 @@ export default function ProjectDetailPage() {
           <div className="bg-labx-card border border-labx-border max-w-md w-full p-6 rounded-2xl shadow-2xl">
             {isSubmitted ? (
               <div className="text-center py-8 space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
+                <CheckCircle2 className="w-12 h-12 text-cyan-300 mx-auto" />
                 <h3 className="text-xl font-bold text-labx-text">Application Submitted!</h3>
                 <p className="text-xs text-labx-text-muted">The project lead will review your LabX proof-of-work profile.</p>
               </div>
@@ -344,7 +344,7 @@ export default function ProjectDetailPage() {
                     onChange={(e) => setJoinRole(e.target.value)}
                     placeholder="e.g. Frontend Engineer, ML Specialist"
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   />
                 </div>
 
@@ -356,7 +356,7 @@ export default function ProjectDetailPage() {
                     onChange={(e) => setJoinNote(e.target.value)}
                     placeholder="Briefly describe your relevant skills and experience..."
                     required
-                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-green/60"
+                    className="w-full px-3 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-labx-cyan/60"
                   />
                 </div>
 

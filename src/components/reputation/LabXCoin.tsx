@@ -56,7 +56,7 @@ export default function LabXCoin({
           {/* LabX Logo Emboss */}
           <path d="M 35 30 L 65 30 L 65 70 L 35 70 Z" fill="url(#gold-emboss)" filter="drop-shadow(1px 2px 2px rgba(107,70,0,0.5))" />
           <text x="50" y="57" fontSize="38" fontFamily="system-ui, sans-serif" fontWeight="900" fill="#FFE08A" textAnchor="middle" filter="drop-shadow(0px 1px 2px rgba(107,70,0,0.8))">
-            L
+            X
           </text>
 
           {/* Definitions */}
@@ -97,22 +97,25 @@ export default function LabXCoin({
           {/* Geometric Circuit Pattern */}
           <path d="M50 20 L50 80 M20 50 L80 50 M35 35 L65 65 M35 65 L65 35" stroke="#B7791F" strokeWidth="1" opacity="0.3" />
           
-          <text x="50" y="45" fontSize="24" fontFamily="system-ui, sans-serif" fontWeight="900" fill="#FFE08A" textAnchor="middle" filter="drop-shadow(0px 1px 2px rgba(107,70,0,0.8))">
-            LABX
-          </text>
-          <text x="50" y="65" fontSize="16" fontFamily="system-ui, sans-serif" fontWeight="800" fill="#F5C542" textAnchor="middle" letterSpacing="2" filter="drop-shadow(0px 1px 1px rgba(107,70,0,0.8))">
-            PTS
+          {/* LabX Logo Emboss */}
+          <path d="M 35 30 L 65 30 L 65 70 L 35 70 Z" fill="url(#gold-emboss)" filter="drop-shadow(1px 2px 2px rgba(107,70,0,0.5))" />
+          <text x="50" y="57" fontSize="38" fontFamily="system-ui, sans-serif" fontWeight="900" fill="#FFE08A" textAnchor="middle" filter="drop-shadow(0px 1px 2px rgba(107,70,0,0.8))">
+            X
           </text>
         </svg>
         
         {/* Edge Cylinder (CSS approximation) */}
         <div 
           className="absolute inset-0 rounded-full bg-[#B7791F]" 
-          style={{ transform: 'translateZ(-1px)', width: '100%', height: '100%' }}
+          style={{ transform: 'translateZ(1px)', width: '100%', height: '100%' }}
+        />
+        <div 
+          className="absolute inset-0 rounded-full bg-[#8A5A00]" 
+          style={{ transform: 'translateZ(0px)', width: '100%', height: '100%' }}
         />
         <div 
           className="absolute inset-0 rounded-full bg-[#6B4600]" 
-          style={{ transform: 'translateZ(-2px)', width: '100%', height: '100%' }}
+          style={{ transform: 'translateZ(-1px)', width: '100%', height: '100%' }}
         />
       </div>
     </div>

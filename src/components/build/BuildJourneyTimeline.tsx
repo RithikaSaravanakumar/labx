@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Flame, Rocket, Heart, MessageSquare, ExternalLink, Share2, Plus } from 'lucide-react';
 import type { BuildUpdate } from '../../types';
@@ -35,7 +35,7 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
   return (
     <div className="space-y-6">
       {onNewUpdateClick && (
-        <div className="labx-card p-4 flex items-center justify-between bg-gradient-to-r from-emerald-500/15 via-teal-500/5 to-emerald-500/10 border-emerald-500/30">
+        <div className="labx-card p-4 flex items-center justify-between bg-gradient-to-r from-cyan-400/15 via-teal-500/5 to-cyan-400/10 border-cyan-400/30">
           <div>
             <h4 className="text-sm font-bold text-labx-text">Building something today?</h4>
             <p className="text-xs text-labx-text-muted">Share your progress log to earn LabX points and level up.</p>
@@ -67,12 +67,12 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
                   <img
                     src={update.authorAvatar}
                     alt={update.authorName}
-                    className="w-10 h-10 rounded-full border border-labx-green/60 object-cover"
+                    className="w-10 h-10 rounded-full border border-labx-cyan/60 object-cover"
                   />
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-labx-text">{update.authorName}</span>
-                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-labx-green/10 text-labx-green font-semibold border border-labx-green/20">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-labx-cyan/10 text-labx-cyan font-semibold border border-labx-cyan/20">
                         Day {update.day}
                       </span>
                     </div>
@@ -98,7 +98,7 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
                     href={update.proofUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-mono text-labx-green bg-labx-green/10 border border-labx-green/30 px-3 py-1.5 rounded-lg hover:bg-labx-green/20 transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-mono text-labx-cyan bg-labx-cyan/10 border border-labx-cyan/30 px-3 py-1.5 rounded-lg hover:bg-labx-cyan/20 transition-colors"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>Verified Proof: {update.proofUrl}</span>
@@ -130,9 +130,9 @@ export default function BuildJourneyTimeline({ updates, onNewUpdateClick }: Buil
 
                   <button
                     onClick={() => handleReact(update.id, 'rocket')}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-labx-surface border border-labx-border/60 hover:border-labx-green/50 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-labx-surface border border-labx-border/60 hover:border-labx-cyan/50 transition-colors"
                   >
-                    <Rocket className="w-3.5 h-3.5 text-labx-green" />
+                    <Rocket className="w-3.5 h-3.5 text-labx-cyan" />
                     <span className="font-mono text-labx-text">{currentReactions.rocket}</span>
                   </button>
 

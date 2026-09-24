@@ -16,7 +16,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
       <div className="min-h-[70vh] flex flex-col items-center justify-center gap-4">
         <LabXLogo size="lg" animated />
         <div className="flex items-center gap-2 text-xs text-labx-text-muted mt-2">
-          <div className="w-4 h-4 rounded-full border-2 border-labx-green border-t-transparent animate-spin" />
+          <div className="w-4 h-4 rounded-full border-2 border-[#22D3EE] border-t-transparent animate-spin" />
           <span>Verifying LabX builder credentials...</span>
         </div>
       </div>

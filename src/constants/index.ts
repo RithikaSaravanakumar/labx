@@ -16,18 +16,18 @@ export const DOMAIN_LABELS: Record<Domain, string> = {
 };
 
 export const DOMAIN_COLORS: Record<Domain, string> = {
-  'ai-ml': '#00FF87',
-  'healthcare': '#22C55E',
-  'climate': '#2DD4BF',
-  'deep-tech': '#10B981',
-  'fintech': '#F59E0B',
-  'edtech': '#3B82F6',
-  'robotics': '#10B981',
-  'cybersecurity': '#EF4444',
-  'saas': '#05DF72',
-  'web-development': '#34D399',
-  'research': '#6EE7B7',
-  'automation': '#14B8A6',
+  'ai-ml': '#22D3EE',           // cyan — AI is LabX core
+  'healthcare': '#A855F7',      // purple
+  'climate': '#06B6D4',         // cyan-mid
+  'deep-tech': '#7C3AED',       // violet
+  'fintech': '#F59E0B',         // gold/amber
+  'edtech': '#0EA5E9',          // blue
+  'robotics': '#8B5CF6',        // violet-light
+  'cybersecurity': '#EF4444',   // red (semantic)
+  'saas': '#22D3EE',            // cyan
+  'web-development': '#0EA5E9', // blue
+  'research': '#C4B5FD',        // lavender
+  'automation': '#06B6D4',      // cyan-mid
 };
 
 export const ROLE_LABELS: Record<UserRole, string> = {
@@ -58,10 +58,10 @@ export const STAGE_LABELS: Record<string, string> = {
 export const STAGE_COLORS: Record<string, string> = {
   'idea': '#64748B',
   'prototype': '#F59E0B',
-  'mvp': '#00FF87',
-  'beta': '#34D399',
-  'launch': '#10B981',
-  'growth': '#6EE7B7',
+  'mvp': '#22D3EE',
+  'beta': '#0EA5E9',
+  'launch': '#7C3AED',
+  'growth': '#A855F7',
 };
 
 export const NAV_ITEMS = [
@@ -85,12 +85,12 @@ export const CONTRIBUTION_TYPE_LABELS: Record<string, string> = {
 };
 
 export const CONTRIBUTION_TYPE_COLORS: Record<string, string> = {
-  project: '#00FF87',
-  community: '#34D399',
+  project: '#22D3EE',
+  community: '#0EA5E9',
   hackathon: '#F59E0B',
-  mentorship: '#10B981',
-  collaboration: '#6EE7B7',
-  knowledge: '#A7F3D0',
+  mentorship: '#A855F7',
+  collaboration: '#7C3AED',
+  knowledge: '#C4B5FD',
 };
 
 export * from './navigation';

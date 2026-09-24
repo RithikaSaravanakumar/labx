@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, Globe } from 'lucide-react';
@@ -23,7 +23,7 @@ export default function StartupDetailPage() {
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <div className="w-12 h-12 border-4 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+        <div className="w-12 h-12 border-4 border-labx-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-labx-text-muted">Loading startup metrics...</p>
       </div>
     );
@@ -38,7 +38,7 @@ export default function StartupDetailPage() {
     );
   }
 
-  const domainColor = DOMAIN_COLORS[startup.domain] || '#00FF87';
+  const domainColor = DOMAIN_COLORS[startup.domain] || '#22D3EE';
 
   return (
     <motion.div
@@ -48,7 +48,7 @@ export default function StartupDetailPage() {
       exit="exit"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
     >
-      <Link to="/startups" className="inline-flex items-center gap-2 text-xs font-semibold text-labx-text-muted hover:text-labx-green mb-6 transition-colors">
+      <Link to="/startups" className="inline-flex items-center gap-2 text-xs font-semibold text-labx-text-muted hover:text-labx-cyan mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Directory</span>
       </Link>
@@ -64,7 +64,7 @@ export default function StartupDetailPage() {
                 {STAGE_LABELS[startup.stage as keyof typeof STAGE_LABELS] || startup.stage}
               </span>
               {startup.fundingStage && (
-                <span className="text-xs font-mono font-bold text-labx-green bg-labx-green/10 px-2.5 py-1 rounded-full border border-labx-green/20">
+                <span className="text-xs font-mono font-bold text-labx-cyan bg-labx-cyan/10 px-2.5 py-1 rounded-full border border-labx-cyan/20">
                   {startup.fundingStage}
                 </span>
               )}
@@ -72,7 +72,7 @@ export default function StartupDetailPage() {
 
             <h1 className="text-3xl sm:text-4xl font-extrabold text-labx-text flex items-center gap-3">
               {startup.name}
-              {startup.isVerified && <CheckCircle2 className="w-6 h-6 text-labx-green fill-labx-green/20" />}
+              {startup.isVerified && <CheckCircle2 className="w-6 h-6 text-labx-cyan fill-labx-cyan/20" />}
             </h1>
 
             <p className="text-lg text-labx-text-secondary leading-relaxed">

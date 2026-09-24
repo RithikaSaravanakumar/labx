@@ -1,4 +1,4 @@
-import { ShieldCheck, UserPlus, Send } from 'lucide-react';
+﻿import { ShieldCheck, UserPlus, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { User } from '../../types';
 import LabXPointRing from '../reputation/LabXPointRing';
@@ -10,21 +10,21 @@ interface PersonCardProps {
 export default function PersonCard({ person }: PersonCardProps) {
   return (
     <div className="labx-card p-6 flex flex-col items-center text-center relative overflow-hidden group hover:-translate-y-2 transition-all">
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
       
       <div className="relative z-10 mb-4">
         <LabXPointRing points={person.labxPoints} level={person.level} size={80} strokeWidth={4} />
         <img
           src={person.avatar}
           alt={person.name}
-          className="w-14 h-14 rounded-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-labx-green/30"
+          className="w-14 h-14 rounded-full object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-labx-cyan/30"
         />
       </div>
 
       <div className="relative z-10 w-full">
-        <Link to={`/profile/${person.username}`} className="text-lg font-bold text-labx-text hover:text-labx-green transition-colors flex items-center justify-center gap-1">
+        <Link to={`/profile/${person.username}`} className="text-lg font-bold text-labx-text hover:text-labx-cyan transition-colors flex items-center justify-center gap-1">
           {person.name}
-          {person.isVerified && <ShieldCheck className="w-3.5 h-3.5 text-labx-green" />}
+          {person.isVerified && <ShieldCheck className="w-3.5 h-3.5 text-labx-cyan" />}
         </Link>
         <p className="text-xs text-labx-text-muted mb-2">@{person.username}</p>
         <p className="text-sm font-medium text-labx-text-secondary line-clamp-2 mb-4 h-10">

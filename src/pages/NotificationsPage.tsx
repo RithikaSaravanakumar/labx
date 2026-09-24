@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Bell } from 'lucide-react';
 import { notificationService } from '../services';
@@ -34,7 +34,7 @@ export default function NotificationsPage() {
           <h1 className="text-3xl font-bold text-labx-text">Notifications</h1>
           <p className="text-sm text-labx-text-secondary mt-1">Ecosystem updates, collaboration requests, and build reactions.</p>
         </div>
-        <button onClick={markAllRead} className="text-xs font-semibold text-labx-green hover:underline">
+        <button onClick={markAllRead} className="text-xs font-semibold text-labx-cyan hover:underline">
           Mark All as Read
         </button>
       </div>
@@ -51,12 +51,12 @@ export default function NotificationsPage() {
             <div
               key={notif.id}
               className={`labx-card p-4 flex items-start justify-between gap-4 transition-colors ${
-                !notif.isRead ? 'border-labx-green/40 bg-labx-green/5' : ''
+                !notif.isRead ? 'border-labx-cyan/40 bg-labx-cyan/5' : ''
               }`}
             >
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-xl bg-labx-surface border border-labx-border/60 text-labx-green mt-0.5">
-                  <Bell className="w-4 h-4 text-labx-green" />
+                <div className="p-2 rounded-xl bg-labx-surface border border-labx-border/60 text-labx-cyan mt-0.5">
+                  <Bell className="w-4 h-4 text-labx-cyan" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-labx-text">{notif.title}</h4>
@@ -65,7 +65,7 @@ export default function NotificationsPage() {
                 </div>
               </div>
               {!notif.isRead && (
-                <span className="w-2 h-2 rounded-full bg-labx-green shadow-[0_0_8px_rgba(0,255,135,0.6)] mt-2 shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-labx-cyan shadow-[0_0_8px_rgba(0,255,135,0.6)] mt-2 shrink-0" />
               )}
             </div>
           ))}

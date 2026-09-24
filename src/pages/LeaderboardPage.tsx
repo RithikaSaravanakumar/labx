@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Medal, Star, TrendingUp, ShieldCheck } from 'lucide-react';
 import { userService } from '../services';
@@ -42,9 +42,9 @@ export default function LeaderboardPage() {
             The most active builders in the ecosystem. Earn points by building in public, reaching roadmap milestones, and contributing to open projects.
           </p>
         </div>
-        <div className="labx-card p-4 flex items-center gap-4 bg-gradient-to-r from-labx-surface to-labx-surface-hover border-labx-green/30">
-          <div className="w-12 h-12 rounded-xl bg-labx-bg border border-labx-green/50 flex items-center justify-center">
-            <span className="text-xl font-black font-mono text-labx-green">#{user ? users.findIndex(u => u.username === user.username) + 1 : '-'}</span>
+        <div className="labx-card p-4 flex items-center gap-4 bg-gradient-to-r from-labx-surface to-labx-surface-hover border-labx-cyan/30">
+          <div className="w-12 h-12 rounded-xl bg-labx-bg border border-labx-cyan/50 flex items-center justify-center">
+            <span className="text-xl font-black font-mono text-labx-cyan">#{user ? users.findIndex(u => u.username === user.username) + 1 : '-'}</span>
           </div>
           <div>
             <div className="text-xs font-bold text-labx-text-muted uppercase tracking-wider">Your Global Rank</div>
@@ -67,7 +67,7 @@ export default function LeaderboardPage() {
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
                 activeTab === tab.id
-                  ? 'bg-labx-green text-black font-bold shadow-lg shadow-emerald-500/20'
+                  ? 'bg-labx-cyan text-black font-bold shadow-lg shadow-cyan-400/20'
                   : 'text-labx-text-muted hover:text-labx-text hover:bg-labx-surface'
               }`}
             >
@@ -81,7 +81,7 @@ export default function LeaderboardPage() {
       {/* Content */}
       {isLoading ? (
         <div className="py-12 text-center">
-          <div className="w-8 h-8 border-2 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-8 h-8 border-2 border-labx-cyan border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-labx-text-muted font-medium">Calculating global standings...</p>
         </div>
       ) : activeTab === 'global' ? (
@@ -95,7 +95,7 @@ export default function LeaderboardPage() {
                   <img src={users[1].avatar} alt={users[1].name} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-[#C0C0C0] object-cover" />
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#C0C0C0] border-2 border-labx-bg flex items-center justify-center text-black font-black text-sm">2</div>
                 </div>
-                <Link to={`/profile/${users[1].username}`} className="text-sm font-bold text-labx-text hover:text-labx-green mt-3 text-center truncate w-full">{users[1].name}</Link>
+                <Link to={`/profile/${users[1].username}`} className="text-sm font-bold text-labx-text hover:text-labx-cyan mt-3 text-center truncate w-full">{users[1].name}</Link>
                 <div className="text-xs font-mono font-bold text-[#C0C0C0] mt-1">{users[1].labxPoints.toLocaleString()} PTS</div>
                 <div className="w-full h-24 bg-gradient-to-t from-labx-surface to-transparent mt-4 rounded-t-xl border-t border-x border-[#C0C0C0]/20" />
               </div>
@@ -111,7 +111,7 @@ export default function LeaderboardPage() {
                 </div>
                 <Link to={`/profile/${users[0].username}`} className="text-base font-bold text-labx-text hover:text-amber-400 mt-3 text-center truncate w-full flex justify-center items-center gap-1">
                   {users[0].name}
-                  {users[0].isVerified && <ShieldCheck className="w-3.5 h-3.5 text-labx-green" />}
+                  {users[0].isVerified && <ShieldCheck className="w-3.5 h-3.5 text-labx-cyan" />}
                 </Link>
                 <div className="text-sm font-mono font-black text-amber-400 mt-1">{users[0].labxPoints.toLocaleString()} PTS</div>
                 <div className="w-full h-32 bg-gradient-to-t from-amber-500/10 to-transparent mt-4 rounded-t-xl border-t border-x border-amber-400/30" />
@@ -125,7 +125,7 @@ export default function LeaderboardPage() {
                   <img src={users[2].avatar} alt={users[2].name} className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-[#CD7F32] object-cover" />
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#CD7F32] border-2 border-labx-bg flex items-center justify-center text-black font-black text-sm">3</div>
                 </div>
-                <Link to={`/profile/${users[2].username}`} className="text-sm font-bold text-labx-text hover:text-labx-green mt-3 text-center truncate w-full">{users[2].name}</Link>
+                <Link to={`/profile/${users[2].username}`} className="text-sm font-bold text-labx-text hover:text-labx-cyan mt-3 text-center truncate w-full">{users[2].name}</Link>
                 <div className="text-xs font-mono font-bold text-[#CD7F32] mt-1">{users[2].labxPoints.toLocaleString()} PTS</div>
                 <div className="w-full h-20 bg-gradient-to-t from-labx-surface to-transparent mt-4 rounded-t-xl border-t border-x border-[#CD7F32]/20" />
               </div>
@@ -144,15 +144,15 @@ export default function LeaderboardPage() {
                     <img src={user.avatar} alt={user.name} className="w-12 h-12 rounded-xl object-cover" />
                   </Link>
                   <div>
-                    <Link to={`/profile/${user.username}`} className="text-sm font-bold text-labx-text hover:text-labx-green flex items-center gap-1">
+                    <Link to={`/profile/${user.username}`} className="text-sm font-bold text-labx-text hover:text-labx-cyan flex items-center gap-1">
                       {user.name}
-                      {user.isVerified && <ShieldCheck className="w-3 h-3 text-labx-green" />}
+                      {user.isVerified && <ShieldCheck className="w-3 h-3 text-labx-cyan" />}
                     </Link>
                     <div className="text-xs text-labx-text-secondary mt-0.5">{user.bio.substring(0, 50)}...</div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-sm font-black font-mono text-labx-green">{user.labxPoints.toLocaleString()}</div>
+                  <div className="text-sm font-black font-mono text-labx-cyan">{user.labxPoints.toLocaleString()}</div>
                   <div className="text-[10px] text-labx-text-muted uppercase tracking-widest mt-0.5">Points</div>
                 </div>
               </div>

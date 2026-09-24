@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Target } from 'lucide-react';
 import OpportunityRadar from '../components/opportunities/OpportunityRadar';
@@ -33,7 +33,7 @@ export default function OpportunitiesPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-[#00FF87] border border-emerald-500/30 flex items-center gap-1">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-400/10 text-[#22D3EE] border border-cyan-400/30 flex items-center gap-1">
               <Target className="w-3.5 h-3.5" />
               <span>Ecosystem Radar</span>
             </span>
@@ -54,14 +54,14 @@ export default function OpportunitiesPage() {
             placeholder="Search opportunities..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-emerald-400"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-labx-surface border border-labx-border text-sm text-labx-text placeholder-labx-text-muted focus:outline-none focus:border-cyan-300"
           />
         </div>
 
         <select
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value as OpportunityType | 'all')}
-          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-emerald-400 w-full md:w-auto capitalize"
+          className="px-3.5 py-2 rounded-xl bg-labx-surface border border-labx-border text-xs text-labx-text focus:outline-none focus:border-cyan-300 w-full md:w-auto capitalize"
         >
           <option value="all">All Types</option>
           <option value="grant">Grants & Funding</option>

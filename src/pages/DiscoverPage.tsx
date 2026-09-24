@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Search, Users } from 'lucide-react';
@@ -80,7 +80,7 @@ export default function DiscoverPage() {
           placeholder="Search projects, startups, mentors..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-12 pr-4 py-3 rounded-xl bg-labx-surface border border-labx-border text-labx-text placeholder-labx-text-muted focus:border-emerald-400 focus:outline-none transition-colors"
+          className="w-full pl-12 pr-4 py-3 rounded-xl bg-labx-surface border border-labx-border text-labx-text placeholder-labx-text-muted focus:border-cyan-300 focus:outline-none transition-colors"
         />
       </div>
 
@@ -95,8 +95,8 @@ export default function DiscoverPage() {
             }}
             className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all ${
               activeTab === tab.value
-                ? 'bg-[#00FF87] text-black shadow-md shadow-emerald-500/25'
-                : 'bg-labx-surface text-labx-text-secondary hover:text-white border border-transparent hover:border-emerald-500/20'
+                ? 'bg-[#22D3EE] text-black shadow-md shadow-cyan-400/25'
+                : 'bg-labx-surface text-labx-text-secondary hover:text-white border border-transparent hover:border-cyan-400/20'
             }`}
           >
             {tab.label}
@@ -129,15 +129,15 @@ export default function DiscoverPage() {
                       </span>
                       <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-labx-surface text-labx-text-muted uppercase">{STAGE_LABELS[project.stage]}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-green transition-colors">{project.name}</h3>
+                    <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-cyan transition-colors">{project.name}</h3>
                     <p className="text-sm text-labx-text-secondary mb-4 line-clamp-2">{project.description}</p>
                     <div className="mb-4">
                       <div className="flex justify-between text-xs mb-1">
                         <span className="text-labx-text-muted">Progress</span>
-                        <span className="text-labx-green font-mono font-bold">{project.progress}%</span>
+                        <span className="text-labx-cyan font-mono font-bold">{project.progress}%</span>
                       </div>
                       <div className="h-1.5 bg-labx-bg rounded-full overflow-hidden">
-                        <div className="h-full rounded-full bg-gradient-to-r from-labx-green to-emerald-400" style={{ width: `${project.progress}%` }} />
+                        <div className="h-full rounded-full bg-gradient-to-r from-labx-cyan to-cyan-300" style={{ width: `${project.progress}%` }} />
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
@@ -168,7 +168,7 @@ export default function DiscoverPage() {
                       </span>
                       <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-labx-surface text-labx-text-muted uppercase">{STAGE_LABELS[startup.stage]}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-green transition-colors">{startup.name}</h3>
+                    <h3 className="text-lg font-bold text-labx-text mb-2 group-hover:text-labx-cyan transition-colors">{startup.name}</h3>
                     <p className="text-sm text-labx-text-secondary mb-3 line-clamp-2">{startup.description}</p>
                     <div className="flex items-center gap-2 mb-3">
                       <img src={startup.founderAvatar} alt={startup.founderName} className="w-6 h-6 rounded-full" />
@@ -205,16 +205,16 @@ export default function DiscoverPage() {
               {mentors.map(mentor => (
                 <motion.div key={mentor.id} variants={staggerItem}>
                   <Link to={`/mentors/${mentor.id}`} className="labx-card p-6 block text-center group">
-                    <img src={mentor.avatar} alt={mentor.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-border group-hover:border-labx-green transition-colors" />
+                    <img src={mentor.avatar} alt={mentor.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-border group-hover:border-labx-cyan transition-colors" />
                     <h3 className="text-sm font-bold text-labx-text">{mentor.name}</h3>
                     <p className="text-xs text-labx-text-muted mb-2">{mentor.title}</p>
                     <div className="flex flex-wrap justify-center gap-1 mb-3">
                       {mentor.expertise.slice(0, 2).map(e => (
-                        <span key={e} className="px-2 py-0.5 rounded-full text-[10px] bg-labx-green/10 text-labx-green border border-labx-green/20">{e}</span>
+                        <span key={e} className="px-2 py-0.5 rounded-full text-[10px] bg-labx-cyan/10 text-labx-cyan border border-labx-cyan/20">{e}</span>
                       ))}
                     </div>
                     <div className="flex items-center justify-center gap-2 text-xs text-labx-text-muted">
-                      <span>⭐ {mentor.rating}</span>
+                      <span> {mentor.rating}</span>
                       <span>·</span>
                       <span className={`${mentor.availability === 'available' ? 'text-labx-success' : 'text-labx-warning'}`}>{mentor.availability}</span>
                     </div>
@@ -232,19 +232,19 @@ export default function DiscoverPage() {
                     <div className="flex items-center gap-2 mb-3">
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                         hackathon.status === 'live' ? 'bg-labx-success/20 text-labx-success' :
-                        hackathon.status === 'upcoming' ? 'bg-labx-green/20 text-labx-green border border-labx-green/30' :
+                        hackathon.status === 'upcoming' ? 'bg-labx-cyan/20 text-labx-cyan border border-labx-cyan/30' :
                         'bg-labx-surface text-labx-text-muted'
                       }`}>
-                        {hackathon.status === 'live' ? '🔴 Live' : hackathon.status}
+                        {hackathon.status === 'live' ? ' Live' : hackathon.status}
                       </span>
                       {hackathon.isFeatured && <span className="px-2 py-0.5 rounded-full text-[10px] bg-labx-warning/20 text-labx-warning font-medium">Featured</span>}
                     </div>
-                    <h3 className="text-lg font-bold text-labx-text mb-1 group-hover:text-labx-green transition-colors">{hackathon.name}</h3>
+                    <h3 className="text-lg font-bold text-labx-text mb-1 group-hover:text-labx-cyan transition-colors">{hackathon.name}</h3>
                     <p className="text-xs text-labx-text-muted mb-2">{hackathon.organizer}</p>
                     <p className="text-sm text-labx-text-secondary mb-4 line-clamp-2">{hackathon.description}</p>
                     <div className="flex items-center gap-4 text-xs text-labx-text-muted">
-                      <span>👥 {hackathon.participants} participants</span>
-                      <span>🏆 {hackathon.prize}</span>
+                      <span> {hackathon.participants} participants</span>
+                      <span> {hackathon.prize}</span>
                     </div>
                   </Link>
                 </motion.div>
@@ -257,15 +257,15 @@ export default function DiscoverPage() {
               {opportunities.map(opp => (
                 <motion.div key={opp.id} variants={staggerItem} className="labx-card p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-labx-green/10 text-labx-green border border-labx-green/20">{opp.type}</span>
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-labx-cyan/10 text-labx-cyan border border-labx-cyan/20">{opp.type}</span>
                     {opp.isRemote && <span className="px-2 py-0.5 rounded-full text-[10px] bg-labx-surface text-labx-text-muted">Remote</span>}
                   </div>
                   <h3 className="text-base font-bold text-labx-text mb-1">{opp.title}</h3>
                   <p className="text-xs text-labx-text-muted mb-2">{opp.organization}</p>
                   <p className="text-sm text-labx-text-secondary mb-4 line-clamp-2">{opp.description}</p>
                   <div className="flex items-center justify-between text-xs text-labx-text-muted">
-                    <span>📅 Deadline: {new Date(opp.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-                    <span>📍 {opp.location}</span>
+                    <span> Deadline: {new Date(opp.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                    <span> {opp.location}</span>
                   </div>
                 </motion.div>
               ))}

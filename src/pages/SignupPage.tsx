@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Check, Sparkles } from 'lucide-react';
@@ -7,13 +7,13 @@ import LabXLogo from '../components/brand/LabXLogo';
 import type { UserRole } from '../types';
 
 const ROLES: { id: UserRole; title: string; desc: string; icon: string }[] = [
-  { id: 'student', title: 'Student', desc: 'Learn, build projects, and turn curiosity into proof-of-work.', icon: '🎓' },
-  { id: 'builder', title: 'Builder', desc: 'Full-stack or specialized engineer shipping production-ready tech.', icon: '⚡' },
-  { id: 'founder', title: 'Founder', desc: 'Building a startup, assembling teams, and validating ideas.', icon: '🚀' },
-  { id: 'mentor', title: 'Mentor', desc: 'Guiding emerging talent, reviewing architecture, and sharing lessons.', icon: '🎯' },
-  { id: 'investor', title: 'Investor', desc: 'Scouting early-stage ventures and backing breakthrough innovations.', icon: '💎' },
-  { id: 'researcher', title: 'Researcher', desc: 'Advancing applied science, writing whitepapers, and novel algorithms.', icon: '🔬' },
-  { id: 'creator', title: 'Creator', desc: 'Designing interfaces, crafting content, and evangelizing products.', icon: '🎨' },
+  { id: 'student', title: 'Student', desc: 'Learn, build projects, and turn curiosity into proof-of-work.', icon: '' },
+  { id: 'builder', title: 'Builder', desc: 'Full-stack or specialized engineer shipping production-ready tech.', icon: '' },
+  { id: 'founder', title: 'Founder', desc: 'Building a startup, assembling teams, and validating ideas.', icon: '' },
+  { id: 'mentor', title: 'Mentor', desc: 'Guiding emerging talent, reviewing architecture, and sharing lessons.', icon: '' },
+  { id: 'investor', title: 'Investor', desc: 'Scouting early-stage ventures and backing breakthrough innovations.', icon: '' },
+  { id: 'researcher', title: 'Researcher', desc: 'Advancing applied science, writing whitepapers, and novel algorithms.', icon: '' },
+  { id: 'creator', title: 'Creator', desc: 'Designing interfaces, crafting content, and evangelizing products.', icon: '' },
 ];
 
 const INTERESTS = [
@@ -116,9 +116,9 @@ export default function SignupPage() {
                 key={s}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   s === step
-                    ? 'w-8 bg-labx-green shadow-[0_0_12px_rgba(0,255,135,0.6)]'
+                    ? 'w-8 bg-labx-cyan shadow-[0_0_12px_rgba(0,255,135,0.6)]'
                     : s < step
-                    ? 'w-4 bg-labx-green/40'
+                    ? 'w-4 bg-labx-cyan/40'
                     : 'w-4 bg-labx-border'
                 }`}
               />
@@ -150,7 +150,7 @@ export default function SignupPage() {
                 <div className="inline-flex mb-4">
                   <LabXLogo size="lg" linkToHome animate showGlow />
                 </div>
-                <span className="block text-xs font-bold text-labx-green uppercase tracking-wider">
+                <span className="block text-xs font-bold text-labx-cyan uppercase tracking-wider">
                   Step 1 &bull; Identity
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -172,7 +172,7 @@ export default function SignupPage() {
                     value={name}
                     onChange={e => setName(e.target.value)}
                     placeholder="e.g. Elena Rostova"
-                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
+                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-cyan focus:ring-1 focus:ring-labx-cyan"
                   />
                 </div>
 
@@ -186,7 +186,7 @@ export default function SignupPage() {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     placeholder="builder@labx.demo"
-                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
+                    className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-cyan focus:ring-1 focus:ring-labx-cyan"
                   />
                 </div>
 
@@ -201,7 +201,7 @@ export default function SignupPage() {
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
+                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-cyan focus:ring-1 focus:ring-labx-cyan"
                     />
                   </div>
                   <div>
@@ -214,7 +214,7 @@ export default function SignupPage() {
                       value={confirmPassword}
                       onChange={e => setConfirmPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-green focus:ring-1 focus:ring-labx-green"
+                      className="w-full px-4 py-2.5 rounded-xl bg-labx-bg border border-labx-border text-labx-text text-sm focus:outline-none focus:border-labx-cyan focus:ring-1 focus:ring-labx-cyan"
                     />
                   </div>
                 </div>
@@ -226,7 +226,7 @@ export default function SignupPage() {
           {step === 2 && (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
+                <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
                   Step 2 &bull; Role
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -245,15 +245,15 @@ export default function SignupPage() {
                     onClick={() => setRole(r.id)}
                     className={`p-3.5 rounded-xl text-left border transition-all flex items-start gap-3 ${
                       role === r.id
-                        ? 'bg-labx-green/15 border-labx-green shadow-lg shadow-labx-green/10'
-                        : 'bg-labx-bg border-labx-border hover:border-labx-green/40 hover:bg-labx-surface'
+                        ? 'bg-labx-cyan/15 border-labx-cyan shadow-lg shadow-labx-cyan/10'
+                        : 'bg-labx-bg border-labx-border hover:border-labx-cyan/40 hover:bg-labx-surface'
                     }`}
                   >
                     <span className="text-2xl">{r.icon}</span>
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5">
                         <span className="text-sm font-bold text-labx-text">{r.title}</span>
-                        {role === r.id && <Check className="w-3.5 h-3.5 text-labx-green ml-auto" />}
+                        {role === r.id && <Check className="w-3.5 h-3.5 text-labx-cyan ml-auto" />}
                       </div>
                       <p className="text-xs text-labx-text-muted mt-0.5 leading-snug">{r.desc}</p>
                     </div>
@@ -267,7 +267,7 @@ export default function SignupPage() {
           {step === 3 && (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider">
                   Step 3 &bull; Domains & Tech
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -288,8 +288,8 @@ export default function SignupPage() {
                       onClick={() => toggleInterest(item)}
                       className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all flex items-center gap-1.5 ${
                         selected
-                          ? 'bg-labx-green text-black border-labx-green shadow-sm'
-                          : 'bg-labx-bg text-labx-text-secondary border-labx-border hover:border-labx-green/50 hover:text-labx-text'
+                          ? 'bg-labx-cyan text-black border-labx-cyan shadow-sm'
+                          : 'bg-labx-bg text-labx-text-secondary border-labx-border hover:border-labx-cyan/50 hover:text-labx-text'
                       }`}
                     >
                       {selected && <Check className="w-3 h-3 text-black" />}
@@ -305,7 +305,7 @@ export default function SignupPage() {
           {step === 4 && (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-labx-green uppercase tracking-wider">
+                <span className="text-xs font-bold text-labx-cyan uppercase tracking-wider">
                   Step 4 &bull; Objectives
                 </span>
                 <h1 className="text-2xl font-black text-labx-text tracking-tight mt-1">
@@ -326,12 +326,12 @@ export default function SignupPage() {
                       onClick={() => toggleGoal(goal)}
                       className={`p-3 rounded-xl text-left text-xs font-medium border transition-all flex items-center justify-between ${
                         selected
-                          ? 'bg-labx-green/15 border-labx-green text-white'
-                          : 'bg-labx-bg border-labx-border text-labx-text-secondary hover:border-labx-green/40 hover:text-labx-text'
+                          ? 'bg-labx-cyan/15 border-labx-cyan text-white'
+                          : 'bg-labx-bg border-labx-border text-labx-text-secondary hover:border-labx-cyan/40 hover:text-labx-text'
                       }`}
                     >
                       <span>{goal}</span>
-                      {selected && <Check className="w-3.5 h-3.5 text-labx-green" />}
+                      {selected && <Check className="w-3.5 h-3.5 text-labx-cyan" />}
                     </button>
                   );
                 })}
@@ -363,7 +363,7 @@ export default function SignupPage() {
               type="button"
               disabled={isSubmitting}
               onClick={handleNext}
-              className="px-5 py-2.5 rounded-xl text-xs font-black text-black bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.99] flex items-center gap-2 shadow-lg shadow-emerald-500/25 disabled:opacity-60"
+              className="px-5 py-2.5 rounded-xl text-xs font-black text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.99] flex items-center gap-2 shadow-lg shadow-cyan-400/25 disabled:opacity-60"
             >
               {isSubmitting ? (
                 <div className="w-4 h-4 rounded-full border-2 border-black border-t-transparent animate-spin" />

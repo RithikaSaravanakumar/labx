@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Bookmark, ArrowUpRight, Trash2, Folder, Rocket, Award, Lightbulb, Users } from 'lucide-react';
@@ -14,12 +14,12 @@ export default function SavedItemsPage() {
 
   const getIcon = (type: SavedItem['type']) => {
     switch (type) {
-      case 'project': return <Folder className="w-4 h-4 text-labx-green" />;
-      case 'startup': return <Rocket className="w-4 h-4 text-emerald-400" />;
-      case 'mentor': return <Users className="w-4 h-4 text-labx-green" />;
+      case 'project': return <Folder className="w-4 h-4 text-labx-cyan" />;
+      case 'startup': return <Rocket className="w-4 h-4 text-cyan-300" />;
+      case 'mentor': return <Users className="w-4 h-4 text-labx-cyan" />;
       case 'opportunity': return <Award className="w-4 h-4 text-amber-400" />;
-      case 'idea': return <Lightbulb className="w-4 h-4 text-emerald-400" />;
-      default: return <Bookmark className="w-4 h-4 text-labx-green" />;
+      case 'idea': return <Lightbulb className="w-4 h-4 text-cyan-300" />;
+      default: return <Bookmark className="w-4 h-4 text-labx-cyan" />;
     }
   };
 
@@ -38,7 +38,7 @@ export default function SavedItemsPage() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
       <div className="border-b border-labx-border/80 pb-6">
-        <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+        <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider">
           Bookmarks
         </span>
         <h1 className="text-3xl font-black text-labx-text tracking-tight mt-1">
@@ -58,7 +58,7 @@ export default function SavedItemsPage() {
           </p>
           <Link
             to="/discover"
-            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 rounded-xl text-xs font-bold text-black bg-labx-green hover:bg-labx-green-light transition-colors"
+            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 rounded-xl text-xs font-bold text-black bg-labx-cyan hover:bg-labx-cyan-light transition-colors"
           >
             <span>Explore Innovation Ecosystem</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -88,7 +88,7 @@ export default function SavedItemsPage() {
                   </button>
                 </div>
 
-                <h2 className="text-sm sm:text-base font-bold text-labx-text group-hover:text-labx-green transition-colors">
+                <h2 className="text-sm sm:text-base font-bold text-labx-text group-hover:text-labx-cyan transition-colors">
                   {item.title}
                 </h2>
                 <p className="text-xs text-labx-text-secondary mt-1 line-clamp-2 leading-relaxed">
@@ -100,7 +100,7 @@ export default function SavedItemsPage() {
                 <span className="text-[11px] text-labx-text-muted">Saved on {item.savedDate}</span>
                 <Link
                   to={getLink(item)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-labx-green hover:underline"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-labx-cyan hover:underline"
                 >
                   <span>Open</span>
                   <ArrowUpRight className="w-3 h-3" />

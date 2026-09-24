@@ -109,7 +109,7 @@ export const authService = {
       isVerified: false, followersCount: 0, followingCount: 0, connectionsCount: 0,
       projectIds: [],
       achievements: [
-        { id: 'a-welcome', name: 'Ecosystem Citizen', description: 'Joined LabX Innovation Ecosystem', icon: '🌟', earnedDate: new Date().toISOString().split('T')[0], rarity: 'common' }
+        { id: 'a-welcome', name: 'Ecosystem Citizen', description: 'Joined LabX Innovation Ecosystem', icon: '', earnedDate: new Date().toISOString().split('T')[0], rarity: 'common' }
       ],
       contributionStreak: 1,
     };
@@ -145,7 +145,7 @@ export const authService = {
         isVerified: false, followersCount: 0, followingCount: 0, connectionsCount: 0,
         projectIds: ['p1'],
         achievements: [
-          { id: 'demo-ach', name: 'Verified Persona', description: 'LabX verified demo account', icon: '⚡', earnedDate: '2024-01-01', rarity: 'epic' }
+          { id: 'demo-ach', name: 'Verified Persona', description: 'LabX verified demo account', icon: '', earnedDate: '2024-01-01', rarity: 'epic' }
         ],
         contributionStreak: 15,
       };
@@ -183,7 +183,7 @@ export const authService = {
       isVerified: false, followersCount: 0, followingCount: 0, connectionsCount: 0,
       projectIds: [],
       achievements: [
-        { id: 'a1', name: 'First Step', description: 'Created your LabX proof-of-work identity', icon: '🚀', earnedDate: new Date().toISOString().split('T')[0], rarity: 'common' },
+        { id: 'a1', name: 'First Step', description: 'Created your LabX proof-of-work identity', icon: '', earnedDate: new Date().toISOString().split('T')[0], rarity: 'common' },
       ],
       contributionStreak: 1,
     };

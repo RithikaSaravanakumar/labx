@@ -1,6 +1,6 @@
 /* oxlint-disable react/only-export-components */
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import type { User, UserRole, AuthCredentials, SignupFormData, DemoPersona } from '../types';
 import { authService, DEMO_PERSONAS } from '../services/authService';
 
@@ -89,6 +89,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await authService.logout();
       setUser(null);
+      // Clear any private cached state (quest state, points transactions)
+      const keysToRemove: string[] = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && (key.startsWith('labx_quests_') || key.startsWith('labx_points_tx_'))) {
+          keysToRemove.push(key);
+        }
+      }
+      keysToRemove.forEach(k => localStorage.removeItem(k));
     } finally {
       setIsLoading(false);
     }

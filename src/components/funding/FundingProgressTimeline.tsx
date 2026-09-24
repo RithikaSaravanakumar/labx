@@ -34,47 +34,46 @@ export default function FundingProgressTimeline({ currentPoints, targetPoints }:
           </span>
         </div>
         {remaining > 0 ? (
-          <p className="text-xs font-medium text-emerald-400 mt-1">
+          <p className="text-xs font-medium text-cyan-300 mt-1">
             {remaining.toLocaleString()} points to funding eligibility
           </p>
         ) : (
-          <p className="text-xs font-bold text-emerald-400 mt-1 flex items-center gap-1">
+          <p className="text-xs font-bold text-cyan-300 mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Funding eligibility milestone reached
           </p>
         )}
       </div>
 
-      <div className="relative pt-6 pb-2">
+      <div className="relative pt-4 pb-4">
         {/* Background Track */}
-        <div className="absolute top-8 left-0 right-0 h-1 bg-white/5 rounded-full" />
+        <div className="absolute top-[21px] left-0 right-0 h-1.5 bg-white/10 rounded-full" />
 
         {/* Progress Track */}
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${percentage}%` }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="absolute top-8 left-0 h-1 rounded-full bg-gradient-to-r from-emerald-500 to-[#00FF87] shadow-[0_0_10px_rgba(0,255,135,0.5)]"
+          className="absolute top-[21px] left-0 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-[#22D3EE] shadow-[0_0_12px_rgba(34,211,238,0.6)]"
         />
 
         {/* Breakpoints */}
         <div className="relative flex justify-between">
           {breakpoints.map((bp) => {
             const isReached = currentPoints >= bp.value;
-            const isTarget = bp.value === targetPoints;
             
             return (
-              <div key={bp.value} className="flex flex-col items-center group relative z-10">
-                <div className="mb-1 text-[9px] font-bold text-zinc-500 tracking-wider">
-                  {bp.label}
-                </div>
+              <div key={bp.value} className="flex flex-col items-center group relative z-10 w-12">
                 <div
-                  className={`w-3 h-3 rounded-full border-2 transition-colors duration-500 ${
+                  className={`w-4 h-4 rounded-full border-[2.5px] transition-colors duration-500 ${
                     isReached
-                      ? 'border-[#00FF87] bg-[#0A0C0B]'
-                      : 'border-white/10 bg-[#0A0C0B]'
+                      ? 'border-[#22D3EE] bg-[#0A0C0B] shadow-[0_0_8px_rgba(34,211,238,0.5)]'
+                      : 'border-white/20 bg-[#141615]'
                   }`}
                 />
+                <div className={`mt-2 text-[10px] font-bold tracking-wider text-center ${isReached ? 'text-cyan-300' : 'text-zinc-400'}`}>
+                  {bp.label}
+                </div>
               </div>
             );
           })}
@@ -84,7 +83,7 @@ export default function FundingProgressTimeline({ currentPoints, targetPoints }:
       <div className="mt-4 pt-4 border-t border-white/5">
         <div className="flex items-start gap-3">
           <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
-            <Target className="w-4 h-4 text-emerald-400" />
+            <Target className="w-4 h-4 text-cyan-300" />
           </div>
           <div>
             <h5 className="text-sm font-bold text-white uppercase tracking-wider">

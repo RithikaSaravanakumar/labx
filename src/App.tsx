@@ -1,10 +1,11 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { AppProvider } from './context/AppContext';
 import MainLayout from './layouts/MainLayout';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import LabXLogo from './components/brand/LabXLogo';
+import { useAuth } from './context/AuthContext';
 import './index.css';
 
 // Lazy-loaded public pages
@@ -43,34 +44,48 @@ const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const MyProjectsPage = lazy(() => import('./pages/MyProjectsPage'));
 const MyApplicationsPage = lazy(() => import('./pages/MyApplicationsPage'));
 const SavedItemsPage = lazy(() => import('./pages/SavedItemsPage'));
+const QuestsPage = lazy(() => import('./pages/QuestsPage'));
 
 function PageLoader() {
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#040705] z-[999]">
-      {/* Ambient glow orbs */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[140px] pointer-events-none" />
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-[#05060A] z-[999]">
+      {/* Ambient glow orbs — cyan/violet */}
+      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[#22D3EE]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-[#7C3AED]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="flex flex-col items-center gap-6 relative z-10">
-        {/* Official LabX logo at maximum size */}
+        {/* Official LabX logo */}
         <LabXLogo size="2xl" animate showGlow />
 
-        {/* Loading indicator row */}
+        {/* Loading indicator */}
         <div className="flex items-center gap-2.5 mt-2">
-          <div className="w-4 h-4 rounded-full border-2 border-labx-green border-t-transparent animate-spin" />
+          <div className="w-4 h-4 rounded-full border-2 border-[#22D3EE] border-t-transparent animate-spin" />
           <p className="text-xs font-mono text-labx-text-muted tracking-widest uppercase">
             Initializing Innovation Ecosystem...
           </p>
         </div>
 
-        {/* Subtle loading bar */}
+        {/* Loading bar — cyan */}
         <div className="w-48 h-[2px] bg-white/5 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-[#00FF87] to-[#10B981] animate-[slide_1.4s_ease-in-out_infinite]" style={{ width: '60%', animation: 'labx-load 1.4s ease-in-out infinite' }} />
+          <div
+            className="h-full bg-gradient-to-r from-[#22D3EE] to-[#7C3AED] rounded-full"
+            style={{ width: '60%', animation: 'labx-load 1.4s ease-in-out infinite' }}
+          />
         </div>
       </div>
     </div>
   );
 }
 
+/**
+ * SmartHome — redirects authenticated users to /dashboard, keeps guests on /
+ */
+function SmartHome() {
+  const { isAuthenticated, isLoading } = useAuth();
+  if (isLoading) return <PageLoader />;
+  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
+  return <LandingPage />;
+}
 
 function App() {
   return (
@@ -80,8 +95,8 @@ function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route element={<MainLayout />}>
-                {/* Public Discovery Routes */}
-                <Route path="/" element={<LandingPage />} />
+                {/* Public Routes */}
+                <Route path="/" element={<SmartHome />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/discover" element={<DiscoverPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
@@ -95,11 +110,10 @@ function App() {
                 <Route path="/opportunities" element={<OpportunitiesPage />} />
                 <Route path="/ideas" element={<IdeasPage />} />
                 <Route path="/community" element={<CommunityPage />} />
+                {/* Public profile — /profile/:username */}
                 <Route path="/profile/:username" element={<ProfilePage />} />
                 <Route path="/network" element={<NetworkPage />} />
-                <Route path="/feed" element={<FeedPage />} />
                 <Route path="/leaderboard" element={<LeaderboardPage />} />
-                <Route path="/roadmap" element={<RoadmapPage />} />
 
                 {/* Authentication Routes */}
                 <Route path="/login" element={<LoginPage />} />
@@ -109,15 +123,20 @@ function App() {
 
                 {/* Protected Workspace Routes */}
                 <Route element={<ProtectedRoute />}>
-                  <Route path="/projects/new" element={<CreateProjectPage />} />
                   <Route path="/dashboard" element={<DashboardPage />} />
                   <Route path="/build" element={<BuildPage />} />
+                  <Route path="/feed" element={<FeedPage />} />
+                  <Route path="/roadmap" element={<RoadmapPage />} />
+                  {/* Own profile — /profile → authenticated user */}
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/notifications" element={<NotificationsPage />} />
                   <Route path="/settings" element={<SettingsPage />} />
                   <Route path="/my-projects" element={<MyProjectsPage />} />
                   <Route path="/my-applications" element={<MyApplicationsPage />} />
                   <Route path="/saved" element={<SavedItemsPage />} />
+                  <Route path="/projects/new" element={<CreateProjectPage />} />
+                  {/* Quest System */}
+                  <Route path="/quests" element={<QuestsPage />} />
                 </Route>
               </Route>
             </Routes>
