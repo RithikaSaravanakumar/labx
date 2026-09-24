@@ -310,8 +310,8 @@ export default function InnovationOrbit() {
         className="relative w-full h-full preserve-3d"
         style={{
           transform: prefersReducedMotion
-            ? 'rotateX(55deg) rotateZ(-30deg)'
-            : `rotateX(${55 + mouseOffset.y * -15}deg) rotateZ(${-30 + mouseOffset.x * 15}deg)`,
+            ? 'none'
+            : `rotateX(${mouseOffset.y * -10}deg) rotateY(${mouseOffset.x * 10}deg)`,
           transition: 'transform 0.25s ease-out',
         }}
       >
@@ -470,8 +470,8 @@ export default function InnovationOrbit() {
               boxShadow:
                 '0 0 35px rgba(0, 255, 135, 0.45), inset 0 0 15px rgba(0, 255, 135, 0.25)',
               transform: prefersReducedMotion 
-                ? 'rotateZ(30deg) rotateX(-55deg)' 
-                : `rotateZ(${30 - mouseOffset.x * 15}deg) rotateX(${-55 - mouseOffset.y * -15}deg)`,
+                ? 'none' 
+                : `rotateX(${mouseOffset.y * 10}deg) rotateY(${mouseOffset.x * -10}deg)`,
             }}
             aria-label="LabX Innovation Core"
           >
@@ -526,8 +526,8 @@ export default function InnovationOrbit() {
                 className="flex flex-col items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00FF87] rounded-2xl p-1"
                 style={{
                   transform: prefersReducedMotion 
-                    ? 'rotateZ(30deg) rotateX(-55deg)' 
-                    : `rotateZ(${30 - mouseOffset.x * 15}deg) rotateX(${-55 - mouseOffset.y * -15}deg)`,
+                    ? 'none' 
+                    : `rotateX(${mouseOffset.y * 10}deg) rotateY(${mouseOffset.x * -10}deg)`,
                   transition: 'transform 0.25s ease-out'
                 }}
                 aria-haspopup="dialog"
