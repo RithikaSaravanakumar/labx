@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Users, UserPlus, Send, Activity, ShieldCheck, MapPin, Calendar, ExternalLink } from 'lucide-react';
-import LabXPointRing from '../components/reputation/LabXPointRing';
+import LabXReputationCard from '../components/reputation/LabXReputationCard';
+import LabXPoints from '../components/reputation/LabXPoints';
 import LabXContributionHeatmap from '../components/reputation/LabXContributionHeatmap';
 import ContributionBadge from '../components/reputation/ContributionBadge';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
@@ -152,8 +153,10 @@ export default function ProfilePage() {
                   <span className="text-[10px] uppercase tracking-wider text-labx-text-muted">Projects</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-lg font-bold text-labx-green">{user.labxPoints.toLocaleString()}</span>
-                  <span className="text-[10px] uppercase tracking-wider text-labx-text-muted">LabX Points</span>
+                  <span className="text-lg font-bold text-labx-green">
+                    <LabXPoints points={user.labxPoints} size="sm" hideText />
+                  </span>
+                  <span className="text-[10px] uppercase tracking-wider text-labx-text-muted mt-1">LabX Points</span>
                 </div>
               </div>
             </div>
@@ -184,8 +187,8 @@ export default function ProfilePage() {
                 </button>
               </div>
             )}
-            <div className="self-center hidden sm:block">
-              <LabXPointRing points={user.labxPoints} level={user.level} size={110} strokeWidth={8} />
+            <div className="self-center hidden sm:block min-w-[280px]">
+              <LabXReputationCard user={user} />
             </div>
           </div>
         </div>

@@ -63,8 +63,8 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
         <svg viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`} className="w-full h-full drop-shadow-2xl">
           <defs>
             <linearGradient id="active-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#00F0FF" />
-              <stop offset="100%" stopColor="#00F0FF" />
+              <stop offset="0%" stopColor="#00FF87" />
+              <stop offset="100%" stopColor="#00FF87" />
             </linearGradient>
             <filter id="glow-completed" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="8" result="blur" />
@@ -100,7 +100,7 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                   key={`path-${i}`}
                   d={seg.path}
                   fill="none"
-                  stroke="#00F0FF"
+                  stroke="#00FF87"
                   strokeWidth="12"
                   filter="url(#glow-completed)"
                   strokeLinecap="round"
@@ -154,8 +154,8 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                   cx={node.x}
                   cy={node.y}
                   r="24"
-                  fill={isCompleted ? '#00F0FF' : isCurrent ? '#00F0FF' : '#0A0C0B'}
-                  stroke={isCompleted ? '#00F0FF' : isCurrent ? '#00F0FF' : '#1A1F24'}
+                  fill={isCompleted ? '#00FF87' : isCurrent ? '#00FF87' : '#0A0C0B'}
+                  stroke={isCompleted ? '#00FF87' : isCurrent ? '#00FF87' : '#1A1F24'}
                   strokeWidth="4"
                   filter={isCompleted ? 'url(#glow-completed)' : isCurrent ? 'url(#glow-active)' : ''}
                 />
@@ -172,17 +172,20 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                 {/* Card */}
                 <foreignObject x={cardX} y={cardY} width="300" height="150" className="overflow-visible">
                   <div className={`
-                    w-full h-full rounded-xl p-4 flex flex-col justify-between border-2 backdrop-blur-2xl transition-all duration-500 shadow-xl
-                    ${isCompleted ? 'bg-gradient-to-br from-[#002633]/90 to-[#0A0C0B]/90 border-[#00F0FF]/50' : ''}
-                    ${isCurrent ? 'bg-gradient-to-br from-[#002633] to-[#0A0C0B] border-[#00F0FF] shadow-[0_0_40px_rgba(0,240,255,0.3)] hover:scale-[1.02] transform' : ''}
-                    ${isLocked ? 'bg-[#0A0C0B]/90 border-[#1A1F24]' : ''}
+                    w-full h-full rounded-2xl p-5 flex flex-col justify-between border backdrop-blur-2xl transition-all duration-300 shadow-xl group hover:-translate-y-1 relative overflow-hidden
+                    ${isCompleted ? 'bg-[#002633]/40 border-[#00FF87]/20 hover:border-[#00FF87]/50' : ''}
+                    ${isCurrent ? 'bg-[#002633]/60 border-[#00FF87]/60 shadow-[0_0_30px_rgba(0,255,135,0.15)] hover:shadow-[0_0_40px_rgba(0,255,135,0.25)]' : ''}
+                    ${isLocked ? 'bg-[#0A0C0B]/90 border-white/5' : ''}
                   `}>
+                    {/* Spotlight Hover Effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity duration-300" 
+                         style={{ background: isCurrent || isCompleted ? 'radial-gradient(circle at top right, #00FF87, transparent 70%)' : 'radial-gradient(circle at top right, #ffffff, transparent 70%)' }} />
                     <div className="flex justify-between items-center mb-2">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 relative z-10">
                         <div className={`w-5 h-5 rounded-md flex items-center justify-center
-                          ${isCompleted ? 'bg-[#00F0FF]/20 text-[#00F0FF]' : ''}
-                          ${isCurrent ? 'bg-[#00F0FF]/20 text-[#00F0FF]' : ''}
-                          ${isLocked ? 'bg-zinc-800 text-zinc-500' : ''}
+                          ${isCompleted ? 'bg-[#00FF87]/20 text-[#00FF87]' : ''}
+                          ${isCurrent ? 'bg-[#00FF87]/20 text-[#00FF87]' : ''}
+                          ${isLocked ? 'bg-white/5 text-zinc-500' : ''}
                         `}>
                           <span className="text-[9px] font-black">{stage.order}</span>
                         </div>
@@ -191,16 +194,16 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                         </span>
                       </div>
                       
-                      <div className={`px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest border
-                        ${isCompleted ? 'bg-[#00F0FF]/10 text-[#00F0FF] border-[#00F0FF]/30' : ''}
-                        ${isCurrent ? 'bg-[#00F0FF]/10 text-[#00F0FF] border-[#00F0FF]/30' : ''}
-                        ${isLocked ? 'bg-transparent text-zinc-600 border-zinc-800' : ''}
+                      <div className={`px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest border relative z-10
+                        ${isCompleted ? 'bg-[#00FF87]/10 text-[#00FF87] border-[#00FF87]/30' : ''}
+                        ${isCurrent ? 'bg-[#00FF87]/10 text-[#00FF87] border-[#00FF87]/30' : ''}
+                        ${isLocked ? 'bg-transparent text-zinc-600 border-white/5' : ''}
                       `}>
                         {isCompleted ? 'CONQUERED ✓' : isCurrent ? 'ACTIVE' : 'LOCKED 🔒'}
                       </div>
                     </div>
 
-                    <div>
+                    <div className="relative z-10">
                       <h3 className={`text-sm font-bold mb-1 ${isLocked ? 'text-zinc-400' : 'text-white'}`}>
                         {stage.name} - {stage.tagline?.split(' ').slice(0, 3).join(' ')}
                       </h3>
@@ -209,7 +212,7 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                       </p>
                     </div>
 
-                    <div className="flex justify-end mt-2">
+                    <div className="flex justify-end mt-2 relative z-10">
                       <button 
                         onClick={() => {
                           if (isCurrent && onCompleteStage) {
@@ -218,8 +221,8 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                         }}
                         disabled={!isCurrent}
                         className={`text-[9px] font-bold uppercase tracking-widest flex items-center gap-1 transition-all
-                        ${isCompleted ? 'text-[#00F0FF] hover:text-white' : ''}
-                        ${isCurrent ? 'text-black bg-[#00F0FF] px-3 py-1 rounded-full hover:bg-white hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,240,255,0.5)]' : ''}
+                        ${isCompleted ? 'text-[#00FF87] hover:text-white' : ''}
+                        ${isCurrent ? 'text-black bg-[#00FF87] px-3 py-1 rounded-full hover:bg-white active:scale-95 shadow-[0_0_15px_rgba(0,255,135,0.3)]' : ''}
                         ${isLocked ? 'text-zinc-600 cursor-not-allowed' : ''}
                       `}>
                         {isCompleted ? 'REVIEW ✓' : isCurrent ? 'COMPLETE STAGE →' : 'LOCKED 🔒'}
