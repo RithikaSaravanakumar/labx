@@ -6,6 +6,7 @@ import MainLayout from './layouts/MainLayout';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import LabXLogo from './components/brand/LabXLogo';
 import { useAuth } from './context/AuthContext';
+import ScrollToTop from './components/navigation/ScrollToTop';
 import './index.css';
 
 // Lazy-loaded public pages
@@ -90,6 +91,7 @@ function SmartHome() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AuthProvider>
         <AppProvider>
           <Suspense fallback={<PageLoader />}>
