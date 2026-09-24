@@ -1,15 +1,15 @@
 import { DEFAULT_ROADMAP_STAGES } from '../constants';
 import type { ProjectRoadmap, RoadmapStage, RoadmapMilestone, RoadmapStageStatus, MilestoneStatus } from '../types/roadmap';
 
-const generateMockMilestones = (stageId: string, goals: string[], stageStatus: RoadmapStageStatus): RoadmapMilestone[] => {
-  return goals.map((goal, idx) => {
+const generateMockMilestones = (stageId: string, activities: string[], stageStatus: RoadmapStageStatus): RoadmapMilestone[] => {
+  return activities.map((goal, idx) => {
     let status: MilestoneStatus = 'LOCKED';
     if (stageStatus === 'COMPLETED') {
       status = 'COMPLETED';
     } else if (stageStatus === 'CURRENT') {
       // In current stage, make the first half completed, one in progress, rest available
-      if (idx < Math.floor(goals.length / 2)) status = 'COMPLETED';
-      else if (idx === Math.floor(goals.length / 2)) status = 'IN_PROGRESS';
+      if (idx < Math.floor(activities.length / 2)) status = 'COMPLETED';
+      else if (idx === Math.floor(activities.length / 2)) status = 'IN_PROGRESS';
       else status = 'AVAILABLE';
     }
 
@@ -38,7 +38,7 @@ const buildMockRoadmap = (projectId: string, userId: string, currentStageIndex: 
       progress = 67;
     }
 
-    const milestones = generateMockMilestones(stage.id, stage.goals, status);
+    const milestones = generateMockMilestones(stage.id, stage.activities, status);
 
     return {
       ...stage,

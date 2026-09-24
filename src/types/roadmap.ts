@@ -27,8 +27,12 @@ export interface RoadmapStage {
   order: number;
   name: string;
   slug: string;
+  tagline: string;
   description: string;
-  goals: string[];
+  objective: string;
+  activities: string[];
+  deliverables: string[];
+  completionCriteria: string;
   requiredPoints: number;
   rewardPoints: number;
   status: RoadmapStageStatus;
