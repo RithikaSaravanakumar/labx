@@ -28,7 +28,7 @@ export default function LandingPage() {
   return (
     <div className="overflow-hidden">
       {/* ===== HERO ===== */}
-      <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center labx-grid-bg overflow-hidden py-10 lg:py-12">
+      <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center labx-grid-bg overflow-hidden py-4 lg:py-8">
         {/* 3D Cyber Perspective Floor */}
         <div className="cyber-plane-3d" />
 
@@ -41,14 +41,14 @@ export default function LandingPage() {
             {/* Left Column: Hero Typography & CTAs */}
             <div className="flex-1 text-center lg:text-left">
               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-[#22D3EE] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-8 shadow-[0_0_15px_rgba(0,255,135,0.2)]">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-[#22D3EE] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-5 shadow-[0_0_15px_rgba(0,255,135,0.2)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse" />
                   THE INNOVATION ECOSYSTEM
                 </div>
               </motion.div>
 
               <motion.h1
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] font-black tracking-tighter mb-6 leading-[0.9] text-white"
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter mb-4 leading-[0.9] text-white"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
@@ -58,13 +58,13 @@ export default function LandingPage() {
               </motion.h1>
 
               <motion.p
-                className="text-base sm:text-lg md:text-xl text-labx-text-secondary max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium"
+                className="text-base sm:text-lg md:text-xl text-labx-text-secondary max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed font-medium"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Where ambitious people, bold ideas, and meaningful opportunities come together.{' '}
-                <strong className="text-white font-bold block mt-3 text-cyan-300">Your work becomes your reputation.</strong>
+                <strong className="text-white font-bold block mt-2 text-cyan-300">Your work becomes your reputation.</strong>
               </motion.p>
 
               <motion.div
