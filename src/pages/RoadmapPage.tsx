@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, ChevronRight, Award } from 'lucide-react';
 import { roadmapService, fundingService, userService } from '../services';
 import type { ProjectRoadmap, FundingProgress, User } from '../types';
-import RoadmapVisualizer from '../components/roadmap/RoadmapVisualizer';
+import CurvedRoadmap from '../components/roadmap/CurvedRoadmap';
 import FundingProgressTimeline from '../components/funding/FundingProgressTimeline';
 import LabXPointRing from '../components/reputation/LabXPointRing';
 import { pageTransition, staggerContainer, staggerItem } from '../animations';
@@ -134,14 +134,8 @@ export default function RoadmapPage() {
                 Ecosystem Roadmap
               </h3>
               
-              {/* Desktop Horizontal */}
-              <div className="hidden md:block">
-                <RoadmapVisualizer roadmap={primaryRoadmap} layout="horizontal" showDetails={false} />
-              </div>
-              
-              {/* Mobile Vertical */}
-              <div className="md:hidden">
-                <RoadmapVisualizer roadmap={primaryRoadmap} layout="vertical" />
+              <div className="w-full">
+                <CurvedRoadmap roadmap={primaryRoadmap} />
               </div>
             </motion.div>
           </div>
