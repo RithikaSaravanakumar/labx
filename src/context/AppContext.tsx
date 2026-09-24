@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { User, OnboardingData } from '../types';
 import { useAuth } from './AuthContext';
+import { notificationService } from '../services';
 
 interface AppContextType {
   currentUser: User | null;
@@ -23,7 +24,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [onboardingData, setOnboardingData] = useState<OnboardingData>({ role: null, interests: [] });
   const [isOnboarded, setIsOnboarded] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [notificationCount] = useState(3);
+  const [notificationCount, setNotificationCount] = useState(0);
+
+  useEffect(() => {
+    if (user) {
+      notificationService.getUnreadCount().then(setNotificationCount);
+    }
+  }, [user]);
 
   // Global keyboard shortcut for search
   useEffect(() => {

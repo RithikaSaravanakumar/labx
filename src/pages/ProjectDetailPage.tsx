@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, Users, ArrowLeft, Send, CheckCircle2, Flame, ExternalLink, ShieldCheck } from 'lucide-react';
-import { projectService, buildUpdateService, fundingService } from '../services';
-import type { Project, BuildUpdate, RoadmapStage, FundingProgress as FundingProgressType } from '../types';
+import { projectService, buildUpdateService, fundingService, roadmapService } from '../services';
+import type { Project, BuildUpdate, RoadmapStage, ProjectRoadmap as ProjectRoadmapType, FundingProgress as FundingProgressType } from '../types';
 import ProjectRoadmap from '../components/roadmap/ProjectRoadmap';
 import FundingProgressTimeline from '../components/funding/FundingProgressTimeline';
 import { DOMAIN_LABELS, DOMAIN_COLORS, STAGE_LABELS } from '../constants';
@@ -23,27 +23,23 @@ export default function ProjectDetailPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [funding, setFunding] = useState<FundingProgressType | null>(null);
 
-  // Mock Roadmap Data (In reality, fetched from service)
-  const mockStages: Partial<RoadmapStage>[] = [
-    { id: 'IDEA', name: 'Idea Validation', description: 'Validate problem space', rewardPoints: 100, status: 'COMPLETED', milestones: [] },
-    { id: 'MVP', name: 'MVP Development', description: 'Build core features', rewardPoints: 250, status: 'COMPLETED', milestones: [] },
-    { id: 'LAUNCH', name: 'Public Launch', description: 'Acquire first users', rewardPoints: 500, status: 'CURRENT', milestones: [] },
-    { id: 'GROW', name: 'Growth', description: 'Scale to 1000 users', rewardPoints: 1000, status: 'LOCKED', milestones: [] },
-  ];
+  const [roadmap, setRoadmap] = useState<ProjectRoadmapType | null>(null);
 
   useEffect(() => {
     if (!id) return;
     Promise.all([
       projectService.getProjectById(id),
       buildUpdateService.getBuildUpdatesByProject(id),
-      fundingService.getFundingProgress('current-user')
-    ]).then(([p, updates, fundData]) => {
+      fundingService.getFundingProgress('current-user'),
+      roadmapService.getProjectRoadmap(id)
+    ]).then(([p, updates, fundData, projectRoadmap]) => {
       if (p) {
         setProject(p);
         setStarCount(p.labxPoints || 24);
       }
       setBuildUpdates(updates);
       setFunding(fundData);
+      setRoadmap(projectRoadmap);
       setIsLoading(false);
     });
   }, [id]);
@@ -273,7 +269,12 @@ export default function ProjectDetailPage() {
           
           {funding && <FundingProgressTimeline currentPoints={funding.progress.current} targetPoints={funding.progress.target} />}
           
-          <ProjectRoadmap stages={mockStages as RoadmapStage[]} currentStageId="LAUNCH" />
+          {roadmap && (
+            <ProjectRoadmap 
+              stages={roadmap.stages} 
+              currentStageId={roadmap.stages.find(s => s.status === 'CURRENT')?.id || roadmap.stages[0].id} 
+            />
+          )}
 
           {/* Open Roles */}
           <div className="labx-card p-6">

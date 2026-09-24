@@ -74,7 +74,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <Link
-                  to="/signup"
+                  to="/projects/new"
                   className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm hover:brightness-110 active:scale-[0.98] transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50"
                 >
                   <span>Start Building</span>
@@ -404,7 +404,7 @@ export default function LandingPage() {
               Join thousands of builders, founders, mentors, and innovators creating verified proof of work.
             </p>
             <Link
-              to="/signup"
+              to="/projects/new"
               className="inline-flex items-center gap-2 px-9 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-base hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50"
             >
               <span>Start Building</span>

@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, Target, Users, Zap, CheckCircle2, ChevronRight, ChevronLeft } from 'lucide-react';
 import { projectService } from '../services';
 import { pageTransition } from '../animations';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { ideaService } from '../services';
 
 const DOMAINS = ['ai-ml', 'healthcare', 'climate', 'deep-tech', 'fintech', 'edtech', 'robotics', 'cybersecurity', 'saas'];
 
@@ -21,6 +22,27 @@ export default function CreateProjectPage() {
     solution: '',
     techStack: '',
   });
+
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const sourceIdeaId = searchParams.get('sourceIdeaId');
+    if (sourceIdeaId) {
+      ideaService.getIdeas().then(ideas => {
+        const idea = ideas.find(i => i.id === sourceIdeaId);
+        if (idea) {
+          setFormData(prev => ({
+            ...prev,
+            name: idea.title,
+            domain: idea.domain,
+            problem: idea.problem,
+            solution: idea.solution,
+            techStack: idea.requiredSkills?.join(', ') || ''
+          }));
+        }
+      });
+    }
+  }, [searchParams]);
 
   const handleNext = () => setStep(s => Math.min(3, s + 1));
   const handlePrev = () => setStep(s => Math.max(1, s - 1));

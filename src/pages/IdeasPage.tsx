@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, ThumbsUp, Users, Plus, Send, X, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Lightbulb, ThumbsUp, Users, Plus, Send, X, CheckCircle2, Rocket } from 'lucide-react';
 import { ideaService } from '../services';
 import type { Idea, Domain } from '../types';
 import { DOMAIN_LABELS, DOMAIN_COLORS } from '../constants';
@@ -161,6 +162,16 @@ export default function IdeasPage() {
                       <Users className="w-3.5 h-3.5" />
                       <span>{idea.interestedBuilders} builders interested</span>
                     </div>
+                  </div>
+                  
+                  <div className="mt-4 pt-4 border-t border-labx-border/60">
+                    <Link
+                      to={`/projects/new?sourceIdeaId=${idea.id}`}
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider bg-labx-surface hover:bg-emerald-500/10 text-emerald-400 border border-labx-border hover:border-emerald-500/50 transition-all"
+                    >
+                      <Rocket className="w-3.5 h-3.5" />
+                      <span>Turn Idea into Reality</span>
+                    </Link>
                   </div>
                 </div>
               </motion.div>

@@ -164,12 +164,12 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
               )}
 
               <Link
-                to={isAuthenticated ? "/projects/new" : "/signup"}
+                to="/projects/new"
                 onClick={handleLinkClick}
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm uppercase tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
               >
                 <Plus className="w-4 h-4" />
-                <span>{isAuthenticated ? 'Start Building' : 'Join LabX'}</span>
+                <span>Start Building</span>
               </Link>
             </div>
           </motion.div>

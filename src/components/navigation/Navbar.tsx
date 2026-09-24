@@ -221,7 +221,7 @@ export default function Navbar() {
             {/* Build CTA (Desktop Only) */}
             <div className="hidden lg:block ml-2 pl-4 border-l border-white/10">
               <Link
-                to={isAuthenticated ? "/projects/new" : "/signup"}
+                to="/projects/new"
                 className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[0_0_15px_rgba(0,255,135,0.3)] hover:shadow-[0_0_20px_rgba(0,255,135,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#040705]"
               >
                 Build

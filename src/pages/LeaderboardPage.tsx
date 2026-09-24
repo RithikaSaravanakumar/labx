@@ -5,8 +5,10 @@ import { userService } from '../services';
 import type { User } from '../types';
 import { pageTransition } from '../animations';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function LeaderboardPage() {
+  const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<'global' | 'monthly' | 'projects'>('global');
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,7 +44,7 @@ export default function LeaderboardPage() {
         </div>
         <div className="labx-card p-4 flex items-center gap-4 bg-gradient-to-r from-labx-surface to-labx-surface-hover border-labx-green/30">
           <div className="w-12 h-12 rounded-xl bg-labx-bg border border-labx-green/50 flex items-center justify-center">
-            <span className="text-xl font-black font-mono text-labx-green">#{users.findIndex(u => u.username === 'aarav_sharma') + 1}</span>
+            <span className="text-xl font-black font-mono text-labx-green">#{user ? users.findIndex(u => u.username === user.username) + 1 : '-'}</span>
           </div>
           <div>
             <div className="text-xs font-bold text-labx-text-muted uppercase tracking-wider">Your Global Rank</div>
