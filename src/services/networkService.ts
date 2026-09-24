@@ -7,28 +7,28 @@ class NetworkService {
   }
 
   // Follow System
-  async followUser(userId: string): Promise<boolean> {
+  async followUser(_userId: string): Promise<boolean> {
     await this.delay();
     return true;
   }
 
-  async unfollowUser(userId: string): Promise<boolean> {
+  async unfollowUser(_userId: string): Promise<boolean> {
     await this.delay();
     return true;
   }
 
-  async getFollowers(userId: string): Promise<User[]> {
+  async getFollowers(_userId: string): Promise<User[]> {
     await this.delay();
     // Return some mock users as followers
     return mockUsers.slice(0, 3);
   }
 
-  async getFollowing(userId: string): Promise<User[]> {
+  async getFollowing(_userId: string): Promise<User[]> {
     await this.delay();
     return mockUsers.slice(2, 5);
   }
 
-  async isFollowing(userId: string, targetId: string): Promise<boolean> {
+  async isFollowing(_userId: string, _targetId: string): Promise<boolean> {
     await this.delay(200);
     return false;
   }
@@ -46,22 +46,22 @@ class NetworkService {
     };
   }
 
-  async acceptConnection(connectionId: string): Promise<boolean> {
+  async acceptConnection(_connectionId: string): Promise<boolean> {
     await this.delay();
     return true;
   }
 
-  async declineConnection(connectionId: string): Promise<boolean> {
+  async declineConnection(_connectionId: string): Promise<boolean> {
     await this.delay();
     return true;
   }
 
-  async removeConnection(userId: string): Promise<boolean> {
+  async removeConnection(_userId: string): Promise<boolean> {
     await this.delay();
     return true;
   }
 
-  async getConnections(userId: string): Promise<User[]> {
+  async getConnections(_userId: string): Promise<User[]> {
     await this.delay();
     return mockUsers.slice(1, 4);
   }

@@ -1,5 +1,5 @@
 import { MOCK_PROJECT_ROADMAPS } from '../data/mockRoadmap';
-import type { ProjectRoadmap, RoadmapMilestone, RoadmapStage } from '../types/roadmap';
+import type { ProjectRoadmap, RoadmapMilestone } from '../types/roadmap';
 
 export const roadmapService = {
   /**
@@ -32,7 +32,7 @@ export const roadmapService = {
   /**
    * Complete a milestone (mock)
    */
-  async completeMilestone(projectId: string, milestoneId: string): Promise<boolean> {
+  async completeMilestone(_projectId: string, _milestoneId: string): Promise<boolean> {
     await new Promise(resolve => setTimeout(resolve, 500));
     // In a real app, this would update the backend, award points, and recalculate stage progress
     return true;

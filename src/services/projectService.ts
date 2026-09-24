@@ -34,13 +34,13 @@ class ProjectService {
     };
   }
 
-  async updateDraft(projectId: string, updates: Partial<Project>): Promise<Project> {
+  async updateDraft(_projectId: string, updates: Partial<Project>): Promise<Project> {
     await this.delay();
     // Return updated mock
     return this.createDraft(updates); // Mock implementation
   }
 
-  async publishProject(projectId: string): Promise<boolean> {
+  async publishProject(_projectId: string): Promise<boolean> {
     await this.delay(800);
     return true;
   }

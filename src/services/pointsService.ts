@@ -5,7 +5,7 @@ class PointsService {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  async getUserPoints(userId: string): Promise<number> {
+  async getUserPoints(_userId: string): Promise<number> {
     await this.delay();
     return 18450;
   }
