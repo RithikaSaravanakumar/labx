@@ -158,19 +158,34 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
                   </Link>
                 </div>
               ) : (
-                <div className="mb-6">
-                  <p className="text-sm text-zinc-400 text-center">Join the ecosystem to build, connect, and earn reputation.</p>
+                <div className="mb-6 flex items-center justify-between gap-3">
+                  <Link
+                    to="/login"
+                    onClick={handleLinkClick}
+                    className="flex-1 py-3.5 rounded-xl border border-white/10 text-white font-bold text-sm text-center hover:bg-white/5 transition-all"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={handleLinkClick}
+                    className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] to-[#10B981] text-black font-black text-sm text-center hover:brightness-110 transition-all shadow-lg shadow-emerald-500/20"
+                  >
+                    Sign Up
+                  </Link>
                 </div>
               )}
 
-              <Link
-                to="/projects/new"
-                onClick={handleLinkClick}
-                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm uppercase tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
-              >
-                <Plus className="w-4 h-4" />
-                <span>Start Building</span>
-              </Link>
+              {isAuthenticated && (
+                <Link
+                  to="/projects/new"
+                  onClick={handleLinkClick}
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm uppercase tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Start Building</span>
+                </Link>
+              )}
             </div>
           </motion.div>
         </>

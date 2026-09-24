@@ -37,6 +37,13 @@ export default function DiscoverPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const tabParam = searchParams.get('tab') as Tab;
+    if (tabParam && tabs.find(t => t.value === tabParam)) {
+      setActiveTab(tabParam);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
     const loadData = async () => {
       const [p, s, ppl, m, h, o] = await Promise.all([
         projectService.getProjects({ search }),
