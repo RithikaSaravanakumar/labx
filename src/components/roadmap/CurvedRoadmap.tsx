@@ -13,7 +13,8 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
   
   const SVG_WIDTH = 800;
   const NODE_SPACING = 250;
-  const SVG_HEIGHT = Math.max(600, stages.length * NODE_SPACING + 200);
+  const lastNodeY = stages.length > 0 ? 150 + ((stages.length - 1) * NODE_SPACING) : 0;
+  const SVG_HEIGHT = Math.max(600, lastNodeY + 250);
 
   // Dynamic Nodes
   const nodes = stages.map((_, i) => ({
@@ -37,8 +38,6 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
       });
     }
 
-    const lastNode = nodes[nodes.length - 1];
-    segments.push({ path: `M ${lastNode.x} ${lastNode.y} L ${lastNode.x} ${SVG_HEIGHT}`, sourceIdx: stages.length - 1, targetIdx: stages.length });
   }
 
   const getStageStatus = (idx: number) => {
