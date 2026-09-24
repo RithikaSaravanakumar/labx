@@ -106,6 +106,9 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
           exit={{ opacity: 0, scale: 0.96, y: -10 }}
           transition={{ duration: 0.2 }}
           className="w-full max-w-2xl bg-[#070D09] border border-labx-green/30 rounded-2xl shadow-[0_0_50px_rgba(0,255,135,0.15)] overflow-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Command Center"
         >
           {/* Search bar */}
           <div className="flex items-center px-4 sm:px-5 py-4 border-b border-labx-border/80 gap-3 bg-[#0B140E]/80">
@@ -117,6 +120,10 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="flex-1 bg-transparent text-labx-text placeholder-labx-text-muted text-sm sm:text-base focus:outline-none"
+              role="combobox"
+              aria-expanded="true"
+              aria-controls="search-results"
+              aria-autocomplete="list"
             />
             <div className="flex items-center gap-2">
               <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-labx-surface text-labx-green/80 border border-labx-border">ESC</span>
@@ -131,7 +138,7 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
           </div>
 
           {/* Results container */}
-          <div className="max-h-[65vh] overflow-y-auto p-4 sm:p-5 space-y-6">
+          <div id="search-results" role="listbox" className="max-h-[65vh] overflow-y-auto p-4 sm:p-5 space-y-6">
             {/* Quick Ecosystem Brand Actions */}
             <div>
               <div className="flex items-center gap-2 text-xs font-semibold text-labx-green uppercase tracking-wider mb-2.5 px-2">
@@ -146,6 +153,8 @@ export default function LabXCommandSearch({ isOpen, onClose }: LabXCommandSearch
                       key={s.path}
                       onClick={() => handleSelect(s.path)}
                       className="p-3 rounded-xl bg-labx-surface/50 border border-labx-border/80 hover:border-labx-green/40 hover:bg-labx-green/5 transition-all text-left group flex items-start gap-3"
+                      role="option"
+                      aria-selected="false"
                     >
                       <div className="w-8 h-8 rounded-lg bg-labx-green/10 border border-labx-green/20 flex items-center justify-center shrink-0 group-hover:bg-labx-green group-hover:text-black transition-colors text-labx-green">
                         <Icon className="w-4 h-4" />

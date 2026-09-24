@@ -5,6 +5,8 @@ import { Rocket, Plus, Bell, Award, ChevronRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import LabXReputationCard from '../components/reputation/LabXReputationCard';
 import LabXPoints from '../components/reputation/LabXPoints';
+import Skeleton from '../components/ui/Skeleton';
+import EmptyState from '../components/ui/EmptyState';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
 import { projectService, mentorService, notificationService, roadmapService, fundingService } from '../services';
 import type { Project, Mentor, Notification, ProjectRoadmap, FundingProgress } from '../types';
@@ -45,9 +47,26 @@ export default function DashboardPage() {
 
   if (isLoading || !currentUser) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <div className="w-12 h-12 border-4 border-labx-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-labx-text-muted">Loading workspace environment...</p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        {/* Hero Skeleton */}
+        <div className="labx-card p-6 sm:p-8 h-48 relative overflow-hidden bg-[#0A0C0B]">
+          <Skeleton className="w-1/3 h-8 mb-6" />
+          <div className="flex gap-4">
+            <Skeleton className="w-48 h-20" />
+            <Skeleton className="w-48 h-20" />
+          </div>
+        </div>
+        {/* Projects Skeleton */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-4">
+            <Skeleton className="w-48 h-6 mb-4" />
+            <Skeleton className="w-full h-40" />
+            <Skeleton className="w-full h-40" />
+          </div>
+          <div className="space-y-4">
+            <Skeleton className="w-full h-64" />
+          </div>
+        </div>
       </div>
     );
   }
@@ -136,11 +155,24 @@ export default function DashboardPage() {
               </Link>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {projects.map(p => (
-                <ProjectPulseCard key={p.id} project={p} />
-              ))}
-            </div>
+            {projects.length === 0 ? (
+              <EmptyState 
+                icon={Rocket} 
+                title="No Active Projects" 
+                description="You aren't working on any projects yet. Start a new build or join an existing one to track your telemetry here."
+                action={
+                  <Link to="/projects/new" className="text-[#00FF87] hover:underline text-xs font-bold uppercase">
+                    Launch Project →
+                  </Link>
+                }
+              />
+            ) : (
+              <div className="grid md:grid-cols-2 gap-6">
+                {projects.map(p => (
+                  <ProjectPulseCard key={p.id} project={p} />
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
@@ -156,14 +188,22 @@ export default function DashboardPage() {
               <span>Telemetry Notifications</span>
             </h3>
 
-            <div className="space-y-3">
-              {notifications.map(n => (
-                <div key={n.id} className="p-3 rounded-xl bg-labx-surface border border-labx-border/60">
-                  <div className="text-xs font-bold text-labx-text mb-1">{n.title}</div>
-                  <div className="text-xs text-labx-text-secondary line-clamp-2">{n.message}</div>
-                </div>
-              ))}
-            </div>
+            {notifications.length === 0 ? (
+              <EmptyState 
+                icon={Bell} 
+                title="Telemetry Clear" 
+                description="No recent ecosystem updates."
+              />
+            ) : (
+              <div className="space-y-3">
+                {notifications.map(n => (
+                  <div key={n.id} className="p-3 rounded-xl bg-labx-surface border border-labx-border/60">
+                    <div className="text-xs font-bold text-labx-text mb-1">{n.title}</div>
+                    <div className="text-xs text-labx-text-secondary line-clamp-2">{n.message}</div>
+                  </div>
+                ))}
+              </div>
+            )}
           </motion.div>
 
           {/* Recommended Mentors */}
@@ -176,22 +216,30 @@ export default function DashboardPage() {
               <span>Recommended Mentors</span>
             </h3>
 
-            <div className="space-y-4">
-              {mentors.map(m => (
-                <div key={m.id} className="flex items-center justify-between p-3 rounded-xl bg-labx-surface border border-labx-border/60">
-                  <div className="flex items-center gap-3">
-                    <img src={m.avatar} alt={m.name} className="w-9 h-9 rounded-full object-cover border border-labx-border" />
-                    <div>
-                      <div className="text-xs font-bold text-labx-text">{m.name}</div>
-                      <div className="text-[11px] text-labx-text-muted">{m.title}</div>
+            {mentors.length === 0 ? (
+              <EmptyState 
+                icon={Award} 
+                title="No Recommendations" 
+                description="Update your project domains to get tailored mentor suggestions."
+              />
+            ) : (
+              <div className="space-y-4">
+                {mentors.map(m => (
+                  <div key={m.id} className="flex items-center justify-between p-3 rounded-xl bg-labx-surface border border-labx-border/60">
+                    <div className="flex items-center gap-3">
+                      <img src={m.avatar} alt={m.name} className="w-9 h-9 rounded-full object-cover border border-labx-border" />
+                      <div>
+                        <div className="text-xs font-bold text-labx-text">{m.name}</div>
+                        <div className="text-[11px] text-labx-text-muted">{m.title}</div>
+                      </div>
                     </div>
+                    <Link to={`/mentors/${m.id}`} className="text-xs text-labx-green font-semibold hover:underline">
+                      Connect
+                    </Link>
                   </div>
-                  <Link to={`/mentors/${m.id}`} className="text-xs text-labx-green font-semibold hover:underline">
-                    Connect
-                  </Link>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </motion.div>
         </div>
       </div>

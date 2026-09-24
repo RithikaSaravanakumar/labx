@@ -41,30 +41,30 @@ export default function LandingPage() {
             {/* Left Column: Hero Typography & CTAs */}
             <div className="flex-1 text-center lg:text-left">
               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-semibold tracking-wide mb-6 shadow-[0_0_15px_rgba(0,255,135,0.2)]">
-                  <span className="w-2 h-2 rounded-full bg-[#00FF87] animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[#00FF87] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-8 shadow-[0_0_15px_rgba(0,255,135,0.2)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00FF87] animate-pulse" />
                   THE INNOVATION ECOSYSTEM
                 </div>
               </motion.div>
 
               <motion.h1
-                className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight mb-6 leading-tight"
+                className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[9rem] font-black tracking-tighter mb-6 leading-[0.9] text-white"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                BUILD WHAT{' '}
-                <span className="labx-gradient-text">MATTERS.</span>
+                BUILD WHAT<br />
+                <span className="labx-gradient-text tracking-tighter">MATTERS.</span>
               </motion.h1>
 
               <motion.p
-                className="text-lg sm:text-xl text-labx-text-secondary max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+                className="text-lg sm:text-xl md:text-2xl text-labx-text-secondary max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Where ambitious people, bold ideas, and meaningful opportunities come together.{' '}
-                <strong className="text-white font-bold block mt-1 text-emerald-300">Your work becomes your reputation.</strong>
+                <strong className="text-white font-bold block mt-3 text-emerald-400">Your work becomes your reputation.</strong>
               </motion.p>
 
               <motion.div
