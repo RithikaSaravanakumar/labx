@@ -5,9 +5,10 @@ import type { ProjectRoadmap, RoadmapStage } from '../../types/roadmap';
 
 interface CurvedRoadmapProps {
   roadmap: ProjectRoadmap;
+  onCompleteStage?: (stageId: string) => void;
 }
 
-export default function CurvedRoadmap({ roadmap }: CurvedRoadmapProps) {
+export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadmapProps) {
   const stages = roadmap.stages;
   
   const SVG_WIDTH = 800;
@@ -171,9 +172,9 @@ export default function CurvedRoadmap({ roadmap }: CurvedRoadmapProps) {
                 {/* Card */}
                 <foreignObject x={cardX} y={cardY} width="300" height="150" className="overflow-visible">
                   <div className={`
-                    w-full h-full rounded-xl p-4 flex flex-col justify-between border-2 backdrop-blur-xl transition-all duration-500
-                    ${isCompleted ? 'bg-[#002633]/80 border-[#00F0FF]/50' : ''}
-                    ${isCurrent ? 'bg-[#002633]/90 border-[#00F0FF] shadow-[0_0_30px_rgba(0,240,255,0.2)]' : ''}
+                    w-full h-full rounded-xl p-4 flex flex-col justify-between border-2 backdrop-blur-2xl transition-all duration-500 shadow-xl
+                    ${isCompleted ? 'bg-gradient-to-br from-[#002633]/90 to-[#0A0C0B]/90 border-[#00F0FF]/50' : ''}
+                    ${isCurrent ? 'bg-gradient-to-br from-[#002633] to-[#0A0C0B] border-[#00F0FF] shadow-[0_0_40px_rgba(0,240,255,0.3)] hover:scale-[1.02] transform' : ''}
                     ${isLocked ? 'bg-[#0A0C0B]/90 border-[#1A1F24]' : ''}
                   `}>
                     <div className="flex justify-between items-center mb-2">
@@ -209,12 +210,19 @@ export default function CurvedRoadmap({ roadmap }: CurvedRoadmapProps) {
                     </div>
 
                     <div className="flex justify-end mt-2">
-                      <button className={`text-[9px] font-bold uppercase tracking-widest flex items-center gap-1
+                      <button 
+                        onClick={() => {
+                          if (isCurrent && onCompleteStage) {
+                            onCompleteStage(stage.id);
+                          }
+                        }}
+                        disabled={!isCurrent}
+                        className={`text-[9px] font-bold uppercase tracking-widest flex items-center gap-1 transition-all
                         ${isCompleted ? 'text-[#00F0FF] hover:text-white' : ''}
-                        ${isCurrent ? 'text-[#00F0FF] hover:text-white' : ''}
+                        ${isCurrent ? 'text-black bg-[#00F0FF] px-3 py-1 rounded-full hover:bg-white hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,240,255,0.5)]' : ''}
                         ${isLocked ? 'text-zinc-600 cursor-not-allowed' : ''}
                       `}>
-                        {isCompleted ? 'REVIEW ✓' : isCurrent ? 'INITIALIZE →' : 'LOCKED 🔒'}
+                        {isCompleted ? 'REVIEW ✓' : isCurrent ? 'COMPLETE STAGE →' : 'LOCKED 🔒'}
                       </button>
                     </div>
                   </div>

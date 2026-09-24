@@ -6,6 +6,7 @@ import type { ProjectRoadmap, FundingProgress, User } from '../types';
 import CurvedRoadmap from '../components/roadmap/CurvedRoadmap';
 import FundingProgressTimeline from '../components/funding/FundingProgressTimeline';
 import LabXPointRing from '../components/reputation/LabXPointRing';
+import GoldCoin from '../components/reputation/GoldCoin';
 import { pageTransition, staggerContainer, staggerItem } from '../animations';
 import { Link } from 'react-router-dom';
 
@@ -44,6 +45,20 @@ export default function RoadmapPage() {
       </div>
     );
   }
+
+  const handleCompleteStage = async (stageId: string) => {
+    if (!primaryRoadmap) return;
+    await roadmapService.completeStage(primaryRoadmap.projectId, stageId);
+    
+    // Refresh roadmap and user points
+    const [updatedRoadmap, updatedUser] = await Promise.all([
+      roadmapService.getPrimaryRoadmap(currentUser.id),
+      userService.getCurrentUser()
+    ]);
+    
+    if (updatedRoadmap) setPrimaryRoadmap({...updatedRoadmap});
+    if (updatedUser) setCurrentUser({...updatedUser});
+  };
 
   const currentStage = primaryRoadmap.stages.find(s => s.status === 'CURRENT');
   const nextMilestone = roadmapService.getNextMilestone(primaryRoadmap);
@@ -98,7 +113,10 @@ export default function RoadmapPage() {
                       <div className="w-px h-10 bg-white/10" />
                       <div>
                         <div className="text-[10px] text-zinc-500 font-bold uppercase mb-1">Available Points</div>
-                        <div className="text-xl font-bold text-[#00FF87]">+{currentStage.rewardPoints}</div>
+                        <div className="text-xl font-bold text-[#00FF87] flex items-center gap-1">
+                          <GoldCoin className="w-5 h-5" />
+                          +{currentStage.rewardPoints}
+                        </div>
                       </div>
                     </div>
 
@@ -135,7 +153,7 @@ export default function RoadmapPage() {
               </h3>
               
               <div className="w-full">
-                <CurvedRoadmap roadmap={primaryRoadmap} />
+                <CurvedRoadmap roadmap={primaryRoadmap} onCompleteStage={handleCompleteStage} />
               </div>
             </motion.div>
           </div>

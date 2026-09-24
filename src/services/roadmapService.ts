@@ -37,6 +37,29 @@ export const roadmapService = {
     // In a real app, this would update the backend, award points, and recalculate stage progress
     return true;
   },
+
+  /**
+   * Complete a stage (mock)
+   */
+  async completeStage(projectId: string, stageId: string): Promise<boolean> {
+    await new Promise(resolve => setTimeout(resolve, 300));
+    const roadmap = MOCK_PROJECT_ROADMAPS.find(r => r.projectId === projectId);
+    if (!roadmap) return false;
+    
+    const stageIndex = roadmap.stages.findIndex(s => s.id === stageId);
+    if (stageIndex === -1) return false;
+    
+    // Complete current stage
+    roadmap.stages[stageIndex].status = 'COMPLETED';
+    roadmap.stages[stageIndex].progress = 100;
+    
+    // Unlock next stage
+    if (stageIndex + 1 < roadmap.stages.length) {
+      roadmap.stages[stageIndex + 1].status = 'CURRENT';
+    }
+    
+    return true;
+  },
   
   /**
    * Helper to find the next available milestone

@@ -13,9 +13,9 @@ export default function ProjectPulseCard({ project }: ProjectPulseCardProps) {
 
   return (
     <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2 }}
-      className="labx-card p-6 flex flex-col justify-between h-full group relative overflow-hidden"
+      whileHover={{ y: -6, scale: 1.01 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="p-6 flex flex-col justify-between h-full group relative overflow-hidden rounded-2xl bg-[#0A0C0B]/70 backdrop-blur-2xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:border-emerald-500/40 hover:shadow-[0_8px_30px_rgba(0,255,135,0.15)]"
     >
       {/* Glow border on hover */}
       <div

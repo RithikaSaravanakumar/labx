@@ -5,6 +5,7 @@ import { X, ChevronRight, Plus } from 'lucide-react';
 import { LABX_NAVIGATION } from '../../constants';
 import { useAuth } from '../../context/AuthContext';
 import LabXPointRing from '../reputation/LabXPointRing';
+import GoldCoin from '../reputation/GoldCoin';
 
 interface LabXHubProps {
   isOpen: boolean;
@@ -12,7 +13,7 @@ interface LabXHubProps {
 }
 
 export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const hubRef = useRef<HTMLDivElement>(null);
 
   // Filter navigation based on auth state
@@ -48,6 +49,11 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
   }, [isOpen, onClose]);
 
   const handleLinkClick = () => {
+    onClose();
+  };
+
+  const handleLogout = async () => {
+    await logout();
     onClose();
   };
 
@@ -142,7 +148,10 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
                     <div>
                       <div className="text-sm font-bold text-white">{user.name}</div>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="text-[10px] font-mono text-[#00FF87] uppercase tracking-wider">{user.labxPoints.toLocaleString()} PTS</span>
+                        <span className="text-[10px] font-mono text-[#00FF87] uppercase tracking-wider flex items-center gap-1">
+                          <GoldCoin className="w-3.5 h-3.5" />
+                          {user.labxPoints.toLocaleString()} PTS
+                        </span>
                         {user.rank && (
                           <span className="text-[10px] text-zinc-500">#{user.rank} GLOBAL</span>
                         )}
@@ -177,14 +186,23 @@ export default function LabXHub({ isOpen, onClose }: LabXHubProps) {
               )}
 
               {isAuthenticated && (
-                <Link
-                  to="/projects/new"
-                  onClick={handleLinkClick}
-                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm uppercase tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
-                >
-                  <Plus className="w-4 h-4" />
-                  <span>Start Building</span>
-                </Link>
+                <div className="flex gap-2">
+                  <Link
+                    to="/projects/new"
+                    onClick={handleLinkClick}
+                    className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-[#00FF87] via-[#10B981] to-[#34D399] text-black font-black text-sm uppercase tracking-wide hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Start Building</span>
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center justify-center px-4 py-3.5 rounded-xl border border-red-500/20 text-red-400 font-bold text-sm hover:bg-red-500/10 transition-all"
+                    title="Sign Out"
+                  >
+                    Sign Out
+                  </button>
+                </div>
               )}
             </div>
           </motion.div>

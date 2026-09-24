@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Rocket, Plus, Bell, Award, ChevronRight } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import LabXPointRing from '../components/reputation/LabXPointRing';
+import GoldCoin from '../components/reputation/GoldCoin';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
-import { userService, projectService, mentorService, notificationService, roadmapService, fundingService } from '../services';
-import type { User, Project, Mentor, Notification, ProjectRoadmap, FundingProgress } from '../types';
-import { pageTransition } from '../animations';
+import { projectService, mentorService, notificationService, roadmapService, fundingService } from '../services';
+import type { Project, Mentor, Notification, ProjectRoadmap, FundingProgress } from '../types';
+import { pageTransition, hoverGlossyCard } from '../animations';
 
 export default function DashboardPage() {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const { user: currentUser } = useAuth();
   const [projects, setProjects] = useState<Project[]>([]);
   const [mentors, setMentors] = useState<Mentor[]>([]);
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -19,20 +21,19 @@ export default function DashboardPage() {
 
   useEffect(() => {
     Promise.all([
-      userService.getCurrentUser(),
       projectService.getProjects(),
       mentorService.getMentors(),
       notificationService.getNotifications()
-    ]).then(async ([user, projList, mentorList, notifList]) => {
-      setCurrentUser(user);
+    ]).then(async ([projList, mentorList, notifList]) => {
       setProjects(projList.slice(0, 3));
       setMentors(mentorList.slice(0, 2));
       setNotifications(notifList.slice(0, 3));
       
-      if (user) {
+      
+      if (currentUser) {
         const [roadmap, fundProgress] = await Promise.all([
-          roadmapService.getPrimaryRoadmap(user.id),
-          fundingService.getFundingProgress(user.id)
+          roadmapService.getPrimaryRoadmap(currentUser.id),
+          fundingService.getFundingProgress(currentUser.id)
         ]);
         setPrimaryRoadmap(roadmap);
         setFunding(fundProgress);
@@ -40,7 +41,7 @@ export default function DashboardPage() {
       
       setIsLoading(false);
     });
-  }, []);
+  }, [currentUser]);
 
   if (isLoading || !currentUser) {
     return (
@@ -102,8 +103,14 @@ export default function DashboardPage() {
             })()}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col items-center gap-2">
             <LabXPointRing points={currentUser.labxPoints} level={currentUser.level} size={100} strokeWidth={7} />
+            <div className="flex items-center gap-1.5 bg-black/40 px-3 py-1 rounded-full border border-[#00FF87]/20 shadow-[0_0_10px_rgba(0,255,135,0.1)]">
+              <GoldCoin className="w-4 h-4" />
+              <span className="text-[10px] font-mono text-[#00FF87] font-bold tracking-wider">{currentUser.labxPoints.toLocaleString()} PTS</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
             <Link
               to="/projects/new"
               className="labx-button-primary flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap"
@@ -142,7 +149,10 @@ export default function DashboardPage() {
         {/* Right Sidebar: Recommendations & Notifications */}
         <div className="space-y-6">
           {/* Notifications Widget */}
-          <div className="labx-card p-6">
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="p-6 rounded-2xl bg-[#0A0C0B]/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] transition-all duration-300 hover:border-emerald-500/30 hover:shadow-emerald-500/10"
+          >
             <h3 className="text-base font-bold text-labx-text mb-4 flex items-center gap-2">
               <Bell className="w-4 h-4 text-labx-green" />
               <span>Telemetry Notifications</span>
