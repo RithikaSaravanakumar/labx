@@ -166,10 +166,13 @@ export default function DashboardPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Recommended Mentors */}
-          <div className="labx-card p-6">
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="p-6 rounded-2xl bg-[#0A0C0B]/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] transition-all duration-300 hover:border-emerald-500/30 hover:shadow-emerald-500/10"
+          >
             <h3 className="text-base font-bold text-labx-text mb-4 flex items-center gap-2">
               <Award className="w-4 h-4 text-amber-400" />
               <span>Recommended Mentors</span>
@@ -191,7 +194,7 @@ export default function DashboardPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>
