@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { Rocket, Plus, Bell, Award, ChevronRight } from 'lucide-react';
 import LabXPointRing from '../components/reputation/LabXPointRing';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
-import { userService, projectService, mentorService, notificationService } from '../services';
-import type { User, Project, Mentor, Notification } from '../types';
+import { userService, projectService, mentorService, notificationService, roadmapService, fundingService } from '../services';
+import type { User, Project, Mentor, Notification, ProjectRoadmap, FundingProgress } from '../types';
 import { pageTransition } from '../animations';
 
 export default function DashboardPage() {
@@ -13,6 +13,8 @@ export default function DashboardPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [mentors, setMentors] = useState<Mentor[]>([]);
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [primaryRoadmap, setPrimaryRoadmap] = useState<ProjectRoadmap | null>(null);
+  const [funding, setFunding] = useState<FundingProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,11 +23,21 @@ export default function DashboardPage() {
       projectService.getProjects(),
       mentorService.getMentors(),
       notificationService.getNotifications()
-    ]).then(([user, projList, mentorList, notifList]) => {
+    ]).then(async ([user, projList, mentorList, notifList]) => {
       setCurrentUser(user);
       setProjects(projList.slice(0, 3));
       setMentors(mentorList.slice(0, 2));
       setNotifications(notifList.slice(0, 3));
+      
+      if (user) {
+        const [roadmap, fundProgress] = await Promise.all([
+          roadmapService.getPrimaryRoadmap(user.id),
+          fundingService.getFundingProgress(user.id)
+        ]);
+        setPrimaryRoadmap(roadmap);
+        setFunding(fundProgress);
+      }
+      
       setIsLoading(false);
     });
   }, []);
@@ -58,9 +70,36 @@ export default function DashboardPage() {
             <h1 className="text-3xl font-extrabold text-labx-text">
               Welcome back, {currentUser.name}! 👋
             </h1>
-            <p className="text-sm text-labx-text-secondary mt-1 max-w-xl">
-              You have <span className="text-labx-green font-semibold">3 active project milestones</span> pending and 2 recommended mentor matches ready.
-            </p>
+            
+            {primaryRoadmap && (() => {
+              const currentStage = primaryRoadmap.stages.find(s => s.status === 'CURRENT');
+              const nextMilestone = roadmapService.getNextMilestone(primaryRoadmap);
+              
+              if (!currentStage) return null;
+              
+              return (
+                <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                  <div>
+                    <div className="text-[10px] text-zinc-500 font-bold uppercase mb-1">Your Journey</div>
+                    <div className="text-2xl font-black text-white uppercase">{currentStage.name}</div>
+                    <div className="text-xs text-[#00FF87] font-bold mt-1">Stage {currentStage.order} of {primaryRoadmap.stages.length} — {currentStage.progress}% Complete</div>
+                  </div>
+                  
+                  {nextMilestone && (
+                    <div className="bg-black/40 border border-white/10 rounded-xl p-3 max-w-sm">
+                      <div className="text-[9px] text-zinc-500 font-bold uppercase mb-1">Next Milestone</div>
+                      <div className="text-xs text-white font-medium mb-1 line-clamp-1">{nextMilestone.title}</div>
+                      <div className="text-[10px] text-[#00FF87] font-bold">+{nextMilestone.pointsReward} Points</div>
+                    </div>
+                  )}
+                  
+                  <Link to="/roadmap" className="mt-2 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-[#00FF87] hover:bg-emerald-400 text-black text-xs font-bold uppercase rounded-xl transition-colors">
+                    Continue Journey
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              );
+            })()}
           </div>
 
           <div className="flex items-center gap-4">

@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, Users, ArrowLeft, Send, CheckCircle2, Flame, ExternalLink, ShieldCheck } from 'lucide-react';
-import { projectService, buildUpdateService, pointsService } from '../services';
-import type { Project, BuildUpdate, RoadmapStage, FundingMilestone } from '../types';
+import { projectService, buildUpdateService, fundingService } from '../services';
+import type { Project, BuildUpdate, RoadmapStage, FundingProgress as FundingProgressType } from '../types';
 import ProjectRoadmap from '../components/roadmap/ProjectRoadmap';
-import FundingProgress from '../components/funding/FundingProgress';
+import FundingProgressTimeline from '../components/funding/FundingProgressTimeline';
 import { DOMAIN_LABELS, DOMAIN_COLORS, STAGE_LABELS } from '../constants';
 import { pageTransition } from '../animations';
 import { formatRelativeTime } from '../utils';
@@ -21,14 +21,14 @@ export default function ProjectDetailPage() {
   const [joinRole, setJoinRole] = useState('');
   const [joinNote, setJoinNote] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [funding, setFunding] = useState<FundingMilestone | null>(null);
+  const [funding, setFunding] = useState<FundingProgressType | null>(null);
 
   // Mock Roadmap Data (In reality, fetched from service)
-  const mockStages: RoadmapStage[] = [
-    { id: 'IDEA', label: 'Idea Validation', description: 'Validate problem space', pointsReward: 100, status: 'COMPLETED', milestones: [] },
-    { id: 'MVP', label: 'MVP Development', description: 'Build core features', pointsReward: 250, status: 'COMPLETED', milestones: [] },
-    { id: 'LAUNCH', label: 'Public Launch', description: 'Acquire first users', pointsReward: 500, status: 'ACTIVE', milestones: [] },
-    { id: 'GROW', label: 'Growth', description: 'Scale to 1000 users', pointsReward: 1000, status: 'LOCKED', milestones: [] },
+  const mockStages: Partial<RoadmapStage>[] = [
+    { id: 'IDEA', name: 'Idea Validation', description: 'Validate problem space', rewardPoints: 100, status: 'COMPLETED', milestones: [] },
+    { id: 'MVP', name: 'MVP Development', description: 'Build core features', rewardPoints: 250, status: 'COMPLETED', milestones: [] },
+    { id: 'LAUNCH', name: 'Public Launch', description: 'Acquire first users', rewardPoints: 500, status: 'CURRENT', milestones: [] },
+    { id: 'GROW', name: 'Growth', description: 'Scale to 1000 users', rewardPoints: 1000, status: 'LOCKED', milestones: [] },
   ];
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function ProjectDetailPage() {
     Promise.all([
       projectService.getProjectById(id),
       buildUpdateService.getBuildUpdatesByProject(id),
-      pointsService.getFundingProgress('current-user')
+      fundingService.getFundingProgress('current-user')
     ]).then(([p, updates, fundData]) => {
       if (p) {
         setProject(p);
@@ -271,9 +271,9 @@ export default function ProjectDetailPage() {
         {/* Right Sidebar (Open Roles & Team & Roadmap) */}
         <div className="space-y-8">
           
-          {funding && <FundingProgress milestone={funding} />}
+          {funding && <FundingProgressTimeline currentPoints={funding.progress.current} targetPoints={funding.progress.target} />}
           
-          <ProjectRoadmap stages={mockStages} currentStageId="LAUNCH" />
+          <ProjectRoadmap stages={mockStages as RoadmapStage[]} currentStageId="LAUNCH" />
 
           {/* Open Roles */}
           <div className="labx-card p-6">

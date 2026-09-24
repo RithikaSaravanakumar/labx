@@ -56,7 +56,7 @@ export const LABX_NAVIGATION: NavigationGroup[] = [
     items: [
       { id: 'my-projects', label: 'My Projects', icon: LayoutDashboard, path: '/dashboard', authRequired: true },
       { id: 'build-public', label: 'Build in Public', icon: Megaphone, path: '/feed', authRequired: true },
-      { id: 'roadmap', label: 'Roadmap', icon: GitMerge, path: '/projects/new', authRequired: true },
+      { id: 'roadmap', label: 'Roadmap', icon: GitMerge, path: '/roadmap', authRequired: true },
       { id: 'contributions', label: 'Contributions', icon: GitCommit, path: '/profile', authRequired: true },
     ]
   },

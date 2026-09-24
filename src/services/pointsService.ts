@@ -1,4 +1,4 @@
-import type { PointTransaction, FundingMilestone } from '../types';
+import type { PointTransaction } from '../types';
 
 class PointsService {
   private async delay(ms: number = 300) {
@@ -32,18 +32,7 @@ class PointsService {
     ];
   }
 
-  async getFundingProgress(userId: string): Promise<FundingMilestone> {
-    await this.delay();
-    return {
-      id: 'fm1',
-      pointsRequired: 25000,
-      currentPoints: 18450,
-      status: 'IN_PROGRESS',
-      fundingAmountTarget: 'UP TO ₹1,00,000',
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
-  }
+
 }
 
 export const pointsService = new PointsService();

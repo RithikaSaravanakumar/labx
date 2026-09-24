@@ -27,6 +27,7 @@ const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const NetworkPage = lazy(() => import('./pages/NetworkPage'));
 const FeedPage = lazy(() => import('./pages/FeedPage'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
+const RoadmapPage = lazy(() => import('./pages/RoadmapPage'));
 
 // Lazy-loaded auth pages
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -98,6 +99,7 @@ function App() {
                 <Route path="/network" element={<NetworkPage />} />
                 <Route path="/feed" element={<FeedPage />} />
                 <Route path="/leaderboard" element={<LeaderboardPage />} />
+                <Route path="/roadmap" element={<RoadmapPage />} />
 
                 {/* Authentication Routes */}
                 <Route path="/login" element={<LoginPage />} />

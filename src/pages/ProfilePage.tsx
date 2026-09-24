@@ -6,8 +6,10 @@ import LabXPointRing from '../components/reputation/LabXPointRing';
 import LabXContributionHeatmap from '../components/reputation/LabXContributionHeatmap';
 import ContributionBadge from '../components/reputation/ContributionBadge';
 import ProjectPulseCard from '../components/projects/ProjectPulseCard';
-import { userService, projectService, buildUpdateService, networkService } from '../services';
-import type { User, Project, BuildUpdate, ConnectionStatus } from '../types';
+import RoadmapVisualizer from '../components/roadmap/RoadmapVisualizer';
+import FundingProgressTimeline from '../components/funding/FundingProgressTimeline';
+import { userService, projectService, buildUpdateService, networkService, roadmapService, fundingService } from '../services';
+import type { User, Project, BuildUpdate, ConnectionStatus, ProjectRoadmap, FundingProgress } from '../types';
 import { pageTransition } from '../animations';
 import { formatRelativeTime } from '../utils';
 
@@ -21,6 +23,9 @@ export default function ProfilePage() {
   const [isFollowing, setIsFollowing] = useState(false);
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus | null>(null);
   const [isActionLoading, setIsActionLoading] = useState(false);
+  
+  const [primaryRoadmap, setPrimaryRoadmap] = useState<ProjectRoadmap | null>(null);
+  const [funding, setFunding] = useState<FundingProgress | null>(null);
 
   useEffect(() => {
     const target = username ? userService.getUserByUsername(username) : userService.getCurrentUser();
@@ -31,12 +36,15 @@ export default function ProfilePage() {
         Promise.all([
           projectService.getProjects(),
           buildUpdateService.getBuildUpdates(),
-          networkService.isFollowing('current-user', u.id)
-        ]).then(([pList, uList, following]) => {
+          networkService.isFollowing('current-user', u.id),
+          roadmapService.getPrimaryRoadmap(u.id),
+          fundingService.getFundingProgress(u.id)
+        ]).then(([pList, uList, following, roadmap, fundProgress]) => {
           setProjects(pList.filter(p => u.projectIds.includes(p.id) || p.ownerName === u.name));
           setUpdates(uList.filter(bu => bu.authorName === u.name));
           setIsFollowing(following);
-          // Defaulting connection status to null if it's our own profile, or checking if it exists
+          setPrimaryRoadmap(roadmap);
+          setFunding(fundProgress);
           setIsLoading(false);
         });
       } else {
@@ -220,14 +228,55 @@ export default function ProfilePage() {
           {/* Heatmap */}
           <LabXContributionHeatmap streak={user.contributionStreak} />
 
-          {/* Top Projects */}
-          <div>
-            <h3 className="text-lg font-bold text-labx-text mb-4">Featured Projects</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {projects.slice(0, 2).map(p => (
-                <ProjectPulseCard key={p.id} project={p} />
-              ))}
+          {/* Innovation Journey (Compact) */}
+          {primaryRoadmap && (
+            <div>
+              <h3 className="text-lg font-bold text-labx-text mb-4">My Innovation Journey</h3>
+              <div className="bg-[#0A0C0B] border border-white/5 rounded-2xl p-6">
+                <div className="hidden md:block">
+                  <RoadmapVisualizer roadmap={primaryRoadmap} layout="horizontal" showDetails={false} />
+                </div>
+                <div className="md:hidden">
+                  <RoadmapVisualizer roadmap={primaryRoadmap} layout="vertical" showDetails={false} />
+                </div>
+                
+                {/* Current Stage Summary */}
+                {(() => {
+                  const currentStage = primaryRoadmap.stages.find(s => s.status === 'CURRENT');
+                  if (!currentStage) return null;
+                  return (
+                    <div className="mt-6 pt-6 border-t border-white/10 text-center">
+                      <div className="text-[10px] text-zinc-500 font-bold uppercase mb-1">Current Stage</div>
+                      <div className="text-xl font-black text-[#00FF87] uppercase mb-1">{currentStage.name}</div>
+                      <div className="text-xs text-white font-medium">{currentStage.progress}% Complete</div>
+                    </div>
+                  );
+                })()}
+              </div>
             </div>
+          )}
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Top Projects */}
+            <div>
+              <h3 className="text-lg font-bold text-labx-text mb-4">Featured Projects</h3>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {projects.slice(0, 2).map(p => (
+                  <ProjectPulseCard key={p.id} project={p} />
+                ))}
+              </div>
+            </div>
+            
+            {/* Funding Journey */}
+            {funding && (
+              <div>
+                <h3 className="text-lg font-bold text-labx-text mb-4">Funding Journey</h3>
+                <FundingProgressTimeline 
+                  currentPoints={funding.progress.current} 
+                  targetPoints={funding.progress.target} 
+                />
+              </div>
+            )}
           </div>
 
           {/* Achievements Grid */}

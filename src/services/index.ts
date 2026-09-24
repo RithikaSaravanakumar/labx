@@ -242,3 +242,5 @@ export { aiService } from './aiService';
 export { networkService } from './networkService';
 export { feedService } from './feedService';
 export { pointsService } from './pointsService';
+export { roadmapService } from './roadmapService';
+export { fundingService } from './fundingService';

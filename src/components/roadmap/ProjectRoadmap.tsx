@@ -63,13 +63,13 @@ export default function ProjectRoadmap({ stages, currentStageId, onStageClick }:
                 <div className="flex-1 pt-1 min-w-0">
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <h4 className={`font-bold uppercase tracking-wider ${isActive ? 'text-labx-green' : 'text-labx-text'}`}>
-                      {stage.label}
+                      {stage.name}
                     </h4>
-                    {stage.pointsReward > 0 && (
+                    {stage.rewardPoints > 0 && (
                       <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
                         isCompleted ? 'bg-labx-green/10 text-labx-green' : 'bg-labx-surface border border-labx-border text-labx-text-muted'
                       }`}>
-                        +{stage.pointsReward} PTS
+                        +{stage.rewardPoints} PTS
                       </span>
                     )}
                   </div>

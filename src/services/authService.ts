@@ -107,7 +107,7 @@ export const authService = {
       labxPoints: 250,
       level: 2,
       joinedDate: new Date().toISOString().split('T')[0],
-      isVerified: false,
+      isVerified: false, followersCount: 0, followingCount: 0, connectionsCount: 0,
       projectIds: [],
       achievements: [
         { id: 'a-welcome', name: 'Ecosystem Citizen', description: 'Joined LabX Innovation Ecosystem', icon: '🌟', earnedDate: new Date().toISOString().split('T')[0], rarity: 'common' }
@@ -143,7 +143,7 @@ export const authService = {
         labxPoints: role === 'mentor' ? 4200 : role === 'founder' ? 3100 : 1500,
         level: role === 'mentor' ? 12 : 6,
         joinedDate: '2024-01-01',
-        isVerified: true,
+        isVerified: false, followersCount: 0, followingCount: 0, connectionsCount: 0,
         projectIds: ['p1'],
         achievements: [
           { id: 'demo-ach', name: 'Verified Persona', description: 'LabX verified demo account', icon: '⚡', earnedDate: '2024-01-01', rarity: 'epic' }
@@ -181,7 +181,7 @@ export const authService = {
       labxPoints: 100,
       level: 1,
       joinedDate: new Date().toISOString().split('T')[0],
-      isVerified: false,
+      isVerified: false, followersCount: 0, followingCount: 0, connectionsCount: 0,
       projectIds: [],
       achievements: [
         { id: 'a1', name: 'First Step', description: 'Created your LabX proof-of-work identity', icon: '🚀', earnedDate: new Date().toISOString().split('T')[0], rarity: 'common' },
