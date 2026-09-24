@@ -21,6 +21,8 @@ interface LabXLogoProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
   className?: string;
   linkToHome?: boolean;
+  /** Explicit URL to link to, overrides linkToHome */
+  href?: string;
   /** Page-load entry animation: opacity 0→1, y -8→0, scale 0.97→1 */
   animate?: boolean;
   /** Legacy prop kept for compatibility */
@@ -44,6 +46,7 @@ export default function LabXLogo({
   size = 'md',
   className = '',
   linkToHome = false,
+  href,
   animate = false,
   animated = false,
   showGlow = true,
@@ -91,10 +94,10 @@ export default function LabXLogo({
     </motion.div>
   );
 
-  if (linkToHome) {
+  if (href || linkToHome) {
     return (
       <Link
-        to="/"
+        to={href || "/"}
         className="inline-flex items-center rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         aria-label="LabX by ZeAI — Go to home"
       >

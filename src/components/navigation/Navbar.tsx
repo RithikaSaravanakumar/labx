@@ -149,7 +149,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <LabXLogo size="md" linkToHome showGlow />
+              <LabXLogo size="md" href={isAuthenticated ? "/dashboard" : "/"} showGlow />
             </motion.div>
 
             {/* CENTER: Minimal Primary Navigation (Desktop Only) */}
@@ -160,6 +160,9 @@ export default function Navbar() {
               className="hidden lg:flex items-center gap-2"
               aria-label="Main navigation"
             >
+              <MagneticNavLink to="/" isActive={isActive('/')}>
+                Home
+              </MagneticNavLink>
               <MagneticNavLink to="/discover" isActive={isActive('/discover')}>
                 Discover
               </MagneticNavLink>
