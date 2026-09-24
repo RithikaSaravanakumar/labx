@@ -1,4 +1,5 @@
 import {
+  Home as HomeIcon,
   Compass,
   Users,
   FolderGit2,
@@ -24,6 +25,7 @@ export const LABX_NAVIGATION: NavigationGroup[] = [
     id: 'explore',
     title: 'Explore',
     items: [
+      { id: 'home', label: 'Home', icon: HomeIcon, path: '/' },
       { id: 'discover', label: 'Discover', icon: Compass, path: '/discover' },
       { id: 'people', label: 'People', icon: Users, path: '/discover?tab=people' },
       { id: 'projects', label: 'Projects', icon: FolderGit2, path: '/projects' },
