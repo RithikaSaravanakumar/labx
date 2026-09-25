@@ -30,7 +30,7 @@ export default function SettingsPage() {
       <div className="labx-card p-6 sm:p-8">
         <form onSubmit={handleSave} className="space-y-6">
           <div className="flex items-center gap-4 pb-6 border-b border-labx-border">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Avatar" className="w-16 h-16 rounded-2xl border-2 border-labx-cyan/60 shadow-[0_0_15px_rgba(0,255,135,0.2)] object-cover" />
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Avatar" className="w-16 h-16 rounded-2xl border-2 border-labx-cyan/60 shadow-[0_0_15px_rgba(34, 211, 238,0.2)] object-cover" />
             <div>
               <button type="button" className="labx-button-secondary text-xs px-3 py-1.5 rounded-lg font-semibold">Change Avatar</button>
               <div className="text-[10px] text-labx-text-muted mt-1">Recommended: 400x400px square image</div>

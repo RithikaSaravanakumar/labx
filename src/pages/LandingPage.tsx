@@ -41,7 +41,7 @@ export default function LandingPage() {
             {/* Left Column: Hero Typography & CTAs */}
             <div className="flex-1 text-center lg:text-left">
               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-[#22D3EE] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-5 shadow-[0_0_15px_rgba(0,255,135,0.2)]">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-[#22D3EE] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-5 shadow-[0_0_15px_rgba(34, 211, 238,0.2)]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse" />
                   THE INNOVATION ECOSYSTEM
                 </div>
@@ -379,7 +379,7 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <motion.div
-                  className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-labx-cyan shadow-[0_0_12px_rgba(0,255,135,0.7)]"
+                  className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-labx-cyan shadow-[0_0_12px_rgba(34, 211, 238,0.7)]"
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />

@@ -94,7 +94,7 @@ export default function CreateProjectPage() {
           const isActive = step >= s.num;
           return (
             <div key={s.num} className="flex flex-col items-center gap-2">
-              <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-colors ${isActive ? 'bg-labx-surface border-labx-cyan text-labx-cyan shadow-[0_0_15px_rgba(0,255,135,0.2)]' : 'bg-labx-bg border-labx-border text-labx-text-muted'}`}>
+              <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-colors ${isActive ? 'bg-labx-surface border-labx-cyan text-labx-cyan shadow-[0_0_15px_rgba(34, 211, 238,0.2)]' : 'bg-labx-bg border-labx-border text-labx-text-muted'}`}>
                 <Icon className="w-5 h-5" />
               </div>
               <span className={`text-[10px] font-bold uppercase tracking-wider hidden sm:block ${isActive ? 'text-labx-text' : 'text-labx-text-muted'}`}>

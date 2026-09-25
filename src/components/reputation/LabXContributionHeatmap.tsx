@@ -48,7 +48,7 @@ export default function LabXContributionHeatmap({ streak }: LabXContributionHeat
           <div className="w-2.5 h-2.5 rounded-sm bg-labx-surface/80" />
           <div className="w-2.5 h-2.5 rounded-sm bg-labx-cyan/20" />
           <div className="w-2.5 h-2.5 rounded-sm bg-labx-cyan/50" />
-          <div className="w-2.5 h-2.5 rounded-sm bg-labx-cyan shadow-[0_0_8px_rgba(0,255,135,0.7)]" />
+          <div className="w-2.5 h-2.5 rounded-sm bg-labx-cyan shadow-[0_0_8px_rgba(34, 211, 238,0.7)]" />
           <span>More</span>
         </div>
       </div>

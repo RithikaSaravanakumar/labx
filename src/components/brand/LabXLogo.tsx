@@ -1,4 +1,4 @@
-﻿/**
+/**
  * LabXLogo — Official Brand Component
  *
  * Uses the authentic "LabX by ZeAI" wordmark from src/assets/branding/labx-logo.png.
@@ -59,8 +59,8 @@ export default function LabXLogo({
   const heightStyle: React.CSSProperties =
     typeof size === 'number' ? { height: `${size}px` } : {};
 
-  const glowBase = '0 0 0 1px rgba(0,255,135,0.2), 0 0 18px rgba(0,255,135,0.14)';
-  const glowHover = '0 0 0 1.5px rgba(0,255,135,0.5), 0 0 32px rgba(0,255,135,0.32)';
+  const glowBase = '0 0 0 1px rgba(34, 211, 238, 0.25), 0 0 18px rgba(34, 211, 238, 0.16)';
+  const glowHover = '0 0 0 1.5px rgba(34, 211, 238, 0.55), 0 0 32px rgba(34, 211, 238, 0.35)';
 
   const logoContent = (
     <motion.div

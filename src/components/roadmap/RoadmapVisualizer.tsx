@@ -46,8 +46,8 @@ export default function RoadmapVisualizer({
                 {/* Node Circle */}
                 <div className={`
                   w-8 h-8 rounded-full flex items-center justify-center shrink-0 border-2 relative z-10 transition-colors
-                  ${isCompleted ? 'bg-[#22D3EE] border-[#22D3EE] text-black shadow-[0_0_15px_rgba(0,255,135,0.4)]' : ''}
-                  ${isCurrent ? 'bg-[#0A0C0B] border-[#22D3EE] text-[#22D3EE] shadow-[0_0_20px_rgba(0,255,135,0.6)]' : ''}
+                  ${isCompleted ? 'bg-[#22D3EE] border-[#22D3EE] text-black shadow-[0_0_15px_rgba(34, 211, 238,0.4)]' : ''}
+                  ${isCurrent ? 'bg-[#0A0C0B] border-[#22D3EE] text-[#22D3EE] shadow-[0_0_20px_rgba(34, 211, 238,0.6)]' : ''}
                   ${isLocked ? 'bg-[#0A0C0B] border-white/20 text-zinc-600' : ''}
                 `}>
                   {isCompleted && <Check className="w-4 h-4" />}

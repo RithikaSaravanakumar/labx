@@ -116,7 +116,7 @@ export default function SignupPage() {
                 key={s}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   s === step
-                    ? 'w-8 bg-labx-cyan shadow-[0_0_12px_rgba(0,255,135,0.6)]'
+                    ? 'w-8 bg-labx-cyan shadow-[0_0_12px_rgba(34, 211, 238,0.6)]'
                     : s < step
                     ? 'w-4 bg-labx-cyan/40'
                     : 'w-4 bg-labx-border'

@@ -21,10 +21,10 @@ export default function PostCard({ post, onLike }: PostCardProps) {
   };
 
   return (
-    <div className="labx-card p-5 sm:p-6 mb-6 group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-[0_8px_30px_rgba(0,255,135,0.1)]">
+    <div className="labx-card p-5 sm:p-6 mb-6 group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-[0_8px_30px_rgba(34, 211, 238,0.1)]">
       {/* Spotlight Hover Effect */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" 
-           style={{ background: 'radial-gradient(600px circle at 50% 0%, rgba(0,255,135,0.06), transparent 80%)' }} />
+           style={{ background: 'radial-gradient(600px circle at 50% 0%, rgba(34, 211, 238,0.06), transparent 80%)' }} />
       
       <div className="flex items-start justify-between gap-4 mb-4 relative z-10">
         <div className="flex items-center gap-3">

@@ -86,7 +86,7 @@ export default function PageProgressBar() {
               transition: progress === 100
                 ? 'width 0.25s ease-out'
                 : 'width 0.04s linear',
-              boxShadow: '0 0 12px rgba(0, 255, 135, 0.85), 0 0 4px rgba(0, 255, 135, 1)',
+              boxShadow: '0 0 12px rgba(34, 211, 238, 0.85), 0 0 4px rgba(34, 211, 238, 1)',
             }}
           />
 
@@ -96,7 +96,7 @@ export default function PageProgressBar() {
               className="absolute top-1/2 -translate-y-1/2 w-5 h-5 -translate-x-1/2"
               style={{ left: `${progress}%` }}
             >
-              <div className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE,0_0_20px_rgba(0,255,135,0.7)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+              <div className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE,0_0_20px_rgba(34, 211, 238,0.7)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             </div>
           )}
         </motion.div>

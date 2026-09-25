@@ -48,7 +48,7 @@ export default function CommunityPage() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {mockUsers.map(user => (
           <div key={user.id} className="labx-card p-6 text-center">
-            <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-cyan/60 object-cover shadow-[0_0_12px_rgba(0,255,135,0.2)]" />
+            <img src={user.avatar} alt={user.name} className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-labx-cyan/60 object-cover shadow-[0_0_12px_rgba(34, 211, 238,0.2)]" />
             <h3 className="text-sm font-bold text-labx-text">{user.name}</h3>
             <p className="text-xs text-labx-text-muted capitalize mb-2">{user.role}</p>
             <div className="text-xs font-mono font-bold text-labx-cyan bg-labx-cyan/10 py-1 px-2 rounded-lg inline-block border border-labx-cyan/20">

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -54,8 +54,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'EXPLORE STUDENT PATHS',
     path: '/discover',
     icon: GraduationCap,
-    color: '#34D399', // Mint Green
-    glowColor: 'rgba(52, 211, 153, 0.45)',
+    color: '#38BDF8', // Sky Cyan
+    glowColor: 'rgba(56, 189, 248, 0.45)',
     radius: 135,
     angle: -Math.PI / 2, // Top (12 o'clock)
   },
@@ -74,8 +74,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'EXPLORE BUILDERS',
     path: '/projects',
     icon: Code2,
-    color: '#22D3EE', // Cyber Neon Green
-    glowColor: 'rgba(0, 255, 135, 0.5)',
+    color: '#22D3EE', // LabX Cyber Cyan
+    glowColor: 'rgba(34, 211, 238, 0.5)',
     radius: 135,
     angle: 0, // Right (3 o'clock)
   },
@@ -94,8 +94,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'LAUNCH YOUR STARTUP',
     path: '/startups',
     icon: Rocket,
-    color: '#10B981', // Emerald Green
-    glowColor: 'rgba(16, 185, 129, 0.5)',
+    color: '#06B6D4', // Cyan Mid
+    glowColor: 'rgba(6, 182, 212, 0.5)',
     radius: 135,
     angle: Math.PI / 2, // Bottom (6 o'clock)
   },
@@ -114,8 +114,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'CONNECT WITH MENTORS',
     path: '/mentors',
     icon: Compass,
-    color: '#6EE7B7', // Pale Luminous Mint
-    glowColor: 'rgba(110, 231, 183, 0.45)',
+    color: '#67E8F9', // Pale Cyan
+    glowColor: 'rgba(103, 232, 249, 0.45)',
     radius: 135,
     angle: Math.PI, // Left (9 o'clock)
   },
@@ -136,8 +136,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'BROWSE ACTIVE STARTUPS',
     path: '/startups',
     icon: Building2,
-    color: '#22D3EE', // Cyber Neon Green
-    glowColor: 'rgba(0, 255, 135, 0.45)',
+    color: '#0EA5E9', // Electric Sky
+    glowColor: 'rgba(14, 165, 233, 0.45)',
     radius: 210,
     angle: -Math.PI / 4, // Top-Right (1:30)
   },
@@ -156,8 +156,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'DISCOVER WHAT’S BEING BUILT',
     path: '/projects',
     icon: Layers,
-    color: '#34D399', // Mint Green
-    glowColor: 'rgba(52, 211, 153, 0.4)',
+    color: '#38BDF8', // Cyan Blue
+    glowColor: 'rgba(56, 189, 248, 0.4)',
     radius: 210,
     angle: (3 * Math.PI) / 4, // Bottom-Left (7:30)
   },
@@ -176,8 +176,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'EXPLORE RESEARCH LABS',
     path: '/discover',
     icon: Microscope,
-    color: '#2DD4BF', // Teal Green
-    glowColor: 'rgba(45, 212, 191, 0.4)',
+    color: '#22D3EE', // Cyber Cyan
+    glowColor: 'rgba(34, 211, 238, 0.4)',
     radius: 210,
     angle: (5 * Math.PI) / 4, // Top-Left (10:30)
   },
@@ -198,8 +198,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'EXPLORE INVESTOR PORTAL',
     path: '/startups',
     icon: TrendingUp,
-    color: '#A7F3D0', // Pale Mint
-    glowColor: 'rgba(167, 243, 208, 0.4)',
+    color: '#A855F7', // Violet
+    glowColor: 'rgba(168, 85, 247, 0.4)',
     radius: 280,
     angle: Math.PI / 4, // Bottom-Right (4:30)
   },
@@ -218,8 +218,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'EXPLORE BOUNTIES & GRANTS',
     path: '/projects',
     icon: Coins,
-    color: '#10B981', // Emerald
-    glowColor: 'rgba(16, 185, 129, 0.45)',
+    color: '#06B6D4', // Deep Cyan
+    glowColor: 'rgba(6, 182, 212, 0.45)',
     radius: 280,
     angle: -Math.PI / 6, // 1 o'clock
   },
@@ -238,8 +238,8 @@ const ORBIT_NODES: OrbitNode[] = [
     ctaText: 'DISCOVER WHAT’S NEXT',
     path: '/discover',
     icon: Sparkles,
-    color: '#22D3EE', // Cyber Neon
-    glowColor: 'rgba(0, 255, 135, 0.5)',
+    color: '#22D3EE', // Cyber Neon Cyan
+    glowColor: 'rgba(34, 211, 238, 0.5)',
     radius: 280,
     angle: (7 * Math.PI) / 6, // 8 o'clock
   },
@@ -315,12 +315,12 @@ export default function InnovationOrbit() {
           transition: 'transform 0.25s ease-out',
         }}
       >
-        {/* Ambient ecosystem glow in background (Obsidian Green Aura) */}
+        {/* Ambient ecosystem glow in background (Obsidian Cyan Aura) */}
         <div
           className="absolute inset-0 rounded-full pointer-events-none opacity-40 blur-3xl"
           style={{
             background:
-              'radial-gradient(circle at 50% 50%, rgba(0, 255, 135, 0.22) 0%, rgba(16, 185, 129, 0.1) 45%, transparent 75%)',
+              'radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.22) 0%, rgba(14, 165, 233, 0.1) 45%, transparent 75%)',
           }}
         />
 
@@ -332,10 +332,10 @@ export default function InnovationOrbit() {
           className="w-full h-full pointer-events-none"
         >
           <defs>
-            {/* Core radial gradient (Cyber Green on Obsidian) */}
+            {/* Core radial gradient (Cyber Cyan on Obsidian) */}
             <radialGradient id="orbitCoreGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#22D3EE" stopOpacity="0.45" />
-              <stop offset="60%" stopColor="#10B981" stopOpacity="0.12" />
+              <stop offset="60%" stopColor="#0EA5E9" stopOpacity="0.12" />
               <stop offset="100%" stopColor="#05060A" stopOpacity="0" />
             </radialGradient>
 
@@ -355,7 +355,7 @@ export default function InnovationOrbit() {
             cy={center}
             r={135}
             fill="none"
-            stroke="rgba(0, 255, 135, 0.26)"
+            stroke="rgba(34, 211, 238, 0.26)"
             strokeWidth="1.5"
             strokeDasharray="4 6"
           />
@@ -366,7 +366,7 @@ export default function InnovationOrbit() {
             cy={center}
             r={210}
             fill="none"
-            stroke="rgba(16, 185, 129, 0.2)"
+            stroke="rgba(6, 182, 212, 0.2)"
             strokeWidth="1.2"
             strokeDasharray="6 8"
           />
@@ -377,7 +377,7 @@ export default function InnovationOrbit() {
             cy={center}
             r={280}
             fill="none"
-            stroke="rgba(52, 211, 153, 0.16)"
+            stroke="rgba(14, 165, 233, 0.16)"
             strokeWidth="1"
             strokeDasharray="8 10"
           />
@@ -408,7 +408,7 @@ export default function InnovationOrbit() {
                   id={pathId}
                   d={pathD}
                   fill="none"
-                  stroke={isHovered ? node.color : 'rgba(0, 255, 135, 0.09)'}
+                  stroke={isHovered ? node.color : 'rgba(34, 211, 238, 0.1)'}
                   strokeWidth={isHovered ? 2.5 : 1}
                   strokeDasharray={isHovered ? 'none' : '3 5'}
                   filter={isHovered ? 'url(#neonPathGlow)' : undefined}
@@ -443,7 +443,7 @@ export default function InnovationOrbit() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20 pointer-events-auto"
           style={{ width: `${coreRadius * 2}px`, height: `${coreRadius * 2}px` }}
         >
-          {/* Outer rotating pulse energy ring (Cyber Green) */}
+          {/* Outer rotating pulse energy ring (Cyber Cyan) */}
           {!prefersReducedMotion && (
             <motion.div
               className="absolute -inset-3 rounded-full border border-cyan-300/40 border-dashed"
@@ -455,7 +455,7 @@ export default function InnovationOrbit() {
           {/* Secondary counter-rotating ring */}
           {!prefersReducedMotion && (
             <motion.div
-              className="absolute -inset-1.5 rounded-full border border-green-300/30"
+              className="absolute -inset-1.5 rounded-full border border-cyan-400/30"
               animate={{ rotate: -360 }}
               transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
             />
@@ -463,12 +463,12 @@ export default function InnovationOrbit() {
 
           {/* 3D Core Sphere Container */}
           <motion.div
-            className="relative w-full h-full rounded-full bg-gradient-to-br from-[#0D1E13] via-[#07130B] to-[#05060A] border-2 border-cyan-300/40 p-2 flex flex-col items-center justify-center shadow-2xl backdrop-blur-xl group cursor-pointer"
+            className="relative w-full h-full rounded-full bg-gradient-to-br from-[#0B1528] via-[#070D1A] to-[#05060A] border-2 border-cyan-300/40 p-2 flex flex-col items-center justify-center shadow-2xl backdrop-blur-xl group cursor-pointer"
             whileHover={{ scale: 1.08, z: 20 }}
             transition={{ duration: 0.25 }}
             style={{
               boxShadow:
-                '0 0 35px rgba(0, 255, 135, 0.45), inset 0 0 15px rgba(0, 255, 135, 0.25)',
+                '0 0 35px rgba(34, 211, 238, 0.45), inset 0 0 15px rgba(34, 211, 238, 0.25)',
               transform: prefersReducedMotion 
                 ? 'none' 
                 : `rotateX(${mouseOffset.y * 10}deg) rotateY(${mouseOffset.x * -10}deg)`,
@@ -485,7 +485,7 @@ export default function InnovationOrbit() {
             </div>
             <div className="mt-1 flex items-center gap-1">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-ping" />
-              <span className="text-[9px] font-mono font-bold tracking-widest text-[#22D3EE] uppercase drop-shadow-[0_0_6px_rgba(0,255,135,0.7)]">
+              <span className="text-[9px] font-mono font-bold tracking-widest text-[#22D3EE] uppercase drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]">
                 CORE
               </span>
             </div>
@@ -538,8 +538,8 @@ export default function InnovationOrbit() {
                 <motion.div
                   className="relative w-12 h-12 sm:w-13 sm:h-13 rounded-2xl flex items-center justify-center border transition-all duration-300 backdrop-blur-md"
                   style={{
-                    backgroundColor: isHovered || isSelected ? 'rgba(13, 27, 18, 0.95)' : 'rgba(7, 14, 9, 0.88)',
-                    borderColor: isHovered || isSelected ? node.color : 'rgba(0, 255, 135, 0.2)',
+                    backgroundColor: isHovered || isSelected ? 'rgba(13, 20, 36, 0.95)' : 'rgba(8, 12, 22, 0.88)',
+                    borderColor: isHovered || isSelected ? node.color : 'rgba(34, 211, 238, 0.2)',
                     boxShadow:
                       isHovered || isSelected
                         ? `0 0 25px ${node.glowColor}, inset 0 0 10px ${node.glowColor}`
@@ -591,13 +591,13 @@ export default function InnovationOrbit() {
               aria-hidden="true"
             />
 
-            {/* Modal Card with Green & Black Halo Styling */}
+            {/* Modal Card with Cyan & Dark Halo Styling */}
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 12 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="absolute inset-x-4 top-1/2 -translate-y-1/2 sm:inset-x-12 z-40 bg-[#080A12]/98 border border-cyan-400/35 rounded-2xl p-6 sm:p-7 shadow-[0_0_50px_rgba(0,255,135,0.2)] backdrop-blur-xl"
+              className="absolute inset-x-4 top-1/2 -translate-y-1/2 sm:inset-x-12 z-40 bg-[#080A12]/98 border border-cyan-400/35 rounded-2xl p-6 sm:p-7 shadow-[0_0_50px_rgba(34,211,238,0.2)] backdrop-blur-xl"
               role="dialog"
               aria-modal="true"
               aria-labelledby="orbit-modal-title"
@@ -672,7 +672,7 @@ export default function InnovationOrbit() {
                 <Link
                   to={selectedNode.path}
                   onClick={() => setSelectedNode(null)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-black text-xs tracking-wider uppercase text-black bg-gradient-to-r from-[#22D3EE] via-[#10B981] to-[#34D399] hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-cyan-400/30 hover:shadow-cyan-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-black text-xs tracking-wider uppercase text-black bg-gradient-to-r from-[#22D3EE] via-[#0EA5E9] to-[#7C3AED] hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-cyan-400/30 hover:shadow-cyan-400/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
                 >
                   <span>{selectedNode.ctaText}</span>
                   <ArrowRight size={14} />

@@ -44,7 +44,7 @@ export default function ProjectRoadmap({ stages, currentStageId, onStageClick }:
                 disabled={isLocked}
                 className={`relative w-full flex items-start gap-4 p-4 rounded-2xl transition-all text-left ${
                   isActive 
-                    ? 'bg-labx-surface border-2 border-labx-cyan/50 shadow-[0_0_20px_rgba(0,255,135,0.1)]' 
+                    ? 'bg-labx-surface border-2 border-labx-cyan/50 shadow-[0_0_20px_rgba(34, 211, 238,0.1)]' 
                     : isCompleted 
                       ? 'hover:bg-labx-surface group' 
                       : 'opacity-60 cursor-not-allowed'
@@ -54,7 +54,7 @@ export default function ProjectRoadmap({ stages, currentStageId, onStageClick }:
                   isCompleted 
                     ? 'bg-labx-cyan/20 border-labx-cyan text-labx-cyan' 
                     : isActive 
-                      ? 'bg-labx-cyan border-labx-cyan text-black shadow-[0_0_15px_rgba(0,255,135,0.4)]'
+                      ? 'bg-labx-cyan border-labx-cyan text-black shadow-[0_0_15px_rgba(34, 211, 238,0.4)]'
                       : 'bg-labx-bg border-labx-border text-labx-text-muted'
                 }`}>
                   {isCompleted ? <Check className="w-5 h-5" /> : isLocked ? <Lock className="w-4 h-4" /> : <span className="font-bold">{index + 1}</span>}

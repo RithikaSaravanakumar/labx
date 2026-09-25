@@ -25,7 +25,7 @@ export default function ContextualMentorMatch({ mentor }: ContextualMentorMatchP
           <img
             src={mentor.avatar}
             alt={mentor.name}
-            className="w-14 h-14 rounded-2xl border-2 border-labx-cyan/50 object-cover group-hover:border-labx-cyan transition-colors shadow-[0_0_12px_rgba(0,255,135,0.15)]"
+            className="w-14 h-14 rounded-2xl border-2 border-labx-cyan/50 object-cover group-hover:border-labx-cyan transition-colors shadow-[0_0_12px_rgba(34, 211, 238,0.15)]"
           />
           <div>
             <h3 className="text-base font-bold text-labx-text group-hover:text-labx-cyan transition-colors flex items-center gap-1.5">

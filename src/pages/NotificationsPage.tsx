@@ -65,7 +65,7 @@ export default function NotificationsPage() {
                 </div>
               </div>
               {!notif.isRead && (
-                <span className="w-2 h-2 rounded-full bg-labx-cyan shadow-[0_0_8px_rgba(0,255,135,0.6)] mt-2 shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-labx-cyan shadow-[0_0_8px_rgba(34, 211, 238,0.6)] mt-2 shrink-0" />
               )}
             </div>
           ))}

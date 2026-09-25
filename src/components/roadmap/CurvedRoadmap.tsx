@@ -176,7 +176,7 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                   <div className={`
                     w-full h-full rounded-2xl p-5 flex flex-col justify-between border backdrop-blur-2xl transition-all duration-300 shadow-xl group hover:-translate-y-1 relative overflow-hidden
                     ${isCompleted ? 'bg-[#002633]/40 border-[#22D3EE]/20 hover:border-[#22D3EE]/50' : ''}
-                    ${isCurrent ? 'bg-[#002633]/60 border-[#22D3EE]/60 shadow-[0_0_30px_rgba(0,255,135,0.15)] hover:shadow-[0_0_40px_rgba(0,255,135,0.25)]' : ''}
+                    ${isCurrent ? 'bg-[#002633]/60 border-[#22D3EE]/60 shadow-[0_0_30px_rgba(34, 211, 238,0.15)] hover:shadow-[0_0_40px_rgba(34, 211, 238,0.25)]' : ''}
                     ${isLocked ? 'bg-[#0A0C0B]/90 border-white/5' : ''}
                   `}>
                     {/* Spotlight Hover Effect */}
@@ -224,7 +224,7 @@ export default function CurvedRoadmap({ roadmap, onCompleteStage }: CurvedRoadma
                         disabled={!isCurrent}
                         className={`text-[9px] font-bold uppercase tracking-widest flex items-center gap-1 transition-all
                         ${isCompleted ? 'text-[#22D3EE] hover:text-white' : ''}
-                        ${isCurrent ? 'text-black bg-[#22D3EE] px-3 py-1 rounded-full hover:bg-white active:scale-95 shadow-[0_0_15px_rgba(0,255,135,0.3)]' : ''}
+                        ${isCurrent ? 'text-black bg-[#22D3EE] px-3 py-1 rounded-full hover:bg-white active:scale-95 shadow-[0_0_15px_rgba(34, 211, 238,0.3)]' : ''}
                         ${isLocked ? 'text-zinc-600 cursor-not-allowed' : ''}
                       `}>
                         {isCompleted ? 'REVIEW ' : isCurrent ? 'COMPLETE STAGE →' : 'LOCKED '}

@@ -22,7 +22,7 @@ export default function AboutPage() {
 
       {/* Philosophy Pillars */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-cyan/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-labx-cyan/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(34, 211, 238,0.08)]">
           <div className="w-10 h-10 rounded-xl bg-labx-cyan/10 border border-labx-cyan/20 flex items-center justify-center text-labx-cyan mb-4">
             <Zap className="w-5 h-5" />
           </div>
@@ -32,7 +32,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-cyan-300/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(0,255,135,0.08)]">
+        <div className="p-6 rounded-2xl bg-labx-surface/80 border border-labx-border hover:border-cyan-300/40 transition-all shadow-[0_0_0_1px_transparent] hover:shadow-[0_0_18px_rgba(34, 211, 238,0.08)]">
           <div className="w-10 h-10 rounded-xl bg-labx-cyan/10 border border-labx-cyan/20 flex items-center justify-center text-labx-cyan mb-4">
             <Users className="w-5 h-5" />
           </div>

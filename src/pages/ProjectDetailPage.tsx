@@ -236,7 +236,7 @@ export default function ProjectDetailPage() {
               <div className="space-y-6 relative before:absolute before:left-4 before:top-3 before:bottom-3 before:w-0.5 before:bg-labx-border">
                 {buildUpdates.map(update => (
                   <div key={update.id} className="relative pl-9">
-                    <div className="absolute left-2 top-1.5 w-4 h-4 rounded-full bg-labx-cyan border-4 border-labx-card shadow-[0_0_10px_rgba(0,255,135,0.5)]" />
+                    <div className="absolute left-2 top-1.5 w-4 h-4 rounded-full bg-labx-cyan border-4 border-labx-card shadow-[0_0_10px_rgba(34, 211, 238,0.5)]" />
                     <div className="bg-labx-surface/60 border border-labx-border/80 rounded-xl p-4">
                       <div className="flex items-center justify-between gap-2 mb-2">
                         <span className="text-xs font-bold text-labx-cyan uppercase font-mono">{update.type || 'build'} update</span>

@@ -67,7 +67,7 @@ export default function MentorDetailPage() {
         <div className="lg:col-span-2 space-y-8">
           <div className="labx-card p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-6">
-              <img src={mentor.avatar} alt={mentor.name} className="w-24 h-24 rounded-2xl border-2 border-labx-cyan/60 object-cover shadow-[0_0_20px_rgba(0,255,135,0.2)]" />
+              <img src={mentor.avatar} alt={mentor.name} className="w-24 h-24 rounded-2xl border-2 border-labx-cyan/60 object-cover shadow-[0_0_20px_rgba(34, 211, 238,0.2)]" />
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <h1 className="text-2xl sm:text-3xl font-bold text-labx-text">{mentor.name}</h1>
